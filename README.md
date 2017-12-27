@@ -1,1 +1,3 @@
-# react-naitive-init
+# C чего начать изучать react-native
+
+
