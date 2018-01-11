@@ -10,13 +10,12 @@
     4. [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
 
 5. Бесплатные видео курсы:
-    1. https://github.com/react-native-village/react-native-video-tutorial
-    3. https://www.youtube.com/watchv=dfF1TDAE49o&list=PLqB3diFeF20ThATzo4LKod0FvfGwqAsnCv=7Ot5LSGHLyY
-    4. https://www.youtube.com/watch?v=_
-    3. https://www.youtube.com/watch?K41vd_W2qE
-    5. https://www.youtube.com/watch?v=LdKtugH-sb8
-    6. https://www.youtube.com/watch?v=6ZnfsJ6mM5c
-    7. https://www.youtube.com/watch?v=8id-MphYTAo
-    8. https://www.youtube.com/watch?v=AV41HahZEpU
-   
-6. Авторизация https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3
+    1. [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
+    4. [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
+    5. [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
+    6. [TODO](https://www.youtube.com/watch?v=xb8uTN3qiUI)
+    7. [News App](https://www.youtube.com/watch?v=8id-MphYTAo)
+    8. [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
+    
+ 6. Авторизация 
+    1. [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
