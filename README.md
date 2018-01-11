@@ -10,10 +10,12 @@
 
 5. Бесплатные видео курсы:
     1. https://github.com/react-native-village/react-native-video-tutorial
-    2. https://www.youtube.com/watchv=dfF1TDAE49o&list=PLqB3diFeF20ThATzo4LKod0FvfGwqAsnC
-    3. https://www.youtube.com/watch?v=7Ot5LSGHLyY
-    4. https://www.youtube.com/watch?v=_K41vd_W2qE
+    3. https://www.youtube.com/watchv=dfF1TDAE49o&list=PLqB3diFeF20ThATzo4LKod0FvfGwqAsnCv=7Ot5LSGHLyY
+    4. https://www.youtube.com/watch?v=_
+    3. https://www.youtube.com/watch?K41vd_W2qE
     5. https://www.youtube.com/watch?v=LdKtugH-sb8
     6. https://www.youtube.com/watch?v=6ZnfsJ6mM5c
     7. https://www.youtube.com/watch?v=8id-MphYTAo
     8. https://www.youtube.com/watch?v=AV41HahZEpU
+   
+6. Авторизация https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3
