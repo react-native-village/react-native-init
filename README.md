@@ -4,7 +4,7 @@
 2. У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть курс React-Native английского www.memrise.com/course/1450006/react-react-native/
 3. Интересный проект 30 дней с react-native  https://github.com/fangwei716/30-days-of-react-native
 4. Мотивационные видео:
-    1. https://youtu.be/qehnKIu30mY
+    1. [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
     2. https://www.youtube.com/watch?v=RwTmWpZ0MyA
     3. https://www.youtube.com/watch?v=3MmwAW1VnGo
     4. https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s
