@@ -7,10 +7,10 @@
 3. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
 
 4. Мотивационные видео:
-    1. [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
-    2. [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
-    3. [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
-    4. [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
+  1. [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
+  2. [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
+  3. [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
+  4. [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
 
 5. Бесплатные видео курсы:
     1. [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
@@ -22,7 +22,3 @@
     
 6. Авторизация 
     1. [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
