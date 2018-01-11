@@ -1,7 +1,7 @@
 # C чего начать изучать react-native?
 
-1. С официальной документации https://facebook.github.io/react-native/docs/getting-started.html
-2. У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть курс React-Native английского www.memrise.com/course/1450006/react-react-native/
+1. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
+2. У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть [курс React-Native английского](www.memrise.com/course/1450006/react-react-native/)
 3. Интересный проект 30 дней с react-native  https://github.com/fangwei716/30-days-of-react-native
 4. Мотивационные видео:
     1. [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
