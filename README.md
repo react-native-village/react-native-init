@@ -31,3 +31,7 @@
     * [Advanced Concepts](https://www.udemy.com/react-native-advanced)
     * [egghead.io](https://egghead.io/browse/frameworks/react-native)
     
+8. Простые примеры навигации на базе  *react-navigation*
+    * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
+    * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
+    * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
