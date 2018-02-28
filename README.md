@@ -13,6 +13,7 @@
     * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
 
 5. Бесплатные видео курсы:
+    * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
     * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
     * [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
     * [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
