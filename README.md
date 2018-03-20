@@ -14,6 +14,8 @@
 
 5. Бесплатные видео курсы:
     * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
+    
+    * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
     * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
     * [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
     * [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
