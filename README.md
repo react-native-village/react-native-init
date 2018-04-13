@@ -47,3 +47,5 @@
    *  Игра Лила [iOS](https://itunes.apple.com/ru/app/дхарма/id1296604457?mt=8) [Android](https://play.google.com/store/apps/details?id=com.dharma)
    
    *  Эра Водолея - йога клуб [iOS](https://itunes.apple.com/app/id1313316908) [Android](https://play.google.com/store/apps/details?id=com.aquarianage)
+   
+     *  Parkomatica  - паркинг в Москве [iOS](https://itunes.apple.com/us/app/parkomatica-moscow-parking/id1268850750?mt=8) [Android](https://play.google.com/store/apps/details?id=ru.parkomatica&hl=ru)
