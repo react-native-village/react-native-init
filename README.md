@@ -48,4 +48,8 @@
    
    *  Эра Водолея - йога клуб [iOS](https://itunes.apple.com/app/id1313316908) [Android](https://play.google.com/store/apps/details?id=com.aquarianage)
    
-     *  Parkomatica  - паркинг в Москве [iOS](https://itunes.apple.com/us/app/parkomatica-moscow-parking/id1268850750?mt=8) [Android](https://play.google.com/store/apps/details?id=ru.parkomatica&hl=ru)
+   *  Parkomatica  - паркинг в Москве [iOS](https://itunes.apple.com/us/app/parkomatica-moscow-parking/id1268850750?mt=8) [Android](https://play.google.com/store/apps/details?id=ru.parkomatica&hl=ru)
+      
+   *  Атлант-М [iOS](https://itunes.apple.com/ru/app/атлант-м/id515931794?mt=8) [Android](https://play.google.com/store/apps/details?id=com.atlantm&hl=ru)
+     
+     
