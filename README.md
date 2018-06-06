@@ -53,4 +53,7 @@
    *  Атлант-М [iOS](https://itunes.apple.com/ru/app/атлант-м/id515931794?mt=8) [Android](https://play.google.com/store/apps/details?id=com.atlantm&hl=ru)
      
    *  Express24 [Android](https://play.google.com/store/apps/details?id=com.uznewmax.theflash) 
-     
+
+   *  Змей Горыныч [iOS](https://itunes.apple.com/ru/app/%D0%B0%D0%B7%D1%81-%D0%B7%D0%BC%D0%B5%D0%B9-%D0%B3%D0%BE%D1%80%D1%8B%D0%BD%D1%8B%D1%87/id1378411298?l=ru&ls=1&mt=8
+https://play.google.com/store/apps/details?id=com.gorynichthedragon.app) 
+   
