@@ -11,6 +11,7 @@
     * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
     * [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
     * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
+    * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
 5. Бесплатные видео курсы:
     * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
