@@ -11,11 +11,12 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    backgroundColor: 'gold',
+    backgroundColor: '#30d0fe',
     justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    paddingTop: 15,
+    alignItems: 'flex-start',
+    height: 116,
+    paddingLeft: 22,
+    paddingTop: 71,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -23,7 +24,9 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   textStyle: {
-    fontSize: 20,
+    color: '#fff',
+    fontFamily: 'AvenirNext-DemiBold',
+    fontSize: 28
   }
 })
 
