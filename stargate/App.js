@@ -8,7 +8,7 @@ export default class App extends Component {
     data: []
   }
   componentDidMount = async() => {
-     const response = await fetch('https://api.tvmaze.com/search/shows?q=stargate') 
+     const response = await fetch('https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json') 
      const data = await response.json()
      this.setState({ data })
   }
@@ -24,10 +24,6 @@ export default class App extends Component {
           data.map(x => 
             <View key={x.show.id}>
               <Text>{x.show.name}</Text>
-              <Image
-                source={{ uri: x.show.image.medium }}
-                style={{width: 400, height: 400}}
-              />
             </View>
           )
         }
@@ -36,6 +32,10 @@ export default class App extends Component {
   }
 }
 
+              //<Image
+                //source={{ uri: x.show.image.medium }}
+                //style={{width: 400, height: 400}}
+              ///>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
