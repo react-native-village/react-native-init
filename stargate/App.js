@@ -21,9 +21,13 @@ export default class App extends Component {
       <ScrollView>
         <Header title={name} />
         {
-          data.map(x => 
-            <View key={x.show.id}>
-              <Text>{x.show.name}</Text>
+          data.map(el => 
+            <View key={el.id}>
+              <Text>{el.name}</Text>
+              <Image
+                source={{ uri: el.image }}
+                style={{width: 414, height: 621}}
+              />
             </View>
           )
         }
@@ -32,10 +36,6 @@ export default class App extends Component {
   }
 }
 
-              //<Image
-                //source={{ uri: x.show.image.medium }}
-                //style={{width: 400, height: 400}}
-              ///>
 const styles = StyleSheet.create({
   container: {
     flex: 1,
