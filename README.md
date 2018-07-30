@@ -25,7 +25,8 @@
     * [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
     
 #### 6. Авторизация 
-    * [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
+    
+* [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
     
 7. Платные видео курсы:
     * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course)
