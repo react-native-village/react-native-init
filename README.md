@@ -24,7 +24,7 @@
     * [News App](https://www.youtube.com/watch?v=8id-MphYTAo)
     * [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
     
-6. Авторизация 
+#### 6. Авторизация 
     * [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
     
 7. Платные видео курсы:
