@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View, ScrollView, Image } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import Header from './src/uikit/Header'
-import { responsive, w, h } from './constants'
+import { w } from './constants'
 
-const { mobile5, mobile8, mobile8plus } = responsive
+const url = 'https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
 
 export default class App extends Component {
   state = {
@@ -11,28 +11,28 @@ export default class App extends Component {
     data: []
   }
 
-  componentDidMount = async() => {
-     const response = await fetch('https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json') 
-     const data = await response.json()
-     this.setState({ data })
+  componentDidMount = async () => {
+    const response = await fetch(url) 
+    const data = await response.json()
+    this.setState({ data })
   }
 
   render() {
-    const { container, sub, shadow, cover, h1, h2 } = styles
+    const { container, sub, shadow, cover, h1 } = styles
     const { name, data } = this.state
     return (
       <View>
         <Header title={name} />
         <ScrollView style={container}>
           <View style={sub}>
-            { data.map(el => 
-                       <View style={{ marginBottom: 10 }} key={el.id}>
+            { data.map(el => (
+              <View style={{ marginBottom: 10 }} key={el.id}>
                 <View style={shadow}>
                   <Image source={{ uri: el.image }} style={cover} />
                 </View>
                 <Text style={h1}>{el.name.toUpperCase()}</Text>
               </View>
-            )}
+            ))}
           </View>
         </ScrollView>
       </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   h1: {
     alignSelf: 'center',
-    width: w/2.4,
+    width: w / 2.4,
     color: '#000',
     fontSize: 18,
     fontFamily: 'AvenirNext-DemiBold',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4
   },
   cover: {
-    width: w/2.4,
+    width: w / 2.4,
     height: w * 0.63,
     borderRadius: 10
   }

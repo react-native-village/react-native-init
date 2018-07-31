@@ -1,5 +1,7 @@
+/* yarn add -D eslint-config-equimper */
+
 {
-  "extends": "rallycoding",
+  "extends": "equimper",
   "rules": {
     "strict": 0,
     "arrow-body-style": 0,
