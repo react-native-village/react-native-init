@@ -39,9 +39,9 @@
 
     
 #### 8. Простые примеры навигации на базе  *react-navigation*
-    * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
-    * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
-    * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
+  * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
+  * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
+  * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
 
 #### 9. Отечественный showcase приложений на React Native
    *  BUSFOR – bus tickets [iOS](https://itunes.apple.com/app/busfor-bilety-na-avtobusy/id1029817513?ls=1&mt=8) [Android](https://play.google.com/store/apps/details?id=com.busfor.Busfor)
