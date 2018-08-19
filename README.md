@@ -28,15 +28,17 @@
     
 * [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
     
-7. Платные видео курсы:
+
+#### 7. Платные видео курсы:
     * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course)
     * [Build Your Own Mobile Apps](https://www.udemy.com/react-native-build-your-own-mobile-apps)
     * [Recipes](https://www.udemy.com/react-native-recipes-volume-1)
     * [Master React Native Animations](https://www.udemy.com/master-react-native-animations)
     * [Advanced Concepts](https://www.udemy.com/react-native-advanced)
     * [egghead.io](https://egghead.io/browse/frameworks/react-native)
+
     
-8. Простые примеры навигации на базе  *react-navigation*
+#### 8. Простые примеры навигации на базе  *react-navigation*
     * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
     * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
     * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
