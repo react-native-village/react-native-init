@@ -7,35 +7,35 @@
 3. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
 
 4. Мотивационные видео и аудио:
-    * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
-    * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
-    * [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
-    * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
-    * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
+  * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
+  * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
+  * [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
+  * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
+  * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
 5. Бесплатные видео курсы:
-    * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
+  * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
     
-    * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
-    * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
-    * [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
-    * [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
-    * [TODO](https://www.youtube.com/watch?v=xb8uTN3qiUI)
-    * [News App](https://www.youtube.com/watch?v=8id-MphYTAo)
-    * [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
+  * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
+  * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
+  * [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
+  * [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
+  * [TODO](https://www.youtube.com/watch?v=xb8uTN3qiUI)
+  * [News App](https://www.youtube.com/watch?v=8id-MphYTAo)
+  * [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
     
 #### 6. Авторизация 
     
-* [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
+  * [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
     
 
 #### 7. Платные видео курсы:
-    * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course)
-    * [Build Your Own Mobile Apps](https://www.udemy.com/react-native-build-your-own-mobile-apps)
-    * [Recipes](https://www.udemy.com/react-native-recipes-volume-1)
-    * [Master React Native Animations](https://www.udemy.com/master-react-native-animations)
-    * [Advanced Concepts](https://www.udemy.com/react-native-advanced)
-    * [egghead.io](https://egghead.io/browse/frameworks/react-native)
+  * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course)
+  * [Build Your Own Mobile Apps](https://www.udemy.com/react-native-build-your-own-mobile-apps)
+  * [Recipes](https://www.udemy.com/react-native-recipes-volume-1)
+  * [Master React Native Animations](https://www.udemy.com/master-react-native-animations)
+  * [Advanced Concepts](https://www.udemy.com/react-native-advanced)
+  * [egghead.io](https://egghead.io/browse/frameworks/react-native)
 
     
 #### 8. Простые примеры навигации на базе  *react-navigation*
