@@ -5,7 +5,7 @@
 
 #### 2. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
 
-#### 3. Английский словарик для React разработчиков
+#### 3. Английский для программистов(React)
 У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть [курс React-Native английского](https://www.memrise.com/course/1450006/react-react-native/)
 
 #### 4. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
