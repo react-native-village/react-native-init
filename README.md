@@ -1,4 +1,4 @@
-# C чего начать изучать react-native?
+# C чего начать учить react-native?
 
 1. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
 
