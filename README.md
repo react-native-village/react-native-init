@@ -1,19 +1,19 @@
 # C чего начать учить react-native?
 
-1. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
+#### 1. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
 
-2. У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть [курс React-Native английского](https://www.memrise.com/course/1450006/react-react-native/)
+#### 2. У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть [курс React-Native английского](https://www.memrise.com/course/1450006/react-react-native/)
 
-3. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
+#### 3. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
 
-4. Мотивационные видео и аудио:
+#### 4. Мотивационные видео и аудио:
   * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
   * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
   * [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
   * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
   * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
-5. Бесплатные видео курсы:
+#### 5. Бесплатные видео курсы:
   * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
     
   * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
