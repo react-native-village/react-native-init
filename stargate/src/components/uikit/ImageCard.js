@@ -10,7 +10,7 @@ const ImageCard = ({ data }) => {
       <View style={sub}>
         <Image style={cover} source={{ uri: image}} />
       </View>
-      <Text style={h1}>{name}</Text>
+      <Text style={h1}>{name.toUpperCase()}</Text>
     </View>
   )
 }
