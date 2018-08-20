@@ -14,13 +14,13 @@ const Header = ({
 }) => {
   const { viewStyle, textStyle, leftButtonStyle } = styles
   return (
-    <View style={[viewStyle, {backgroundColor: headerColor, height: ifIphoneX ? 122 : 90 }]}>
+    <View style={[viewStyle, {backgroundColor: headerColor }]}>
       {leftIcon &&
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name={leftIcon} style={leftButtonStyle} color={leftColor} />
         </TouchableOpacity>
       }
-      <Text numberOfLines={1} ellipsizeMode="tail" style={[textStyle, { paddingLeft: detail ? 10 : null, paddingTop: ifIphoneX ? 75 : 50}]}>{title}</Text>
+      <Text numberOfLines={1} ellipsizeMode="tail" style={[textStyle, { paddingLeft: detail ? 10 : null }]}>{title}</Text>
     </View>
   )
 }
@@ -33,13 +33,23 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2},
     shadowOpacity: 0.2,
     elevation: 2,
-    position: 'relative'
+    position: 'relative',
+    ...ifIphoneX({
+      height: 122
+    }, {
+      height: 90
+    })
   },
   textStyle: {
     color: '#fff',
     fontSize: 28,
     width: w - 40,
-    fontFamily: 'AvenirNext-DemiBold'
+    fontFamily: 'AvenirNext-DemiBold',
+    ...ifIphoneX({
+      paddingTop: 75 
+    }, {
+      paddingTop: 50
+    })
   },
   leftButtonStyle: {
     paddingTop: 5,
