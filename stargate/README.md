@@ -9,63 +9,65 @@
 
 #### 1. [Введение](https://youtu.be/tz_pOxQFcdo)
 
-#### 2. [Инициализация](https://youtu.be/2qqyDTy4HBs)
+#### 2. [React Native init vs Expo](https://youtu.be/r8BG3JPS8LI)
 
-#### 3. [Редактор кода - Atom - Nuclide](https://youtu.be/IUvoqkFTc-c)
+#### 3. [Инициализация](https://youtu.be/2qqyDTy4HBs)
 
-#### 4. [ESLint](https://youtu.be/9M8vC80Qi2o)
+#### 4. [Редактор кода - Atom - Nuclide](https://youtu.be/IUvoqkFTc-c)
 
-#### 5. [Hello world](https://youtu.be/has8w-mzVSM)
+#### 5. [ESLint](https://youtu.be/9M8vC80Qi2o)
 
-#### 6. [Точка входа](https://youtu.be/Iw8tKp0ALkA)
+#### 6. [Hello world](https://youtu.be/has8w-mzVSM)
 
-#### 7. [AppRegistry](https://youtu.be/IHThgXE5U1c)
+#### 7. [Точка входа](https://youtu.be/Iw8tKp0ALkA)
 
-#### 8. [React vs React Native](https://youtu.be/QdJGtUfkvfA)
+#### 8. [AppRegistry](https://youtu.be/IHThgXE5U1c)
 
-#### 9. [Live Reload](https://youtu.be/uISgghCjL38)
+#### 9. [React vs React Native](https://youtu.be/QdJGtUfkvfA)
 
-#### 10. [Теги](https://youtu.be/SZg_jgnc7Xw)
+#### 10. [Live Reload](https://youtu.be/uISgghCjL38)
 
-#### 11. [JSX](https://youtu.be/fg_YpbzRHmQ)
+#### 12. [Теги](https://youtu.be/SZg_jgnc7Xw)
 
-#### 12. [MVC](https://youtu.be/PQV4J-pOHPw)
+#### 12. [JSX](https://youtu.be/fg_YpbzRHmQ)
 
-#### 13. [Стили(StyleSheet)](https://youtu.be/vZpjqARPhFA)
+#### 13. [MVC](https://youtu.be/PQV4J-pOHPw)
 
-#### 14. [Ширина и Высота](https://youtu.be/XehdxK1jkFk)
+#### 14. [Стили(StyleSheet)](https://youtu.be/vZpjqARPhFA)
 
-#### 15. [Flexbox](https://youtu.be/PF1kzcGdN7E)
+#### 15. [Ширина и Высота](https://youtu.be/XehdxK1jkFk)
 
-#### 16. [Стилизация Header](https://youtu.be/dPynUHhrsB0)
+#### 16. [Flexbox](https://youtu.be/PF1kzcGdN7E)
 
-#### 17. [Отладка(Debug)](https://youtu.be/7tb8JE0-yb4)
+#### 17. [Стилизация Header](https://youtu.be/dPynUHhrsB0)
 
-#### 18. [Жизненный цикл React компонента](https://youtu.be/4xjWX3oRQoc)
+#### 18. [Отладка(Debug)](https://youtu.be/7tb8JE0-yb4)
 
-#### 19. [State(Состояние)](https://youtu.be/4sRGK632S5I)
+#### 19. [Жизненный цикл React компонента](https://youtu.be/4xjWX3oRQoc)
 
-#### 20. [Умные и глупые компоненты(Function vs Class Component)](https://youtu.be/S2hQ_Tu39jo)
+#### 20. [State(Состояние)](https://youtu.be/4sRGK632S5I)
 
-#### 21. [State vs Props](https://youtu.be/vYuHeYxaJQU)
+#### 21. [Умные и глупые компоненты(Function vs Class Component)](https://youtu.be/S2hQ_Tu39jo)
 
-#### 22. [fetch()](https://youtu.be/MHCrQExp3S4)
+#### 22. [State vs Props](https://youtu.be/vYuHeYxaJQU)
 
-#### 23. [try...catch](https://youtu.be/fr1TK-sMKww)
+#### 23. [fetch()](https://youtu.be/MHCrQExp3S4)
 
-#### 24. [Деструктурирование](https://youtu.be/z2cAFj7hfXU)
+#### 24. [try...catch](https://youtu.be/fr1TK-sMKww)
 
-#### 25. [Dimensions](https://youtu.be/Hjomif085Ec)
+#### 25. [Деструктурирование](https://youtu.be/z2cAFj7hfXU)
 
-#### 26. [ImageCard](https://youtu.be/anVgDcngW8I)
+#### 26. [Dimensions](https://youtu.be/Hjomif085Ec)
 
-#### 27. [Список](https://youtu.be/EVOJpfQU3zE)
+#### 27. [ImageCard](https://youtu.be/anVgDcngW8I)
 
-#### 28. [Репозиторий проекта](https://youtu.be/Uqhh9l_ImLg)
+#### 28. [Список](https://youtu.be/EVOJpfQU3zE)
 
-#### 29. [C чего начать учить React Native?](https://youtu.be/o8H-jcFtm5Q)
+#### 29. [Репозиторий проекта](https://youtu.be/Uqhh9l_ImLg)
 
-#### 30. [Английский для программистов (React и React Native)](https://youtu.be/pXfH8ItPGMI)
+#### 30. [C чего начать учить React Native?](https://youtu.be/o8H-jcFtm5Q)
 
-#### 31. [SafeAreaView](https://youtu.be/8GwKno9vUyo)
+#### 31. [Английский для программистов (React и React Native)](https://youtu.be/pXfH8ItPGMI)
+
+#### 32. [SafeAreaView](https://youtu.be/8GwKno9vUyo)
 
