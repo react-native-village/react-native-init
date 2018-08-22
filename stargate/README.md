@@ -62,3 +62,10 @@
 #### 27. [Список](https://youtu.be/EVOJpfQU3zE)
 
 #### 28. [Репозиторий проекта](https://youtu.be/Uqhh9l_ImLg)
+
+#### 29. [C чего начать учить React Native?](https://youtu.be/o8H-jcFtm5Q)
+
+#### 30. [Английский для программистов (React и React Native)](https://youtu.be/pXfH8ItPGMI)
+
+#### 31. [SafeAreaView](https://youtu.be/8GwKno9vUyo)
+
