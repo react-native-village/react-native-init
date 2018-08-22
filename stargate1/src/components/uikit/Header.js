@@ -52,7 +52,11 @@ const styles = StyleSheet.create({
     })
   },
   leftButtonStyle: {
-    paddingTop: 5,
+    ...ifIphoneX({
+      paddingTop: 75 
+    }, {
+      paddingTop: 50
+    }),
     paddingLeft: 5,
     fontSize: 35
   },

@@ -5,11 +5,12 @@ import { w } from '../../../constants'
 const ImageCard = ({ data, navigation, screen }) => {
   const { container, sub, h1, cover } = styles
   const { image, name } = data
+  const img = `https${image.medium.slice(4)}`
   return (
     <TouchableOpacity onPress={() => navigation.navigate(screen, (data))}>
       <View style={container}>
         <View style={sub}>
-          <Image style={cover} source={{ uri: image}} />
+          <Image style={cover} source={{ uri: img}} />
         </View>
         <Text style={h1}>{name.toUpperCase()}</Text>
       </View>

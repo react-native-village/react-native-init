@@ -1,36 +1,18 @@
-import React, {Component} from 'react'
-import { View } from 'react-native'
-import { Header, Layout, ImageCard } from '../components/uikit'
+import { createStackNavigator } from 'react-navigation'
+import HomeScreen from './HomeScreen'
+import DetailsScreen from './DelailsScreen'
+import {
+  SPIDER_HOME,
+  SPIDER_DETAILS
+} from '../routes'
 
-const url = 'https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
-
-export default class Tab3 extends Component {
-  state = {
-    title: 'STAR GATE',
-    data: []
+export default createStackNavigator(
+  {
+    [SPIDER_HOME]: HomeScreen,
+    [SPIDER_DETAILS]: DetailsScreen
+  },
+  {
+    initialRouteName: SPIDER_HOME,
+    headerMode: 'none'
   }
-
-  componentDidMount = async () => {
-    try {
-      const response = await fetch(url)
-      const data = await response.json()
-      this.setState({ data })
-    } catch (e) {
-      throw e
-    }
-  }
-
-  render() {
-    const { title, data } = this.state
-    return (
-      <View>
-        <Header title={title} />
-        <Layout>
-          { data.map(item => (
-            <ImageCard data={item} key={item.id} />
-          ))}
-        </Layout>
-      </View>
-    )
-  }
-}
+)

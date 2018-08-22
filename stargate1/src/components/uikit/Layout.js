@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 
 const Layout = props => {
-  const { viewStyle, textStyle } = styles
+  const { container } = styles
   return (
     <ScrollView>
-      <View style={styles.container}>
+      <View style={container}>
         {props.children}
       </View>
     </ScrollView>

@@ -10,7 +10,7 @@ export default createBottomTabNavigator(
   {
     Stargate: Tab1,
     Batman: Tab2,
-    Spyderman: Tab3
+    Spiderman: Tab3
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -21,7 +21,7 @@ export default createBottomTabNavigator(
           iconName = focused ? 'ios-videocam' : 'ios-play'
         } else if (routeName === 'Batman') {
           iconName = focused ? 'ios-videocam' : 'ios-play'
-        } else if (routeName === 'Spyderman') {
+        } else if (routeName === 'Spiderman') {
           iconName = focused ? 'ios-videocam' : 'ios-play'
         }
         return <Ionicons name={iconName} size={25} color={tintColor} />

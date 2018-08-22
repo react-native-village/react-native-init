@@ -2,15 +2,16 @@ import React, {Component} from 'react'
 import { View } from 'react-native'
 import { Header, Layout, ImageCard } from '../components/uikit'
 import {
-  STARGATE_DETAILS
+  BATMAN_DETAILS
 } from '../routes'
 import { BLUE } from '../../constants'
 
-const url = 'https://api.tvmaze.com/search/shows?q=stargate'
+//const url = 'https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
+const url = 'https://api.tvmaze.com/search/shows?q=batman'
 
 export default class Main extends Component {
   state = {
-    title: 'STAR GATE',
+    title: 'BATMAN',
     data: []
   }
 
@@ -35,7 +36,7 @@ export default class Main extends Component {
             <ImageCard
               data={item.show}
               key={item.show.id}
-              screen={STARGATE_DETAILS}
+              screen={BATMAN_DETAILS}
               navigation={navigation}
             />
           ))}
