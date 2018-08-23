@@ -11,6 +11,7 @@
 #### 4. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
 
 #### 5. Мотивационные видео и аудио:
+  * [Евгений Ртищев – 2 года жизни с React Native](https://youtu.be/t8EkRQn_MVk)
   * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
   * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
   * [REACT NATIVE ОДНОГО JS МАЛО - Алексей Андросов](https://www.youtube.com/watch?v=RwTmWpZ0MyA)
