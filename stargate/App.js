@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { View, ScrollView, StyleSheet } from 'react-native'
-import { Header, ImageCard } from './src/components/uikit'
+import { View, ScrollView } from 'react-native'
+import { Header, ImageCard, Layout } from './src/components/uikit'
 
 const url = 'https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
 
@@ -26,25 +26,13 @@ export default class App extends Component {
       <View>
         <Header title={title} />
         <ScrollView>
-          <View style={styles.container}>
+          <Layout>
             { data.map(item => (
               <ImageCard data={item} key={item.id} />
             ))}
-          </View>
+          </Layout>
         </ScrollView>
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 30,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    flexShrink: 2,
-    justifyContent: 'space-around',
-    padding: 10,
-    marginBottom: 150
-  }
-})

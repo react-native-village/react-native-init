@@ -14,10 +14,10 @@ export default class DelailsScreen extends PureComponent {
         <Header
           detail
           title={name}
+          onPress={() => navigation.goBack()}
           leftIcon='ios-arrow-back'
           headerColor={BLUE}
           leftColor={WHITE}
-          navigation={navigation}
         />
         <ScrollView>
           <View style={sub}>

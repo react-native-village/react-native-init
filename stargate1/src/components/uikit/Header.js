@@ -9,18 +9,18 @@ const Header = ({
   leftIcon,
   leftColor,
   headerColor,
-  navigation,
-  title
+  title,
+  onPress
 }) => {
   const { viewStyle, textStyle, leftButtonStyle } = styles
   return (
     <View style={[viewStyle, {backgroundColor: headerColor }]}>
       {leftIcon &&
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name={leftIcon} style={leftButtonStyle} color={leftColor} />
+        <TouchableOpacity onPress={onPress}>
+          <Ionicons name={leftIcon} style={[leftButtonStyle, { paddingLeft: detail ? 10 : 25 }]} color={leftColor} />
         </TouchableOpacity>
       }
-      <Text numberOfLines={1} ellipsizeMode="tail" style={[textStyle, { paddingLeft: detail ? 10 : null }]}>{title}</Text>
+      <Text numberOfLines={1} ellipsizeMode="tail" style={[textStyle, { paddingLeft: leftIcon ? 10 : 0 }]}>{title}</Text>
     </View>
   )
 }
@@ -57,13 +57,7 @@ const styles = StyleSheet.create({
     }, {
       paddingTop: 50
     }),
-    paddingLeft: 5,
     fontSize: 35
-  },
-  rightButtonStyle: {
-    paddingTop: 24,
-    paddingRight: 13,
-    fontSize: 33
   }
 })
 
