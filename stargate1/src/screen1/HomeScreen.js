@@ -33,8 +33,8 @@ export default class Main extends Component {
           title={title} 
           headerColor={BLUE} 
           onPress={() => navigation.openDrawer()}
-          //leftIcon='ios-menu'
-          //leftColor={WHITE}
+          leftIcon='ios-menu'
+          leftColor={WHITE}
         />
         <Layout>
           { data.map(item => (
