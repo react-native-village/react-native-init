@@ -1,9 +1,9 @@
 # C чего начать учить React Native?
 
-#### 1. Курс по основам React Native(ПО-РУССКИ)
+#### 1. Видеоуроки по основам React Native(ПО-РУССКИ)
  * [Основы React Native для начинающих](https://www.youtube.com/watch?v=tz_pOxQFcdo&list=PLth6QPteH5guFUwQj1iCdu-SOZ7O5KCz4)
 
-#### 2. Курс по основам React Navigation(v2) + React Native(ПО-РУССКИ)
+#### 2. Видеоуроки по основам React Navigation(v2) + React Native(ПО-РУССКИ)
  * [Основы React Navigation(v2) для начинающих](https://www.youtube.com/playlist?list=PLth6QPteH5gvv0lVnSQcINI3f8wx-5MsN)
 
 #### 3. С официальной [документации](https://facebook.github.io/react-native/docs/getting-started.html)
