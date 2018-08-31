@@ -4,11 +4,18 @@ import { Header, ImageBigCard } from '../components/uikit'
 import { WHITE, BLUE, w } from '../../constants'
 
 export default class DelailsScreen extends PureComponent {
+  componentWillUnmount() {
+    const { onGoBack } = this.props.navigation.state.params
+    onGoBack && onGoBack('Hello from children')
+  }
+
   render() {
-    const { image, name, summary} = this.props.navigation.state.params
+    const { show } = this.props.navigation.state.params
+    const { image, name, summary} = show 
     const { navigation } = this.props
     const data = { image, name }
     const { container, sub, h1, h2 } = styles 
+    console.log('this.props', this.props)
     return (
       <View style={container}>
         <Header

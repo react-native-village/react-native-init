@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react'
-import { View, ScrollView, Text, StyleSheet } from 'react-native'
+import { View, Button, ScrollView, Text, StyleSheet } from 'react-native'
 import { Header, ImageBigCard } from '../components/uikit'
 import { WHITE, BLUE, w } from '../../constants'
+import {
+  STARGATE_HOME 
+} from '../routes'
 
 export default class DelailsScreen extends PureComponent {
   render() {
@@ -22,6 +25,12 @@ export default class DelailsScreen extends PureComponent {
         <ScrollView>
           <View style={sub}>
             <ImageBigCard data={data} />
+            <Button
+              onPress={() => navigation.navigate(STARGATE_HOME)}
+              title="Learn More"
+              color="#841584"
+              accessibilityLabel="Learn more about this purple button"
+            />
             <Text style={h1}>{name.toUpperCase()}</Text>
             <Text style={h2}>{summary.replace(/<[^>]+>/g, '')}</Text>
           </View>

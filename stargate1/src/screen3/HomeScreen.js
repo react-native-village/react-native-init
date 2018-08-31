@@ -41,8 +41,7 @@ export default class Main extends Component {
             <ImageCard
               data={item.show}
               key={item.show.id}
-              screen={SPIDER_DETAILS}
-              navigation={navigation}
+              onPress={() => navigation.navigate(SPIDER_DETAILS, (item.show))}
             />
           ))}
         </Layout>

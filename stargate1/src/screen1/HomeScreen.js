@@ -24,9 +24,14 @@ export default class Main extends Component {
     }
   }
 
+  onGoBack = (someDataFromModal) => {
+    console.log(someDataFromModal)
+  }
+
   render() {
     const { title, data } = this.state
     const { navigation } = this.props
+    console.log('this.state', this.state)
     return (
       <View>
         <Header 
@@ -41,8 +46,7 @@ export default class Main extends Component {
             <ImageCard
               data={item.show}
               key={item.show.id}
-              screen={STARGATE_DETAILS}
-              navigation={navigation}
+              onPress={() => navigation.navigate(STARGATE_DETAILS, ({ show: item.show, onGoBack: this.onGoBack}))}
             />
           ))}
         </Layout>

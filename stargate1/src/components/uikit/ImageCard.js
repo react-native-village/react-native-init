@@ -2,12 +2,12 @@ import React from 'react'
 import { TouchableOpacity, Image, View, Text, StyleSheet } from 'react-native'
 import { w } from '../../../constants'
 
-const ImageCard = ({ data, navigation, screen }) => {
+const ImageCard = ({ data, onPress}) => {
   const { container, sub, h1, cover } = styles
   const { image, name } = data
   const img = `https${image.medium.slice(4)}`
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(screen, (data))}>
+    <TouchableOpacity onPress={onPress}>
       <View style={container}>
         <View style={sub}>
           <Image style={cover} source={{ uri: img}} />
