@@ -24,8 +24,8 @@ export default class Main extends Component {
     }
   }
 
-  onGoBack = (someDataFromModal) => {
-    console.log(someDataFromModal)
+  onGoBack = (someDataFromChildren) => {
+    console.log('someDataFromChildren', someDataFromChildren)
   }
 
   render() {
