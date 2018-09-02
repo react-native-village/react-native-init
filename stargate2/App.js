@@ -8,7 +8,7 @@ import reducers from './src/reducers'
 import Screen from './src/screen1'
 
 const store = createStore(reducers, composeWithDevTools(
-  applyMiddleware(ReduxThunk),
+  applyMiddleware(ReduxThunk)
 ))
 
 const App = () => {
