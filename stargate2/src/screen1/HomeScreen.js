@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
-import { searchChanged } from '../actions'
+import _ from 'lodash'
+import { 
+  searchChanged,
+  getMovies
+} from '../actions'
 import { Header, Layout, ImageCard, Search } from '../components/uikit'
 import {
   STARGATE_DETAILS
@@ -11,7 +15,6 @@ const url = 'https://api.tvmaze.com/search/shows?q=stargate'
 
 class HomeScreen extends Component {
   state = {
-    title: 'STAR GATE',
     data: [],
     visibleSearchbar: false
   }
@@ -28,27 +31,27 @@ class HomeScreen extends Component {
 
   onSearchChange = (text) => {
     this.props.searchChanged(text)
+    this.props.getMovies(text)
   }
 
   render() {
-    const { title, data, visibleSearchbar } = this.state
-    const { navigation } = this.props
-    console.log('this.props', this.props)
+    const { visibleSearchbar } = this.state
+    const { navigation, movie, data } = this.props
+    //console.log('this.props', this.props)
     return (
       <View>
         { visibleSearchbar ?
           <Search
-            title={title} 
             colorRight={'#fff'}
             iconRight="magnify"
             placeholder="Search"
             onChangeText={this.onSearchChange}
-            value={this.props.movie}
+            value={movie}
             onPressRight={() => this.setState({ visibleSearchbar: false })}
             onBlur={() => this.setState({ visibleSearchbar: false })}
           /> :
           <Header
-            title={title} 
+            title={movie ? movie : 'Search'} 
             colorRight={'#fff'}
             iconRight="magnify"
             onPressRight={() => this.setState({ visibleSearchbar: true })}
@@ -70,8 +73,9 @@ class HomeScreen extends Component {
 
 const mapStateToProps = state => {
   return {
-    movie: state.search.movie
+    movie: state.search.movie,
+    data: state.search.data
   }
 }
 
-export default connect(mapStateToProps, { searchChanged })(HomeScreen)
+export default connect(mapStateToProps, { searchChanged, getMovies })(HomeScreen)
