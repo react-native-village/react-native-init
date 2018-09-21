@@ -4,7 +4,7 @@ import { Header, Layout, ImageCard } from '../components/uikit'
 import {
   STARGATE_DETAILS
 } from '../routes'
-import { WHITE, BLUE } from '../../constants'
+import { BLUE } from '../../constants'
 
 const url = 'https://api.tvmaze.com/search/shows?q=stargate'
 
@@ -38,8 +38,6 @@ export default class Main extends Component {
           title={title} 
           headerColor={BLUE} 
           onPress={() => navigation.openDrawer()}
-          leftIcon='ios-menu'
-          leftColor={WHITE}
         />
         <Layout>
           { data.map(item => (
