@@ -22,7 +22,7 @@
   * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
 #### 7. Бесплатные видео курсы:
-  * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/playlist?list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
+  * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/watch?v=nyE6shIRzxM&list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
     
   * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
   * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
