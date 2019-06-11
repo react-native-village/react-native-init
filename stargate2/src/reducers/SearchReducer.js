@@ -1,15 +1,11 @@
-import { 
-  SEARCH_CHANGE,
-  MOVIES_FETCHED,
-  MOVIES_FAILED
-} from '../types'
+import { SEARCH_CHANGE, MOVIES_FETCHED, MOVIES_FAILED } from '../types'
 
 const INITIAL_STATE = {
   movie: '',
   data: []
 }
 
-export default (state = INITIAL_STATE,  action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SEARCH_CHANGE:
       return {
@@ -25,6 +21,7 @@ export default (state = INITIAL_STATE,  action) => {
       return {
         ...state
       }
-    default: return state
+    default:
+      return state
   }
 }

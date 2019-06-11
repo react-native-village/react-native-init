@@ -4,36 +4,6 @@ import { ifIphoneX } from 'react-native-iphone-x-helper'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { BLUE, W } from '../../../constants'
 
-const Search = ({
-  iconRight,
-  onPressRight,
-  onChangeText,
-  placeholder,
-  value,
-  onBlur,
-  colorRight
-}) => {
-  const { container, sub, inputStyle, rightButtonStyle, searchStyle } = styles
-  return (
-    <View style={container}>
-      <View style={sub}>
-        <TextInput
-          style={inputStyle}
-          onChangeText={onChangeText}
-          placeholder={placeholder}
-          value={value}
-          onBlur={onBlur}
-        />
-        <TouchableOpacity onPress={onPressRight}>
-          <View style={searchStyle}>
-            <MaterialCommunityIcons name={iconRight} style={[rightButtonStyle, { color: colorRight }]} />
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-}
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -44,11 +14,14 @@ const styles = StyleSheet.create({
     elevation: 2,
     backgroundColor: BLUE,
     position: 'relative',
-    ...ifIphoneX({
-      height: 122
-    }, {
-      height: 90
-    })
+    ...ifIphoneX(
+      {
+        height: 122
+      },
+      {
+        height: 90
+      }
+    )
   },
   sub: {
     justifyContent: 'space-between',
@@ -80,5 +53,27 @@ const styles = StyleSheet.create({
     fontSize: 30
   }
 })
+
+const Search = ({ iconRight, onPressRight, onChangeText, placeholder, value, onBlur, colorRight }) => {
+  const { container, sub, inputStyle, rightButtonStyle, searchStyle } = styles
+  return (
+    <View style={container}>
+      <View style={sub}>
+        <TextInput
+          style={inputStyle}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          value={value}
+          onBlur={onBlur}
+        />
+        <TouchableOpacity onPress={onPressRight}>
+          <View style={searchStyle}>
+            <MaterialCommunityIcons name={iconRight} style={[rightButtonStyle, { color: colorRight }]} />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </View>
+  )
+}
 
 export { Search }

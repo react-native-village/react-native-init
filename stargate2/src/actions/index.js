@@ -1,17 +1,11 @@
-import { 
-  SEARCH_CHANGE,
-  MOVIES_FETCHED,
-  MOVIES_FAILED
-} from '../types'
+import { SEARCH_CHANGE, MOVIES_FETCHED, MOVIES_FAILED } from '../types'
 
-export const searchChanged = (text) => {
-  return {
-    type: SEARCH_CHANGE,
-    payload: text
-  }
-} 
+export const searchChanged = text => ({
+  type: SEARCH_CHANGE,
+  payload: text
+})
 
-export const getMovies = (text) => async (dispatch) => {
+export const getMovies = text => async dispatch => {
   function onSuccess(success) {
     dispatch({ type: MOVIES_FETCHED, payload: success })
     return success
