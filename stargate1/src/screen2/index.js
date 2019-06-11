@@ -1,10 +1,7 @@
 import { createStackNavigator } from 'react-navigation'
 import HomeScreen from './HomeScreen'
 import DetailsScreen from './DelailsScreen'
-import {
-  BATMAN_HOME,
-  BATMAN_DETAILS 
-} from '../routes'
+import { BATMAN_HOME, BATMAN_DETAILS } from '../routes'
 
 export default createStackNavigator(
   {
