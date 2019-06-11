@@ -2,19 +2,6 @@ import React from 'react'
 import { Image, View, Text, StyleSheet } from 'react-native'
 import { w } from '../../../constants'
 
-const ImageCard = ({ data }) => {
-  const { container, sub, h1, cover } = styles
-  const { image, name } = data
-  return (
-    <View style={container}>
-      <View style={sub}>
-        <Image style={cover} source={{ uri: image}} />
-      </View>
-      <Text style={h1}>{name.toUpperCase()}</Text>
-    </View>
-  )
-}
-
 const styles = StyleSheet.create({
   container: {
     width: w / 2.4,
@@ -25,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'white',
     shadowRadius: 8,
-    shadowOffset: { width: 0, height: 5},
+    shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.4
   },
   h1: {
@@ -41,4 +28,18 @@ const styles = StyleSheet.create({
     borderRadius: 10
   }
 })
+
+const ImageCard = ({ data }) => {
+  const { container, sub, h1, cover } = styles
+  const { image, name } = data
+  return (
+    <View style={container}>
+      <View style={sub}>
+        <Image style={cover} source={{ uri: image }} />
+      </View>
+      <Text style={h1}>{name.toUpperCase()}</Text>
+    </View>
+  )
+}
+
 export { ImageCard }

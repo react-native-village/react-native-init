@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { View, ScrollView } from 'react-native'
 import { Header, ImageCard, Layout } from './src/components/uikit'
 
-const url = 'https://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
+const url = 'http://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
 
 export default class App extends Component {
   state = {
@@ -12,10 +12,13 @@ export default class App extends Component {
 
   componentDidMount = async () => {
     try {
-      const response = await fetch(url)
+      const response = await fetch(url, {
+        method: 'GET'
+      })
       const data = await response.json()
       this.setState({ data })
     } catch (e) {
+      console.log('e', e)
       throw e
     }
   }
@@ -27,7 +30,7 @@ export default class App extends Component {
         <Header title={title} />
         <ScrollView>
           <Layout>
-            { data.map(item => (
+            {data.map(item => (
               <ImageCard data={item} key={item.id} />
             ))}
           </Layout>
