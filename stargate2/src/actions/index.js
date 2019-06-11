@@ -15,7 +15,7 @@ export const getMovies = text => async dispatch => {
     return error
   }
   try {
-    const URL = `https://api.tvmaze.com/search/shows?q=${text}`
+    const URL = `http://api.tvmaze.com/search/shows?q=${text}`
     const res = await fetch(URL, {
       method: 'GET'
     })
