@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, ScrollView } from 'react-native'
 import { Header, ImageCard, Layout } from './src/components/uikit'
 
-const url = 'http://raw.githubusercontent.com/react-native-village/react-native-init/master/stargate/stargate.json'
+const url = 'https://gitlab.com/gHashTag/react-native-init/raw/master/db.json' // на github проблемы c запросом, поэтому ссылку поменял
 
 export default class App extends Component {
   state = {
@@ -18,7 +18,7 @@ export default class App extends Component {
       const data = await response.json()
       this.setState({ data })
     } catch (e) {
-      console.log('e', e)
+      console.warn('e', e) // eslint-disable-line
       throw e
     }
   }
