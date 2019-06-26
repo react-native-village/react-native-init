@@ -1,12 +1,13 @@
 {
-  "name": "stargate",
+  "name": "stargate3",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-   "start-ios": "react-native run-ios --simulator='iPhone SE' && npm run lint-watch",
-   "start-android": "react-native run-android && npm run lint-watch",
-   "lint": "esw src/**",
-   "lint-watch": "esw -w --changed src/**"
+    "start-ios": "react-native run-ios --simulator='iPhone SE' && npm run lint-watch",
+    "start-android": "react-native run-android && npm run lint-watch",
+    "lint": "esw src/**",
+    "lint-watch": "esw -w --changed src/**",
+    "test": "jest"
   },
   "precommit": "lint",
   "prettier": {
@@ -20,9 +21,23 @@
     "jsxBracketSameLine": false
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link": "^1.2.12",
+    "apollo-link-rest": "^0.7.3",
+    "apollo-link-state": "^0.4.2",
+    "graphql": "^14.3.1",
+    "graphql-anywhere": "^4.2.4",
+    "graphql-tag": "^2.10.1",
+    "qs": "^6.7.0",
     "react": "16.8.3",
+    "react-apollo": "^2.5.8",
+    "react-apollo-hooks": "^0.4.5",
     "react-native": "0.59.9",
-    "react-native-iphone-x-helper": "^1.2.1"
+    "react-native-debugger": "^1.1.0",
+    "react-native-iphone-x-helper": "^1.0.3",
+    "react-native-vector-icons": "^6.5.0",
+    "react-navigation": "^2.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
