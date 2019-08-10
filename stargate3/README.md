@@ -218,7 +218,9 @@ const HomeScreen = ({ navigation }) => {
 Рефакторим код в `components/uikit/ImageCard.js`
 ```diff
 - const img = image === null ? 'http://fcrmedia.ie/wp-content/themes/fcr/assets/images/default.jpg' : image 
-+ const img = image === null ? 'http://fcrmedia.ie/wp-content/themes/fcr/assets/images/default.jpg' : image.medium 
++ const img = image === null ? 'http://fcrmedia.ie/wp-content/themes/fcr/assets/images/default.jpg' : image.medium
+- <Image style={cover} source={{ uri: img.medium }} />
++ <Image style={cover} source={{ uri: img }} />
 ```
 
 Рефакторим код в `components/uikit/ImageBigCard.js`
