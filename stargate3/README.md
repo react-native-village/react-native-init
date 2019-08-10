@@ -95,6 +95,9 @@ export default client
 - import { connect } from 'react-redux'
 - import { searchChanged, getMovies } from '../actions'
 
+- const { visibleSearchbar } = this.state
+- const { navigation, movie, data } = this.props
+
 - const mapStateToProps = state => ({
 -   movie: state.search.movie,
 -   data: state.search.data
