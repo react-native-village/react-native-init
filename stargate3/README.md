@@ -25,7 +25,7 @@
 Редактируем `/stargate/src/App.js`
 ```diff
 import React from 'react'
-import { Provider } from 'react-redux'
+- import { Provider } from 'react-redux'
 - import { composeWithDevTools } from 'redux-devtools-extension'
 - import { createStore, applyMiddleware } from 'redux'
 - import ReduxThunk from 'redux-thunk'
