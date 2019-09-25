@@ -7,6 +7,8 @@
 
 ### Содержание курса:
 
+Весь плейлист [здесь](https://www.youtube.com/watch?v=tz_pOxQFcdo&list=PLth6QPteH5guFUwQj1iCdu-SOZ7O5KCz4)
+
 #### 0. [Введение](https://youtu.be/tz_pOxQFcdo)
 Презентация курса.
 
