@@ -8,8 +8,12 @@
 ### Содержание курса:
 
 #### 0. [Введение](https://youtu.be/tz_pOxQFcdo)
+Презентация курса
 
 #### 1. [React Native init vs Expo](https://youtu.be/r8BG3JPS8LI)
+На начальном этапе необходимо использовать какой-нибудь из стартеров. 
+Основные конкурирующие стартеры React Native CLI и Expo, имеющие преимущество одно над другим.
+Схема с бейнчмаркетингом этих технологий [здесь](https://medium.com/@playra/react-native-init-vs-expo-a9bf97df50db)
 
 #### 2. [Инициализация](https://youtu.be/2qqyDTy4HBs)
 
