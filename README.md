@@ -11,9 +11,15 @@
 #### 4. Английский для программистов(React)
 У каждой профессии свой словарный запас, у программистов свой, у react-native программистов также свой, поэтому хорошо было бы знать все слова из официальной документации и уметь читать ее. Для этого есть [курс React-Native английского](https://www.memrise.com/course/1450006/react-react-native/)
 
-#### 5. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
+#### 5. Курс для начинающих
+  * [Основы](https://github.com/react-native-village/react-native-init/tree/master/stargate)
+  * [Навигация - React Navigation](https://github.com/react-native-village/react-native-init/tree/master/stargate1)
+  * [Управление состоянием приложения - Redux](https://github.com/react-native-village/react-native-init/tree/master/stargate2)
+  * [Аутентификация/Авторизация - AWS AMPLIFY](https://medium.com/@playra/aws-amplify-react-native-a956502abddc)
 
-#### 6. Мотивационные видео и аудио:
+#### 6. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
+
+#### 7. Мотивационные видео и аудио:
   * [Евгений Ртищев – 2 года жизни с React Native](https://youtu.be/t8EkRQn_MVk)
   * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
   * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
@@ -21,37 +27,13 @@
   * [Филипп Шурпик "Architecting React Native app"](https://www.youtube.com/watch?v=3MmwAW1VnGo)
   * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
-#### 7. Бесплатные видео курсы:
-  * [CS50's Mobile App Development with React Native](https://www.youtube.com/playlist?list=PLhQjrBD2T382gdfveyad09Ierl_3Jh_wR)  
-  * [React Native and Prisma GraphQL eCommerce Project](https://www.youtube.com/watch?v=nyE6shIRzxM&list=PLN3n1USn4xlmqhVdKMurNREwtiUpq-SFy)
-  * [React Native (live)(ПО-РУССКИ)](https://youtu.be/BbqY_AyF_IM)
-  * [Twitter Clone](https://github.com/react-native-village/react-native-video-tutorial)
-  * [Animations](https://www.youtube.com/watch?v=XKgfszmI1bk)
-  * [Youtube UI](https://www.youtube.com/watch?v=LdKtugH-sb8)
-  * [TODO](https://www.youtube.com/watch?v=xb8uTN3qiUI)
-  * [News App](https://www.youtube.com/watch?v=8id-MphYTAo)
-  * [TODO](https://www.youtube.com/watch?v=AV41HahZEpU)
     
-#### 8. Авторизация 
-    
-  * [Express, MongoDB, and JSON Web Tokens](https://medium.com/handlebar-labs/graphql-authentication-with-react-native-apollo-part-1-2-9613aacd80b3)
-    
-
-#### 9. Платные видео курсы:
-  * [The Complete React Native and Redux Course](https://www.udemy.com/the-complete-react-native-and-redux-course)
-  * [Build Your Own Mobile Apps](https://www.udemy.com/react-native-build-your-own-mobile-apps)
-  * [Recipes](https://www.udemy.com/react-native-recipes-volume-1)
-  * [Master React Native Animations](https://www.udemy.com/master-react-native-animations)
-  * [Advanced Concepts](https://www.udemy.com/react-native-advanced)
-  * [egghead.io](https://egghead.io/browse/frameworks/react-native)
-
-    
-#### 10. Простые примеры навигации на базе  *react-navigation(v1)*
+#### 8. Простые примеры навигации на базе  *react-navigation(v1)*
   * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
   * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
   * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
 
-#### 11. Отечественный showcase приложений на React Native
+#### 9. Отечественный showcase приложений на React Native
    *  BUSFOR – bus tickets [iOS](https://itunes.apple.com/app/busfor-bilety-na-avtobusy/id1029817513?ls=1&mt=8) [Android](https://play.google.com/store/apps/details?id=com.busfor.Busfor)
 
    *  Qlean – уборка квартир [iOS](https://itunes.apple.com/app/id1011771034?mt=8) [Android](https://play.google.com/store/apps/details?id=com.qlean.qlean)
