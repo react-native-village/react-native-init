@@ -15,3 +15,9 @@
 #### 2. [Tab Navigator](https://youtu.be/P_jV8qCjRlg)
 
 #### 3. [Drawer Navigator](https://youtu.be/x1BkWHncx10)
+
+#### 4. [Z-переход - React Navigation](https://youtu.be/pvbtcorKX3U)
+
+#### 5. [from Children to Parent](https://youtu.be/OnudmpxY6nU)
+
+#### 6. [Outro](https://youtu.be/ruFyk3cds34)
