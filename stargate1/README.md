@@ -10,7 +10,7 @@
 
 #### 0. [Введение](https://youtu.be/6Qnc96d_djk)
 
-#### 1. [Stack Navigator](https://youtu.be/B8qjAqz9zsw)
+#### 1. [Stack Navigator](https://youtu.be/jkUUR-Ru2Qs)
 
 #### 2. [Tab Navigator](https://youtu.be/P_jV8qCjRlg)
 
