@@ -16,63 +16,75 @@
 Схема с бейнчмаркетингом этих технологий [здесь](https://medium.com/@playra/react-native-init-vs-expo-a9bf97df50db)
 
 #### 2. [Инициализация](https://youtu.be/2qqyDTy4HBs)
+Для инициализации React Native приложения на вашей машине, необходимо воспользоваться CLI. 
+Надеюсь в этом уроке вы увидите надпись “BUILD SUCCEEDED” свидетельствующее о запуске приложения. 
 
-#### 3. [Редактор кода - Atom - Nuclide](https://youtu.be/IUvoqkFTc-c)
+#### 3. [ESLint](https://youtu.be/9M8vC80Qi2o)
+Плагин ES Lint - https://eslint.org писать ваш код более чистым, подсказывает, где вы совершаете ошибки и вообще это хорошая практика для работе в команде, чтобы у всех всё было в одном стиле - ES Lint будет подсказывать какие переменные вы не используете, где и какие компоненты не задействуйте, показывает синтаксические ошибки и где не правильно ставите пробелы, где ставите точки с запятыми и т.д. То есть это уже стандарт дефекте, который нужно использовать в написании своего кода и этот плагин вас избавит от многих глупых ошибок, которые вы допускаете при разработке своего приложения.
 
-#### 4. [ESLint](https://youtu.be/9M8vC80Qi2o)
+#### 4. [Hello world](https://youtu.be/has8w-mzVSM)
+Открываем проект App.js и выпиливаем из него всё не нужное, подсвеченные запятые, точки с запятой.
+Пишем знаменитый текст “Hello World”, сохраняем и готово!
 
-#### 5. [Hello world](https://youtu.be/has8w-mzVSM)
+#### 5. [Точка входа](https://youtu.be/Iw8tKp0ALkA)
+Файл, который первый загружается в нашем приложении называется index.js с ним мы и познакомимся в этом уроке.
 
-#### 6. [Точка входа](https://youtu.be/Iw8tKp0ALkA)
+#### 6. [AppRegistry](https://youtu.be/IHThgXE5U1c)
+AppRegistry - это точка входа JavaScript для запуска всех приложений React Native. Корневые компоненты приложения должны зарегистрироваться с помощью AppRegistry.registerComponent (), затем собственная система может загрузить пакет для приложения и затем запустить приложение, когда оно будет готово, вызвав AppRegistry.runApplication ().
 
-#### 7. [AppRegistry](https://youtu.be/IHThgXE5U1c)
+#### 7. [React vs React Native](https://youtu.be/QdJGtUfkvfA)
+React против React Native - это, конечно же, условности, но факт остаётся фактом. Многие из вас может быть заметили, что при создании компонентов мы импортируем часть чего то, пока для вас не понятного из библиотеки React и что-то импортируем из библиотеки React Native. В этом мы и разберёмся 
 
-#### 8. [React vs React Native](https://youtu.be/QdJGtUfkvfA)
+#### 8. [Live Reload](https://youtu.be/uISgghCjL38)
+Если сделаем какое-нибудь изменение в нашем приложении, например удалим восклицательные знаки и сохраним, то изменения не проявят себя. Для автоматической перезагрузки того, что мы делаем, после сохранения, необходимо включить функцию, которая называется “Hot Reload”. 
 
-#### 9. [Live Reload](https://youtu.be/uISgghCjL38)
+#### 9. [Теги](https://youtu.be/SZg_jgnc7Xw)
+Если мы проведём параллель тегов React Native с тегами HTML, то получится таблица, посмотреть которую можно в этом уроке.
 
-#### 10. [Теги](https://youtu.be/SZg_jgnc7Xw)
+#### 10. [JSX](https://youtu.be/fg_YpbzRHmQ)
+Для наглядно понимания, как всё устроено под капотом, мы возьмём из нашего приложения скопируем JSX синтаксис, вьюшку куда завёрнуто текстовое поле.
+Далее открываем сайт Babel - http://babeljs.io нажимаем “Try it out” вставляем в первое поле и видим справа результат с большим кодом. Согласитесь левая сторона выглядит гораздо изящнее, поэтому как справа никто не пишет и вам не рекомендую. Это изобретение Facebook, которое позволяет HTML разработчикам, у которых богатый бекграунд, позволяет легче перейти на компонентный подход. Для меня этот синтаксис стал родным, что готовя этот урок, я даже забыл, что когда-то люди программировали иначе.
 
-#### 11. [JSX](https://youtu.be/fg_YpbzRHmQ)
+#### 11. [MVC](https://youtu.be/PQV4J-pOHPw)
+Благодаря пониманию этого паттерна, складывается всё по полочкам и смотря на приложение вы понимаете для чего существует один блок, для чего нужен один блок и для чего нужен третий блок. Когда всё складывается по полочкам смотря на приложение через эту концепцию легче создавать приложение. Поэтому понимание сути этого паттерна позволит легче войти в тему React Native, да и вообще этот патерн применим ко многим библиотекам.
 
-#### 12. [MVC](https://youtu.be/PQV4J-pOHPw)
+#### 12. [Стили(StyleSheet)](https://youtu.be/vZpjqARPhFA)
+В этом уроке мы познакомимся со стилями React Native. [Шпаргалка по стилям](https://github.com/vhpoet/react-native-styling-cheat-sheet)
 
-#### 13. [Стили(StyleSheet)](https://youtu.be/vZpjqARPhFA)
+#### 13. [Ширина и Высота](https://youtu.be/XehdxK1jkFk)
 
-#### 14. [Ширина и Высота](https://youtu.be/XehdxK1jkFk)
+#### 14. [Flexbox](https://youtu.be/PF1kzcGdN7E)
 
-#### 15. [Flexbox](https://youtu.be/PF1kzcGdN7E)
+#### 15. [Стилизация Header](https://youtu.be/dPynUHhrsB0)
 
-#### 16. [Стилизация Header](https://youtu.be/dPynUHhrsB0)
+#### 16. [Отладка(Debug)](https://youtu.be/7tb8JE0-yb4)
 
-#### 17. [Отладка(Debug)](https://youtu.be/7tb8JE0-yb4)
+#### 17. [Жизненный цикл React компонента](https://youtu.be/4xjWX3oRQoc)
 
-#### 18. [Жизненный цикл React компонента](https://youtu.be/4xjWX3oRQoc)
+#### 18. [State(Состояние)](https://youtu.be/4sRGK632S5I)
 
-#### 19. [State(Состояние)](https://youtu.be/4sRGK632S5I)
+#### 19. [Умные и глупые компоненты(Function vs Class Component)](https://youtu.be/S2hQ_Tu39jo)
 
-#### 20. [Умные и глупые компоненты(Function vs Class Component)](https://youtu.be/S2hQ_Tu39jo)
+#### 20. [State vs Props](https://youtu.be/vYuHeYxaJQU)
 
-#### 21. [State vs Props](https://youtu.be/vYuHeYxaJQU)
+#### 21. [fetch()](https://youtu.be/MHCrQExp3S4)
 
-#### 22. [fetch()](https://youtu.be/MHCrQExp3S4)
+#### 22. [try...catch](https://youtu.be/fr1TK-sMKww)
 
-#### 23. [try...catch](https://youtu.be/fr1TK-sMKww)
+#### 23. [Деструктурирование](https://youtu.be/z2cAFj7hfXU)
 
-#### 24. [Деструктурирование](https://youtu.be/z2cAFj7hfXU)
+#### 24. [Dimensions](https://youtu.be/Hjomif085Ec)
 
-#### 25. [Dimensions](https://youtu.be/Hjomif085Ec)
+#### 25. [ImageCard](https://youtu.be/anVgDcngW8I)
 
-#### 26. [ImageCard](https://youtu.be/anVgDcngW8I)
+#### 26. [Список](https://youtu.be/EVOJpfQU3zE)
 
-#### 27. [Список](https://youtu.be/EVOJpfQU3zE)
+#### 27. [Репозиторий проекта](https://youtu.be/Uqhh9l_ImLg)
 
-#### 28. [Репозиторий проекта](https://youtu.be/Uqhh9l_ImLg)
+#### 28. [C чего начать учить React Native?](https://youtu.be/o8H-jcFtm5Q)
 
-#### 29. [C чего начать учить React Native?](https://youtu.be/o8H-jcFtm5Q)
+#### 29. [Английский для программистов (React и React Native)](https://youtu.be/pXfH8ItPGMI)
 
-#### 30. [Английский для программистов (React и React Native)](https://youtu.be/pXfH8ItPGMI)
+#### 30. [SafeAreaView](https://youtu.be/8GwKno9vUyo)
 
-#### 31. [SafeAreaView](https://youtu.be/8GwKno9vUyo)
-
-#### 32. [React Children](https://youtu.be/TL65kwAL0bE)
+#### 31. [React Children](https://youtu.be/TL65kwAL0bE)
