@@ -10,23 +10,26 @@
 
 Весь плейлист [здесь](https://www.youtube.com/watch?v=KaKiJrVCUrw&list=PLth6QPteH5gvf2huwtOdiuoDH-5vdFSuz)
 
-#### 0. [Основы](https://youtu.be/KaKiJrVCUrw)
+#### 0. [Основы](https://youtu.be/KaKiJrVCUrw) - 0:56
 Мы продолжаем и начинаем наш новый курс на тему - управление состоянием мобильного приложения с библиотекой Redux в React Native приложениях. В этом курсе мы разработаем с вами мобильное приложение, которое будет искать по базе данных, на сервере фильмы. Этот курс базируется на предыдущих курсах, но если вы не начинающий, а также знакомы с навигацией react navigation, то можно начать с этого курса.
 
-#### 1. [Концепция](https://youtu.be/3iNnqtmEgtg)
+#### 1. [Концепция](https://youtu.be/3iNnqtmEgtg) - 9:14
 В этом уроке мы познакомимся с концепцией Redux.
 
-#### 2. [Установка](https://youtu.be/xTjsEphn7Pg)
+#### 2. [Установка](https://youtu.be/xTjsEphn7Pg) - 3:34
 Настраиваем рабочее окружение Redux.
 
-#### 3. [Header](https://youtu.be/ycNdEtBMooA)
+#### 3. [Header](https://youtu.be/ycNdEtBMooA) - 9:48
 Рефакторинг кода с прошлых уроков и подготовка Header к следующему уроку.
 
-#### 4. [SearchBar](https://youtu.be/jkKukSinD2I)
+#### 4. [SearchBar](https://youtu.be/jkKukSinD2I) - 15:20
 Создаем компонент SearchBar, где мы будем вводить название фильма.
 
-#### 5. [Boilerplate](https://youtu.be/qXfb62ik0_k)
+#### 5. [Boilerplate](https://youtu.be/qXfb62ik0_k) - 13:13
 Здесь мы научимся создавать стандартный боулерплейт Redux в проектах React Native
 
-#### 6. [Thunk](https://youtu.be/-eE3ySQIV80)
+#### 6. [Thunk](https://youtu.be/-eE3ySQIV80) - 8:13
 И в завершение мы сделаем запрос на сервер и получим наши фильмы, через Thunk. Сам Redux полностью синхронный, вы можете использовать промежуточное программное обеспечение, такое как redux-thunk для обработки асинхронных действий.
+
+
+###### Timing:  1 ч. 0 мин. 18 сек.
