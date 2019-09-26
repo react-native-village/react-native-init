@@ -10,23 +10,25 @@
 
 Весь плейлист [здесь](https://www.youtube.com/watch?v=6Qnc96d_djk&list=PLth6QPteH5gvv0lVnSQcINI3f8wx-5MsN)
 
-#### 0. [Введение](https://youtu.be/6Qnc96d_djk)
+#### 0. [Введение](https://youtu.be/6Qnc96d_djk) - 1:53
 Мы продолжаем и начинаем наш новый курс по теме - навигация в React Native приложении с библиотекой React Navigation второй версии, который будет базироваться на курсе для начинающих в React Native ссылка на него доступна в комментарии к этому видео уроку и на ваших экранах.
 
-#### 1. [Stack Navigator](https://youtu.be/jkUUR-Ru2Qs)
+#### 1. [Stack Navigator](https://youtu.be/jkUUR-Ru2Qs) - 35:46
 Тема нашего урока - Stack Navigator библиотеки React Navigation второй версии для навигации в React Native приложениях.
 
-#### 2. [Tab Navigator](https://youtu.be/P_jV8qCjRlg)
+#### 2. [Tab Navigator](https://youtu.be/P_jV8qCjRlg) - 7:54
 Возможно, самый распространенный стиль навигации в мобильных приложениях - это навигация на основе вкладок. Это могут быть вкладки внизу экрана или вверху под заголовком (или даже вместо заголовка).
 
-#### 3. [Drawer Navigator](https://youtu.be/x1BkWHncx10)
+#### 3. [Drawer Navigator](https://youtu.be/x1BkWHncx10) - 5:38
 Этот метод навигации позволяет напрямую переключаться между различными экранами с помощью слайд-ящика. Этот слайд-ящик содержит ссылки на различные экраны приложения.
 
-#### 4. [Z-переход - React Navigation](https://youtu.be/pvbtcorKX3U)
+#### 4. [Z-переход - React Navigation](https://youtu.be/pvbtcorKX3U) - 4:32
 Не стандартные переходы в навигации.
 
-#### 5. [from Children to Parent](https://youtu.be/OnudmpxY6nU)
+#### 5. [from Children to Parent](https://youtu.be/OnudmpxY6nU) - 5:54
 Передача данных от ребенка к родителю.
 
-#### 6. [Outro](https://youtu.be/ruFyk3cds34)
+#### 6. [Outro](https://youtu.be/ruFyk3cds34) - 1:47
 
+
+###### Timing - 1 ч. 3 мин. 24 сек.
