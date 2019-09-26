@@ -31,4 +31,4 @@
 #### 6. [Outro](https://youtu.be/ruFyk3cds34) - 1:47
 
 
-###### Timing - 1 ч. 3 мин. 24 сек.
+###### Timing: 1 ч. 3 мин. 24 сек.
