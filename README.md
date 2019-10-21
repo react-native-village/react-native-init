@@ -15,7 +15,9 @@
   * [Основы](https://github.com/react-native-village/react-native-init/tree/master/stargate)
   * [Навигация - React Navigation](https://github.com/react-native-village/react-native-init/tree/master/stargate1)
   * [Управление состоянием приложения - Redux](https://github.com/react-native-village/react-native-init/tree/master/stargate2)
-  * [Аутентификация/Авторизация - AWS AMPLIFY](https://medium.com/@playra/aws-amplify-react-native-a956502abddc)
+  * [Аутентификация/Авторизация - AWS AMPLIFY - PART 1](https://youtu.be/9uOGS7Pw1fo)
+)
+  * [Аутентификация/Авторизация - AWS AMPLIFY - PART 2](https://www.youtube.com/watch?v=CM_M5cNLmK4)
 
 #### 6. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
 
