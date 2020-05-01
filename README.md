@@ -18,9 +18,7 @@
   * [Аутентификация/Авторизация - AWS AMPLIFY - PART 1](https://youtu.be/9uOGS7Pw1fo)
   * [Аутентификация/Авторизация - AWS AMPLIFY - PART 2](https://www.youtube.com/watch?v=CM_M5cNLmK4)
 
-#### 6. Интересный проект [30 дней с react-native](https://github.com/fangwei716/30-days-of-react-native)
-
-#### 7. Мотивационные видео и аудио:
+#### 6. Мотивационные видео и аудио:
   * [Евгений Ртищев – 2 года жизни с React Native](https://youtu.be/t8EkRQn_MVk)
   * [React Native изменит существующий мир мобильной разработки](https://www.youtube.com/watch?v=Fdi6YcmBVG8&t=9s)
   * [Дмитрий Пацура - N подводных камней и горсть советов при разработке на React Native](https://youtu.be/qehnKIu30mY) 
@@ -29,12 +27,12 @@
   * [React Native. Впиливать или выпиливать?](https://androiddev.apptractor.ru/android-dev-podkast-70/)
 
     
-#### 8. Простые примеры навигации на базе  *react-navigation(v1)*
+#### 7. Простые примеры навигации на базе  *react-navigation(v1)*
   * [TabNavigator + StackNavigator + Redux](https://github.com/react-native-village/TabStackNavigatorRedux)
   * [SimpleDrawer](https://github.com/react-native-village/SimpleDrawer)
   * [DrawerNavigator + StackNavigator + Redux](https://github.com/react-native-village/DrawerStackNavigatorRedux)
 
-#### 9. Отечественный showcase приложений на React Native
+#### 8. Отечественный showcase приложений на React Native
    *  BUSFOR – bus tickets [iOS](https://itunes.apple.com/app/busfor-bilety-na-avtobusy/id1029817513?ls=1&mt=8) [Android](https://play.google.com/store/apps/details?id=com.busfor.Busfor)
 
    *  Qlean – уборка квартир [iOS](https://itunes.apple.com/app/id1011771034?mt=8) [Android](https://play.google.com/store/apps/details?id=com.qlean.qlean)
