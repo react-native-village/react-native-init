@@ -51,3 +51,9 @@
    
    *  Aloqa Business [iOS](https://apps.apple.com/ru/app/aloqa-business/id1491490888) [Android](https://play.google.com/store/apps/details?id=uz.aloqa.business&hl=ru) 
    
+   *  ED Words [iOS](https://itunes.apple.com/us/app/id1282915927) [Android](https://play.google.com/store/apps/details?id=com.englishdom.smartwords)
+   
+   *  ED Courses [iOS](https://apps.apple.com/us/app/онлайн-курсы-английского/id1371977774) [Android](https://play.google.com/store/apps/details?id=com.englishdom.mcourses)
+      
+   *  ED Class [iOS](https://apps.apple.com/us/app/ed-class/id1472543165) [Android](https://play.google.com/store/apps/details?id=com.englishdom.mclass)
+   
