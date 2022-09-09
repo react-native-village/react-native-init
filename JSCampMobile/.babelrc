@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "babel-plugin-inline-import",
+      {
+        "extensions": [".md"]
+      }
+    ]
+  ]
+}

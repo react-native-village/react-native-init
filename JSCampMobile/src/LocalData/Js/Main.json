@@ -1,0 +1,350 @@
+[
+  {
+    "id": 1,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/01-Hello/01.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Hello",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/01-Hello/01.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/01-Hello/01-Hello.mp4"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/02-Comments/02.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Comments",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/02-Comments/02.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/02-Comments/02-Comments.mp4"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/03-Variables/03.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Variables",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/03-Variables/03.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/03-Variables/03-Variables.mp4"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/04-DataTypes/04.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "DataTypes",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/04-DataTypes/04.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/04-DataTypes/04-DataTypes.mp4"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/05-Errors/05.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Errors",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/05-Errors/05.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/05-Errors/05-Errors.mp4"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/06-Strings/06.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Strings",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/06-Strings/06.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/06-Strings/06-Strings.mp4"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/07-Numbers/07.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Numbers",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/07-Numbers/07.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/07-Numbers/07-Numbers.mp4"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/08-Boolean/08.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Boolean",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/08-Boolean/08.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/08-Boolean/08-Boolean.mp4"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/09-Functions/09.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Functions",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/09-Functions/09.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/09-Functions/09-Functions.mp4"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/10-Objects/10.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Objects",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/10-Objects/10.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/10-Objects/10-Objects.mp4"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/11-TypeConversion/11.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Type conversion",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/11-TypeConversion/11.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/11-TypeConversion/11-TypeConversion.mp4"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/12-FieldOfView/12.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Field of view",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/12-FieldOfView/12.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/12-FieldOfView/12-FieldOfView.mp4"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/13-DefaultParams/13.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Default params",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/13-DefaultParams/13.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/13-DefaultParams/13-DefaultParams.mp4"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/14-RegExp/14.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "RegExp",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/14-RegExp/14.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/14-RegExp/14-RegExp.mp4"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/15-SwitchCase/15.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "switch-case",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/15-SwitchCase/15.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/15-SwitchCase/15-SwitchCase.mp4"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/16-Loop/16.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Loop",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/16-Loop/16.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/16-Loop/16-Loop.mp4"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/17-Arrays/17.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Arrays",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/17-Arrays/17.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/17-Arrays/17-Arrays.mp4"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/18-RestSpread/18.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Rest & spread",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/18-RestSpread/18.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/18-RestSpread/18-RestSpread.mp4"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/19-ArrayMethods/19.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Map, filter, reduce",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/19-ArrayMethods/19.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/19-ArrayMethods/19-ArrayMethods.mp4"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/20-Destructurization/20.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Destructurization",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/20-Destructurization/20.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/20-Destructurization/20-Destructurization.mp4"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/21-Closure/21.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Closure",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/21-Closure/21.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/21-Closure/21-Closure.mp4"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/22-HigherOrderFunc/22.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Higher order function",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/22-HigherOrderFunc/22.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/22-HigherOrderFunc/22-HigherOrderFunc.mp4"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/23-Classes/23.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Classes",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/23-Classes/23.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/23-Classes/23-Classes.mp4"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/24-This/24.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Deprecated ≪this≫",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/24-This/24.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/24-This/24-This.mp4"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/25-EventLoop/25.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Event loop",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/25-EventLoop/25.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/25-EventLoop/25-EventLoop.mp4"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/26-Promise/26.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Promise",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/26-Promise/26.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/26-Promise/26-Promise.mp4"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/27-Fetch/27.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Fetch",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/27-Fetch/27.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/27-Fetch/27-Fetch.mp4"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/28-Async/28.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Async-await",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/28-Async/28.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/28-Async/28-Async.mp4"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/29-Import/29.jpg",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Es6",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/29-Import/29.jpg",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/29-Import/29-Import.mp4"
+      }
+    ]
+  }
+]

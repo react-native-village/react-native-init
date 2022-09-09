@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "cardTitle": "Some lesson for Typescript",
+    "sections": [
+      {
+        "type": "lesson",
+        "header": "Custom TS lesson header",
+        "questsHeader": "Custom header for tests in lesson",
+        "contentUrl": "https://rr3---sn-4g5lznl7.googlevideo.com/videoplayback?expire=1655147034&ei=ujWnYrSBDrfLx_APiYedgAs&ip=2a01%3A4f9%3Ac01f%3Ac012%3A%3A&id=o-AA0IBgVyDSWetqDoil-UHa9Xb8nVQgQm4r30oK6zbkuE&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=147994315&ratebypass=yes&dur=3704.418&lmt=1584726529616069&fexp=24001373,24007246&c=ANDROID&txp=6216222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAOexaTJqIggW0g48nj6xkx-am28-6JcBz3ziQEDpPo6NAiEAgVdgD1UawzSSS_LCQplBFlPllAZZ_pch0F_BrRyx8HM%3D&title=%D0%A1%D0%BF%D0%B0%D0%BD%D1%87+%D0%B1%D0%BE%D0%B1+%D1%84%D0%BB%D0%B5%D0%BA%D1%81%D0%B8%D1%82+1+%D1%87%D0%B0%D1%81+%D0%BF%D0%BE%D0%B4+%D0%B3%D0%BE%D0%B2%D0%BD%D0%BE%D0%B2%D0%BE%D0%B7+%28240p%29&redirect_counter=1&cm2rm=sn-5gol77e&req_id=64b9a0962ee9a3ee&cms_redirect=yes&mh=yF&mip=95.78.209.110&mm=34&mn=sn-4g5lznl7&ms=ltu&mt=1655125244&mv=m&mvi=3&pl=25&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAKeK8QvU8e8yqpzaEip8Mk7iwwnr-X5H56RhKY8cQtr_AiAfEhM9AnF1xuAquHkMq5XJ9ldXBOnJItQAz1lKpI5_rw%3D%3D",
+        "questions": [
+          {
+            "type": "drag",
+            "drag": {
+              "questionText": "Основатель aws ~Jeff~~Bezos~ его состояние насчитывает около ~146~ млрд. долл.",
+              "fakeWords": ["Kevin", "Edgar", "Walker", "Brown", "200", "174"]
+            }
+          },
+          {
+            "type": "input",
+            "input": {
+              "questionText": "С помощью какого модуля библиотек aws мы можем подписываться на события обновления в react native?",
+              "correctAnswer": "DataStore"
+            }
+          },
+          {
+            "type": "manySelect",
+            "manySelect": {
+              "questionText": "Через какие языки запросов можно обратиться к базе данных aws?",
+              "correctAnswers": ["GraphQL", "REST"],
+              "variants": [
+                "NoSQL",
+                "GraphQL",
+                "MongoDB",
+                "mySQL",
+                "SQL",
+                "Oracle",
+                "REST"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

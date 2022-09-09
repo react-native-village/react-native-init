@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "cardImage": "https://pikuco.ru/upload/test_stable/c6d/c6d26ee890089163c35a6f7b67aa3757.jpg",
+    "sections": [
+      {
+        "type": "markdown",
+        "header": "Hello",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/RNForKids/01-HelloRN/HelloRN.md"
+      }
+    ]
+  }
+]

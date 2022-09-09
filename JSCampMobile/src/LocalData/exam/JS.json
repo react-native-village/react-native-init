@@ -1,0 +1,14 @@
+[
+  {
+    "id": 0,
+    "cardTitle": "Data Types",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Data Types",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/00-DataTypes/DataTypes.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/JSForKids/00-DataTypes/DataTypes-JS.mp4"
+      }
+    ]
+  }
+]

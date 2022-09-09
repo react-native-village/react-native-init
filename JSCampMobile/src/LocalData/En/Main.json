@@ -1,0 +1,340 @@
+[
+  {
+    "id": 0,
+    "cardTitle": "English alphabet",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/00-Alphabet/alphabet.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Alphabet",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/00-Alphabet/alphabet.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/00-Alphabet/Alphabet.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/00-Alphabet/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/00-Alphabet/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "cardTitle": "Numbers",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/01-Numbers/numbers.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Numbers",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/01-Numbers/numbers.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/01-Numbers/Numbers.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/01-Numbers/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/01-Numbers/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cardTitle": "Food",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/02-Food/food.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Food",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/02-Food/food.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/02-Food/Food.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/02-Food/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/02-Food/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "cardTitle": "Animals",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/03-Animals/animals.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Animals",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/03-Animals/animals.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/03-Animals/Animals.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/03-Animals/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/03-Animals/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "cardTitle": "Activity",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/04-Activity/activity.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Activity",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/04-Activity/activity.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/04-Activity/Activity.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/04-Activity/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/04-Activity/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "cardTitle": "Clothes",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/05-Clothes/clothes.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Clothes",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/05-Clothes/clothes.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/05-Clothes/Clothes.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/05-Clothes/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/05-Clothes/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "cardTitle": "Smileys",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/06-Smileys/smileys.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Smileys",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/06-Smileys/smileys.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/06-Smileys/Smileys.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/06-Smileys/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/06-Smileys/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "cardTitle": "Symbols",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/07-Symbols/symbols.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Symbols",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/07-Symbols/symbols.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/07-Symbols/Symbols.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/07-Symbols/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/07-Symbols/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "cardTitle": "Objects",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/08-Objects/objects.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Objects",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/08-Objects/objects.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/08-Objects/Objects.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/08-Objects/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/08-Objects/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "cardTitle": "Travel",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/09-Travel/travel.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Travel",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/09-Travel/travel.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/09-Travel/Travel.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/09-Travel/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/09-Travel/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "cardTitle": "Time",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/10-Time/time.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Time",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/10-Time/time.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/10-Time/Time.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/10-Time/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/10-Time/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "cardTitle": "People",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/11-People/people.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "People",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/11-People/people.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/11-People/People.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/11-People/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/11-People/data.json"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "cardTitle": "Nature",
+    "cardImage": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/12-Nature/nature.png",
+    "sections": [
+      {
+        "type": "video",
+        "header": "Nature",
+        "poster": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/12-Nature/nature.png",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/12-Nature/Nature.mp4"
+      },
+      {
+        "type": "emojiLearn",
+        "contentUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/12-Nature/data.json"
+      },
+      {
+        "type": "quest",
+        "question": {
+          "type": "emoji",
+          "emoji": {
+            "dataUrl": "https://s3.eu-central-1.wasabisys.com/jscamp/EnForKids/12-Nature/data.json"
+          }
+        }
+      }
+    ]
+  }
+]
