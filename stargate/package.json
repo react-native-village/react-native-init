@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.9",
+    "react-native": "0.62.3",
     "react-native-iphone-x-helper": "^1.2.1"
   },
   "devDependencies": {
