@@ -29,7 +29,7 @@
     "graphql": "^14.3.1",
     "graphql-anywhere": "^4.2.4",
     "graphql-tag": "^2.10.1",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "react": "16.8.3",
     "react-apollo": "^2.5.8",
     "react-apollo-hooks": "^0.4.5",
