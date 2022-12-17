@@ -1,35 +1,33 @@
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
-
-import {showModal} from './srs/helpers';
+import {StatusBar} from 'react-native';
 import {Modals} from './srs/screens/modals';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {RootStackParamList} from './srs/types';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {navigator} from './srs/navigator';
+import {FirstScreen} from './srs/screens/first-screen';
+import {Home} from './srs/screens/home';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const basicScreenOptions = {
+  headerShown: false,
+  gestureEnabled: false,
+};
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.safeAreaContainer}>
-      <View style={styles.container}>
-        <Button
-          title="Show modal"
-          onPress={() => {
-            showModal('test');
-          }}
-        />
-        <Modals />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <StatusBar />
+      <NavigationContainer ref={navigator}>
+        <Stack.Navigator screenOptions={basicScreenOptions}>
+          <Stack.Screen name="home" component={Home} />
+          <Stack.Screen name="firstScreen" component={FirstScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Modals />
+    </SafeAreaProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-});
 
 export default App;

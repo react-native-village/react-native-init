@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {Modal} from 'react-native';
 
-import {TestModal, TestModalProps} from '../components/modals/';
+import {TestModal, TestModalProps} from '../components/modals';
 import {app} from '../contexts';
 
 type Test = {
