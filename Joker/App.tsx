@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  SafeAreaView,
-  StyleSheet,
-  View,
-} from 'react-native';
+import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
 
 import {showModal} from './srs/helpers';
 import {Modals} from './srs/screens/modals';
@@ -14,10 +9,12 @@ const App = () => {
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <Button
-          title='Show modal'
-          onPress={()=>{showModal('test')}}
+          title="Show modal"
+          onPress={() => {
+            showModal('test');
+          }}
         />
-        <Modals/>
+        <Modals />
       </View>
     </SafeAreaView>
   );
@@ -25,7 +22,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
-    flex:1
+    flex: 1,
   },
   container: {
     flex: 1,

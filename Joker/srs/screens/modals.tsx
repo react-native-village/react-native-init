@@ -9,9 +9,7 @@ type Test = {
   type: 'test';
 } & TestModalProps;
 
-type ModalState =
-  | Test
-  | null;
+type ModalState = Test | null;
 
 export type ModalProps = {
   initialModal?: ModalState;
