@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: '16.17.1'
+  NODE_VERSION: '16.18.0 '
 
 jobs:
   test:
@@ -33,7 +33,6 @@ jobs:
       - name: Run linters
         run: |
           yarn lint
-          yarn prettier:check
 
   build:
     runs-on: ubuntu-latest
