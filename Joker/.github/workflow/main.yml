@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '16.17.1'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup node
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+      - uses: actions/cache@v2
+        with:
+         path: '**/node_modules'
+         key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run linters
+        run: |
+          yarn lint
+          yarn prettier:check
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+      - name: Setup node
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      # - name: Build applications
+      # - run: yarn build
