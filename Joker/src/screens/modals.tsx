@@ -2,8 +2,8 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {Modal} from 'react-native';
 
-import {TestModal, TestModalProps} from '../components/modals/';
-import {app} from '../contexts';
+import {TestModal, TestModalProps} from 'src/components/modals';
+import {app} from 'src/services';
 
 type Test = {
   type: 'test';
@@ -15,7 +15,7 @@ export type ModalProps = {
   initialModal?: ModalState;
 };
 
-export const Modals = ({initialModal = null}: ModalProps) => {
+export function Modals({initialModal = null}: ModalProps) {
   const [modal, setModal] = useState<ModalState>(initialModal);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ export const Modals = ({initialModal = null}: ModalProps) => {
       {entry}
     </Modal>
   );
-};
+}
