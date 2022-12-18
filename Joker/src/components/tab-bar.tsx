@@ -1,4 +1,3 @@
-// import {RouteProp} from '@react-navigation/native';
 import {BottomTabNavigationEventMap} from '@react-navigation/bottom-tabs';
 import {
   NavigationHelpers,
@@ -8,15 +7,13 @@ import {
 import React, {useCallback} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {IS_IOS} from '../variables';
 
 type TabbarProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   state: TabNavigationState<ParamListBase>;
 };
 export function TabBar(props: TabbarProps) {
-  const tabRoutes = props.state.routeNames;
-  const index = props.state.index;
+  const {index, routeNames} = props.state
   const insets = useSafeAreaInsets();
   const onPressTab = useCallback(
     (route: string) => {
@@ -26,8 +23,8 @@ export function TabBar(props: TabbarProps) {
   );
 
   return (
-    <View style={[styles.wrapper, {paddingBottom: Math.max(insets.bottom)}]}>
-      {tabRoutes.map((item, i) => (
+    <View style={[styles.wrapper, {paddingBottom: insets.bottom}]}>
+      {routeNames.map((item, i) => (
         <TouchableOpacity onPress={() => onPressTab(item)} key={item}>
           <View style={styles.tabBarItem}>
             <Text style={{color: index === i ? 'red' : '#000'}}>{item}</Text>
@@ -41,15 +38,15 @@ export function TabBar(props: TabbarProps) {
 const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
-    height: IS_IOS ? 80 : 60,
+    height: 70,
     backgroundColor: '#fff',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   tabBarItem: {
-    marginTop: IS_IOS ? 5 : 0,
-    height: IS_IOS ? 50 : 30,
+    marginTop: 5 ,
+    height: 50 ,
     justifyContent: 'center',
   },
 });

@@ -1,5 +1,4 @@
 import {Platform} from 'react-native';
-export const IS_IOS = Platform.OS === 'ios';
 export const LIGHT_TEXT_BASE_1 = '#2E312D';
 export const DARK_TEXT_BASE_1 = '#FFFFFF';
 

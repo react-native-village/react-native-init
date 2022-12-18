@@ -15,12 +15,9 @@ import {TabScreen5} from './tab-screen5';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
-const screenOption = {
-  title: 'lala',
-};
+
 
 export const screenOptions = ({
-  route,
 }: {
   route: RouteProp<RootStackParamList>;
   navigation: any;
@@ -29,17 +26,17 @@ export const screenOptions = ({
   headerStyle: {
     backgroundColor: 'transparent',
   },
-  headerTitle: () => <HomeScreenTitle route={route} />,
+  headerTitle: () => <HomeScreenTitle />,
 });
 
 export function Home() {
   return (
     <Tab.Navigator tabBar={props => <TabBar {...props} />}>
-      <Tab.Screen name="tab1" component={TabScreen1} options={screenOption} />
-      <Tab.Screen name="tab2" component={TabScreen2} options={screenOption} />
-      <Tab.Screen name="tab3" component={TabScreen3} options={screenOption} />
-      <Tab.Screen name="tab4" component={TabScreen4} options={screenOption} />
-      <Tab.Screen name="tab5" component={TabScreen5} options={screenOption} />
+      <Tab.Screen name="tab1" component={TabScreen1} options={screenOptions} />
+      <Tab.Screen name="tab2" component={TabScreen2} options={screenOptions} />
+      <Tab.Screen name="tab3" component={TabScreen3} options={screenOptions} />
+      <Tab.Screen name="tab4" component={TabScreen4} options={screenOptions} />
+      <Tab.Screen name="tab5" component={TabScreen5} options={screenOptions} />
     </Tab.Navigator>
   );
 }

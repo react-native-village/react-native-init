@@ -1,3 +1,4 @@
+
 export type RootStackParamList = {
   home: undefined;
   firstScreen: undefined;
@@ -7,3 +8,14 @@ export type RootStackParamList = {
   tab4: undefined;
   tab5: undefined;
 };
+
+// import { NavigatorScreenParams } from '@react-navigation/native';
+
+// export type TabParamList = {
+//   Home: undefined
+//   Personal: undefined
+// }
+// export type RootStackParamList = {
+//   home: NavigatorScreenParams<TabParamList>;
+//   firstScreen: undefined;
+// };
