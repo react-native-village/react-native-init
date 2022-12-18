@@ -1,11 +1,13 @@
 import React from 'react';
+
 import {Button, StyleSheet, View} from 'react-native';
-import {Modals} from './modals';
-import {showModal} from '../helpers';
-import { useTypedNavigation } from 'src/hooks';
+
+import {showModal} from 'src/helpers';
+import {useTypedNavigation} from 'src/hooks';
+import {LIGHT_BG_1} from 'src/variables';
 
 export function FirstScreen() {
-  const navigation = useTypedNavigation()
+  const navigation = useTypedNavigation();
 
   return (
     <View style={styles.container}>
@@ -17,21 +19,18 @@ export function FirstScreen() {
       />
       <Button
         title="go to tab"
-        onPress={() => {navigation.navigate('home',{screen:'tab1'})
+        onPress={() => {
+          navigation.navigate('home', {screen: 'tab1'});
         }}
       />
-      <Modals />
     </View>
   );
 }
 const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: LIGHT_BG_1,
   },
 });

@@ -1,12 +1,15 @@
 import React from 'react';
+
 import {
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import {RouteProp} from '@react-navigation/native';
-import {TabParamList} from '../types';
-import {HomeScreenTitle} from '../components/home-screen-title';
-import {TabBar} from '../components/tab-bar';
+
+import {HomeScreenTitle} from 'src/components/home-screen-title';
+import {TabBar} from 'src/components/tab-bar';
+import {TabParamList} from 'src/types';
+
 import {TabScreen1} from './tab-screen1';
 import {TabScreen2} from './tab-screen2';
 import {TabScreen3} from './tab-screen3';
@@ -15,10 +18,7 @@ import {TabScreen5} from './tab-screen5';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
-
-
-export const screenOptions = ({
-}: {
+export const screenOptions = ({}: {
   route: RouteProp<TabParamList>;
   navigation: any;
 }): BottomTabNavigationOptions => ({

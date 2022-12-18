@@ -7,11 +7,12 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {App} from 'src/app';
+import {Modals} from 'src/screens/modals';
 
 const httpLink = createHttpLink({
   uri: 'https://api.github.com/graphql',
@@ -37,7 +38,9 @@ export function AppWithProviders() {
     <GestureHandlerRootView style={styles.flexOne}>
       <SafeAreaProvider>
         <ApolloProvider client={client}>
+          <StatusBar />
           <App />
+          <Modals />
         </ApolloProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
