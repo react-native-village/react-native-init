@@ -1,10 +1,11 @@
 import React from 'react';
+
 import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
 
-import {showModal} from './src/helpers';
-import {Modals} from './src/screens/modals';
+import {showModal} from 'src/helpers';
+import {Modals} from 'src/screens/modals';
 
-const App = () => {
+export function App() {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
@@ -18,7 +19,7 @@ const App = () => {
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
@@ -28,8 +29,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
   },
 });
-
-export default App;
