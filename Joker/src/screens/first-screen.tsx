@@ -17,7 +17,7 @@ export function FirstScreen() {
       />
       <Button
         title="go to tab"
-        onPress={() => {navigation.navigate('tab3')
+        onPress={() => {navigation.navigate('home',{screen:'tab1'})
         }}
       />
       <Modals />
