@@ -15,7 +15,7 @@ export type ModalProps = {
   initialModal?: ModalState;
 };
 
-export const Modals = ({initialModal = null}: ModalProps) => {
+export function Modals({initialModal = null}: ModalProps) {
   const [modal, setModal] = useState<ModalState>(initialModal);
 
   useEffect(() => {
@@ -66,4 +66,4 @@ export const Modals = ({initialModal = null}: ModalProps) => {
       {entry}
     </Modal>
   );
-};
+}

@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/bottom-tabs';
 import {RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from '../types';
-import {HomeScreenTitle} from '../components/home-screen.title';
+import {HomeScreenTitle} from '../components/home-screen-title';
 import {TabBar} from '../components/tab-bar';
 import {TabScreen1} from './tab-screen1';
 import {TabScreen2} from './tab-screen2';
