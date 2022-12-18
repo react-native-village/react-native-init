@@ -2,17 +2,23 @@ import React from 'react';
 
 import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
 
-import {showModal} from 'src/helpers';
 import {Modals} from 'src/screens/modals';
+import {app} from 'src/services';
 
 export function App() {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <Button
-          title="Show modal"
+          title="Sign in"
           onPress={() => {
-            showModal('test');
+            app.githubAuth.authenticate();
+          }}
+        />
+        <Button
+          title="Sign out"
+          onPress={() => {
+            app.githubAuth.logout();
           }}
         />
         <Modals />
