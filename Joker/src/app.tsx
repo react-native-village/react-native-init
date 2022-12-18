@@ -1,39 +1,25 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
+import {navigator} from 'src/navigator';
+import {FirstScreen} from 'src/screens/first-screen';
+import {Home} from 'src/screens/home';
+import {RootStackParamList} from 'src/types';
 
-import {Modals} from 'src/screens/modals';
-import {app} from 'src/services';
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const basicScreenOptions = {
+  headerShown: false,
+  gestureEnabled: false,
+};
 
 export function App() {
   return (
-    <SafeAreaView style={styles.safeAreaContainer}>
-      <View style={styles.container}>
-        <Button
-          title="Sign in"
-          onPress={() => {
-            app.githubAuth.authenticate();
-          }}
-        />
-        <Button
-          title="Sign out"
-          onPress={() => {
-            app.githubAuth.logout();
-          }}
-        />
-        <Modals />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer ref={navigator}>
+      <Stack.Navigator screenOptions={basicScreenOptions}>
+        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="firstScreen" component={FirstScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
