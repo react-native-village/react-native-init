@@ -12,7 +12,6 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {App} from 'src/app';
-
 import {Modals} from 'src/screens/modals';
 
 const httpLink = createHttpLink({
