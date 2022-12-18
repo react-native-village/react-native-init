@@ -1,0 +1,63 @@
+{
+  "root": true,
+  "extends": ["@react-native-community", "prettier"],
+  "plugins": ["react", "react-hooks", "import"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-param-reassign": 0,
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "internal", "sibling"],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "builtin",
+                "position": "before"
+              },
+              {
+                "pattern": "src/**",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["react"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "sort-imports": [
+          "error",
+          {
+            "ignoreDeclarationSort": true
+          }
+        ],
+        "import/no-default-export": "error",
+        "react-native/no-unused-styles": 2,
+        "react-native/no-inline-styles": 2,
+        "react-native/no-color-literals": 2,
+        "import/prefer-default-export": 0
+      }
+    }
+  ],
+  "rules": {
+    "global-require": 1,
+    "no-param-reassign": [
+      2,
+      {"props": true, "ignorePropertyModificationsForRegex": ["^acc"]}
+    ],
+    "react-hooks/rules-of-hooks": 1,
+    "react-hooks/exhaustive-deps": 0,
+    "react/function-component-definition": [
+      1,
+      {"namedComponents": "function-declaration"}
+    ],
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/prefer-default-export": 1
+  }
+}
