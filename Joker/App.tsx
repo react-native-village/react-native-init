@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
 
-import {showModal} from './srs/helpers';
-import {Modals} from './srs/screens/modals';
+import {showModal} from './src/helpers';
+import {Modals} from './src/screens/modals';
 
 const App = () => {
   return (
