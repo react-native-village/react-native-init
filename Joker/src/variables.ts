@@ -1,4 +1,6 @@
-import {Platform} from 'react-native';
+import {GIT_HUB_AUTH_CLIENT_ID, GIT_HUB_AUTH_CLIENT_SECRET} from '@env';
+import {AuthConfiguration, prefetchConfiguration} from 'react-native-app-auth';
+
 export const LIGHT_TEXT_BASE_1 = '#2E312D';
 export const DARK_TEXT_BASE_1 = '#FFFFFF';
 
@@ -85,3 +87,18 @@ export const DARK_BG_9 = 'rgba(0, 0, 0, 0.6)';
 
 export const LIGHT_BG_10 = '#181C1A';
 export const DARK_BG_10 = '#181C1A';
+
+export const configGitHubAuth: AuthConfiguration = {
+  issuer: 'https://api.github.com/user',
+  redirectUrl: 'dapp.joker://',
+  clientId: GIT_HUB_AUTH_CLIENT_ID ?? '',
+  clientSecret: GIT_HUB_AUTH_CLIENT_SECRET,
+  scopes: ['admin', 'write:packages', 'workflow', 'user:email'],
+  additionalHeaders: {Accept: 'application/json'},
+  serviceConfiguration: {
+    authorizationEndpoint: 'https://github.com/login/oauth/authorize',
+    tokenEndpoint: 'https://github.com/login/oauth/access_token',
+    revocationEndpoint: `https://github.com/settings/connections/applications/${GIT_HUB_AUTH_CLIENT_ID}`,
+  },
+};
+prefetchConfiguration(configGitHubAuth);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import {useTypedNavigation} from '../hooks';
-
+import {app} from '../services';
 export function TabScreen1() {
   const naviagtion = useTypedNavigation();
   return (
@@ -12,6 +12,18 @@ export function TabScreen1() {
           naviagtion.navigate('firstScreen');
         }}
       />
+        <Button
+          title="Sign in"
+          onPress={() => {
+            app.githubAuth.authenticate();
+          }}
+        />
+        <Button
+          title="Sign out"
+          onPress={() => {
+            app.githubAuth.logout();
+          }}
+        />
     </View>
   );
 }

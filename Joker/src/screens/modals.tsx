@@ -2,8 +2,8 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {Modal} from 'react-native';
 
-import {TestModal, TestModalProps} from '../components/modals';
-import {app} from '../contexts';
+import {TestModal, TestModalProps} from 'src/components/modals';
+import {app} from 'src/services';
 
 type Test = {
   type: 'test';
