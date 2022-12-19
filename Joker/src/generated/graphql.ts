@@ -27283,9 +27283,9 @@ export enum WorkflowRunOrderField {
   CreatedAt = 'CREATED_AT',
 }
 
-export type Unnamed_1_QueryVariables = Exact<{[key: string]: never}>;
+export type User_Info_QueryQueryVariables = Exact<{[key: string]: never}>;
 
-export type Unnamed_1_Query = {
+export type User_Info_QueryQuery = {
   __typename?: 'Query';
   viewer: {
     __typename?: 'User';
@@ -27310,8 +27310,8 @@ export type Unnamed_1_Query = {
   };
 };
 
-export const Document = gql`
-  {
+export const User_Info_QueryDocument = gql`
+  query USER_INFO_QUERY {
     viewer {
       login
       avatarUrl
@@ -27339,35 +27339,56 @@ export const Document = gql`
 `;
 
 /**
- * __useQuery__
+ * __useUser_Info_QueryQuery__
  *
- * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
- * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useUser_Info_QueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUser_Info_QueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQuery({
+ * const { data, loading, error } = useUser_Info_QueryQuery({
  *   variables: {
  *   },
  * });
  */
-export function useQuery(
-  baseOptions?: Apollo.QueryHookOptions<Query, QueryVariables>,
+export function useUser_Info_QueryQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    User_Info_QueryQuery,
+    User_Info_QueryQueryVariables
+  >,
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<Query, QueryVariables>(Document, options);
+  return Apollo.useQuery<User_Info_QueryQuery, User_Info_QueryQueryVariables>(
+    User_Info_QueryDocument,
+    options,
+  );
 }
-export function useLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<Query, QueryVariables>,
+export function useUser_Info_QueryLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    User_Info_QueryQuery,
+    User_Info_QueryQueryVariables
+  >,
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<Query, QueryVariables>(Document, options);
+  return Apollo.useLazyQuery<
+    User_Info_QueryQuery,
+    User_Info_QueryQueryVariables
+  >(User_Info_QueryDocument, options);
 }
-export type QueryHookResult = ReturnType<typeof useQuery>;
-export type LazyQueryHookResult = ReturnType<typeof useLazyQuery>;
-export type QueryResult = Apollo.QueryResult<Query, QueryVariables>;
-export function refetchQuery(variables?: QueryVariables) {
-  return {query: Document, variables: variables};
+export type User_Info_QueryQueryHookResult = ReturnType<
+  typeof useUser_Info_QueryQuery
+>;
+export type User_Info_QueryLazyQueryHookResult = ReturnType<
+  typeof useUser_Info_QueryLazyQuery
+>;
+export type User_Info_QueryQueryResult = Apollo.QueryResult<
+  User_Info_QueryQuery,
+  User_Info_QueryQueryVariables
+>;
+export function refetchUser_Info_QueryQuery(
+  variables?: User_Info_QueryQueryVariables,
+) {
+  return {query: User_Info_QueryDocument, variables: variables};
 }
