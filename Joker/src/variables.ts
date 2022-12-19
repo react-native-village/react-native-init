@@ -88,6 +88,8 @@ export const DARK_BG_9 = 'rgba(0, 0, 0, 0.6)';
 export const LIGHT_BG_10 = '#181C1A';
 export const DARK_BG_10 = '#181C1A';
 
+export const githubApiGraphQL = 'https://api.github.com/graphql';
+
 export const configGitHubAuth: AuthConfiguration = {
   issuer: 'https://api.github.com/user',
   redirectUrl: 'dapp.joker://',
