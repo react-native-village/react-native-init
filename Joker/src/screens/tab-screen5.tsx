@@ -1,12 +1,11 @@
 import React from 'react';
 
-import {useQuery} from '@apollo/client';
 import {Button, Text, View} from 'react-native';
 
-import {USER_INFO_QUERY} from 'src/graphql/user-info.graphql';
+import {useUser_Info_QueryQuery} from 'src/generated/graphql';
 
 export function TabScreen5() {
-  const {data, refetch} = useQuery(USER_INFO_QUERY);
+  const {data, refetch, error, loading} = useUser_Info_QueryQuery();
 
   const onPressRefresh = () => {
     refetch();
@@ -16,6 +15,8 @@ export function TabScreen5() {
     <View>
       <Text>Request tests</Text>
       <Button onPress={onPressRefresh} title="Refresh" />
+      <Text>{error ? 'Error...' : ''}</Text>
+      <Text>{loading ? 'Loading...' : ''}</Text>
       <Text>{JSON.stringify(data)}</Text>
     </View>
   );
