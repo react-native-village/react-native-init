@@ -7,14 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "codegen": "graphql-codegen --config graphql.config.yaml --errors-only"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.2",
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
-    "@apollo/client": "^3.7.2",
-    "@react-native-async-storage/async-storage": "^1.17.11",
     "events": "^3.3.0",
     "graphql": "^16.6.0",
     "react": "18.1.0",
@@ -27,6 +28,9 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@graphql-codegen/cli": "^2.16.1",
+    "@graphql-codegen/typescript-operations": "^2.5.10",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@react-native-community/eslint-config": "^3.2.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/events": "^3.0.0",
@@ -37,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "babel-jest": "^26.6.3",
+    "babel-plugin-import-graphql": "^2.8.1",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.26.0",
