@@ -39,17 +39,11 @@ const authLink = setContext(async (_, {headers}) => {
 const client = new ApolloClient({
   link: ApolloLink.split(
     operation => operation.getContext().clientName === 'lenLink',
-    lenLink, //if above
+    lenLink,
     authLink.concat(httpLink),
   ),
   cache: new InMemoryCache(),
 });
-// useQ(QUERY, {variables, context: {clientName: 'endpoint2'}})
-
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
 
 export function AppWithProviders() {
   return (
