@@ -89,6 +89,7 @@ export const LIGHT_BG_10 = '#181C1A';
 export const DARK_BG_10 = '#181C1A';
 
 export const githubApiGraphQL = 'https://api.github.com/graphql';
+export const lensApiGraphQL = 'https://api.lens.dev';
 
 export const configGitHubAuth: AuthConfiguration = {
   issuer: 'https://api.github.com/user',
