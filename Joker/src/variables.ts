@@ -1,6 +1,8 @@
 import {GIT_HUB_AUTH_CLIENT_ID, GIT_HUB_AUTH_CLIENT_SECRET} from '@env';
 import {AuthConfiguration, prefetchConfiguration} from 'react-native-app-auth';
 
+export const TRANSPARENT = 'transparent';
+
 export const LIGHT_TEXT_BASE_1 = '#2E312D';
 export const DARK_TEXT_BASE_1 = '#FFFFFF';
 
