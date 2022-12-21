@@ -38,7 +38,7 @@ try {
 } catch {}
 
 const getStories = () => {
-  return [require('../stories/Text/Text.stories.tsx')];
+  return [require('../src/components/ui/text/text.stories.tsx')];
 };
 
 configure(getStories, module, false);

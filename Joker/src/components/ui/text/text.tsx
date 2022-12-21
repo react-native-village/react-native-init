@@ -83,44 +83,45 @@ export function Text({
     [children, i18n, i18params],
   );
 
-  return (
-    <>
-      {clean ? (
-        <RNText style={style} allowFontScaling={false} {...props}>
-          {children}
-        </RNText>
-      ) : (
-        <RNText
-          allowFontScaling={false}
-          style={[
-            t0 && StyleSheet.flatten([page.t0Style, style]),
-            t1 && StyleSheet.flatten([page.t1Style, style]),
-            t2 && StyleSheet.flatten([page.t2Style, style]),
-            t3 && StyleSheet.flatten([page.t3Style, style]),
-            t4 && StyleSheet.flatten([page.t4Style, style]),
-            t5 && StyleSheet.flatten([page.t5Style, style]),
-            t6 && StyleSheet.flatten([page.t6Style, style]),
-            t7 && StyleSheet.flatten([page.t7Style, style]),
-            t8 && StyleSheet.flatten([page.t8Style, style]),
-            t9 && StyleSheet.flatten([page.t9Style, style]),
-            t10 && StyleSheet.flatten([page.t10Style, style]),
-            t11 && StyleSheet.flatten([page.t11Style, style]),
-            t12 && StyleSheet.flatten([page.t12Style, style]),
-            t13 && StyleSheet.flatten([page.t13Style, style]),
-            t14 && StyleSheet.flatten([page.t14Style, style]),
-            t15 && StyleSheet.flatten([page.t15Style, style]),
-            t16 && StyleSheet.flatten([page.t16Style, style]),
-            t17 && StyleSheet.flatten([page.t17Style, style]),
-            u0 && StyleSheet.flatten([page.u0Style, style]),
-            !!color && {color: Color},
-            center && page.center,
-            right && page.right,
-          ]}
-          {...props}>
-          {value}
-        </RNText>
-      )}
-    </>
+  return clean ? (
+    <RNText
+      testID="clean-text"
+      style={style}
+      allowFontScaling={false}
+      {...props}>
+      {children}
+    </RNText>
+  ) : (
+    <RNText
+      testID="text"
+      allowFontScaling={false}
+      style={[
+        t0 && StyleSheet.flatten([page.t0Style, style]),
+        t1 && StyleSheet.flatten([page.t1Style, style]),
+        t2 && StyleSheet.flatten([page.t2Style, style]),
+        t3 && StyleSheet.flatten([page.t3Style, style]),
+        t4 && StyleSheet.flatten([page.t4Style, style]),
+        t5 && StyleSheet.flatten([page.t5Style, style]),
+        t6 && StyleSheet.flatten([page.t6Style, style]),
+        t7 && StyleSheet.flatten([page.t7Style, style]),
+        t8 && StyleSheet.flatten([page.t8Style, style]),
+        t9 && StyleSheet.flatten([page.t9Style, style]),
+        t10 && StyleSheet.flatten([page.t10Style, style]),
+        t11 && StyleSheet.flatten([page.t11Style, style]),
+        t12 && StyleSheet.flatten([page.t12Style, style]),
+        t13 && StyleSheet.flatten([page.t13Style, style]),
+        t14 && StyleSheet.flatten([page.t14Style, style]),
+        t15 && StyleSheet.flatten([page.t15Style, style]),
+        t16 && StyleSheet.flatten([page.t16Style, style]),
+        t17 && StyleSheet.flatten([page.t17Style, style]),
+        u0 && StyleSheet.flatten([page.u0Style, style]),
+        !!color && {color},
+        center && page.center,
+        right && page.right,
+      ]}
+      {...props}>
+      {value}
+    </RNText>
   );
 }
 
