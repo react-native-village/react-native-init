@@ -13,6 +13,7 @@
     "prestart": "yarn update-stories",
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "storybook": "start-storybook -p 6006"
+    "codegen": "graphql-codegen --config graphql.config.yaml --errors-only"
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",

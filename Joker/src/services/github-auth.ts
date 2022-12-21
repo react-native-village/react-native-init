@@ -6,7 +6,7 @@ import {authorize, revoke} from 'react-native-app-auth';
 import {captureException} from 'src/helpers';
 import {configGitHubAuth} from 'src/variables';
 
-const githubTokenKey = 'auth-github-access-token';
+export const githubTokenStorageKey = 'auth-github-access-token';
 
 export class GitHubAuth extends EventEmitter {
   access_token: string | undefined;
@@ -28,7 +28,7 @@ export class GitHubAuth extends EventEmitter {
       this.emit('auth-change-token', accessToken);
       this.emit('auth-success-with-token', accessToken);
 
-      await AsyncStorage.setItem(githubTokenKey, accessToken);
+      await AsyncStorage.setItem(githubTokenStorageKey, accessToken);
     } catch (error) {
       captureException(error);
       this.emit('auth-error', error);
@@ -37,7 +37,7 @@ export class GitHubAuth extends EventEmitter {
 
   async checkExistToken() {
     try {
-      const accessToken = await AsyncStorage.getItem(githubTokenKey);
+      const accessToken = await AsyncStorage.getItem(githubTokenStorageKey);
 
       if (accessToken === null) {
         this.emit('auth-check-token-error', 'No token found');

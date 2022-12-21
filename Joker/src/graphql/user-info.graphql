@@ -1,0 +1,38 @@
+query USER_INFO_QUERY {
+  viewer {
+    login
+    avatarUrl
+    name
+    status {
+      emoji
+      message
+    }
+    bio
+    followers {
+      totalCount
+    }
+    # Последние обновленые 10 репозиториев
+    repositories(
+      orderBy: {direction: DESC, field: UPDATED_AT}
+      first: 10
+      privacy: PUBLIC
+    ) {
+      nodes {
+        name
+        url
+      }
+    }
+    # POPULAR
+    #repositories(
+    #  orderBy: { direction: DESC, field: STARGAZERS }
+    #  first: 10
+    #  privacy: PUBLIC
+    #) {
+    #  nodes {
+    #    name
+    #    url
+    #  }
+    #}
+    #
+  }
+}

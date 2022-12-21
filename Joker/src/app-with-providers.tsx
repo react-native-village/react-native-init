@@ -13,13 +13,16 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {App} from 'src/app';
 import {Modals} from 'src/screens/modals';
+import {app} from 'src/services';
+
+import {githubApiGraphQL} from './variables';
 
 const httpLink = createHttpLink({
-  uri: 'https://api.github.com/graphql',
+  uri: githubApiGraphQL,
 });
 
-const authLink = setContext((_, {headers}) => {
-  const token = '';
+const authLink = setContext(async (_, {headers}) => {
+  const token = app.githubAuth.access_token;
   return {
     headers: {
       ...headers,
