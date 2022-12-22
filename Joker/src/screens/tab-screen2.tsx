@@ -1,37 +1,36 @@
 import React from 'react';
 
-import {gql, useQuery} from '@apollo/client';
-import {Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
-export const exploreProfiles = gql`
-  query ExploreProfiles {
-    exploreProfiles(request: {sortCriteria: MOST_FOLLOWERS}) {
-      items {
-        id
-        name
-        bio
-        handle
-        picture {
-          ... on MediaSet {
-            original {
-              url
-            }
-          }
-        }
-        stats {
-          totalFollowers
-        }
-      }
-    }
-  }
-`;
+import {useExploreProfilesQuery} from 'src/generated/graphql-lens';
+import {LIGHT_TEXT_RED_1} from 'src/variables';
 
 export function TabScreen2() {
-  const {loading, error, data} = useQuery(exploreProfiles, {
+  const {loading, error, data} = useExploreProfilesQuery({
     context: {clientName: 'lenLink'},
   });
   console.log(loading, error);
   console.log(data?.exploreProfiles.items[0].bio);
 
-  return <Text>{data?.exploreProfiles.items[0].bio}</Text>;
+  return (
+    <ScrollView>
+      {data?.exploreProfiles.items.map(item => {
+        return (
+          <>
+            <Text>{item.name}</Text>
+            <View style={styles.line} />
+          </>
+        );
+      })}
+    </ScrollView>
+  );
 }
+
+const styles = StyleSheet.create({
+  line: {
+    width: '100%',
+    height: 3,
+    backgroundColor: LIGHT_TEXT_RED_1,
+  },
+});
