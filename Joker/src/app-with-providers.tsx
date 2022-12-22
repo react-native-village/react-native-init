@@ -2,7 +2,9 @@ import React from 'react';
 
 import {
   ApolloClient,
+  ApolloLink,
   ApolloProvider,
+  HttpLink,
   InMemoryCache,
   createHttpLink,
 } from '@apollo/client';
@@ -14,11 +16,14 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {App} from 'src/app';
 import {Modals} from 'src/screens/modals';
 import {app} from 'src/services';
-
-import {githubApiGraphQL} from './variables';
+import {githubApiGraphQL, lensApiGraphQL} from 'src/variables';
 
 const httpLink = createHttpLink({
   uri: githubApiGraphQL,
+});
+
+const lenLink = new HttpLink({
+  uri: lensApiGraphQL,
 });
 
 const authLink = setContext(async (_, {headers}) => {
@@ -32,7 +37,11 @@ const authLink = setContext(async (_, {headers}) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  link: ApolloLink.split(
+    operation => operation.getContext().clientName === 'lenLink',
+    lenLink,
+    authLink.concat(httpLink),
+  ),
   cache: new InMemoryCache(),
 });
 

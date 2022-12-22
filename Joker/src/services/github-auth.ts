@@ -1,10 +1,30 @@
 import {EventEmitter} from 'events';
 
+import {GIT_HUB_AUTH_CLIENT_ID, GIT_HUB_AUTH_CLIENT_SECRET} from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {authorize, revoke} from 'react-native-app-auth';
+import {
+  AuthConfiguration,
+  authorize,
+  prefetchConfiguration,
+  revoke,
+} from 'react-native-app-auth';
 
 import {captureException} from 'src/helpers';
-import {configGitHubAuth} from 'src/variables';
+
+export const configGitHubAuth: AuthConfiguration = {
+  issuer: 'https://api.github.com/user',
+  redirectUrl: 'dapp.joker://',
+  clientId: GIT_HUB_AUTH_CLIENT_ID ?? '',
+  clientSecret: GIT_HUB_AUTH_CLIENT_SECRET,
+  scopes: ['admin', 'write:packages', 'workflow', 'user:email'],
+  additionalHeaders: {Accept: 'application/json'},
+  serviceConfiguration: {
+    authorizationEndpoint: 'https://github.com/login/oauth/authorize',
+    tokenEndpoint: 'https://github.com/login/oauth/access_token',
+    revocationEndpoint: `https://github.com/settings/connections/applications/${GIT_HUB_AUTH_CLIENT_ID}`,
+  },
+};
+prefetchConfiguration(configGitHubAuth);
 
 export const githubTokenStorageKey = 'auth-github-access-token';
 
