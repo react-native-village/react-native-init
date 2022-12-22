@@ -17,7 +17,7 @@ const config: CodegenConfig = {
       schema: {
         [githubApiGraphQL]: {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer <TOKEN_CHECK_README_FOR_MORE_INFO>',
           },
         },
       },
