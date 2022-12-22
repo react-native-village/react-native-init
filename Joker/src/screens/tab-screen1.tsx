@@ -2,16 +2,16 @@ import React from 'react';
 
 import {Button, StyleSheet, View} from 'react-native';
 
-import {Color} from 'src/colors';
 import {Text} from 'src/components/ui';
 import {useTypedNavigation} from 'src/hooks';
+import useTheme from 'src/hooks/use-theme';
 import {app} from 'src/services';
-import {LIGHT_BG_1} from 'src/variables';
 
 export function TabScreen1() {
+  const colors = useTheme();
   const naviagtion = useTypedNavigation();
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: colors.bg1}]}>
       <Button
         title="go to first screen for modal"
         onPress={() => {
@@ -30,8 +30,29 @@ export function TabScreen1() {
           app.githubAuth.logout();
         }}
       />
-      <View style={styles.test}>
-        <Text color={Color.graphicGreen1}>Test theme hook</Text>
+      <View style={[styles.test, {backgroundColor: colors.graphicBase1}]}>
+        <Text color={colors.textGreen1}>Test theme hook</Text>
+        <Text color={colors.textYellow1}>Choose Theme</Text>
+        <Button
+          title={'Dark'}
+          onPress={() => {
+            app.emit('toggleTypeScheme', 'custom');
+            app.emit('toggleTheme', 'dark');
+          }}
+        />
+        <Button
+          title={'Light'}
+          onPress={() => {
+            app.emit('toggleTypeScheme', 'custom');
+            app.emit('toggleTheme', 'light');
+          }}
+        />
+        <Button
+          title={'System'}
+          onPress={() => {
+            app.emit('toggleTypeScheme', 'system');
+          }}
+        />
       </View>
     </View>
   );
@@ -42,12 +63,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: LIGHT_BG_1,
   },
   test: {
     width: 200,
     height: 200,
-    backgroundColor: Color.graphicBase1,
     alignItems: 'center',
     justifyContent: 'center',
   },
