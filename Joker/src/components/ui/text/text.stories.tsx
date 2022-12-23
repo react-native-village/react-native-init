@@ -11,12 +11,12 @@ export default {
   component: Text,
 } as ComponentMeta<typeof Text>;
 
-export function Basic(args: any) {
+export function TextStorie(args: any) {
   return <Text {...args} />;
 }
 
-Basic.args = {
+TextStorie.args = {
   i18n: I18N.TextStorybookBase,
-  color: 'white',
+  color: 'black',
   t0: true,
 };
