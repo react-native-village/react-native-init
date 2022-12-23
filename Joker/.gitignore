@@ -64,3 +64,4 @@ buck-out/
 /vendor/bundle/
 
 .env
+.jest-test-results.json
