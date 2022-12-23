@@ -1,4 +1,4 @@
-query USER_INFO_QUERY {
+query UserInfo {
   viewer {
     login
     avatarUrl
