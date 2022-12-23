@@ -2,14 +2,23 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {Modal} from 'react-native';
 
-import {TestModal, TestModalProps} from 'src/components/modals';
+import {
+  LoadingModal,
+  LoadingModalProps,
+  TestModal,
+  TestModalProps,
+} from 'src/components/modals';
 import {app} from 'src/services';
 
 type Test = {
   type: 'test';
 } & TestModalProps;
 
-type ModalState = Test | null;
+type Loading = {
+  type: 'loading';
+} & LoadingModalProps;
+
+type ModalState = Test | Loading | null;
 
 export type ModalProps = {
   initialModal?: ModalState;
@@ -35,11 +44,9 @@ export function Modals({initialModal = null}: ModalProps) {
     };
 
     app.on('modal', showModal);
-    app.on('showModal', showModal);
     app.on('hideModal', hideModal);
     return () => {
       app.off('modal', showModal);
-      app.off('showModal', showModal);
       app.off('hideModal', hideModal);
     };
   }, []);
@@ -54,6 +61,8 @@ export function Modals({initialModal = null}: ModalProps) {
       return null;
     }
     switch (modal.type) {
+      case 'loading':
+        return <LoadingModal text={modal.text} />;
       case 'test':
         return <TestModal onClose={onClose} />;
       default:
