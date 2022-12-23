@@ -1,3 +1,4 @@
+import {Platform} from 'react-native';
 export const TRANSPARENT = 'transparent';
 
 export const LIGHT_TEXT_BASE_1 = '#2E312D';
@@ -86,6 +87,8 @@ export const DARK_BG_9 = 'rgba(0, 0, 0, 0.6)';
 
 export const LIGHT_BG_10 = '#181C1A';
 export const DARK_BG_10 = '#181C1A';
+
+export const IS_ANDROID = Platform.OS === 'android';
 
 export const githubApiGraphQL = 'https://api.github.com/graphql';
 export const lensApiGraphQL = 'https://api.lens.dev';
