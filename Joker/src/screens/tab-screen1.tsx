@@ -3,6 +3,7 @@ import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 
 import {Text} from 'src/components/ui';
+import {showLoadingWithText} from 'src/helpers';
 import {useTypedNavigation} from 'src/hooks';
 import useTheme from 'src/hooks/use-theme';
 import {app} from 'src/services';
@@ -54,6 +55,10 @@ export function TabScreen1() {
           }}
         />
       </View>
+      <Button
+        title={'show modal'}
+        onPress={() => showLoadingWithText('Test modal')}
+      />
     </View>
   );
 }
