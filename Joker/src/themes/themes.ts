@@ -60,9 +60,9 @@ import {
   TRANSPARENT,
 } from 'src/variables';
 
-import {Theme} from './types';
+import {ColorTheme, Theme} from './theme-interface';
 
-export const LightTheme: Theme = {
+const LIGHT_COLOR_THEME: ColorTheme = {
   transparent: TRANSPARENT,
   textBase1: LIGHT_TEXT_BASE_1,
   textBase2: LIGHT_TEXT_BASE_2,
@@ -95,7 +95,14 @@ export const LightTheme: Theme = {
   graphicSecond4: LIGHT_GRAPHIC_SECOND_4,
 };
 
-export const DarkTheme: Theme = {
+export const LIGHT_THEME_ID = 'light';
+
+export const LIGHT_THEME: Theme = {
+  id: LIGHT_THEME_ID,
+  color: LIGHT_COLOR_THEME,
+};
+
+export const DARK_COLOR_THEME: ColorTheme = {
   transparent: TRANSPARENT,
   textBase1: DARK_TEXT_BASE_1,
   textBase2: DARK_TEXT_BASE_2,
@@ -126,4 +133,11 @@ export const DarkTheme: Theme = {
   graphicSecond2: DARK_GRAPHIC_SECOND_2,
   graphicSecond3: DARK_GRAPHIC_SECOND_3,
   graphicSecond4: DARK_GRAPHIC_SECOND_4,
+};
+
+export const DARK_THEME_ID = 'dark';
+
+export const DARK_THEME: Theme = {
+  id: DARK_THEME_ID,
+  color: DARK_COLOR_THEME,
 };
