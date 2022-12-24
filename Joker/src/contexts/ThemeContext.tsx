@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import React, {createContext, memo, useEffect, useMemo, useState} from 'react';
 
 import {useColorScheme} from 'react-native';
 
@@ -36,27 +30,38 @@ interface Props {
 }
 
 export const ThemeProvider = memo<Props>(props => {
-  const sysTheme = useColorScheme();
-  const sysThemeResult = () => {
-    if (sysTheme === DARK_THEME_ID) return DARK_THEME;
+  const themeHook = useColorScheme();
+  const themeResult = useMemo(() => {
+    if (themeHook === DARK_THEME_ID) return DARK_THEME;
     else return LIGHT_THEME;
-  };
-  const [theme, setTheme] = useState<Theme>(/*props.initial*/ sysThemeResult);
+  }, [themeHook]);
+  const [theme, setTheme] = useState<Theme>(/*props.initial*/ themeResult);
+  const [systemTheme, setSystemTheme] = useState<boolean>(true);
 
-  const LightTheme = () => setTheme(LIGHT_THEME);
-  const DarkTheme = () => setTheme(DARK_THEME);
-  const SystemTheme = useCallback(() => {
-    setTheme(sysThemeResult);
-  }, [sysTheme]);
+  const onLightTheme = () => {
+    setTheme(LIGHT_THEME);
+    setSystemTheme(false);
+  };
+  const onDarkTheme = () => {
+    setTheme(DARK_THEME);
+    setSystemTheme(false);
+  };
+  const onSystemTheme = () => setSystemTheme(true);
+
   const MemoizedValue = useMemo(() => {
     const value: ProvidedValue = {
       theme,
-      lightTheme: LightTheme,
-      darkTheme: DarkTheme,
-      systemTheme: SystemTheme,
+      lightTheme: onLightTheme,
+      darkTheme: onDarkTheme,
+      systemTheme: onSystemTheme,
     };
     return value;
-  }, [theme, SystemTheme]);
+  }, [theme, systemTheme]);
+
+  useEffect(() => {
+    systemTheme && setTheme(themeResult);
+  }, [systemTheme, themeResult]);
+
   return (
     <ThemeContext.Provider value={MemoizedValue}>
       {props.children}
