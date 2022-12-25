@@ -2,9 +2,15 @@ import React, {useState} from 'react';
 
 import {Button as RNButton, StyleSheet, View} from 'react-native';
 
-import {Button, ButtonSize, ButtonVariant, Text} from 'src/components/ui';
-import {Checkbox} from 'src/components/ui/checkbox';
-import {CustomHeader} from 'src/components/ui/custom-header';
+import {
+  Button,
+  ButtonSize,
+  ButtonVariant,
+  Checkbox,
+  CustomHeader,
+  ErrorText,
+  Text,
+} from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
 import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
@@ -44,7 +50,7 @@ export function TabScreen1() {
         }}
       />
       <View style={styles.test}>
-        <Text color={color.textBase1}>Test theme hook</Text>
+        <Text color={color.textBase2}>Test theme hook</Text>
         <Text color={color.textYellow1}>Choose Theme</Text>
         <RNButton title={'Dark'} onPress={darkTheme} />
         <RNButton title={'Light'} onPress={lightTheme} />
@@ -57,6 +63,9 @@ export function TabScreen1() {
           </Text>
         </Checkbox>
       </View>
+      <ErrorText e3 style={styles.errorText}>
+        This is error test text. AAA
+      </ErrorText>
       <Button
         testID={'tab1_show_modal'}
         variant={ButtonVariant.second}
@@ -81,7 +90,6 @@ const createStyles = (color: ColorTheme) => {
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'center',
-      backgroundColor: color.graphicBase1,
       marginBottom: 20,
     },
     button: {
@@ -98,6 +106,10 @@ const createStyles = (color: ColorTheme) => {
       color: color.textBase2,
       marginHorizontal: 12,
       marginBottom: 4,
+    },
+    errorText: {
+      alignSelf: 'center',
+      marginBottom: 14,
     },
   });
   return styles;
