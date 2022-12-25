@@ -1,12 +1,17 @@
 import * as React from 'react';
 
 import {
+  ColorValue,
+  Platform,
   Text as RNText,
   TextProps as RNTextProps,
   StyleProp,
   StyleSheet,
   ViewStyle,
 } from 'react-native';
+
+import {useThemeObject} from 'src/hooks';
+import {ColorTheme, FontT} from 'src/types';
 
 //will be changed to i18next
 /*export type TextValue =
@@ -37,13 +42,13 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   clean?: boolean;
   center?: boolean;
   right?: boolean;
-  color?: string;
+  color?: ColorValue;
   style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 };
 
 export function Text({
-  /* t0,
+  t0,
   t1,
   t2,
   t3,
@@ -60,7 +65,7 @@ export function Text({
   t14,
   t15,
   t16,
-  t17, */
+  t17,
   u0,
   style,
   children = undefined,
@@ -70,6 +75,7 @@ export function Text({
   color,
   ...props
 }: TextProps) {
+  const styles = useThemeObject(createStyles);
   ////will be changed to i18next
   /*const value = useMemo(
     () => (typeof i18n !== 'undefined' ? getText(i18n, i18params) : children),
@@ -88,29 +94,29 @@ export function Text({
           allowFontScaling={false}
           style={[
             //u
-            /* t0 && StyleSheet.flatten([page.t0Style, style]),
-            t1 && StyleSheet.flatten([page.t1Style, style]),
-            t2 && StyleSheet.flatten([page.t2Style, style]),
-            t3 && StyleSheet.flatten([page.t3Style, style]),
-            t4 && StyleSheet.flatten([page.t4Style, style]),
-            t5 && StyleSheet.flatten([page.t5Style, style]),
-            t6 && StyleSheet.flatten([page.t6Style, style]),
-            t7 && StyleSheet.flatten([page.t7Style, style]),
-            t8 && StyleSheet.flatten([page.t8Style, style]),
-            t9 && StyleSheet.flatten([page.t9Style, style]),
-            t10 && StyleSheet.flatten([page.t10Style, style]),
-            t11 && StyleSheet.flatten([page.t11Style, style]),
-            t12 && StyleSheet.flatten([page.t12Style, style]),
-            t13 && StyleSheet.flatten([page.t13Style, style]),
-            t14 && StyleSheet.flatten([page.t14Style, style]),
-            t15 && StyleSheet.flatten([page.t15Style, style]),
-            t16 && StyleSheet.flatten([page.t16Style, style]),
-            t17 && StyleSheet.flatten([page.t17Style, style]), */
-            u0 && StyleSheet.flatten([page.u0Style, style]),
+            t0 && StyleSheet.flatten([styles.t0Style, style]),
+            t1 && StyleSheet.flatten([styles.t1Style, style]),
+            t2 && StyleSheet.flatten([styles.t2Style, style]),
+            t3 && StyleSheet.flatten([styles.t3Style, style]),
+            t4 && StyleSheet.flatten([styles.t4Style, style]),
+            t5 && StyleSheet.flatten([styles.t5Style, style]),
+            t6 && StyleSheet.flatten([styles.t6Style, style]),
+            t7 && StyleSheet.flatten([styles.t7Style, style]),
+            t8 && StyleSheet.flatten([styles.t8Style, style]),
+            t9 && StyleSheet.flatten([styles.t9Style, style]),
+            t10 && StyleSheet.flatten([styles.t10Style, style]),
+            t11 && StyleSheet.flatten([styles.t11Style, style]),
+            t12 && StyleSheet.flatten([styles.t12Style, style]),
+            t13 && StyleSheet.flatten([styles.t13Style, style]),
+            t14 && StyleSheet.flatten([styles.t14Style, style]),
+            t15 && StyleSheet.flatten([styles.t15Style, style]),
+            t16 && StyleSheet.flatten([styles.t16Style, style]),
+            t17 && StyleSheet.flatten([styles.t17Style, style]),
+            u0 && StyleSheet.flatten([styles.u0Style, style]),
             !!color && {color: color},
             /* !!color && {color: getColor(color as Color)}, */
-            center && page.center,
-            right && page.right,
+            center && styles.center,
+            right && styles.right,
           ]}
           {...props}>
           {children}
@@ -120,7 +126,7 @@ export function Text({
   );
 }
 //Will be implemented later
-/*
+
 const sfProTextRegular400: FontT = Platform.select({
   ios: {
     fontFamily: 'SF Pro Display',
@@ -180,136 +186,137 @@ const sfProTextBold700: FontT = Platform.select({
     fontFamily: 'SF-ProText-Bold',
   },
 });
- */
-const page = StyleSheet.create({
-  center: {
-    textAlign: 'center',
-  },
-  right: {
-    textAlign: 'right',
-  },
-  u0Style: {
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 36,
-    lineHeight: 43,
-    letterSpacing: 0.38,
-  },
-  //Will be implemented later
-  /* 
-  t0Style: {
-    fontFamily: 'ElMessiri-Bold',
-    fontStyle: 'normal',
-    fontSize: 34,
-    lineHeight: 46,
-    color: color.textBase1,
-  },
-  t1Style: {
-    fontFamily: 'SF Pro Display',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    fontSize: 34,
-    lineHeight: 46,
-    color: color.textBase1,
-  },
-  t2Style: {
-    fontFamily: 'ElMessiri-Bold',
-    fontStyle: 'normal',
-    fontSize: 34,
-    lineHeight: 46,
-    color: color.textBase1,
-  },
-  t3Style: {
-    fontFamily: 'SF Pro Display',
-    ...sfProDisplayBold700,
-    fontStyle: 'normal',
-    fontSize: 28,
-    lineHeight: 38,
-    color: color.textBase1,
-  },
-  t4Style: {
-    fontFamily: 'ElMessiri-Bold',
-    fontStyle: 'normal',
-    fontSize: 28,
-    lineHeight: 38,
-    color: color.textBase1,
-  },
-  t5Style: {
-    ...sfProDisplayBold700,
-    fontSize: 22,
-    lineHeight: 30,
-    color: color.textBase1,
-  },
-  t6Style: {
-    ...sfProDisplaySemibold600,
-    fontSize: 22,
-    lineHeight: 30,
-    color: color.textBase1,
-  },
-  t7Style: {
-    ...sfProTextBold700,
-    fontSize: 18,
-    lineHeight: 24,
-    color: color.textBase1,
-  },
-  t8Style: {
-    ...sfProTextSemibold600,
-    fontSize: 18,
-    lineHeight: 24,
-    color: color.textBase1,
-  },
-  t9Style: {
-    ...sfProDisplayBold700,
-    fontSize: 16,
-    lineHeight: 22,
-    color: color.textBase1,
-  },
-  t10Style: {
-    ...sfProDisplaySemibold600,
-    fontSize: 16,
-    lineHeight: 22,
-    color: color.textBase1,
-  },
-  t11Style: {
-    ...sfProTextRegular400,
-    fontSize: 16,
-    lineHeight: 22,
-    color: color.textBase1,
-  },
-  t12Style: {
-    ...sfProDisplayBold700,
-    fontSize: 14,
-    lineHeight: 18,
-    color: color.textBase1,
-  },
-  t13Style: {
-    ...sfProDisplaySemibold600,
-    fontSize: 14,
-    lineHeight: 18,
-    color: color.textBase1,
-  },
-  t14Style: {
-    ...sfProTextRegular400,
-    fontSize: 14,
-    lineHeight: 18,
-    color: color.textBase1,
-  },
-  t15Style: {
-    ...sfProTextRegular400,
-    fontSize: 12,
-    lineHeight: 16,
-    color: color.textBase1,
-  },
-  t16Style: {
-    ...sfProTextBold700,
-    fontSize: 10,
-    lineHeight: 12,
-    color: color.textBase1,
-  },
-  t17Style: {
-    ...sfProTextMedium500,
-    fontSize: 10,
-    lineHeight: 12,
-    color: color.textBase1,
-  }, */
-});
+
+const createStyles = (color: ColorTheme) => {
+  const styles = StyleSheet.create({
+    center: {
+      textAlign: 'center',
+    },
+    right: {
+      textAlign: 'right',
+    },
+    u0Style: {
+      fontStyle: 'normal',
+      fontWeight: '500',
+      fontSize: 36,
+      lineHeight: 43,
+      letterSpacing: 0.38,
+    },
+    t0Style: {
+      fontFamily: 'ElMessiri-Bold',
+      fontStyle: 'normal',
+      fontSize: 34,
+      lineHeight: 46,
+      color: color.textBase1,
+    },
+    t1Style: {
+      fontFamily: 'SF Pro Display',
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: 34,
+      lineHeight: 46,
+      color: color.textBase1,
+    },
+    t2Style: {
+      fontFamily: 'ElMessiri-Bold',
+      fontStyle: 'normal',
+      fontSize: 34,
+      lineHeight: 46,
+      color: color.textBase1,
+    },
+    t3Style: {
+      fontFamily: 'SF Pro Display',
+      ...sfProDisplayBold700,
+      fontStyle: 'normal',
+      fontSize: 28,
+      lineHeight: 38,
+      color: color.textBase1,
+    },
+    t4Style: {
+      fontFamily: 'ElMessiri-Bold',
+      fontStyle: 'normal',
+      fontSize: 28,
+      lineHeight: 38,
+      color: color.textBase1,
+    },
+    t5Style: {
+      ...sfProDisplayBold700,
+      fontSize: 22,
+      lineHeight: 30,
+      color: color.textBase1,
+    },
+    t6Style: {
+      ...sfProDisplaySemibold600,
+      fontSize: 22,
+      lineHeight: 30,
+      color: color.textBase1,
+    },
+    t7Style: {
+      ...sfProTextBold700,
+      fontSize: 18,
+      lineHeight: 24,
+      color: color.textBase1,
+    },
+    t8Style: {
+      ...sfProTextSemibold600,
+      fontSize: 18,
+      lineHeight: 24,
+      color: color.textBase1,
+    },
+    t9Style: {
+      ...sfProDisplayBold700,
+      fontSize: 16,
+      lineHeight: 22,
+      color: color.textBase1,
+    },
+    t10Style: {
+      ...sfProDisplaySemibold600,
+      fontSize: 16,
+      lineHeight: 22,
+      color: color.textBase1,
+    },
+    t11Style: {
+      ...sfProTextRegular400,
+      fontSize: 16,
+      lineHeight: 22,
+      color: color.textBase1,
+    },
+    t12Style: {
+      ...sfProDisplayBold700,
+      fontSize: 14,
+      lineHeight: 18,
+      color: color.textBase1,
+    },
+    t13Style: {
+      ...sfProDisplaySemibold600,
+      fontSize: 14,
+      lineHeight: 18,
+      color: color.textBase1,
+    },
+    t14Style: {
+      ...sfProTextRegular400,
+      fontSize: 14,
+      lineHeight: 18,
+      color: color.textBase1,
+    },
+    t15Style: {
+      ...sfProTextRegular400,
+      fontSize: 12,
+      lineHeight: 16,
+      color: color.textBase1,
+    },
+    t16Style: {
+      ...sfProTextBold700,
+      fontSize: 10,
+      lineHeight: 12,
+      color: color.textBase1,
+    },
+    t17Style: {
+      ...sfProTextMedium500,
+      fontSize: 10,
+      lineHeight: 12,
+      color: color.textBase1,
+    },
+  });
+  return styles;
+};
