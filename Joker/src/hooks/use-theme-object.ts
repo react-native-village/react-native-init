@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 
-import {ColorTheme} from 'src/themes';
+import {ColorTheme} from 'src/types';
 
 import {useTheme} from './use-theme';
 

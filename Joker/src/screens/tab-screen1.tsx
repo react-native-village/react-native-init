@@ -4,10 +4,9 @@ import {Button, StyleSheet, View} from 'react-native';
 
 import {Text} from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
-import {useThemeObject, useTypedNavigation} from 'src/hooks';
-import {useTheme} from 'src/hooks/use-theme';
+import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
-import {ColorTheme} from 'src/themes';
+import {ColorTheme} from 'src/types';
 
 export function TabScreen1() {
   const {lightTheme, darkTheme, systemTheme} = useTheme();

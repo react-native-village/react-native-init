@@ -2,7 +2,8 @@ import React, {createContext, memo, useEffect, useMemo, useState} from 'react';
 
 import {useColorScheme} from 'react-native';
 
-import {DARK_THEME, DARK_THEME_ID, LIGHT_THEME, Theme} from 'src/themes';
+import {DARK_THEME, DARK_THEME_ID, LIGHT_THEME} from 'src/themes';
+import {Theme} from 'src/types';
 
 interface ProvidedValue {
   theme: Theme;

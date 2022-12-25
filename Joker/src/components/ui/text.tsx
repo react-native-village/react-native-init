@@ -8,9 +8,6 @@ import {
   ViewStyle,
 } from 'react-native';
 
-/* import {Color, getColor} from 'src/colors'; */
-import {ColorType} from 'src/types';
-
 //will be changed to i18next
 /*export type TextValue =
   | {children: React.ReactNode; i18n?: undefined; i18params?: undefined}
@@ -40,7 +37,7 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   clean?: boolean;
   center?: boolean;
   right?: boolean;
-  color?: ColorType;
+  color?: string;
   style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 };
@@ -110,7 +107,7 @@ export function Text({
             t16 && StyleSheet.flatten([page.t16Style, style]),
             t17 && StyleSheet.flatten([page.t17Style, style]), */
             u0 && StyleSheet.flatten([page.u0Style, style]),
-            {color: color},
+            !!color && {color: color},
             /* !!color && {color: getColor(color as Color)}, */
             center && page.center,
             right && page.right,
@@ -205,7 +202,7 @@ const page = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 34,
     lineHeight: 46,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t1Style: {
     fontFamily: 'SF Pro Display',
@@ -213,14 +210,14 @@ const page = StyleSheet.create({
     fontWeight: '700',
     fontSize: 34,
     lineHeight: 46,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t2Style: {
     fontFamily: 'ElMessiri-Bold',
     fontStyle: 'normal',
     fontSize: 34,
     lineHeight: 46,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t3Style: {
     fontFamily: 'SF Pro Display',
@@ -228,91 +225,91 @@ const page = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 28,
     lineHeight: 38,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t4Style: {
     fontFamily: 'ElMessiri-Bold',
     fontStyle: 'normal',
     fontSize: 28,
     lineHeight: 38,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t5Style: {
     ...sfProDisplayBold700,
     fontSize: 22,
     lineHeight: 30,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t6Style: {
     ...sfProDisplaySemibold600,
     fontSize: 22,
     lineHeight: 30,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t7Style: {
     ...sfProTextBold700,
     fontSize: 18,
     lineHeight: 24,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t8Style: {
     ...sfProTextSemibold600,
     fontSize: 18,
     lineHeight: 24,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t9Style: {
     ...sfProDisplayBold700,
     fontSize: 16,
     lineHeight: 22,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t10Style: {
     ...sfProDisplaySemibold600,
     fontSize: 16,
     lineHeight: 22,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t11Style: {
     ...sfProTextRegular400,
     fontSize: 16,
     lineHeight: 22,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t12Style: {
     ...sfProDisplayBold700,
     fontSize: 14,
     lineHeight: 18,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t13Style: {
     ...sfProDisplaySemibold600,
     fontSize: 14,
     lineHeight: 18,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t14Style: {
     ...sfProTextRegular400,
     fontSize: 14,
     lineHeight: 18,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t15Style: {
     ...sfProTextRegular400,
     fontSize: 12,
     lineHeight: 16,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t16Style: {
     ...sfProTextBold700,
     fontSize: 10,
     lineHeight: 12,
-    color: Color.textBase1,
+    color: color.textBase1,
   },
   t17Style: {
     ...sfProTextMedium500,
     fontSize: 10,
     lineHeight: 12,
-    color: Color.textBase1,
+    color: color.textBase1,
   }, */
 });
