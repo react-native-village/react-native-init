@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {Button, StyleSheet, View} from 'react-native';
+import {Button as RNButton, StyleSheet, View} from 'react-native';
 
-import {Text} from 'src/components/ui';
+import {Button, ButtonSize, ButtonVariant, Text} from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
 import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
@@ -15,19 +15,19 @@ export function TabScreen1() {
   const naviagtion = useTypedNavigation();
   return (
     <View style={styles.container}>
-      <Button
+      <RNButton
         title="go to first screen for modal"
         onPress={() => {
           naviagtion.navigate('firstScreen');
         }}
       />
-      <Button
+      <RNButton
         title="Sign in"
         onPress={() => {
           app.githubAuth.authenticate();
         }}
       />
-      <Button
+      <RNButton
         title="Sign out"
         onPress={() => {
           app.githubAuth.logout();
@@ -36,12 +36,17 @@ export function TabScreen1() {
       <View style={styles.test}>
         <Text color={color.textBase1}>Test theme hook</Text>
         <Text color={color.textYellow1}>Choose Theme</Text>
-        <Button title={'Dark'} onPress={darkTheme} />
-        <Button title={'Light'} onPress={lightTheme} />
-        <Button title={'System'} onPress={systemTheme} />
+        <RNButton title={'Dark'} onPress={darkTheme} />
+        <RNButton title={'Light'} onPress={lightTheme} />
+        <RNButton title={'System'} onPress={systemTheme} />
       </View>
+
       <Button
-        title={'show modal'}
+        testID={'tab1_show_modal'}
+        variant={ButtonVariant.second}
+        title={'Show Modal'}
+        style={styles.button}
+        size={ButtonSize.large}
         onPress={() => showLoadingWithText('Test modal')}
       />
     </View>
@@ -62,6 +67,11 @@ const createStyles = (color: ColorTheme) => {
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: color.graphicBase2,
+      marginBottom: 20,
+    },
+    button: {
+      marginBottom: 16,
+      width: 300,
     },
   });
   return styles;
