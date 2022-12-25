@@ -1,14 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {Button as RNButton, StyleSheet, View} from 'react-native';
 
-import {
-  Button,
-  ButtonSize,
-  ButtonVariant,
-  IconButton,
-  Text,
-} from 'src/components/ui';
+import {Button, ButtonSize, ButtonVariant, Text} from 'src/components/ui';
+import {Checkbox} from 'src/components/ui/checkbox';
 import {showLoadingWithText} from 'src/helpers';
 import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
@@ -19,6 +14,7 @@ export function TabScreen1() {
   const {color} = useTheme().theme;
   const styles = useThemeObject(createStyles);
   const naviagtion = useTypedNavigation();
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <View style={styles.container}>
       <RNButton
@@ -56,11 +52,11 @@ export function TabScreen1() {
         onPress={() => showLoadingWithText('Test modal')}
       />
 
-      <IconButton onPress={() => console.log('Press icon button')}>
-        <Text u0 color={color.textBase1}>
-          2
+      <Checkbox value={isChecked} onPress={() => setIsChecked(!isChecked)}>
+        <Text t13 style={styles.agreeText}>
+          Test checkbox
         </Text>
-      </IconButton>
+      </Checkbox>
     </View>
   );
 }
@@ -84,6 +80,11 @@ const createStyles = (color: ColorTheme) => {
     button: {
       marginBottom: 16,
       width: 300,
+    },
+    agreeText: {
+      color: color.textBase2,
+      marginLeft: 12,
+      marginBottom: 4,
     },
   });
   return styles;
