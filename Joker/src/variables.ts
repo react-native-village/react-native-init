@@ -90,5 +90,7 @@ export const DARK_BG_10 = '#181C1A';
 
 export const IS_ANDROID = Platform.OS === 'android';
 
+export const DEFAULT_HITSLOP = {top: 10, bottom: 10, left: 10, right: 10};
+
 export const githubApiGraphQL = 'https://api.github.com/graphql';
 export const lensApiGraphQL = 'https://api.lens.dev';
