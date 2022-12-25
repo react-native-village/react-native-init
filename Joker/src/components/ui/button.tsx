@@ -14,12 +14,21 @@ import {
 import {useTheme, useThemeObject} from 'src/hooks';
 import {ColorTheme} from 'src/types';
 
+import {Icon, IconProps} from './icon';
 import {Text} from './text';
 
 //will be changed to i18next
 /* export type ButtonValue =
   | {title: string; i18n?: undefined}
   | {i18n: I18N; title?: undefined}; */
+
+export type ButtonRightIconProps =
+  | {iconRight: IconProps['name']; iconRightColor: IconProps['color']}
+  | {iconRight?: undefined; iconRightColor?: undefined};
+
+export type ButtonLeftIconProps =
+  | {iconLeft: IconProps['name']; iconLeftColor: IconProps['color']}
+  | {iconLeft?: undefined; iconLeftColor?: undefined};
 
 export type ButtonProps = Omit<ViewProps, 'children'> & {
   disabled?: boolean;
@@ -31,7 +40,8 @@ export type ButtonProps = Omit<ViewProps, 'children'> & {
   buttonColor?: ColorValue;
   circleBorders?: boolean;
   title?: string;
-};
+} & ButtonRightIconProps &
+  ButtonLeftIconProps;
 
 export enum ButtonVariant {
   text = 'text',
@@ -55,6 +65,10 @@ export function Button({
   circleBorders,
   disabled,
   onPress,
+  iconRight,
+  iconRightColor,
+  iconLeft,
+  iconLeftColor,
   textColor,
   buttonColor,
   loading = false,
@@ -95,6 +109,8 @@ export function Button({
   const textStyle = useMemo(
     () =>
       StyleSheet.flatten<TextStyle>([
+        iconLeft && styles.textIconLeft,
+        iconRight && styles.textIconRight,
         variant === ButtonVariant.error && styles.errorText,
         variant === ButtonVariant.second && styles.secondText,
         variant === ButtonVariant.contained && styles.containedText,
@@ -105,7 +121,7 @@ export function Button({
           variant === ButtonVariant.contained &&
           styles.containedDisabledText,
       ]),
-    [disabled, variant],
+    [disabled, iconLeft, iconRight, variant],
   );
 
   return (
@@ -118,6 +134,9 @@ export function Button({
         <ActivityIndicator size="small" color={color.textBase3} />
       ) : (
         <>
+          {iconLeft && (
+            <Icon name={iconLeft} color={iconLeftColor} style={styles.icon} />
+          )}
           <Text
             t9={size !== ButtonSize.small}
             t12={size === ButtonSize.small}
@@ -125,6 +144,9 @@ export function Button({
             color={textColor}>
             {title}
           </Text>
+          {iconRight && (
+            <Icon name={iconRight} color={iconRightColor} style={styles.icon} />
+          )}
         </>
       )}
     </TouchableOpacity>
@@ -180,6 +202,12 @@ const createStyles = (color: ColorTheme) => {
     errorContainer: {
       backgroundColor: color.bg7,
     },
+    textIconRight: {
+      marginRight: 8,
+    },
+    textIconLeft: {
+      marginLeft: 8,
+    },
     containedText: {
       color: color.textBase3,
     },
@@ -194,6 +222,10 @@ const createStyles = (color: ColorTheme) => {
     },
     secondDisabledText: {
       color: color.textSecond1,
+    },
+    icon: {
+      width: 22,
+      height: 22,
     },
   });
 

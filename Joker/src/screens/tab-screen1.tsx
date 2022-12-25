@@ -2,7 +2,13 @@ import React from 'react';
 
 import {Button as RNButton, StyleSheet, View} from 'react-native';
 
-import {Button, ButtonSize, ButtonVariant, Text} from 'src/components/ui';
+import {
+  Button,
+  ButtonSize,
+  ButtonVariant,
+  IconButton,
+  Text,
+} from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
 import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
@@ -49,6 +55,12 @@ export function TabScreen1() {
         size={ButtonSize.large}
         onPress={() => showLoadingWithText('Test modal')}
       />
+
+      <IconButton onPress={() => console.log('Press icon button')}>
+        <Text u0 color={color.textBase1}>
+          2
+        </Text>
+      </IconButton>
     </View>
   );
 }
@@ -66,7 +78,7 @@ const createStyles = (color: ColorTheme) => {
       height: 200,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: color.graphicBase2,
+      backgroundColor: color.graphicBase1,
       marginBottom: 20,
     },
     button: {
