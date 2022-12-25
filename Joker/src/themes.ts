@@ -60,7 +60,7 @@ import {
   TRANSPARENT,
 } from 'src/variables';
 
-import {ColorTheme, Theme} from './theme-interface';
+import {ColorTheme, Theme} from './types';
 
 const LIGHT_COLOR_THEME: ColorTheme = {
   transparent: TRANSPARENT,
