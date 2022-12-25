@@ -31,23 +31,20 @@ interface Props {
 }
 
 export const ThemeProvider = memo<Props>(props => {
-  const themeHook = useColorScheme();
-  const themeResult = useMemo(() => {
-    if (themeHook === DARK_THEME_ID) return DARK_THEME;
-    else return LIGHT_THEME;
-  }, [themeHook]);
-  const [theme, setTheme] = useState<Theme>(/*props.initial*/ themeResult);
-  const [systemTheme, setSystemTheme] = useState<boolean>(true);
+  const systemThemeHook =
+    useColorScheme() === DARK_THEME_ID ? DARK_THEME : LIGHT_THEME;
+  const [theme, setTheme] = useState<Theme>(/*props.initial*/ systemThemeHook);
+  const [isSystemTheme, setIsSystemTheme] = useState<boolean>(true);
 
   const onLightTheme = () => {
     setTheme(LIGHT_THEME);
-    setSystemTheme(false);
+    setIsSystemTheme(false);
   };
   const onDarkTheme = () => {
     setTheme(DARK_THEME);
-    setSystemTheme(false);
+    setIsSystemTheme(false);
   };
-  const onSystemTheme = () => setSystemTheme(true);
+  const onSystemTheme = () => setIsSystemTheme(true);
 
   const MemoizedValue = useMemo(() => {
     const value: ProvidedValue = {
@@ -57,11 +54,11 @@ export const ThemeProvider = memo<Props>(props => {
       systemTheme: onSystemTheme,
     };
     return value;
-  }, [theme, systemTheme]);
+  }, [theme, isSystemTheme]);
 
   useEffect(() => {
-    systemTheme && setTheme(themeResult);
-  }, [systemTheme, themeResult]);
+    isSystemTheme && setTheme(systemThemeHook);
+  }, [isSystemTheme, systemThemeHook]);
 
   return (
     <ThemeContext.Provider value={MemoizedValue}>
