@@ -93,6 +93,7 @@ export const LIGHT_GRAPHIC_BLUE_1 = '#0489D4';
 export const DARK_GRAPHIC_BLUE_1 = '#0489D4';
 
 export const IS_ANDROID = Platform.OS === 'android';
+export const IS_IOS = Platform.OS === 'ios';
 
 export const DEFAULT_HITSLOP = {top: 10, bottom: 10, left: 10, right: 10};
 
