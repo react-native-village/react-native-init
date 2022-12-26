@@ -11,3 +11,4 @@ export * from './inline';
 export * from './menu-navigation-button';
 export * from './popup-container';
 export * from './progress-line';
+export * from './text-field';
