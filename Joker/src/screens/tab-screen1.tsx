@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import {Button as RNButton, StyleSheet, View} from 'react-native';
 
+import {ActionsSheet} from 'src/components/actions-sheet';
 import {
   Button,
   ButtonSize,
@@ -22,6 +23,7 @@ export function TabScreen1() {
   const styles = useThemeObject(createStyles);
   const naviagtion = useTypedNavigation();
   const [isChecked, setIsChecked] = useState(false);
+  const [actionSheetVisible, setActionSheetVisible] = useState(true);
   return (
     <View style={styles.container}>
       <CustomHeader
@@ -74,6 +76,25 @@ export function TabScreen1() {
         size={ButtonSize.large}
         onPress={() => showLoadingWithText('Test modal')}
       />
+      <Button
+        testID={'tab1_action_sheet'}
+        variant={ButtonVariant.contained}
+        title={'Show Action Sheet'}
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={() => setActionSheetVisible(true)}
+      />
+
+      {actionSheetVisible && (
+        <ActionsSheet
+          onPressKeepEditing={() => {
+            setActionSheetVisible(false);
+          }}
+          onPressDiscard={() => {
+            setActionSheetVisible(false);
+          }}
+        />
+      )}
     </View>
   );
 }
