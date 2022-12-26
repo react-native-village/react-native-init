@@ -7,3 +7,4 @@ export * from './checkbox';
 export * from './error-text';
 export * from './spacer';
 export * from './svg-icons';
+export * from './inline';

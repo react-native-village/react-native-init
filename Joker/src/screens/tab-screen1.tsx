@@ -11,6 +11,7 @@ import {
   Checkbox,
   CustomHeader,
   ErrorText,
+  Inline,
   Text,
 } from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
@@ -80,22 +81,24 @@ export function TabScreen1() {
         size={ButtonSize.large}
         onPress={() => showLoadingWithText('Test modal')}
       />
-      <Button
-        testID={'tab1_action_sheet'}
-        variant={ButtonVariant.contained}
-        title={'Show Action Sheet'}
-        style={styles.button}
-        size={ButtonSize.large}
-        onPress={() => setActionSheetVisible(true)}
-      />
-      <Button
-        testID={'tab1_bottom_sheet'}
-        variant={ButtonVariant.second}
-        title={'Show Bottom Sheet'}
-        style={styles.button}
-        size={ButtonSize.large}
-        onPress={() => setBottomSheetVisible(true)}
-      />
+      <Inline gap={15}>
+        <Button
+          testID={'tab1_action_sheet'}
+          variant={ButtonVariant.contained}
+          title={'Show Action Sheet'}
+          style={styles.button}
+          size={ButtonSize.large}
+          onPress={() => setActionSheetVisible(true)}
+        />
+        <Button
+          testID={'tab1_bottom_sheet'}
+          variant={ButtonVariant.second}
+          title={'Show Bottom Sheet'}
+          style={styles.button}
+          size={ButtonSize.large}
+          onPress={() => setBottomSheetVisible(true)}
+        />
+      </Inline>
       {bottomSheetVisible && (
         <BottomSheet
           onClose={() => setBottomSheetVisible(false)}
