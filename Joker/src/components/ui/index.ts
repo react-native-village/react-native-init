@@ -5,3 +5,5 @@ export * from './icon-button';
 export * from './custom-header';
 export * from './checkbox';
 export * from './error-text';
+export * from './spacer';
+export * from './svg-icons';
