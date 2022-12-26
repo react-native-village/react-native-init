@@ -89,6 +89,9 @@ export const DARK_BG_9 = 'rgba(0, 0, 0, 0.6)';
 export const LIGHT_BG_10 = '#181C1A';
 export const DARK_BG_10 = '#181C1A';
 
+export const LIGHT_GRAPHIC_BLUE_1 = '#0489D4';
+export const DARK_GRAPHIC_BLUE_1 = '#0489D4';
+
 export const IS_ANDROID = Platform.OS === 'android';
 
 export const DEFAULT_HITSLOP = {top: 10, bottom: 10, left: 10, right: 10};

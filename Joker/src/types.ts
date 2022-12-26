@@ -38,6 +38,7 @@ export interface ColorTheme {
   graphicBase1: string;
   graphicBase2: string;
   graphicBase3: string;
+  graphicBlue1: string;
   graphicRed1: string;
   graphicGreen1: string;
   graphicGreen2: string;
