@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 
-import {Button as RNButton, StyleSheet, View} from 'react-native';
+import {Button as RNButton, ScrollView, StyleSheet, View} from 'react-native';
 
 import {ActionsSheet} from 'src/components/actions-sheet';
+import {BottomSheet} from 'src/components/bottom-sheet';
 import {
   Button,
   ButtonSize,
@@ -16,6 +17,7 @@ import {showLoadingWithText} from 'src/helpers';
 import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {app} from 'src/services';
 import {ColorTheme} from 'src/types';
+import {WINDOW_HEIGHT} from 'src/variables';
 
 export function TabScreen1() {
   const {lightTheme, darkTheme, systemTheme} = useTheme();
@@ -23,9 +25,11 @@ export function TabScreen1() {
   const styles = useThemeObject(createStyles);
   const naviagtion = useTypedNavigation();
   const [isChecked, setIsChecked] = useState(false);
-  const [actionSheetVisible, setActionSheetVisible] = useState(true);
+  const [actionSheetVisible, setActionSheetVisible] = useState(false);
+  const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
+  const closeDistance = WINDOW_HEIGHT / 5;
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <CustomHeader
         title={'Test Header'}
         textLeft={'Left'}
@@ -84,7 +88,25 @@ export function TabScreen1() {
         size={ButtonSize.large}
         onPress={() => setActionSheetVisible(true)}
       />
-
+      <Button
+        testID={'tab1_bottom_sheet'}
+        variant={ButtonVariant.second}
+        title={'Show Bottom Sheet'}
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={() => setBottomSheetVisible(true)}
+      />
+      {bottomSheetVisible && (
+        <BottomSheet
+          onClose={() => setBottomSheetVisible(false)}
+          title="Test BottomSheet"
+          closeDistance={closeDistance}>
+          <Text clean style={styles.warning}>
+            А, ну да, это я... Как я докатился до жизни такой? Что ж, начнём
+            сначала...
+          </Text>
+        </BottomSheet>
+      )}
       {actionSheetVisible && (
         <ActionsSheet
           onPressKeepEditing={() => {
@@ -95,7 +117,7 @@ export function TabScreen1() {
           }}
         />
       )}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -131,6 +153,12 @@ const createStyles = (color: ColorTheme) => {
     errorText: {
       alignSelf: 'center',
       marginBottom: 14,
+    },
+    warning: {
+      marginBottom: 24,
+      fontSize: 14,
+      lineHeight: 18,
+      color: color.textBase2,
     },
   });
   return styles;
