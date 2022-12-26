@@ -8,3 +8,4 @@ export * from './error-text';
 export * from './spacer';
 export * from './svg-icons';
 export * from './inline';
+export * from './menu-navigation-button';
