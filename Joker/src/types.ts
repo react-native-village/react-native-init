@@ -1,4 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
+import {StackNavigationOptions} from '@react-navigation/stack';
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 
 export type TabParamList = {
@@ -12,7 +13,3 @@ export type RootStackParamList = {
   home: NavigatorScreenParams<TabParamList>;
   firstScreen: undefined;
 };
-
-export type ColorType = string;
-
-export type FontT = TextStyle | ViewStyle | ImageStyle | undefined;

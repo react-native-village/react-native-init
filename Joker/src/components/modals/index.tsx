@@ -1,1 +1,2 @@
-export * from './test-modal';
+export * from './test';
+export * from './loading';
