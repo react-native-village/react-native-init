@@ -1,0 +1,57 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/ElMessiri-Bold.ttf",
+      "sha1": "8690f6c5ba92e8157bdb64f0c45ab3b347bbfe53"
+    },
+    {
+      "path": "assets/fonts/ElMessiri-Medium.ttf",
+      "sha1": "c63754492bfb1233918e4e320d85c87a51070edd"
+    },
+    {
+      "path": "assets/fonts/ElMessiri-Regular.ttf",
+      "sha1": "8adae1f5aa458ff4278391649419786b27127251"
+    },
+    {
+      "path": "assets/fonts/ElMessiri-SemiBold.ttf",
+      "sha1": "eb873c670c09a561b6c56b397d395b70c1738c71"
+    },
+    {
+      "path": "assets/fonts/SF-Pro-Display-Bold.ttf",
+      "sha1": "e0ecfacacf74fb463fa524cc77645128f7a6fb6b"
+    },
+    {
+      "path": "assets/fonts/SF-Pro-Display-Medium.ttf",
+      "sha1": "992d8b224fe727c70fc445544d2224a239f35851"
+    },
+    {
+      "path": "assets/fonts/SF-Pro-Display-Regular.ttf",
+      "sha1": "1d80a2dca593fc5e77ec417b516595eb26767a83"
+    },
+    {
+      "path": "assets/fonts/SF-Pro-Display-Semibold.ttf",
+      "sha1": "12ce7625b348fb156b40754fd6388de46ad6b844"
+    },
+    {
+      "path": "assets/fonts/SF-Pro-Display-Thin.ttf",
+      "sha1": "91692f319cae58b2db9ade01d059859ff3549917"
+    },
+    {
+      "path": "assets/fonts/SF-ProText-Bold.ttf",
+      "sha1": "632e6cea171b276e5dd1f13b152c702fbf562cee"
+    },
+    {
+      "path": "assets/fonts/SF-ProText-Medium.ttf",
+      "sha1": "3b8df618cd23e83843b16a8a32de1ddc9de44df4"
+    },
+    {
+      "path": "assets/fonts/SF-ProText-Regular.ttf",
+      "sha1": "b4893462f2289df6978f9462a63db9e64bcc9342"
+    },
+    {
+      "path": "assets/fonts/SF-ProText-Semibold.ttf",
+      "sha1": "9560ae412d73c7c9af72333db50464b4e597b0f9"
+    }
+  ]
+}

@@ -8,6 +8,8 @@ import {FirstScreen} from 'src/screens/first-screen';
 import {Home} from 'src/screens/home';
 import {RootStackParamList} from 'src/types';
 
+import {ThemeProvider} from './contexts';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const basicScreenOptions = {
   headerShown: false,
@@ -16,11 +18,13 @@ const basicScreenOptions = {
 
 export function App() {
   return (
-    <NavigationContainer ref={navigator}>
-      <Stack.Navigator screenOptions={basicScreenOptions}>
-        <Stack.Screen name="home" component={Home} />
-        <Stack.Screen name="firstScreen" component={FirstScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer ref={navigator}>
+        <Stack.Navigator screenOptions={basicScreenOptions}>
+          <Stack.Screen name="home" component={Home} />
+          <Stack.Screen name="firstScreen" component={FirstScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
