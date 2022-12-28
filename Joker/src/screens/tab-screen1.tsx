@@ -106,7 +106,7 @@ export function TabScreen1() {
           closeDistance={closeDistance}>
           <Text clean style={styles.warning}>
             А, ну да, это я... Как я докатился до жизни такой? Что ж, начнём
-            сначала...
+            сначалаааа...
           </Text>
         </BottomSheet>
       )}
