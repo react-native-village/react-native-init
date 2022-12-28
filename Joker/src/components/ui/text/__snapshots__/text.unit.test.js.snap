@@ -24,6 +24,7 @@ exports[`render text test 1`] = `
       undefined,
       undefined,
       undefined,
+      undefined,
       false,
       undefined,
       undefined,
@@ -31,6 +32,6 @@ exports[`render text test 1`] = `
   }
   testID="text"
 >
-  Your recovery phrase
+  hello
 </Text>
 `;

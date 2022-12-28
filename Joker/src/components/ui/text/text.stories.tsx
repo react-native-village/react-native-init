@@ -2,8 +2,6 @@ import React from 'react';
 
 import {ComponentMeta} from '@storybook/react';
 
-import {I18N} from 'src/i18n';
-
 import {Text} from './text';
 
 export default {
@@ -16,7 +14,7 @@ export function TextStorie(args: any) {
 }
 
 TextStorie.args = {
-  i18n: I18N.TextStorybookBase,
+  children: 'hello, this is text example',
   color: 'black',
   t0: true,
 };

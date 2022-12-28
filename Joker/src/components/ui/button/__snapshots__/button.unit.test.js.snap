@@ -18,8 +18,8 @@ exports[`render button test 1`] = `
       "flexDirection": "row",
       "justifyContent": "center",
       "opacity": 1,
-      "paddingHorizontal": 28,
-      "paddingVertical": 13,
+      "paddingHorizontal": 12,
+      "paddingVertical": 16,
     }
   }
 >
@@ -37,7 +37,7 @@ exports[`render button test 1`] = `
         undefined,
         undefined,
         Object {
-          "color": "textBase1",
+          "color": "#2E312D",
           "fontFamily": "SF Pro Display",
           "fontSize": 16,
           "fontWeight": "700",
@@ -52,6 +52,7 @@ exports[`render button test 1`] = `
         undefined,
         undefined,
         undefined,
+        undefined,
         false,
         undefined,
         undefined,
@@ -59,7 +60,7 @@ exports[`render button test 1`] = `
     }
     testID="text"
   >
-    Your recovery phrase
+    hello
   </Text>
 </View>
 `;

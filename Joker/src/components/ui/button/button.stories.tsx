@@ -2,8 +2,6 @@ import React from 'react';
 
 import {ComponentMeta} from '@storybook/react';
 
-import {I18N} from 'src/i18n';
-
 import {Button} from './button';
 
 export default {
@@ -16,5 +14,5 @@ export function ButtonStorie(args: any) {
 }
 
 ButtonStorie.args = {
-  i18n: I18N.TextStorybookBase,
+  title: 'hello, this is button example',
 };
