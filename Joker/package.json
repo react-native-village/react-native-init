@@ -27,6 +27,7 @@
     "ethers": "^5.7.2",
     "events": "^3.3.0",
     "graphql": "^16.6.0",
+    "lottie-ios": "3.4.1",
     "lottie-react-native": "^5.1.4",
     "metro-minify-terser": "^0.73.6",
     "react": "18.1.0",
