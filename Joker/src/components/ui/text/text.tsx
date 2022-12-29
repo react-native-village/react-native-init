@@ -88,12 +88,13 @@ export function Text({
   return (
     <>
       {clean ? (
-        <RNText style={style} allowFontScaling={false} {...props}>
+        <RNText style={style} allowFontScaling={false} testID="text" {...props}>
           {children}
         </RNText>
       ) : (
         <RNText
           allowFontScaling={false}
+          testID="text"
           style={[
             //u
             t0 && StyleSheet.flatten([styles.t0Style, style]),
