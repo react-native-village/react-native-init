@@ -4,17 +4,18 @@
  *
  * @format
  */
+
 const blacklist = require('metro-config/src/defaults/exclusionList');
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
       transform: {
-        experimentalImportSupport: false,
-        inlineRequires: false,
+        experimentalImportSupport: true,
+        inlineRequires: true,
       },
+      minifierPath: 'metro-minify-terser',
+      // plugins: ['@babel/plugin-proposal-numeric-separator'],
     }),
-    minifierPath: 'metro-minify-terser',
-    // plugins: ['@babel/plugin-proposal-numeric-separator'],
   },
   resolver: {
     blacklistRE: blacklist([
