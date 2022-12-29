@@ -23,7 +23,6 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "@react-navigation/stack": "^6.3.10",
-    "@types/react-native-vector-icons": "^6.4.12",
     "@react-native-community/datetimepicker": "^6.7.1",
     "ethers": "^5.7.2",
     "events": "^3.3.0",
@@ -45,6 +44,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/react-native-vector-icons": "^6.4.12",
     "@babel/core": "^7.12.9",
     "@storybook/addon-actions": "6.3",
     "@storybook/addon-controls": "6.3",
