@@ -5,7 +5,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {HeaderButton, HeaderButtonProps} from './header-button';
 
-import {Text} from '../text';
+import {Text} from '../';
 
 interface CustomHeaderProps {
   title?: string;

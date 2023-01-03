@@ -31,6 +31,8 @@ target 'Joker' do
     # Pods for testing
   end
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  
   post_install do |installer|
     react_native_post_install(
       installer,

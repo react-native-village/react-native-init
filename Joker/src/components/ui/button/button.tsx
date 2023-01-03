@@ -14,8 +14,8 @@ import {
 import {useTheme, useThemeObject} from 'src/hooks';
 import {ColorTheme} from 'src/types';
 
-import {Icon, IconProps} from './icon';
-import {Text} from './text';
+import {Icon, IconProps} from '../icon';
+import {Text} from '../text/text';
 
 //will be changed to i18next
 /* export type ButtonValue =
