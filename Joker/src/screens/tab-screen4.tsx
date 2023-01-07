@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {APP_SERVER_URL} from '@env';
 import {useWalletConnect} from '@walletconnect/react-native-dapp';
-import axios from 'axios';
 import {StyleSheet, View} from 'react-native';
 
 import {Button, ButtonVariant} from 'src/components/ui';
