@@ -9,6 +9,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import {setContext} from '@apollo/client/link/context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {WalletConnectProvider} from '@walletconnect/react-native-dapp/dist/providers';
 import {StatusBar, StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -47,15 +49,21 @@ const client = new ApolloClient({
 
 export function AppWithProviders() {
   return (
-    <GestureHandlerRootView style={styles.flexOne}>
-      <SafeAreaProvider>
-        <ApolloProvider client={client}>
-          <StatusBar />
-          <App />
-          <Modals />
-        </ApolloProvider>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
+    <WalletConnectProvider
+      redirectUrl={'dapp.joker://'}
+      storageOptions={{
+        asyncStorage: AsyncStorage as any,
+      }}>
+      <GestureHandlerRootView style={styles.flexOne}>
+        <SafeAreaProvider>
+          <ApolloProvider client={client}>
+            <StatusBar />
+            <App />
+            <Modals />
+          </ApolloProvider>
+        </SafeAreaProvider>
+      </GestureHandlerRootView>
+    </WalletConnectProvider>
   );
 }
 

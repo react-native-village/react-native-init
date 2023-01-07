@@ -1,7 +1,5 @@
 import {CodegenConfig} from '@graphql-codegen/cli';
 
-import {githubApiGraphQL, lensApiGraphQL} from './src/variables';
-
 const defaultGenerateConfig = {
   plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
   config: {
@@ -15,9 +13,9 @@ const config: CodegenConfig = {
     'src/generated/graphql-github.ts': {
       documents: 'src/**/github/*.graphql',
       schema: {
-        [githubApiGraphQL]: {
+        ['https://api.github.com/graphql']: {
           headers: {
-            Authorization: 'Bearer <TOKEN_CHECK_README_FOR_MORE_INFO>',
+            Authorization: 'Bearer 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',
           },
         },
       },
@@ -25,7 +23,7 @@ const config: CodegenConfig = {
     },
     'src/generated/graphql-lens.ts': {
       documents: 'src/**/lens/*.graphql',
-      schema: lensApiGraphQL,
+      schema: 'https://api.lens.dev',
       ...defaultGenerateConfig,
     },
   },

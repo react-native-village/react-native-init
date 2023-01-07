@@ -27287,6 +27287,47 @@ export enum WorkflowRunOrderField {
   CreatedAt = 'CREATED_AT',
 }
 
+export type RepoCardsRequestQueryVariables = Exact<{[key: string]: never}>;
+
+export type RepoCardsRequestQuery = {
+  __typename?: 'Query';
+  repository?: {
+    __typename?: 'Repository';
+    issues: {
+      __typename?: 'IssueConnection';
+      edges?: Array<{
+        __typename?: 'IssueEdge';
+        node?: {
+          __typename?: 'Issue';
+          id: string;
+          title: string;
+          body: string;
+          projectV2?: {__typename?: 'ProjectV2'; title: string} | null;
+          assignees: {
+            __typename?: 'UserConnection';
+            edges?: Array<{
+              __typename?: 'UserEdge';
+              node?: {
+                __typename?: 'User';
+                id: string;
+                name?: string | null;
+                login: string;
+              } | null;
+            } | null> | null;
+          };
+          labels?: {
+            __typename?: 'LabelConnection';
+            edges?: Array<{
+              __typename?: 'LabelEdge';
+              node?: {__typename?: 'Label'; id: string} | null;
+            } | null> | null;
+          } | null;
+        } | null;
+      } | null> | null;
+    };
+  } | null;
+};
+
 export type UserInfoQueryVariables = Exact<{[key: string]: never}>;
 
 export type UserInfoQuery = {
@@ -27314,6 +27355,95 @@ export type UserInfoQuery = {
   };
 };
 
+export const RepoCardsRequestDocument = gql`
+  query RepoCardsRequest {
+    repository(name: "react-native-init", owner: "react-native-village") {
+      issues(first: 100, filterBy: {states: [OPEN]}) {
+        edges {
+          node {
+            id
+            projectV2(number: 1) {
+              title
+            }
+            assignees(first: 10) {
+              edges {
+                node {
+                  id
+                  name
+                  login
+                }
+              }
+            }
+            title
+            body
+            labels(first: 10) {
+              edges {
+                node {
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useRepoCardsRequestQuery__
+ *
+ * To run a query within a React component, call `useRepoCardsRequestQuery` and pass it any options that fit your needs.
+ * When your component renders, `useRepoCardsRequestQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useRepoCardsRequestQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRepoCardsRequestQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    RepoCardsRequestQuery,
+    RepoCardsRequestQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<RepoCardsRequestQuery, RepoCardsRequestQueryVariables>(
+    RepoCardsRequestDocument,
+    options,
+  );
+}
+export function useRepoCardsRequestLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    RepoCardsRequestQuery,
+    RepoCardsRequestQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<
+    RepoCardsRequestQuery,
+    RepoCardsRequestQueryVariables
+  >(RepoCardsRequestDocument, options);
+}
+export type RepoCardsRequestQueryHookResult = ReturnType<
+  typeof useRepoCardsRequestQuery
+>;
+export type RepoCardsRequestLazyQueryHookResult = ReturnType<
+  typeof useRepoCardsRequestLazyQuery
+>;
+export type RepoCardsRequestQueryResult = Apollo.QueryResult<
+  RepoCardsRequestQuery,
+  RepoCardsRequestQueryVariables
+>;
+export function refetchRepoCardsRequestQuery(
+  variables?: RepoCardsRequestQueryVariables,
+) {
+  return {query: RepoCardsRequestDocument, variables: variables};
+}
 export const UserInfoDocument = gql`
   query UserInfo {
     viewer {

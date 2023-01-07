@@ -10,7 +10,7 @@ type AnimatedLottie = AnimatedLottieViewProps & {
   loop: boolean;
   style?: StyleProp<ViewStyle>;
 };
-export const LottieWrap = (props: AnimatedLottie) => {
+export function LottieWrap(props: AnimatedLottie) {
   const ref = useRef<AnimatedLottieView>(null);
 
   useEffect(() => {
@@ -22,4 +22,4 @@ export const LottieWrap = (props: AnimatedLottie) => {
   });
 
   return <Lottie {...props} ref={ref} />;
-};
+}
