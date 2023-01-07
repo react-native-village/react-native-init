@@ -1,10 +1,11 @@
-import dotenv from 'dotenv';
 import {EvmChain} from '@moralisweb3/common-evm-utils';
-import express from 'express';
-import Moralis from 'moralis';
-import {getDemoData} from './request';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
 import jwt from 'jsonwebtoken';
+import Moralis from 'moralis';
+
+import {getDemoData} from './request';
 
 dotenv.config();
 const {MORALIS_API_KEY} = process.env;
