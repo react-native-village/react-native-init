@@ -34,7 +34,7 @@ export type ButtonProps = Omit<ViewProps, 'children'> & {
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  onPress: () => void;
+  onPress?: () => void;
   loading?: boolean;
   textColor?: ColorValue;
   buttonColor?: ColorValue;
@@ -78,7 +78,7 @@ export function Button({
   const styles = useThemeObject(createStyles);
   const onPressButton = useCallback(() => {
     if (!(disabled || loading)) {
-      onPress();
+      onPress?.();
     }
   }, [disabled, loading, onPress]);
 

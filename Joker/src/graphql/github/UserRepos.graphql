@@ -1,0 +1,26 @@
+query UserRepos($countToShow: Int!, $cursor: String) {
+  viewer {
+    repositories(
+      orderBy: {direction: DESC, field: UPDATED_AT}
+      first: $countToShow
+      after: $cursor
+      privacy: PUBLIC
+    ) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor # cursor for the next page
+        hasPreviousPage
+        startCursor # cursor for the previous page
+      }
+      nodes {
+        name
+        url
+        stargazerCount
+        issues(filterBy: {states: OPEN}) {
+          totalCount
+        }
+      }
+    }
+  }
+}
