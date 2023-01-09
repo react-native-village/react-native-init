@@ -33,7 +33,9 @@ export interface ProjectTaskInterface extends utils.Interface {
     "completeTask()": FunctionFragment;
     "employer()": FunctionFragment;
     "rejectTask()": FunctionFragment;
+    "renounceTaskWithMessage(string)": FunctionFragment;
     "requestChanges(string,string)": FunctionFragment;
+    "revokeAssignRequest()": FunctionFragment;
     "selected_performer()": FunctionFragment;
     "sendTaskToReview()": FunctionFragment;
     "short_title()": FunctionFragment;
@@ -50,7 +52,9 @@ export interface ProjectTaskInterface extends utils.Interface {
       | "completeTask"
       | "employer"
       | "rejectTask"
+      | "renounceTaskWithMessage"
       | "requestChanges"
+      | "revokeAssignRequest"
       | "selected_performer"
       | "sendTaskToReview"
       | "short_title"
@@ -78,8 +82,16 @@ export interface ProjectTaskInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
+    functionFragment: "renounceTaskWithMessage",
+    values: [PromiseOrValue<string>]
+  ): string;
+  encodeFunctionData(
     functionFragment: "requestChanges",
     values: [PromiseOrValue<string>, PromiseOrValue<string>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "revokeAssignRequest",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "selected_performer",
@@ -119,7 +131,15 @@ export interface ProjectTaskInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "employer", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rejectTask", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "renounceTaskWithMessage",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "requestChanges",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "revokeAssignRequest",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -146,11 +166,25 @@ export interface ProjectTaskInterface extends utils.Interface {
   ): Result;
 
   events: {
+    "RefusalTaskByPerformer(address,string)": EventFragment;
     "RequestForChanges(address,string,string)": EventFragment;
   };
 
+  getEvent(nameOrSignatureOrTopic: "RefusalTaskByPerformer"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestForChanges"): EventFragment;
 }
+
+export interface RefusalTaskByPerformerEventObject {
+  employerAddr: string;
+  message: string;
+}
+export type RefusalTaskByPerformerEvent = TypedEvent<
+  [string, string],
+  RefusalTaskByPerformerEventObject
+>;
+
+export type RefusalTaskByPerformerEventFilter =
+  TypedEventFilter<RefusalTaskByPerformerEvent>;
 
 export interface RequestForChangesEventObject {
   recipient: string;
@@ -211,9 +245,18 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
+    renounceTaskWithMessage(
+      message: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
     requestChanges(
       message: PromiseOrValue<string>,
       additional_link: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
+    revokeAssignRequest(
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -256,9 +299,18 @@ export interface ProjectTask extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
+  renounceTaskWithMessage(
+    message: PromiseOrValue<string>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
   requestChanges(
     message: PromiseOrValue<string>,
     additional_link: PromiseOrValue<string>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
+  revokeAssignRequest(
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -295,11 +347,18 @@ export interface ProjectTask extends BaseContract {
 
     rejectTask(overrides?: CallOverrides): Promise<void>;
 
+    renounceTaskWithMessage(
+      message: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     requestChanges(
       message: PromiseOrValue<string>,
       additional_link: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    revokeAssignRequest(overrides?: CallOverrides): Promise<void>;
 
     selected_performer(overrides?: CallOverrides): Promise<string>;
 
@@ -320,6 +379,15 @@ export interface ProjectTask extends BaseContract {
   };
 
   filters: {
+    "RefusalTaskByPerformer(address,string)"(
+      employerAddr?: null,
+      message?: null
+    ): RefusalTaskByPerformerEventFilter;
+    RefusalTaskByPerformer(
+      employerAddr?: null,
+      message?: null
+    ): RefusalTaskByPerformerEventFilter;
+
     "RequestForChanges(address,string,string)"(
       recipient?: null,
       message?: null,
@@ -352,9 +420,18 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
+    renounceTaskWithMessage(
+      message: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
     requestChanges(
       message: PromiseOrValue<string>,
       additional_link: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    revokeAssignRequest(
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -398,9 +475,18 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
+    renounceTaskWithMessage(
+      message: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
     requestChanges(
       message: PromiseOrValue<string>,
       additional_link: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    revokeAssignRequest(
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 

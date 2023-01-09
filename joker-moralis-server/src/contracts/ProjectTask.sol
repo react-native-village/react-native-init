@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.17;
+pragma solidity ^0.8.0;
 
 contract ProjectTask {
     // тут храниться адресс работодателя
     address payable public employer;
     // цена задачи
     uint public task_cost;
-    // цена задачи
+    // информация о задаче
     string public task_description_link;
     string public short_title;
 
@@ -23,6 +23,7 @@ contract ProjectTask {
         string message,
         string additionalLink
     );
+    event RefusalTaskByPerformer(address employerAddr, string message);
 
     constructor(
         string memory _short_title,
@@ -36,17 +37,46 @@ contract ProjectTask {
         task_cost = msg.value;
     }
 
+    receive() external payable {
+        task_cost += msg.value;
+    }
+
     // функция которую вызывают исполнители, чтобы попасть в список желающих
     function assignRequest() external allowOnPending {
         // проверка что исполнитель не является работодателем
         if (msg.sender == employer) revert EmployerCannotBePerformer();
 
-        // проверка что исполнитель не является исполнителем
+        // проверка что исполнитель еще не в списке
         if (wishing_performers[msg.sender] == true)
             revert PerformerAlreadyWish();
 
         // добавление исполнителя в список
         wishing_performers[msg.sender] = true;
+    }
+
+    function revokeAssignRequest() external allowOnPending {
+        // проверка что исполнитель не является работодателем
+        if (msg.sender == employer) revert EmployerCannotBePerformer();
+
+        // проверка что исполнитель сейчас хочет стать исполнителем
+        if (wishing_performers[msg.sender] == false)
+            revert PerformerIsNotWishingDoThis();
+
+        // удаление исполнителя из списка
+        wishing_performers[msg.sender] = false;
+    }
+
+    function renounceTaskWithMessage(
+        string memory message
+    ) external onlyPerformer {
+        // перевод задачи в статус ожидания исполнителей
+        status = Status.PENDING_PERFORMER;
+        // удаление назначеного исполнителя
+        selected_performer = payable(address(0));
+        // удаление исполнителя из списка желающих
+        wishing_performers[msg.sender] = false;
+        // отправка сообщения работодателю
+        emit RefusalTaskByPerformer(employer, message);
     }
 
     function assignPerformer(
@@ -143,3 +173,4 @@ error OnlyEmployerCanDoThis();
 error OnlyPerformerCanDoThis();
 error TaskIsNotInProgress();
 error TaskIsNotOnReview(Status status);
+error YouHaveNotWishing();

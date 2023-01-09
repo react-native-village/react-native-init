@@ -1,3 +1,4 @@
+import {anyValue} from '@nomicfoundation/hardhat-chai-matchers/withArgs';
 import {expect} from 'chai';
 import {ethers} from 'hardhat';
 
@@ -52,6 +53,21 @@ describe('Project task contract', () => {
       'OnlyPerformerCanDoThis',
     );
   });
+  it('Testing sending money to contract', async () => {
+    const weiCount = ethers.utils.parseEther('5');
+    const payload = {value: weiCount, to: contract.address};
+
+    const prevContractCost = await contract.task_cost();
+    const [owner, signer] = await ethers.getSigners();
+
+    await owner.sendTransaction(payload);
+    expect(await contract.task_cost()).to.equal(prevContractCost.add(weiCount));
+
+    await signer.sendTransaction(payload);
+    expect(await contract.task_cost()).to.equal(
+      prevContractCost.add(weiCount.mul(2)),
+    );
+  });
   it('Testing wishing performers list', async () => {
     const [owner, , ...otherSigners] = await ethers.getSigners();
 
@@ -68,6 +84,19 @@ describe('Project task contract', () => {
       contract,
       'EmployerCannotBePerformer',
     );
+  });
+  it('Testing revoke assign request', async () => {
+    const [, notWishingSigner, ...wishingSigners] = await ethers.getSigners();
+
+    await expect(
+      contract.connect(notWishingSigner).revokeAssignRequest(),
+    ).to.be.revertedWithCustomError(contract, 'PerformerIsNotWishingDoThis');
+
+    await contract.connect(wishingSigners[3]).revokeAssignRequest();
+
+    expect(
+      await contract.wishing_performers(wishingSigners[3].address),
+    ).to.equal(false);
   });
   it('Testing assign performer', async () => {
     const [owner, notWishingSigner, ...wishingSigners] =
@@ -169,6 +198,67 @@ describe('Project task contract', () => {
       ).to.be.revertedWithCustomError(freshContract, 'TaskIsNotOnReview');
 
       expect(await freshContract.status()).to.equal(Status.REQUESTED_CHANGES);
+    });
+    test('Testing task reject', async () => {
+      const [, assignedSigner] = await ethers.getSigners();
+      await expect(
+        freshContract.connect(assignedSigner).rejectTask(),
+      ).to.be.revertedWithCustomError(freshContract, 'OnlyEmployerCanDoThis');
+
+      const expectCannotBeRejected = async () => {
+        await expect(freshContract.rejectTask()).to.be.revertedWithCustomError(
+          freshContract,
+          'AssignedTaskCannotBeRejected',
+        );
+      };
+      await expectCannotBeRejected();
+      expect(await freshContract.status()).to.equal(Status.IN_PROGRESS);
+
+      await freshContract.connect(assignedSigner).sendTaskToReview();
+      await expectCannotBeRejected();
+      expect(await freshContract.status()).to.equal(Status.ON_REVIEW);
+
+      const message = 'Sorry, I cannot do it';
+      await expect(
+        freshContract.connect(assignedSigner).renounceTaskWithMessage(message),
+      )
+        .to.be.emit(freshContract, 'RefusalTaskByPerformer')
+        .withArgs(anyValue, message);
+
+      await freshContract.rejectTask();
+      await expect(freshContract.employer()).to.be.revertedWithoutReason();
+    });
+    test('Testing task complete', async () => {
+      const [, assignedSigner] = await ethers.getSigners();
+      await expect(
+        freshContract.connect(assignedSigner).completeTask(),
+      ).to.be.revertedWithCustomError(freshContract, 'OnlyEmployerCanDoThis');
+
+      const expectCannotBeCompleted = async () => {
+        await expect(
+          freshContract.completeTask(),
+        ).to.be.revertedWithCustomError(freshContract, 'TaskIsStillInProgress');
+      };
+      await expectCannotBeCompleted();
+      expect(await freshContract.status()).to.equal(Status.IN_PROGRESS);
+
+      await freshContract.connect(assignedSigner).renounceTaskWithMessage('');
+      await expectCannotBeCompleted();
+      const taskCost = await freshContract.task_cost();
+
+      await expect(
+        freshContract.assignPerformer(assignedSigner.address),
+      ).to.be.revertedWithCustomError(
+        freshContract,
+        'PerformerIsNotWishingDoThis',
+      );
+      await freshContract.connect(assignedSigner).assignRequest();
+      await freshContract.assignPerformer(assignedSigner.address);
+      await freshContract.connect(assignedSigner).sendTaskToReview();
+      await expect(freshContract.completeTask()).to.changeEtherBalance(
+        assignedSigner.address,
+        taskCost,
+      );
     });
   });
 });
