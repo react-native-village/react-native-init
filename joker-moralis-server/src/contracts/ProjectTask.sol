@@ -18,6 +18,12 @@ contract ProjectTask {
     // address[] public wishing_performers;
     address payable public selected_performer;
 
+    event RequestForChanges(
+        address recipient,
+        string message,
+        string additionalLink
+    );
+
     constructor(
         string memory _short_title,
         string memory _task_description_link
@@ -47,6 +53,7 @@ contract ProjectTask {
         address performer
     ) external onlyEmployer allowOnPending {
         // проверка что исполнитель желает выполнить задачу
+        if (performer == employer) revert EmployerCannotBePerformer();
         if (!wishing_performers[performer])
             revert PerformerIsNotWishingDoThis();
 
@@ -63,11 +70,23 @@ contract ProjectTask {
     function rejectTask() external onlyEmployer {
         // проверка что статус задачи ожидает исполнителей
         if (status != Status.PENDING_PERFORMER)
-            revert AssignedTaskCannotBeClosed();
+            revert AssignedTaskCannotBeRejected();
 
         // перевод задачи в статус отклоненной
         status == Status.REJECTED;
         selfdestruct(employer);
+    }
+
+    function requestChanges(
+        string memory message,
+        string memory additional_link
+    ) external onlyEmployer {
+        // проверка что статус задачи "на проверке"
+        if (status != Status.ON_REVIEW) revert TaskIsNotOnReview(status);
+
+        // перевод задачи в статус в прогрессе
+        status = Status.REQUESTED_CHANGES;
+        emit RequestForChanges(selected_performer, message, additional_link);
     }
 
     function completeTask() external onlyEmployer {
@@ -110,15 +129,17 @@ enum Status {
     ON_REVIEW, // задача на проверке
     REJECTED, // задача была закрыта не выполненной
     COMPLETED, // задача выполнена исполнителем(после моментально оплачена)
-    CONFLICT // исполнителем открыт конфликт с заказчиком
+    CONFLICT, // исполнителем открыт конфликт с заказчиком
+    REQUESTED_CHANGES // задача проверенна, но исполнитель просит внести изменения
 }
 
 error TaskNotPendingPerformer();
 error PerformerIsNotWishingDoThis();
-error AssignedTaskCannotBeClosed();
+error AssignedTaskCannotBeRejected();
 error EmployerCannotBePerformer();
 error PerformerAlreadyWish();
 error TaskIsStillInProgress();
 error OnlyEmployerCanDoThis();
 error OnlyPerformerCanDoThis();
 error TaskIsNotInProgress();
+error TaskIsNotOnReview(Status status);

@@ -12,7 +12,11 @@ import type {
   Signer,
   utils,
 } from "ethers";
-import type { FunctionFragment, Result } from "@ethersproject/abi";
+import type {
+  FunctionFragment,
+  Result,
+  EventFragment,
+} from "@ethersproject/abi";
 import type { Listener, Provider } from "@ethersproject/providers";
 import type {
   TypedEventFilter,
@@ -29,6 +33,7 @@ export interface ProjectTaskInterface extends utils.Interface {
     "completeTask()": FunctionFragment;
     "employer()": FunctionFragment;
     "rejectTask()": FunctionFragment;
+    "requestChanges(string,string)": FunctionFragment;
     "selected_performer()": FunctionFragment;
     "sendTaskToReview()": FunctionFragment;
     "short_title()": FunctionFragment;
@@ -45,6 +50,7 @@ export interface ProjectTaskInterface extends utils.Interface {
       | "completeTask"
       | "employer"
       | "rejectTask"
+      | "requestChanges"
       | "selected_performer"
       | "sendTaskToReview"
       | "short_title"
@@ -70,6 +76,10 @@ export interface ProjectTaskInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "rejectTask",
     values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "requestChanges",
+    values: [PromiseOrValue<string>, PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
     functionFragment: "selected_performer",
@@ -109,6 +119,10 @@ export interface ProjectTaskInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "employer", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "rejectTask", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "requestChanges",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "selected_performer",
     data: BytesLike
   ): Result;
@@ -131,8 +145,25 @@ export interface ProjectTaskInterface extends utils.Interface {
     data: BytesLike
   ): Result;
 
-  events: {};
+  events: {
+    "RequestForChanges(address,string,string)": EventFragment;
+  };
+
+  getEvent(nameOrSignatureOrTopic: "RequestForChanges"): EventFragment;
 }
+
+export interface RequestForChangesEventObject {
+  recipient: string;
+  message: string;
+  additionalLink: string;
+}
+export type RequestForChangesEvent = TypedEvent<
+  [string, string, string],
+  RequestForChangesEventObject
+>;
+
+export type RequestForChangesEventFilter =
+  TypedEventFilter<RequestForChangesEvent>;
 
 export interface ProjectTask extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -180,6 +211,12 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
+    requestChanges(
+      message: PromiseOrValue<string>,
+      additional_link: PromiseOrValue<string>,
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<ContractTransaction>;
+
     selected_performer(overrides?: CallOverrides): Promise<[string]>;
 
     sendTaskToReview(
@@ -219,6 +256,12 @@ export interface ProjectTask extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
+  requestChanges(
+    message: PromiseOrValue<string>,
+    additional_link: PromiseOrValue<string>,
+    overrides?: Overrides & { from?: PromiseOrValue<string> }
+  ): Promise<ContractTransaction>;
+
   selected_performer(overrides?: CallOverrides): Promise<string>;
 
   sendTaskToReview(
@@ -252,6 +295,12 @@ export interface ProjectTask extends BaseContract {
 
     rejectTask(overrides?: CallOverrides): Promise<void>;
 
+    requestChanges(
+      message: PromiseOrValue<string>,
+      additional_link: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     selected_performer(overrides?: CallOverrides): Promise<string>;
 
     sendTaskToReview(overrides?: CallOverrides): Promise<void>;
@@ -270,7 +319,18 @@ export interface ProjectTask extends BaseContract {
     ): Promise<boolean>;
   };
 
-  filters: {};
+  filters: {
+    "RequestForChanges(address,string,string)"(
+      recipient?: null,
+      message?: null,
+      additionalLink?: null
+    ): RequestForChangesEventFilter;
+    RequestForChanges(
+      recipient?: null,
+      message?: null,
+      additionalLink?: null
+    ): RequestForChangesEventFilter;
+  };
 
   estimateGas: {
     assignPerformer(
@@ -289,6 +349,12 @@ export interface ProjectTask extends BaseContract {
     employer(overrides?: CallOverrides): Promise<BigNumber>;
 
     rejectTask(
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<BigNumber>;
+
+    requestChanges(
+      message: PromiseOrValue<string>,
+      additional_link: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -329,6 +395,12 @@ export interface ProjectTask extends BaseContract {
     employer(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     rejectTask(
+      overrides?: Overrides & { from?: PromiseOrValue<string> }
+    ): Promise<PopulatedTransaction>;
+
+    requestChanges(
+      message: PromiseOrValue<string>,
+      additional_link: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
