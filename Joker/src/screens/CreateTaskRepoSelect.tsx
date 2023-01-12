@@ -1,38 +1,30 @@
 import React, {useState} from 'react';
 
-import {CreateTaskRepoSelect} from 'src/components/CreateTaskRepoSelect';
+import {
+  CreateTaskRepoSelect,
+  onPressRepoItemParams,
+} from 'src/components/CreateTaskRepoSelect';
 import {Waiting} from 'src/components/lottie';
 import {useUserReposQuery} from 'src/generated/graphql-github';
+import {useGithubPagination, useTypedNavigation} from 'src/hooks';
 
 export function CreateTaskRepoSelectScreen() {
   const [cursor, setCursor] = useState<string>();
-  const [cursorHistory, setCursorHistory] = useState<string[]>([]);
-
+  const {navigate} = useTypedNavigation();
   const {error, data, loading} = useUserReposQuery({
     variables: {
       countToShow: 10,
       cursor,
     },
   });
-  const {startCursor} = data?.viewer.repositories.pageInfo || {};
-  const {endCursor} = data?.viewer.repositories.pageInfo || {};
 
-  const onPrevPage = () => {
-    if (startCursor) {
-      if (cursorHistory.length > 1) {
-        setCursor(cursorHistory.reverse()[0]);
-      } else {
-        setCursor(undefined);
-        setCursorHistory([]);
-      }
-    }
-  };
+  const {onNextPage, onPrevPage} = useGithubPagination(
+    data?.viewer.repositories.pageInfo,
+    setCursor,
+  );
 
-  const onNextPage = () => {
-    if (endCursor && startCursor) {
-      setCursorHistory(pr => [...pr, startCursor]);
-      setCursor(endCursor);
-    }
+  const onPressItem = ({owner, repoName}: onPressRepoItemParams) => {
+    navigate('createTaskIssueSelect', {owner, repoName});
   };
 
   if (loading) {
@@ -43,6 +35,7 @@ export function CreateTaskRepoSelectScreen() {
     <CreateTaskRepoSelect
       onNextPage={onNextPage}
       onPrevPage={onPrevPage}
+      onPressItem={onPressItem}
       pageInfo={data?.viewer.repositories.pageInfo}
       repos={data?.viewer.repositories.nodes}
       error={error}

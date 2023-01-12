@@ -16,7 +16,14 @@ export const configGitHubAuth: AuthConfiguration = {
   redirectUrl: 'dapp.joker://',
   clientId: GIT_HUB_AUTH_CLIENT_ID ?? '',
   clientSecret: GIT_HUB_AUTH_CLIENT_SECRET,
-  scopes: ['admin', 'write:packages', 'workflow', 'user:email'],
+  scopes: [
+    'admin',
+    'write:packages',
+    'workflow',
+    'user:email',
+    'repo',
+    'read:project',
+  ],
   additionalHeaders: {Accept: 'application/json'},
   serviceConfiguration: {
     authorizationEndpoint: 'https://github.com/login/oauth/authorize',

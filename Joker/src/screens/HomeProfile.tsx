@@ -6,7 +6,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {useExploreProfilesQuery} from 'src/generated/graphql-lens';
 import {LIGHT_TEXT_RED_1} from 'src/variables';
 
-export function TabScreen2() {
+export function HomeProfileScreen() {
   const {loading, error, data} = useExploreProfilesQuery({
     context: {clientName: 'lenLink'},
   });

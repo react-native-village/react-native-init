@@ -14,6 +14,7 @@ import {Home} from 'src/screens/home';
 import {RootStackParamList} from 'src/types';
 
 import {useTheme} from './hooks';
+import {CreateTaskIssueSelectScreen} from './screens/CreateTaskIssueSelect';
 import {CreateTaskRepoSelectScreen} from './screens/CreateTaskRepoSelect';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -50,6 +51,10 @@ export function App() {
           <Stack.Screen
             name="createTaskRepoSelect"
             component={CreateTaskRepoSelectScreen}
+          />
+          <Stack.Screen
+            name="createTaskIssueSelect"
+            component={CreateTaskIssueSelectScreen}
           />
         </Stack.Group>
         <Stack.Screen name="firstScreen" component={FirstScreen} />

@@ -5,50 +5,45 @@ import {FlatList, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Button, Spacer, Text} from 'src/components/ui';
-import {UserReposQuery} from 'src/generated/graphql-github';
+import {IssuesListQuery} from 'src/generated/graphql-github';
 import {useThemeObject} from 'src/hooks';
 import {ColorTheme} from 'src/types';
 
-import {RepoItem} from './RepoItem';
+import {IssueItem} from './IssueItem';
 
-export type onPressRepoItemParams = {
-  owner: string;
-  repoName: string;
-};
+type issueType = NonNullable<IssuesListQuery['repository']>['issues'];
 
-interface CreateTaskRepoSelectProps {
-  repos: UserReposQuery['viewer']['repositories']['nodes'];
-  pageInfo?: UserReposQuery['viewer']['repositories']['pageInfo'];
-  onPressItem: (arg: onPressRepoItemParams) => void;
+interface CreateTaskIssueSelectProps {
+  issues: issueType['edges'];
+  pageInfo?: issueType['pageInfo'];
   error: ApolloError | undefined;
   onPrevPage?: () => void;
   onNextPage?: () => void;
 }
 
-export function CreateTaskRepoSelect({
-  repos,
+export function CreateTaskIssueSelect({
+  issues,
   pageInfo,
   error,
   onPrevPage,
   onNextPage,
-  onPressItem,
-}: CreateTaskRepoSelectProps) {
+}: CreateTaskIssueSelectProps) {
   const styles = useThemeObject(createStyles);
   const {bottom} = useSafeAreaInsets();
   if (error) {
     return <Text>{error.message}</Text>;
   }
 
-  if (!repos) {
+  if (!issues) {
     return <Text>Empty repos</Text>;
   }
 
   return (
     <FlatList
       style={styles.container}
-      keyExtractor={item => item?.url || ''}
-      renderItem={({item}) => <RepoItem onPress={onPressItem} repo={item} />}
-      data={repos.filter(el => el !== null)}
+      keyExtractor={item => item?.node?.id || ''}
+      renderItem={({item}) => <IssueItem issue={item?.node} />}
+      data={issues.filter(el => el !== null)}
       ListHeaderComponent={
         <>
           <Spacer height={10} />
