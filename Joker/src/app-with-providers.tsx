@@ -20,6 +20,8 @@ import {Modals} from 'src/screens/modals';
 import {app} from 'src/services';
 import {githubApiGraphQL, lensApiGraphQL} from 'src/variables';
 
+import {ThemeProvider} from './contexts';
+
 const httpLink = createHttpLink({
   uri: githubApiGraphQL,
 });
@@ -54,15 +56,17 @@ export function AppWithProviders() {
       storageOptions={{
         asyncStorage: AsyncStorage as any,
       }}>
-      <GestureHandlerRootView style={styles.flexOne}>
-        <SafeAreaProvider>
-          <ApolloProvider client={client}>
-            <StatusBar />
-            <App />
-            <Modals />
-          </ApolloProvider>
-        </SafeAreaProvider>
-      </GestureHandlerRootView>
+      <ThemeProvider>
+        <GestureHandlerRootView style={styles.flexOne}>
+          <SafeAreaProvider>
+            <ApolloProvider client={client}>
+              <StatusBar />
+              <App />
+              <Modals />
+            </ApolloProvider>
+          </SafeAreaProvider>
+        </GestureHandlerRootView>
+      </ThemeProvider>
     </WalletConnectProvider>
   );
 }

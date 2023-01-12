@@ -2,7 +2,7 @@
 
 // Файлы Solidity должны начинаться с этой pragma.
 // Он будет использоваться компилятором Solidity для проверки своей версии.
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.0;
 
 // Это основной строительный блок для смарт-контрактов.
 contract Token {
@@ -63,3 +63,5 @@ contract Token {
         return balances[account];
     }
 }
+
+error SomeWentWrong();

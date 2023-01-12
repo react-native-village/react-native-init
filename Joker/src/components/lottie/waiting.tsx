@@ -1,27 +1,35 @@
 import React from 'react';
 
-import {StyleProp, StyleSheet, ViewStyle} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 
-import {LottieWrap} from './';
+import {useTheme} from 'src/hooks';
 
 type WaitingProps = {
   style?: StyleProp<ViewStyle>;
 };
 
 export function Waiting({style}: WaitingProps) {
+  const {
+    theme: {color},
+  } = useTheme();
+
   return (
-    <LottieWrap
-      style={[page.container, style]}
-      source={require('../../../assets/animations/waiting.json')}
-      autoPlay
-      loop
-    />
+    <View style={[styles.container, style]}>
+      <ActivityIndicator size="large" color={color.graphicGreen2} />
+    </View>
   );
 }
 
-const page = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    width: 180,
-    height: 180,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

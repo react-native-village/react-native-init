@@ -12,6 +12,7 @@ export type TabParamList = {
 export type RootStackParamList = {
   home: NavigatorScreenParams<TabParamList>;
   firstScreen: undefined;
+  createTaskRepoSelect: undefined;
 };
 
 export interface ScreenOptionType extends StackNavigationOptions {
@@ -59,3 +60,7 @@ export interface Theme {
   id: string;
   color: ColorTheme;
 }
+
+export type ArrayElementType<
+  ArrayType extends readonly unknown[] | null | undefined,
+> = ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
