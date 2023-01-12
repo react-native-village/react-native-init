@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",
+    "@ethersproject/shims": "^5.7.0",
     "@habx/apollo-multi-endpoint-link": "^2.9.0",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/bottom-tabs": "^6.5.2",
@@ -26,6 +27,7 @@
     "@react-navigation/stack": "^6.3.10",
     "@tradle/react-native-http": "^2.0.1",
     "@walletconnect/react-native-dapp": "^1.8.0",
+    "@walletconnect/react-native-compat": "^2.2.1",
     "axios": "^1.2.2",
     "ethers": "^5.7.2",
     "events": "^3.3.0",
@@ -40,6 +42,7 @@
     "react-native-app-auth": "^6.4.3",
     "react-native-crypto": "2.1.0",
     "react-native-gesture-handler": "^2.8.0",
+    "react-native-get-random-values": "^1.8.0",
     "react-native-os": "https://github.com/aprock/react-native-os",
     "react-native-randombytes": "^3.0.0",
     "react-native-reanimated": "^2.13.0",
