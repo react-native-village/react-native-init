@@ -1,0 +1,16 @@
+query UserInfo {
+  viewer {
+    id
+    login
+    avatarUrl
+    name
+    status {
+      emoji
+      message
+    }
+    bio
+    followers {
+      totalCount
+    }
+  }
+}

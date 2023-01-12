@@ -9881,6 +9881,8 @@ export type Mutation = {
   setRepositoryInteractionLimit?: Maybe<SetRepositoryInteractionLimitPayload>;
   /** Set a user level interaction limit for an user's public repositories. */
   setUserInteractionLimit?: Maybe<SetUserInteractionLimitPayload>;
+  /** Starts a GitHub Enterprise Importer organization migration. */
+  startOrganizationMigration?: Maybe<StartOrganizationMigrationPayload>;
   /** Starts a GitHub Enterprise Importer (GEI) repository migration. */
   startRepositoryMigration?: Maybe<StartRepositoryMigrationPayload>;
   /** Submits a pending pull request review. */
@@ -10681,6 +10683,11 @@ export type MutationSetRepositoryInteractionLimitArgs = {
 /** The root query for implementing GraphQL mutations. */
 export type MutationSetUserInteractionLimitArgs = {
   input: SetUserInteractionLimitInput;
+};
+
+/** The root query for implementing GraphQL mutations. */
+export type MutationStartOrganizationMigrationArgs = {
+  input: StartOrganizationMigrationInput;
 };
 
 /** The root query for implementing GraphQL mutations. */
@@ -12743,6 +12750,8 @@ export type Organization = Actor &
     teamsResourcePath: Scalars['URI'];
     /** The HTTP URL listing organization's teams */
     teamsUrl: Scalars['URI'];
+    /** The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has spent on GitHub to fund sponsorships. Only returns a value when viewed by the user themselves or by a user who can manage sponsorships for the requested organization. */
+    totalSponsorshipAmountAsSponsorInCents?: Maybe<Scalars['Int']>;
     /** The organization's Twitter username. */
     twitterUsername?: Maybe<Scalars['String']>;
     /** Identifies the date and time when the object was last updated. */
@@ -13093,6 +13102,13 @@ export type OrganizationTeamsArgs = {
   userLogins?: InputMaybe<Array<Scalars['String']>>;
 };
 
+/** An account on GitHub, with one or more owners, that has repositories, members and teams. */
+export type OrganizationTotalSponsorshipAmountAsSponsorInCentsArgs = {
+  since?: InputMaybe<Scalars['DateTime']>;
+  sponsorableLogins?: InputMaybe<Array<Scalars['String']>>;
+  until?: InputMaybe<Scalars['DateTime']>;
+};
+
 /** An audit entry in an organization audit log. */
 export type OrganizationAuditEntry =
   | MembersCanDeleteReposClearAuditEntry
@@ -13371,6 +13387,50 @@ export enum OrganizationMembersCanCreateRepositoriesSettingValue {
   Internal = 'INTERNAL',
   /** Members will be able to create only private repositories. */
   Private = 'PRIVATE',
+}
+
+/** A GitHub Enterprise Importer (GEI) organization migration. */
+export type OrganizationMigration = Node & {
+  __typename?: 'OrganizationMigration';
+  /** Identifies the date and time when the object was created. */
+  createdAt: Scalars['DateTime'];
+  /** Identifies the primary key from the database. */
+  databaseId?: Maybe<Scalars['String']>;
+  /** The reason the organization migration failed. */
+  failureReason?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  /** The remaining amount of repos to be migrated. */
+  remainingRepositoriesCount?: Maybe<Scalars['Int']>;
+  /** The name of the source organization to be migrated. */
+  sourceOrgName: Scalars['String'];
+  /** The URL of the source organization to migrate. */
+  sourceOrgUrl: Scalars['URI'];
+  /** The migration state. */
+  state: OrganizationMigrationState;
+  /** The name of the target organization. */
+  targetOrgName: Scalars['String'];
+  /** The total amount of repositories to be migrated. */
+  totalRepositoriesCount?: Maybe<Scalars['Int']>;
+};
+
+/** The Octoshift Organization migration state. */
+export enum OrganizationMigrationState {
+  /** The Octoshift migration has failed. */
+  Failed = 'FAILED',
+  /** The Octoshift migration is in progress. */
+  InProgress = 'IN_PROGRESS',
+  /** The Octoshift migration has not started. */
+  NotStarted = 'NOT_STARTED',
+  /** The Octoshift migration is performing post repository migrations. */
+  PostRepoMigration = 'POST_REPO_MIGRATION',
+  /** The Octoshift migration is performing pre repository migrations. */
+  PreRepoMigration = 'PRE_REPO_MIGRATION',
+  /** The Octoshift migration has been queued. */
+  Queued = 'QUEUED',
+  /** The Octoshift org migration is performing repository migrations. */
+  RepoMigration = 'REPO_MIGRATION',
+  /** The Octoshift migration has succeeded. */
+  Succeeded = 'SUCCEEDED',
 }
 
 /** Used for argument of CreateProjectV2 mutation. */
@@ -22258,6 +22318,8 @@ export type Sponsorable = {
   sponsorshipsAsMaintainer: SponsorshipConnection;
   /** This object's sponsorships as the sponsor. */
   sponsorshipsAsSponsor: SponsorshipConnection;
+  /** The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has spent on GitHub to fund sponsorships. Only returns a value when viewed by the user themselves or by a user who can manage sponsorships for the requested organization. */
+  totalSponsorshipAmountAsSponsorInCents?: Maybe<Scalars['Int']>;
   /** Whether or not the viewer is able to sponsor this user/organization. */
   viewerCanSponsor: Scalars['Boolean'];
   /** True if the viewer is sponsoring this user/organization. */
@@ -22341,6 +22403,13 @@ export type SponsorableSponsorshipsAsSponsorArgs = {
   last?: InputMaybe<Scalars['Int']>;
   maintainerLogins?: InputMaybe<Array<Scalars['String']>>;
   orderBy?: InputMaybe<SponsorshipOrder>;
+};
+
+/** Entities that can sponsor or be sponsored through GitHub Sponsors. */
+export type SponsorableTotalSponsorshipAmountAsSponsorInCentsArgs = {
+  since?: InputMaybe<Scalars['DateTime']>;
+  sponsorableLogins?: InputMaybe<Array<Scalars['String']>>;
+  until?: InputMaybe<Scalars['DateTime']>;
 };
 
 /** Entities that can be sponsored via GitHub Sponsors */
@@ -23427,6 +23496,29 @@ export type StarredRepositoryEdge = {
   node: Repository;
   /** Identifies when the item was starred. */
   starredAt: Scalars['DateTime'];
+};
+
+/** Autogenerated input type of StartOrganizationMigration */
+export type StartOrganizationMigrationInput = {
+  /** A unique identifier for the client performing the mutation. */
+  clientMutationId?: InputMaybe<Scalars['String']>;
+  /** The migration source access token. */
+  sourceAccessToken: Scalars['String'];
+  /** The URL of the organization to migrate. */
+  sourceOrgUrl: Scalars['URI'];
+  /** The ID of the enterprise the target organization belongs to. */
+  targetEnterpriseId: Scalars['ID'];
+  /** The name of the target organization. */
+  targetOrgName: Scalars['String'];
+};
+
+/** Autogenerated return type of StartOrganizationMigration */
+export type StartOrganizationMigrationPayload = {
+  __typename?: 'StartOrganizationMigrationPayload';
+  /** A unique identifier for the client performing the mutation. */
+  clientMutationId?: Maybe<Scalars['String']>;
+  /** The new organization migration. */
+  orgMigration?: Maybe<OrganizationMigration>;
 };
 
 /** Autogenerated input type of StartRepositoryMigration */
@@ -26806,6 +26898,8 @@ export type User = Actor &
      *
      */
     topRepositories: RepositoryConnection;
+    /** The amount in United States cents (e.g., 500 = $5.00 USD) that this entity has spent on GitHub to fund sponsorships. Only returns a value when viewed by the user themselves or by a user who can manage sponsorships for the requested organization. */
+    totalSponsorshipAmountAsSponsorInCents?: Maybe<Scalars['Int']>;
     /** The user's Twitter username. */
     twitterUsername?: Maybe<Scalars['String']>;
     /** Identifies the date and time when the object was last updated. */
@@ -27211,6 +27305,13 @@ export type UserTopRepositoriesArgs = {
 };
 
 /** A user is an individual's account on GitHub that owns repositories and can make new content. */
+export type UserTotalSponsorshipAmountAsSponsorInCentsArgs = {
+  since?: InputMaybe<Scalars['DateTime']>;
+  sponsorableLogins?: InputMaybe<Array<Scalars['String']>>;
+  until?: InputMaybe<Scalars['DateTime']>;
+};
+
+/** A user is an individual's account on GitHub that owns repositories and can make new content. */
 export type UserWatchingArgs = {
   affiliations?: InputMaybe<Array<InputMaybe<RepositoryAffiliation>>>;
   after?: InputMaybe<Scalars['String']>;
@@ -27603,22 +27704,42 @@ export enum WorkflowRunOrderField {
   CreatedAt = 'CREATED_AT',
 }
 
-export type RepoCardsRequestQueryVariables = Exact<{[key: string]: never}>;
+export type IssuesListQueryVariables = Exact<{
+  repoName: Scalars['String'];
+  owner: Scalars['String'];
+  cursor?: InputMaybe<Scalars['String']>;
+}>;
 
-export type RepoCardsRequestQuery = {
+export type IssuesListQuery = {
   __typename?: 'Query';
   repository?: {
     __typename?: 'Repository';
+    id: string;
+    name: string;
+    url: any;
     issues: {
       __typename?: 'IssueConnection';
+      totalCount: number;
+      pageInfo: {
+        __typename?: 'PageInfo';
+        endCursor?: string | null;
+        startCursor?: string | null;
+        hasNextPage: boolean;
+        hasPreviousPage: boolean;
+      };
       edges?: Array<{
         __typename?: 'IssueEdge';
         node?: {
           __typename?: 'Issue';
           id: string;
+          url: any;
           title: string;
           body: string;
-          projectV2?: {__typename?: 'ProjectV2'; title: string} | null;
+          projectV2?: {
+            __typename?: 'ProjectV2';
+            id: string;
+            title: string;
+          } | null;
           assignees: {
             __typename?: 'UserConnection';
             edges?: Array<{
@@ -27635,13 +27756,39 @@ export type RepoCardsRequestQuery = {
             __typename?: 'LabelConnection';
             edges?: Array<{
               __typename?: 'LabelEdge';
-              node?: {__typename?: 'Label'; id: string} | null;
+              node?: {
+                __typename?: 'Label';
+                id: string;
+                description?: string | null;
+                name: string;
+                color: string;
+              } | null;
             } | null> | null;
           } | null;
         } | null;
       } | null> | null;
     };
   } | null;
+};
+
+export type UserInfoQueryVariables = Exact<{[key: string]: never}>;
+
+export type UserInfoQuery = {
+  __typename?: 'Query';
+  viewer: {
+    __typename?: 'User';
+    id: string;
+    login: string;
+    avatarUrl: any;
+    name?: string | null;
+    bio?: string | null;
+    status?: {
+      __typename?: 'UserStatus';
+      emoji?: string | null;
+      message?: string | null;
+    } | null;
+    followers: {__typename?: 'FollowerConnection'; totalCount: number};
+  };
 };
 
 export type UserReposQueryVariables = Exact<{
@@ -27653,6 +27800,7 @@ export type UserReposQuery = {
   __typename?: 'Query';
   viewer: {
     __typename?: 'User';
+    id: string;
     repositories: {
       __typename?: 'RepositoryConnection';
       totalCount: number;
@@ -27665,50 +27813,44 @@ export type UserReposQuery = {
       };
       nodes?: Array<{
         __typename?: 'Repository';
+        id: string;
         name: string;
         url: any;
         stargazerCount: number;
+        owner:
+          | {__typename?: 'Organization'; id: string; login: string}
+          | {__typename?: 'User'; id: string; login: string};
         issues: {__typename?: 'IssueConnection'; totalCount: number};
       } | null> | null;
     };
   };
 };
 
-export type UserInfoQueryVariables = Exact<{[key: string]: never}>;
-
-export type UserInfoQuery = {
-  __typename?: 'Query';
-  viewer: {
-    __typename?: 'User';
-    login: string;
-    avatarUrl: any;
-    name?: string | null;
-    bio?: string | null;
-    status?: {
-      __typename?: 'UserStatus';
-      emoji?: string | null;
-      message?: string | null;
-    } | null;
-    followers: {__typename?: 'FollowerConnection'; totalCount: number};
-    repositories: {
-      __typename?: 'RepositoryConnection';
-      nodes?: Array<{
-        __typename?: 'Repository';
-        name: string;
-        url: any;
-      } | null> | null;
-    };
-  };
-};
-
-export const RepoCardsRequestDocument = gql`
-  query RepoCardsRequest {
-    repository(name: "react-native-init", owner: "react-native-village") {
-      issues(first: 100, filterBy: {states: [OPEN]}) {
+export const IssuesListDocument = gql`
+  query IssuesList($repoName: String!, $owner: String!, $cursor: String) {
+    repository(name: $repoName, owner: $owner) {
+      id
+      name
+      url
+      issues(
+        first: 100
+        filterBy: {states: OPEN}
+        orderBy: {field: UPDATED_AT, direction: DESC}
+        after: $cursor
+      ) {
+        totalCount
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
+          hasPreviousPage
+        }
         edges {
           node {
             id
+            url
             projectV2(number: 1) {
+              id
               title
             }
             assignees(first: 10) {
@@ -27726,6 +27868,9 @@ export const RepoCardsRequestDocument = gql`
               edges {
                 node {
                   id
+                  description
+                  name
+                  color
                 }
               }
             }
@@ -27737,62 +27882,128 @@ export const RepoCardsRequestDocument = gql`
 `;
 
 /**
- * __useRepoCardsRequestQuery__
+ * __useIssuesListQuery__
  *
- * To run a query within a React component, call `useRepoCardsRequestQuery` and pass it any options that fit your needs.
- * When your component renders, `useRepoCardsRequestQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useIssuesListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIssuesListQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useRepoCardsRequestQuery({
+ * const { data, loading, error } = useIssuesListQuery({
+ *   variables: {
+ *      repoName: // value for 'repoName'
+ *      owner: // value for 'owner'
+ *      cursor: // value for 'cursor'
+ *   },
+ * });
+ */
+export function useIssuesListQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    IssuesListQuery,
+    IssuesListQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<IssuesListQuery, IssuesListQueryVariables>(
+    IssuesListDocument,
+    options,
+  );
+}
+export function useIssuesListLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    IssuesListQuery,
+    IssuesListQueryVariables
+  >,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<IssuesListQuery, IssuesListQueryVariables>(
+    IssuesListDocument,
+    options,
+  );
+}
+export type IssuesListQueryHookResult = ReturnType<typeof useIssuesListQuery>;
+export type IssuesListLazyQueryHookResult = ReturnType<
+  typeof useIssuesListLazyQuery
+>;
+export type IssuesListQueryResult = Apollo.QueryResult<
+  IssuesListQuery,
+  IssuesListQueryVariables
+>;
+export function refetchIssuesListQuery(variables: IssuesListQueryVariables) {
+  return {query: IssuesListDocument, variables: variables};
+}
+export const UserInfoDocument = gql`
+  query UserInfo {
+    viewer {
+      id
+      login
+      avatarUrl
+      name
+      status {
+        emoji
+        message
+      }
+      bio
+      followers {
+        totalCount
+      }
+    }
+  }
+`;
+
+/**
+ * __useUserInfoQuery__
+ *
+ * To run a query within a React component, call `useUserInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUserInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUserInfoQuery({
  *   variables: {
  *   },
  * });
  */
-export function useRepoCardsRequestQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    RepoCardsRequestQuery,
-    RepoCardsRequestQueryVariables
-  >,
+export function useUserInfoQuery(
+  baseOptions?: Apollo.QueryHookOptions<UserInfoQuery, UserInfoQueryVariables>,
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<RepoCardsRequestQuery, RepoCardsRequestQueryVariables>(
-    RepoCardsRequestDocument,
+  return Apollo.useQuery<UserInfoQuery, UserInfoQueryVariables>(
+    UserInfoDocument,
     options,
   );
 }
-export function useRepoCardsRequestLazyQuery(
+export function useUserInfoLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    RepoCardsRequestQuery,
-    RepoCardsRequestQueryVariables
+    UserInfoQuery,
+    UserInfoQueryVariables
   >,
 ) {
   const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<
-    RepoCardsRequestQuery,
-    RepoCardsRequestQueryVariables
-  >(RepoCardsRequestDocument, options);
+  return Apollo.useLazyQuery<UserInfoQuery, UserInfoQueryVariables>(
+    UserInfoDocument,
+    options,
+  );
 }
-export type RepoCardsRequestQueryHookResult = ReturnType<
-  typeof useRepoCardsRequestQuery
+export type UserInfoQueryHookResult = ReturnType<typeof useUserInfoQuery>;
+export type UserInfoLazyQueryHookResult = ReturnType<
+  typeof useUserInfoLazyQuery
 >;
-export type RepoCardsRequestLazyQueryHookResult = ReturnType<
-  typeof useRepoCardsRequestLazyQuery
+export type UserInfoQueryResult = Apollo.QueryResult<
+  UserInfoQuery,
+  UserInfoQueryVariables
 >;
-export type RepoCardsRequestQueryResult = Apollo.QueryResult<
-  RepoCardsRequestQuery,
-  RepoCardsRequestQueryVariables
->;
-export function refetchRepoCardsRequestQuery(
-  variables?: RepoCardsRequestQueryVariables,
-) {
-  return {query: RepoCardsRequestDocument, variables: variables};
+export function refetchUserInfoQuery(variables?: UserInfoQueryVariables) {
+  return {query: UserInfoDocument, variables: variables};
 }
 export const UserReposDocument = gql`
   query UserRepos($countToShow: Int!, $cursor: String) {
     viewer {
+      id
       repositories(
         orderBy: {direction: DESC, field: UPDATED_AT}
         first: $countToShow
@@ -27807,7 +28018,12 @@ export const UserReposDocument = gql`
           startCursor
         }
         nodes {
+          id
           name
+          owner {
+            id
+            login
+          }
           url
           stargazerCount
           issues(filterBy: {states: OPEN}) {
@@ -27867,79 +28083,4 @@ export type UserReposQueryResult = Apollo.QueryResult<
 >;
 export function refetchUserReposQuery(variables: UserReposQueryVariables) {
   return {query: UserReposDocument, variables: variables};
-}
-export const UserInfoDocument = gql`
-  query UserInfo {
-    viewer {
-      login
-      avatarUrl
-      name
-      status {
-        emoji
-        message
-      }
-      bio
-      followers {
-        totalCount
-      }
-      repositories(
-        orderBy: {direction: DESC, field: UPDATED_AT}
-        first: 10
-        privacy: PUBLIC
-      ) {
-        nodes {
-          name
-          url
-        }
-      }
-    }
-  }
-`;
-
-/**
- * __useUserInfoQuery__
- *
- * To run a query within a React component, call `useUserInfoQuery` and pass it any options that fit your needs.
- * When your component renders, `useUserInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useUserInfoQuery({
- *   variables: {
- *   },
- * });
- */
-export function useUserInfoQuery(
-  baseOptions?: Apollo.QueryHookOptions<UserInfoQuery, UserInfoQueryVariables>,
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useQuery<UserInfoQuery, UserInfoQueryVariables>(
-    UserInfoDocument,
-    options,
-  );
-}
-export function useUserInfoLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    UserInfoQuery,
-    UserInfoQueryVariables
-  >,
-) {
-  const options = {...defaultOptions, ...baseOptions};
-  return Apollo.useLazyQuery<UserInfoQuery, UserInfoQueryVariables>(
-    UserInfoDocument,
-    options,
-  );
-}
-export type UserInfoQueryHookResult = ReturnType<typeof useUserInfoQuery>;
-export type UserInfoLazyQueryHookResult = ReturnType<
-  typeof useUserInfoLazyQuery
->;
-export type UserInfoQueryResult = Apollo.QueryResult<
-  UserInfoQuery,
-  UserInfoQueryVariables
->;
-export function refetchUserInfoQuery(variables?: UserInfoQueryVariables) {
-  return {query: UserInfoDocument, variables: variables};
 }

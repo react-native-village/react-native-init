@@ -20,7 +20,7 @@ import {app} from 'src/services';
 import {ColorTheme} from 'src/types';
 import {WINDOW_HEIGHT} from 'src/variables';
 
-export function TabScreen1() {
+export function HomeTaskExplorerScreen() {
   const {lightTheme, darkTheme, systemTheme} = useTheme();
   const {color} = useTheme().theme;
   const styles = useThemeObject(createStyles);

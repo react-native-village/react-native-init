@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import {Text} from 'react-native';
 
-export function TabScreen3() {
+export function HomeSettingsScreen() {
   const [moralisResult, setMoralisResult] = useState<any>({});
   useEffect(() => {
     fetch('http://localhost:3000/demo').then(async data => {
