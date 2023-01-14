@@ -27771,6 +27771,89 @@ export type IssuesListQuery = {
   } | null;
 };
 
+export type IssueQueryVariables = Exact<{
+  repoName: Scalars['String'];
+  owner: Scalars['String'];
+  number: Scalars['Int'];
+}>;
+
+export type IssueQuery = {
+  __typename?: 'Query';
+  repository?: {
+    __typename?: 'Repository';
+    id: string;
+    name: string;
+    url: any;
+    issue?: {
+      __typename?: 'Issue';
+      id: string;
+      url: any;
+      title: string;
+      body: string;
+      projectV2?: {__typename?: 'ProjectV2'; id: string; title: string} | null;
+      assignees: {
+        __typename?: 'UserConnection';
+        edges?: Array<{
+          __typename?: 'UserEdge';
+          node?: {
+            __typename?: 'User';
+            id: string;
+            name?: string | null;
+            login: string;
+          } | null;
+        } | null> | null;
+      };
+      labels?: {
+        __typename?: 'LabelConnection';
+        edges?: Array<{
+          __typename?: 'LabelEdge';
+          node?: {
+            __typename?: 'Label';
+            id: string;
+            description?: string | null;
+            name: string;
+            color: string;
+          } | null;
+        } | null> | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type IssueFieldsFragment = {
+  __typename?: 'Issue';
+  id: string;
+  url: any;
+  title: string;
+  body: string;
+  projectV2?: {__typename?: 'ProjectV2'; id: string; title: string} | null;
+  assignees: {
+    __typename?: 'UserConnection';
+    edges?: Array<{
+      __typename?: 'UserEdge';
+      node?: {
+        __typename?: 'User';
+        id: string;
+        name?: string | null;
+        login: string;
+      } | null;
+    } | null> | null;
+  };
+  labels?: {
+    __typename?: 'LabelConnection';
+    edges?: Array<{
+      __typename?: 'LabelEdge';
+      node?: {
+        __typename?: 'Label';
+        id: string;
+        description?: string | null;
+        name: string;
+        color: string;
+      } | null;
+    } | null> | null;
+  } | null;
+};
+
 export type UserInfoQueryVariables = Exact<{[key: string]: never}>;
 
 export type UserInfoQuery = {
@@ -27826,6 +27909,37 @@ export type UserReposQuery = {
   };
 };
 
+export const IssueFieldsFragmentDoc = gql`
+  fragment issueFields on Issue {
+    id
+    url
+    projectV2(number: 1) {
+      id
+      title
+    }
+    assignees(first: 10) {
+      edges {
+        node {
+          id
+          name
+          login
+        }
+      }
+    }
+    title
+    body
+    labels(first: 10) {
+      edges {
+        node {
+          id
+          description
+          name
+          color
+        }
+      }
+    }
+  }
+`;
 export const IssuesListDocument = gql`
   query IssuesList($repoName: String!, $owner: String!, $cursor: String) {
     repository(name: $repoName, owner: $owner) {
@@ -27847,38 +27961,13 @@ export const IssuesListDocument = gql`
         }
         edges {
           node {
-            id
-            url
-            projectV2(number: 1) {
-              id
-              title
-            }
-            assignees(first: 10) {
-              edges {
-                node {
-                  id
-                  name
-                  login
-                }
-              }
-            }
-            title
-            body
-            labels(first: 10) {
-              edges {
-                node {
-                  id
-                  description
-                  name
-                  color
-                }
-              }
-            }
+            ...issueFields
           }
         }
       }
     }
   }
+  ${IssueFieldsFragmentDoc}
 `;
 
 /**
@@ -27933,6 +28022,65 @@ export type IssuesListQueryResult = Apollo.QueryResult<
 >;
 export function refetchIssuesListQuery(variables: IssuesListQueryVariables) {
   return {query: IssuesListDocument, variables: variables};
+}
+export const IssueDocument = gql`
+  query Issue($repoName: String!, $owner: String!, $number: Int!) {
+    repository(name: $repoName, owner: $owner) {
+      id
+      name
+      url
+      issue(number: $number) {
+        ...issueFields
+      }
+    }
+  }
+  ${IssueFieldsFragmentDoc}
+`;
+
+/**
+ * __useIssueQuery__
+ *
+ * To run a query within a React component, call `useIssueQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIssueQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useIssueQuery({
+ *   variables: {
+ *      repoName: // value for 'repoName'
+ *      owner: // value for 'owner'
+ *      number: // value for 'number'
+ *   },
+ * });
+ */
+export function useIssueQuery(
+  baseOptions: Apollo.QueryHookOptions<IssueQuery, IssueQueryVariables>,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useQuery<IssueQuery, IssueQueryVariables>(
+    IssueDocument,
+    options,
+  );
+}
+export function useIssueLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<IssueQuery, IssueQueryVariables>,
+) {
+  const options = {...defaultOptions, ...baseOptions};
+  return Apollo.useLazyQuery<IssueQuery, IssueQueryVariables>(
+    IssueDocument,
+    options,
+  );
+}
+export type IssueQueryHookResult = ReturnType<typeof useIssueQuery>;
+export type IssueLazyQueryHookResult = ReturnType<typeof useIssueLazyQuery>;
+export type IssueQueryResult = Apollo.QueryResult<
+  IssueQuery,
+  IssueQueryVariables
+>;
+export function refetchIssueQuery(variables: IssueQueryVariables) {
+  return {query: IssueDocument, variables: variables};
 }
 export const UserInfoDocument = gql`
   query UserInfo {

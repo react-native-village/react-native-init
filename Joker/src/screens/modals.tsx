@@ -2,23 +2,14 @@ import React, {useEffect, useMemo, useState} from 'react';
 
 import {Modal} from 'react-native';
 
-import {
-  LoadingModal,
-  LoadingModalProps,
-  TestModal,
-  TestModalProps,
-} from 'src/components/modals';
+import {LoadingModal, LoadingModalProps} from 'src/components/modals';
 import {app} from 'src/services';
-
-type Test = {
-  type: 'test';
-} & TestModalProps;
 
 type Loading = {
   type: 'loading';
 } & LoadingModalProps;
 
-type ModalState = Test | Loading | null;
+type ModalState = Loading | null;
 
 export type ModalProps = {
   initialModal?: ModalState;
@@ -51,11 +42,6 @@ export function Modals({initialModal = null}: ModalProps) {
     };
   }, []);
 
-  const onClose = () => {
-    setModal(null);
-    app.emit('onCloseTest');
-  };
-
   const entry = useMemo(() => {
     if (!modal) {
       return null;
@@ -63,8 +49,6 @@ export function Modals({initialModal = null}: ModalProps) {
     switch (modal.type) {
       case 'loading':
         return <LoadingModal text={modal.text} />;
-      case 'test':
-        return <TestModal onClose={onClose} />;
       default:
         return null;
     }
