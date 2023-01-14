@@ -6,4 +6,5 @@ declare module '@env' {
   export const POLYGON_TESTNET_RPC_PROVIDER: string | undefined;
   export const POLYGON_RPC_PROVIDER: string | undefined;
   export const WALLET_CONNECT_PROJECT_ID: string | undefined;
+  export const STORYBOOK_ENABLED: string;
 }

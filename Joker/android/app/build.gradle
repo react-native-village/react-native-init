@@ -78,6 +78,15 @@ import org.apache.tools.ant.taskdefs.condition.Os
  * ]
  */
 
+project.ext.envConfigFiles = [
+  debug: ".env",
+  release: ".env",
+  dev: ".env",
+  stage: ".env",
+];
+apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
+
+
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
 ]
@@ -257,6 +266,8 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+ implementation project(':react-native-splash-screen')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
