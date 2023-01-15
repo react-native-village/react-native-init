@@ -15,8 +15,7 @@ import {
   Text,
 } from 'src/components/ui';
 import {showLoadingWithText} from 'src/helpers';
-import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
-import {app} from 'src/services';
+import {useTheme, useThemeObject} from 'src/hooks';
 import {ColorTheme} from 'src/types';
 import {WINDOW_HEIGHT} from 'src/variables';
 
@@ -24,7 +23,6 @@ export function HomeTaskExplorerScreen() {
   const {lightTheme, darkTheme, systemTheme} = useTheme();
   const {color} = useTheme().theme;
   const styles = useThemeObject(createStyles);
-  const naviagtion = useTypedNavigation();
   const [isChecked, setIsChecked] = useState(false);
   const [actionSheetVisible, setActionSheetVisible] = useState(false);
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
@@ -37,24 +35,6 @@ export function HomeTaskExplorerScreen() {
         textRight={'Right'}
         colorLeft={color.graphicGreen1}
         colorRight={color.graphicGreen1}
-      />
-      <RNButton
-        title="go to first screen for modal"
-        onPress={() => {
-          naviagtion.navigate('firstScreen');
-        }}
-      />
-      <RNButton
-        title="Sign in"
-        onPress={() => {
-          app.githubAuth.authenticate();
-        }}
-      />
-      <RNButton
-        title="Sign out"
-        onPress={() => {
-          app.githubAuth.logout();
-        }}
       />
       <View style={styles.test}>
         <Text color={color.textBase2}>Test theme hook</Text>

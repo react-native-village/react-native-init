@@ -8,8 +8,12 @@ export type TabParamList = {
   homeSettings: undefined;
 };
 export type RootStackParamList = {
-  home: NavigatorScreenParams<TabParamList>;
-  firstScreen: undefined;
+  home?: NavigatorScreenParams<TabParamList>;
+  authentication: {
+    role: RoleType;
+  };
+  authenticationSuccess: undefined;
+  welcome: undefined;
   createTaskRepoSelect: undefined;
   createTaskIssueSelect: {
     owner: string;
@@ -62,6 +66,8 @@ export interface Theme {
   id: string;
   color: ColorTheme;
 }
+
+export type RoleType = 'performer' | 'employer';
 
 export type ArrayElementType<
   ArrayType extends readonly unknown[] | null | undefined,

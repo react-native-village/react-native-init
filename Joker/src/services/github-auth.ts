@@ -48,17 +48,17 @@ export class GitHubAuth extends EventEmitter {
   }
 
   async authenticate() {
-    this.emit('auth-started');
+    this.emit('gh-auth-start');
     try {
       const {accessToken} = await authorize(configGitHubAuth);
 
-      this.emit('auth-change-token', accessToken);
-      this.emit('auth-success-with-token', accessToken);
+      this.emit('gh-auth-change-token', accessToken);
+      this.emit('gh-auth-end', {error: false, accessToken});
 
       await AsyncStorage.setItem(githubTokenStorageKey, accessToken);
     } catch (error) {
       captureException(error);
-      this.emit('auth-error', error);
+      this.emit('gh-auth-end', {error: true, errorMess: error});
     }
   }
 
@@ -98,3 +98,9 @@ export class GitHubAuth extends EventEmitter {
 }
 
 export const githubAuth = new GitHubAuth();
+
+export type ghAuthEndResponse = {
+  error: boolean;
+  accessToken?: string;
+  errorMess?: any;
+};

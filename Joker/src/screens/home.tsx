@@ -13,8 +13,6 @@ import {TabParamList} from 'src/types';
 import {HomeProfileScreen} from './HomeProfile';
 import {HomeSettingsScreen} from './HomeSettings';
 import {HomeTaskExplorerScreen} from './HomeTaskExplorer';
-// import {TabScreen4} from './tab-screen4';
-// import {TabScreen5} from './tab-screen5';
 
 const Tab = createBottomTabNavigator<TabParamList>();
 
@@ -47,8 +45,6 @@ export function Home() {
         component={HomeSettingsScreen}
         options={screenOptions}
       />
-      {/* <Tab.Screen name="tab4" component={TabScreen4} options={screenOptions} />
-      <Tab.Screen name="tab5" component={TabScreen5} options={screenOptions} /> */}
     </Tab.Navigator>
   );
 }

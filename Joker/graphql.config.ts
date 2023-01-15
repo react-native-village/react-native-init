@@ -15,7 +15,7 @@ const config: CodegenConfig = {
       schema: {
         ['https://api.github.com/graphql']: {
           headers: {
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
           },
         },
       },
