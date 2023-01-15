@@ -1,0 +1,67 @@
+query IssuesList($repoName: String!, $owner: String!, $cursor: String) {
+  repository(name: $repoName, owner: $owner) {
+    id
+    name
+    url
+    issues(
+      first: 100
+      filterBy: {states: OPEN}
+      orderBy: {field: UPDATED_AT, direction: DESC}
+      after: $cursor
+    ) {
+      totalCount
+      pageInfo {
+        endCursor
+        startCursor
+        hasNextPage
+        hasPreviousPage
+      }
+      edges {
+        node {
+          ...issueFields
+        }
+      }
+    }
+  }
+}
+
+query Issue($repoName: String!, $owner: String!, $number: Int!) {
+  repository(name: $repoName, owner: $owner) {
+    id
+    name
+    url
+    issue(number: $number) {
+      ...issueFields
+    }
+  }
+}
+
+fragment issueFields on Issue {
+  id
+  url
+  projectV2(number: 1) {
+    id
+    title
+  }
+  assignees(first: 10) {
+    edges {
+      node {
+        id
+        name
+        login
+      }
+    }
+  }
+  title
+  body
+  labels(first: 10) {
+    edges {
+      node {
+        id
+        description
+        name
+        color
+      }
+    }
+  }
+}

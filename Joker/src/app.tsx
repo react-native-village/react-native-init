@@ -8,20 +8,26 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useColorScheme} from 'react-native';
 
+import {useTheme} from 'src/hooks';
 import {navigator} from 'src/navigator';
-import {FirstScreen} from 'src/screens/first-screen';
-import {Home} from 'src/screens/home';
+import {AuthScreen} from 'src/screens/Auth';
+import {AuthSuccessScreen} from 'src/screens/AuthSuccess';
+import {CreateTaskIssueSelectScreen} from 'src/screens/CreateTaskIssueSelect';
+import {CreateTaskRepoSelectScreen} from 'src/screens/CreateTaskRepoSelect';
+import {Home} from 'src/screens/Home';
+import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
-
-import {useTheme} from './hooks';
-import {CreateTaskIssueSelectScreen} from './screens/CreateTaskIssueSelect';
-import {CreateTaskRepoSelectScreen} from './screens/CreateTaskRepoSelect';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const basicScreenOptions = {
   headerShown: false,
   gestureEnabled: false,
+};
+
+const authGroupScreenOptions = {
+  headerShown: true,
+  gestureEnabled: true,
 };
 
 const groupScreenOptions = {
@@ -45,7 +51,17 @@ export function App() {
   };
   return (
     <NavigationContainer theme={theme} ref={navigator}>
-      <Stack.Navigator screenOptions={basicScreenOptions}>
+      <Stack.Navigator
+        initialRouteName="welcome"
+        screenOptions={basicScreenOptions}>
+        <Stack.Group screenOptions={authGroupScreenOptions}>
+          <Stack.Screen name="welcome" component={WelcomeScreen} />
+          <Stack.Screen name="authentication" component={AuthScreen} />
+          <Stack.Screen
+            name="authenticationSuccess"
+            component={AuthSuccessScreen}
+          />
+        </Stack.Group>
         <Stack.Screen name="home" component={Home} />
         <Stack.Group screenOptions={groupScreenOptions}>
           <Stack.Screen
@@ -57,7 +73,6 @@ export function App() {
             component={CreateTaskIssueSelectScreen}
           />
         </Stack.Group>
-        <Stack.Screen name="firstScreen" component={FirstScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

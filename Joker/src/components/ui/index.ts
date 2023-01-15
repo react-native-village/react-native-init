@@ -12,3 +12,4 @@ export * from './menu-navigation-button';
 export * from './popup-container';
 export * from './progress-line';
 export * from './text-field';
+export * from './CenteredView';
