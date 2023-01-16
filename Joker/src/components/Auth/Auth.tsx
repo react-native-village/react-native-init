@@ -1,8 +1,13 @@
 import React from 'react';
 
 import {Color} from 'src/colors';
-import {Waiting} from 'src/components/lottie/waiting';
-import {Button, ButtonVariant, CenteredView, Text} from 'src/components/ui';
+import {
+  Button,
+  ButtonVariant,
+  CenteredView,
+  Text,
+  Waiting,
+} from 'src/components/ui';
 
 interface AuthProps {
   onPressAuth: () => void;

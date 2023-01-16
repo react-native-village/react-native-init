@@ -19,6 +19,7 @@ export type RootStackParamList = {
     owner: string;
     repoName: string;
   };
+  devTests: undefined;
 };
 
 export interface ScreenOptionType extends StackNavigationOptions {

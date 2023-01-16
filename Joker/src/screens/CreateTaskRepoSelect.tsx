@@ -4,7 +4,7 @@ import {
   CreateTaskRepoSelect,
   onPressRepoItemParams,
 } from 'src/components/CreateTaskRepoSelect';
-import {Waiting} from 'src/components/lottie';
+import {Waiting} from 'src/components/ui';
 import {useUserReposQuery} from 'src/generated/graphql-github';
 import {useGithubPagination, useTypedNavigation} from 'src/hooks';
 

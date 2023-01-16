@@ -18,6 +18,8 @@ import {Home} from 'src/screens/Home';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
+import {DevTestsScreen} from './screens/DevTests';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const basicScreenOptions = {
@@ -73,6 +75,7 @@ export function App() {
             component={CreateTaskIssueSelectScreen}
           />
         </Stack.Group>
+        <Stack.Screen name="devTests" component={DevTestsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
