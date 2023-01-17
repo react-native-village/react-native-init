@@ -18,7 +18,7 @@ import {Home} from 'src/screens/Home';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
-import {DevTestsScreen} from './screens/DevTests';
+import NftTestsScreen from './screens/NftTests';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -75,7 +75,7 @@ export function App() {
             component={CreateTaskIssueSelectScreen}
           />
         </Stack.Group>
-        <Stack.Screen name="devTests" component={DevTestsScreen} />
+        <Stack.Screen name="devTests" component={NftTestsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
