@@ -87,11 +87,12 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 {
 #if DEBUG
   NSString *storybookEnabled = [ReactNativeConfig envFor:@"STORYBOOK_ENABLED"];
-  #if storybookEnabled == "1"
+  NSString *trueString = @"1";
+  if ([storybookEnabled isEqualToString:trueString]){
     return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"storybook-index"];
-  #else
+  } else {
     return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"default-index"];
-  #endif
+  }
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

@@ -13,5 +13,5 @@ if (STORYBOOK_ENABLED === '1') {
   SplashScreen.hide();
   AppRegistry.registerComponent(appName, () => StoryBookApp);
 } else {
-  //require('./default-index');
+  require('./default-index');
 }
