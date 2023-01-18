@@ -19,6 +19,12 @@ export type RootStackParamList = {
     owner: string;
     repoName: string;
   };
+  createTaskConfirmation: {
+    owner: string;
+    issueId: number;
+    repoName: string;
+  };
+  createTaskComplete: undefined;
   devTests: undefined;
 };
 

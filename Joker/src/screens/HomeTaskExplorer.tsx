@@ -12,13 +12,14 @@ import {
   Inline,
   Text,
 } from 'src/components/ui';
-import {useTheme, useThemeObject} from 'src/hooks';
+import {useTheme, useThemeObject, useTypedNavigation} from 'src/hooks';
 import {ColorTheme} from 'src/types';
 import {WINDOW_HEIGHT} from 'src/variables';
 
 export function HomeTaskExplorerScreen() {
   const {color} = useTheme().theme;
   const styles = useThemeObject(createStyles);
+  const {navigate} = useTypedNavigation();
 
   const [actionSheetVisible, setActionSheetVisible] = useState(false);
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
@@ -31,6 +32,13 @@ export function HomeTaskExplorerScreen() {
         textRight={'Right'}
         colorLeft={color.graphicGreen1}
         colorRight={color.graphicGreen1}
+      />
+      <Button
+        variant={ButtonVariant.contained}
+        title="Add new task"
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={() => navigate('createTaskRepoSelect')}
       />
       <Inline gap={15}>
         <Button

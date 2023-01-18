@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {Pressable, StyleSheet} from 'react-native';
 
 import {IssuesListQuery} from 'src/generated/graphql-github';
 import {useThemeObject} from 'src/hooks';
@@ -14,16 +14,21 @@ export type IssueItemProps = {
       NonNullable<IssuesListQuery['repository']>['issues']['edges']
     >
   >['node'];
+  onPress?: (issueId: number) => void;
 };
 
-export function IssueItem({issue}: IssueItemProps) {
+export function IssueItem({issue, onPress}: IssueItemProps) {
   const styles = useThemeObject(createStyles);
   if (!issue) {
     return null;
   }
 
+  const handlePress = () => {
+    onPress?.(issue.number);
+  };
+
   return (
-    <View style={styles.container}>
+    <Pressable onPress={handlePress} style={styles.container}>
       <Text t5>{issue?.title}</Text>
       <Text style={styles.infoItem} t8>
         stars: {issue?.body}
@@ -35,7 +40,7 @@ export function IssueItem({issue}: IssueItemProps) {
           </Text>
         );
       })}
-    </View>
+    </Pressable>
   );
 }
 

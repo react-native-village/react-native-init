@@ -18,6 +18,7 @@ import {Home} from 'src/screens/Home';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
+import {CreateTaskConfirmationScreen} from './screens/CreateTaskConfirmation';
 import NftTestsScreen from './screens/NftTests';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -73,6 +74,10 @@ export function App() {
           <Stack.Screen
             name="createTaskIssueSelect"
             component={CreateTaskIssueSelectScreen}
+          />
+          <Stack.Screen
+            name="createTaskConfirmation"
+            component={CreateTaskConfirmationScreen}
           />
         </Stack.Group>
         <Stack.Screen name="devTests" component={NftTestsScreen} />

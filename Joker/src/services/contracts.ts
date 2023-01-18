@@ -4,6 +4,7 @@ import {
   ALCHEMY_API_KEY,
   POLYGON_RPC_PROVIDER,
   POLYGON_TESTNET_RPC_PROVIDER,
+  PRIVATE_SECRET_KEY,
 } from '@env';
 import {Alchemy, AlchemySettings, Network} from 'alchemy-sdk';
 import {ethers} from 'ethers';
@@ -40,30 +41,24 @@ export class Contracts extends EventEmitter {
     }
   }
 
-  async deployProjectTaskContract(title: string, taskLink: string) {
-    // const wallet = new ethers.Wallet(
-    //   MY_METAMASK_ACCOUNT_SECRET_KEY ?? '',
-    //   this.provider,
-    // );
+  async deployProjectTaskContract(
+    repoName: string,
+    owner: string,
+    issueId: number,
+  ) {
+    const wallet = new ethers.Wallet(PRIVATE_SECRET_KEY ?? '', this.provider);
 
     const ProjectTaskFactory = new ethers.ContractFactory(
       abiProjectTask,
       bytecodeProjectTask,
     );
-    const res = await ProjectTaskFactory /*.connect(wallet)*/.deploy(
-      title,
-      taskLink,
+    const res = await ProjectTaskFactory.connect(wallet).deploy(
+      repoName,
+      owner,
+      issueId,
     );
-    console.log('🚀 - res', res);
+    return res;
   }
-  // async saveImageInIpfs(content: string, fileName: string) {
-  //   try {
-  //     const {cid} = await this.clientIPFS.add({path: fileName, content});
-  //     return cid;
-  //   } catch (error) {
-  //     captureException(error);
-  //   }
-  // }
 
   async getNftDataByAddress(address: string) {
     try {
@@ -101,14 +96,13 @@ export class Contracts extends EventEmitter {
     }
   }
 
-  async getContractData() {
-    const testContractAddress = '0x434B2Efd9Bca486A5B16D792F2166AF510b4D729';
+  async getContract(address: string) {
     const contract = new ethers.Contract(
-      testContractAddress,
+      address,
       abiProjectTask,
       this.provider,
     );
-    console.log('🚀 - contract', await contract.status());
+    return contract;
   }
 }
 

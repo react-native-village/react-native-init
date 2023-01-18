@@ -38,6 +38,7 @@ query Issue($repoName: String!, $owner: String!, $number: Int!) {
 
 fragment issueFields on Issue {
   id
+  number
   url
   projectV2(number: 1) {
     id

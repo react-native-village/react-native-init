@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 
 import {CreateTaskIssueSelect} from 'src/components/CreateTaskIssueSelect';
-import {Waiting} from 'src/components/lottie';
+import {Waiting} from 'src/components/ui';
 import {useIssuesListQuery} from 'src/generated/graphql-github';
-import {useGithubPagination, useTypedRoute} from 'src/hooks';
+import {
+  useGithubPagination,
+  useTypedNavigation,
+  useTypedRoute,
+} from 'src/hooks';
 
 export function CreateTaskIssueSelectScreen() {
   const [cursor, setCursor] = useState<string>();
   const {owner, repoName} = useTypedRoute<'createTaskIssueSelect'>().params;
-
+  const {navigate} = useTypedNavigation();
   const {error, data, loading} = useIssuesListQuery({
     variables: {
       owner,
@@ -16,6 +20,11 @@ export function CreateTaskIssueSelectScreen() {
       cursor,
     },
   });
+
+  const onSelectIssue = (issueId: number) => {
+    console.log('🚀 - issueId', issueId);
+    navigate('createTaskConfirmation', {issueId, repoName, owner});
+  };
 
   const {onNextPage, onPrevPage} = useGithubPagination(
     data?.repository?.issues.pageInfo,
@@ -28,6 +37,7 @@ export function CreateTaskIssueSelectScreen() {
 
   return (
     <CreateTaskIssueSelect
+      onSelectIssue={onSelectIssue}
       onNextPage={onNextPage}
       onPrevPage={onPrevPage}
       pageInfo={data?.repository?.issues.pageInfo}
