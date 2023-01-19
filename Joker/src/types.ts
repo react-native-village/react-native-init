@@ -71,10 +71,6 @@ export interface ColorTheme {
   graphicSecond3: string;
   graphicSecond4: string;
 }
-export interface Theme {
-  id: string;
-  color: ColorTheme;
-}
 
 export type RoleType = 'performer' | 'employer';
 
