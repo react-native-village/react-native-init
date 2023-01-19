@@ -33,7 +33,11 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected String getJSMainModuleName() {
-          return "index";
+          if (BuildConfig.STORYBOOK_ENABLED == "1") {
+            return "storybook-index";
+          } else {
+            return "default-index";
+          }
         }
       };
 
