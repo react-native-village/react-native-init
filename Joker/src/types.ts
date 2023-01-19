@@ -21,10 +21,12 @@ export type RootStackParamList = {
   };
   createTaskConfirmation: {
     owner: string;
-    issueId: number;
+    issueNumber: number;
     repoName: string;
   };
-  createTaskComplete: undefined;
+  createTaskComplete: {
+    txhash: string;
+  };
   devTests: undefined;
 };
 

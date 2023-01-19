@@ -30,9 +30,9 @@ export function IssueItem({issue, onPress}: IssueItemProps) {
   return (
     <Pressable onPress={handlePress} style={styles.container}>
       <Text t5>{issue?.title}</Text>
-      <Text style={styles.infoItem} t8>
+      {/* <Text style={styles.infoItem} t8>
         stars: {issue?.body}
-      </Text>
+      </Text> */}
       {issue?.labels?.edges?.map(node => {
         return (
           <Text key={node?.node?.id} style={styles.infoItem} t8>

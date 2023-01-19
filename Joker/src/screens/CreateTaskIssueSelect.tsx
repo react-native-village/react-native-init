@@ -21,9 +21,8 @@ export function CreateTaskIssueSelectScreen() {
     },
   });
 
-  const onSelectIssue = (issueId: number) => {
-    console.log('🚀 - issueId', issueId);
-    navigate('createTaskConfirmation', {issueId, repoName, owner});
+  const onSelectIssue = (issueNumber: number) => {
+    navigate('createTaskConfirmation', {issueNumber, repoName, owner});
   };
 
   const {onNextPage, onPrevPage} = useGithubPagination(

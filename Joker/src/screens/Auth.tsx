@@ -16,7 +16,7 @@ export function AuthScreen() {
       accessToken,
       errorMess,
     }: ghAuthEndResponse) => {
-      setLoading(true);
+      setLoading(false);
       if (error) {
         setErrorMessage(errorMess);
       } else if (accessToken) {

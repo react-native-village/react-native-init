@@ -21,8 +21,10 @@ export const configGitHubAuth: AuthConfiguration = {
     'write:packages',
     'workflow',
     'user:email',
-    'repo',
+    'read:repo',
     'read:project',
+    'read:org',
+    'user:read',
   ],
   additionalHeaders: {Accept: 'application/json'},
   serviceConfiguration: {
@@ -43,7 +45,7 @@ export class GitHubAuth extends EventEmitter {
     const onChangeEvent = (newToken: string | undefined) => {
       this.access_token = newToken;
     };
-    this.on('auth-change-token', onChangeEvent);
+    this.on('gh-auth-change-token', onChangeEvent);
     return;
   }
 
