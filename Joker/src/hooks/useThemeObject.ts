@@ -2,7 +2,7 @@ import {useMemo} from 'react';
 
 import {ColorTheme} from 'src/types';
 
-import {useTheme} from './use-theme';
+import {useTheme} from './useTheme';
 
 type Generator<T extends {}> = (color: ColorTheme) => T;
 
