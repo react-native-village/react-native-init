@@ -75,7 +75,6 @@ export function Text({
       allowFontScaling={false}
       testID="text"
       style={[
-        //u
         t1 && StyleSheet.flatten([styles.t1Style, style]),
         t2 && StyleSheet.flatten([styles.t2Style, style]),
         t3 && StyleSheet.flatten([styles.t3Style, style]),

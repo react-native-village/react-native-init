@@ -58,9 +58,9 @@ export class GitHubAuth extends EventEmitter {
       this.emit('gh-auth-end', {error: false, accessToken});
 
       await AsyncStorage.setItem(githubTokenStorageKey, accessToken);
-    } catch (error) {
+    } catch (error: any) {
       captureException(error);
-      this.emit('gh-auth-end', {error: true, errorMess: error});
+      this.emit('gh-auth-end', {error: true, errorMess: error.message});
     }
   }
 
@@ -74,9 +74,9 @@ export class GitHubAuth extends EventEmitter {
         this.emit('auth-change-token', accessToken);
         this.emit('auth-check-token-success', accessToken);
       }
-    } catch (error) {
+    } catch (error: any) {
       captureException(error);
-      this.emit('auth-check-token-error', error);
+      this.emit('auth-check-token-error', error.message);
     }
   }
 

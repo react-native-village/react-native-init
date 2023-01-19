@@ -17,7 +17,7 @@ const loremIpsum =
 export function font_type_01() {
   return (
     <>
-      <Text t1>This if font t1 example</Text>
+      <Text t1>This is font t1 example</Text>
       <Spacer height={15} />
       <Text t1>{loremIpsum}</Text>
     </>
@@ -26,7 +26,7 @@ export function font_type_01() {
 export function font_type_02() {
   return (
     <>
-      <Text t2>This if font t2 example</Text>
+      <Text t2>This is font t2 example</Text>
       <Spacer height={15} />
       <Text t2>{loremIpsum}</Text>
     </>
@@ -35,7 +35,7 @@ export function font_type_02() {
 export function font_type_03() {
   return (
     <>
-      <Text t3>This if font t3 example</Text>
+      <Text t3>This is font t3 example</Text>
       <Spacer height={15} />
       <Text t3>{loremIpsum}</Text>
     </>
@@ -44,7 +44,7 @@ export function font_type_03() {
 export function font_type_04() {
   return (
     <>
-      <Text t4>This if font t4 example</Text>
+      <Text t4>This is font t4 example</Text>
       <Spacer height={15} />
       <Text t4>{loremIpsum}</Text>
     </>
@@ -53,7 +53,7 @@ export function font_type_04() {
 export function font_type_05() {
   return (
     <>
-      <Text t5>This if font t5 example</Text>
+      <Text t5>This is font t5 example</Text>
       <Spacer height={15} />
       <Text t5>{loremIpsum}</Text>
     </>
@@ -62,7 +62,7 @@ export function font_type_05() {
 export function font_type_06() {
   return (
     <>
-      <Text t6>This if font t6 example</Text>
+      <Text t6>This is font t6 example</Text>
       <Spacer height={15} />
       <Text t6>{loremIpsum}</Text>
     </>
@@ -71,7 +71,7 @@ export function font_type_06() {
 export function font_type_07() {
   return (
     <>
-      <Text t7>This if font t7 example</Text>
+      <Text t7>This is font t7 example</Text>
       <Spacer height={15} />
       <Text t7>{loremIpsum}</Text>
     </>
@@ -80,7 +80,7 @@ export function font_type_07() {
 export function font_type_08() {
   return (
     <>
-      <Text t8>This if font t8 example</Text>
+      <Text t8>This is font t8 example</Text>
       <Spacer height={15} />
       <Text t8>{loremIpsum}</Text>
     </>
@@ -89,7 +89,7 @@ export function font_type_08() {
 export function font_type_09() {
   return (
     <>
-      <Text t9>This if font t9 example</Text>
+      <Text t9>This is font t9 example</Text>
       <Spacer height={15} />
       <Text t9>{loremIpsum}</Text>
     </>
@@ -98,7 +98,7 @@ export function font_type_09() {
 export function font_type_10() {
   return (
     <>
-      <Text t10>This if font t10 example</Text>
+      <Text t10>This is font t10 example</Text>
       <Spacer height={15} />
       <Text t10>{loremIpsum}</Text>
     </>
@@ -107,7 +107,7 @@ export function font_type_10() {
 export function font_type_11() {
   return (
     <>
-      <Text t11>This if font t11 example</Text>
+      <Text t11>This is font t11 example</Text>
       <Spacer height={15} />
       <Text t11>{loremIpsum}</Text>
     </>
@@ -116,7 +116,7 @@ export function font_type_11() {
 export function font_type_12() {
   return (
     <>
-      <Text t12>This if font t12 example</Text>
+      <Text t12>This is font t12 example</Text>
       <Spacer height={15} />
       <Text t12>{loremIpsum}</Text>
     </>
@@ -125,7 +125,7 @@ export function font_type_12() {
 export function font_type_13() {
   return (
     <>
-      <Text t13>This if font t13 example</Text>
+      <Text t13>This is font t13 example</Text>
       <Spacer height={15} />
       <Text t13>{loremIpsum}</Text>
     </>
@@ -134,7 +134,7 @@ export function font_type_13() {
 export function font_type_14() {
   return (
     <>
-      <Text t14>This if font t14 example</Text>
+      <Text t14>This is font t14 example</Text>
       <Spacer height={15} />
       <Text t14>{loremIpsum}</Text>
     </>
@@ -143,7 +143,7 @@ export function font_type_14() {
 export function font_type_15() {
   return (
     <>
-      <Text t15>This if font t15 example</Text>
+      <Text t15>This is font t15 example</Text>
       <Spacer height={15} />
       <Text t15>{loremIpsum}</Text>
     </>
@@ -152,7 +152,7 @@ export function font_type_15() {
 export function font_type_16() {
   return (
     <>
-      <Text t16>This if font t16 example</Text>
+      <Text t16>This is font t16 example</Text>
       <Spacer height={15} />
       <Text t16>{loremIpsum}</Text>
     </>
@@ -161,7 +161,7 @@ export function font_type_16() {
 export function font_type_17() {
   return (
     <>
-      <Text t17>This if font t17 example</Text>
+      <Text t17>This is font t17 example</Text>
       <Spacer height={15} />
       <Text t17>{loremIpsum}</Text>
     </>
@@ -170,7 +170,7 @@ export function font_type_17() {
 export function font_type_18() {
   return (
     <>
-      <Text t18>This if font t18 example</Text>
+      <Text t18>This is font t18 example</Text>
       <Spacer height={15} />
       <Text t18>{loremIpsum}</Text>
     </>
