@@ -85,7 +85,7 @@ export function ActionsSheet({
             <Text
               /* i18n={I18N.actionSheetDiscard} */
               color={color.graphicRed1}
-              u1>
+              t8>
               Discard Changes
             </Text>
           </TouchableOpacity>
@@ -95,7 +95,7 @@ export function ActionsSheet({
             <Text
               color={color.textBlue1}
               /* i18n={I18N.actionSheetKeepEditing} */
-              u1>
+              t8>
               Keep Editing
             </Text>
           </TouchableOpacity>
