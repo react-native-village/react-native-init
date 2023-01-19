@@ -2,9 +2,9 @@ import React from 'react';
 
 import {Color} from 'src/colors';
 import {
+  Background,
   Button,
   ButtonVariant,
-  CenteredView,
   Text,
   Waiting,
 } from 'src/components/ui';
@@ -21,7 +21,7 @@ export function Auth({onPressAuth, loading, errorMessage}: AuthProps) {
   }
 
   return (
-    <CenteredView>
+    <Background center>
       <Text t3>Auth Screen</Text>
       <Button
         variant={ButtonVariant.contained}
@@ -31,6 +31,6 @@ export function Auth({onPressAuth, loading, errorMessage}: AuthProps) {
       <Text t7 color={Color.textRed1}>
         {errorMessage}
       </Text>
-    </CenteredView>
+    </Background>
   );
 }
