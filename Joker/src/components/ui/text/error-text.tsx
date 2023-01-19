@@ -12,7 +12,7 @@ type ErrorTextProps = {
 } & TextProps;
 
 export function ErrorText({e0, e1, e2, e3, style, ...props}: ErrorTextProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   return (
     <Text
       t10={e0}

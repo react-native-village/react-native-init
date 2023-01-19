@@ -55,7 +55,7 @@ export const TextField: React.FC<Props> = memo(
     multiline,
     ...restOfProps
   }) => {
-    const {color} = useTheme().theme;
+    const {color} = useTheme();
     const styles = useThemeObject(createStyles);
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<TextInput>(null);

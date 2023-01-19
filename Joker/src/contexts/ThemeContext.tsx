@@ -2,18 +2,18 @@ import React, {createContext, memo, useEffect, useMemo, useState} from 'react';
 
 import {useColorScheme} from 'react-native';
 
-import {DARK_THEME, DARK_THEME_ID, LIGHT_THEME} from 'src/themes';
-import {Theme} from 'src/types';
+import {DARK_THEME, LIGHT_THEME} from 'src/themes';
+import {ColorTheme} from 'src/types';
 
 interface ProvidedValue {
-  theme: Theme;
+  color: ColorTheme;
   lightTheme: () => void;
   darkTheme: () => void;
   systemTheme: () => void;
 }
 
 export const ThemeContext = createContext<ProvidedValue>({
-  theme: LIGHT_THEME,
+  color: LIGHT_THEME,
   lightTheme: () => {
     console.log('ThemeProvider is not rendered!');
   },
@@ -26,38 +26,40 @@ export const ThemeContext = createContext<ProvidedValue>({
 });
 
 interface Props {
-  initial?: Theme;
+  initial?: ColorTheme;
   children?: React.ReactNode;
 }
 
 export const ThemeProvider = memo<Props>(props => {
   const systemThemeHook =
-    useColorScheme() === DARK_THEME_ID ? DARK_THEME : LIGHT_THEME;
-  const [theme, setTheme] = useState<Theme>(/*props.initial*/ systemThemeHook);
+    useColorScheme() === 'dark' ? DARK_THEME : LIGHT_THEME;
+  const [color, setColor] = useState<ColorTheme>(
+    /*props.initial*/ systemThemeHook,
+  );
   const [isSystemTheme, setIsSystemTheme] = useState<boolean>(true);
 
   const onLightTheme = () => {
-    setTheme(LIGHT_THEME);
+    setColor(LIGHT_THEME);
     setIsSystemTheme(false);
   };
   const onDarkTheme = () => {
-    setTheme(DARK_THEME);
+    setColor(DARK_THEME);
     setIsSystemTheme(false);
   };
   const onSystemTheme = () => setIsSystemTheme(true);
 
   const MemoizedValue = useMemo(() => {
     const value: ProvidedValue = {
-      theme,
+      color,
       lightTheme: onLightTheme,
       darkTheme: onDarkTheme,
       systemTheme: onSystemTheme,
     };
     return value;
-  }, [theme, isSystemTheme]);
+  }, [color, isSystemTheme]);
 
   useEffect(() => {
-    isSystemTheme && setTheme(systemThemeHook);
+    isSystemTheme && setColor(systemThemeHook);
   }, [isSystemTheme, systemThemeHook]);
 
   return (

@@ -22,7 +22,7 @@ export function HeaderButton({
   icon,
   text,
 }: HeaderButtonProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   if (icon) {
     return (
       <IconButton

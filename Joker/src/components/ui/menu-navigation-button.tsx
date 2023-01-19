@@ -24,7 +24,7 @@ export function MenuNavigationButton({
   style,
   hideArrow = false,
 }: MenuNavigationButtonProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.container, style]}>

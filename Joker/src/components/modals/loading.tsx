@@ -13,7 +13,7 @@ export type LoadingModalProps = {
   text?: string;
 };
 export function LoadingModal({text}: LoadingModalProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const styles = useThemeObject(createStyles);
   useEffect(() => {
     if (IS_ANDROID) {

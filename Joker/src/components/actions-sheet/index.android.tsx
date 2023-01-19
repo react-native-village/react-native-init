@@ -35,7 +35,7 @@ export function ActionsSheet({
 }: ActionsSheetProps) {
   const {height: H} = useWindowDimensions();
   const {bottom} = useSafeAreaInsets();
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const styles = useThemeObject(createStyles);
 
   const fullyOpen = 0;

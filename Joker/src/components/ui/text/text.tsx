@@ -69,7 +69,7 @@ export function Text({
   color,
   ...props
 }: TextProps) {
-  const {textBase1} = useTheme().theme.color;
+  const {textBase1} = useTheme().color;
   return (
     <RNText
       allowFontScaling={false}

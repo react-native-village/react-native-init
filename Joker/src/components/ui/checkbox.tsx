@@ -32,7 +32,7 @@ export type CheckboxProps = {
 };
 
 export function Checkbox({value, onPress, children}: CheckboxProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const onPressCheckbox = useCallback(() => {
     onPress(!value);
   }, [value, onPress]);

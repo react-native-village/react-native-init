@@ -37,7 +37,7 @@ export const ProgressLine = memo(
       }: ProgressLineProps,
       ref,
     ) => {
-      const {color} = useTheme().theme;
+      const {color} = useTheme();
       const styles = useThemeObject(createStyles);
       if (lineColor === undefined) lineColor = color.graphicBlue1;
       const width = useSharedValue(initialProgress);

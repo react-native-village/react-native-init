@@ -74,7 +74,7 @@ export function Button({
   loading = false,
   ...props
 }: ButtonProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const styles = useThemeObject(createStyles);
   const onPressButton = useCallback(() => {
     if (!(disabled || loading)) {

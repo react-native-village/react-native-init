@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 
 import {ActionsSheet} from 'src/components/actions-sheet';
 import {BottomSheet} from 'src/components/bottom-sheet';
@@ -17,7 +17,7 @@ import {ColorTheme} from 'src/types';
 import {WINDOW_HEIGHT} from 'src/variables';
 
 export function HomeTaskExplorerScreen() {
-  const {color} = useTheme().theme;
+  const {color, lightTheme, darkTheme, systemTheme} = useTheme();
   const styles = useThemeObject(createStyles);
   const {navigate} = useTypedNavigation();
 
@@ -25,7 +25,7 @@ export function HomeTaskExplorerScreen() {
   const [bottomSheetVisible, setBottomSheetVisible] = useState(false);
   const closeDistance = WINDOW_HEIGHT / 5;
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <CustomHeader
         title={'Test Header'}
         textLeft={'Left'}
@@ -39,6 +39,27 @@ export function HomeTaskExplorerScreen() {
         style={styles.button}
         size={ButtonSize.large}
         onPress={() => navigate('createTaskRepoSelect')}
+      />
+      <Button
+        variant={ButtonVariant.contained}
+        title="Dark Theme"
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={darkTheme}
+      />
+      <Button
+        variant={ButtonVariant.contained}
+        title="Light Theme"
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={lightTheme}
+      />
+      <Button
+        variant={ButtonVariant.contained}
+        title="System Theme"
+        style={styles.button}
+        size={ButtonSize.large}
+        onPress={systemTheme}
       />
       <Inline gap={15}>
         <Button
@@ -63,7 +84,7 @@ export function HomeTaskExplorerScreen() {
           onClose={() => setBottomSheetVisible(false)}
           title="Test BottomSheet"
           closeDistance={closeDistance}>
-          <Text clean style={styles.warning}>
+          <Text style={styles.warning}>
             А, ну да, это я... Как я докатился до жизни такой? Что ж, начнём
             сначала...
           </Text>
@@ -79,7 +100,7 @@ export function HomeTaskExplorerScreen() {
           }}
         />
       )}
-    </ScrollView>
+    </View>
   );
 }
 
@@ -87,6 +108,7 @@ const createStyles = (color: ColorTheme) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
+      justifyContent: 'space-between',
       backgroundColor: color.bg1,
     },
     test: {

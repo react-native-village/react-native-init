@@ -6,7 +6,6 @@ import {
 } from '@react-navigation/bottom-tabs';
 import {RouteProp} from '@react-navigation/native';
 
-import {HomeScreenTitle} from 'src/components/home-screen-title';
 import {TabBar} from 'src/components/tab-bar';
 import {TabParamList} from 'src/types';
 
@@ -21,15 +20,13 @@ export const screenOptions = ({}: {
   navigation: any;
 }): BottomTabNavigationOptions => ({
   headerShadowVisible: false,
-  headerStyle: {
-    backgroundColor: 'transparent',
-  },
-  headerTitle: () => <HomeScreenTitle />,
 });
 
 export function Home() {
   return (
-    <Tab.Navigator tabBar={props => <TabBar {...props} />}>
+    <Tab.Navigator
+      tabBar={props => <TabBar {...props} />}
+      screenOptions={{headerShown: false}}>
       <Tab.Screen
         name="homeTaskExplorer"
         component={HomeTaskExplorerScreen}

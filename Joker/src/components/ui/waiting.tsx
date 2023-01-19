@@ -15,9 +15,7 @@ type WaitingProps = {
 };
 
 export function Waiting({style}: WaitingProps) {
-  const {
-    theme: {color},
-  } = useTheme();
+  const {color} = useTheme();
 
   return (
     <View style={[styles.container, style]}>
