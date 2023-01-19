@@ -19,6 +19,15 @@ export type RootStackParamList = {
     owner: string;
     repoName: string;
   };
+  createTaskConfirmation: {
+    owner: string;
+    issueNumber: number;
+    repoName: string;
+  };
+  createTaskComplete: {
+    txhash: string;
+  };
+  devTests: undefined;
 };
 
 export interface ScreenOptionType extends StackNavigationOptions {

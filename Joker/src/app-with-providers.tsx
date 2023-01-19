@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 
 import {
   ApolloClient,
@@ -17,7 +17,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {App} from 'src/app';
 import {Modals} from 'src/screens/modals';
-import {app} from 'src/services';
+import {githubAuth} from 'src/services';
 import {githubApiGraphQL, lensApiGraphQL} from 'src/variables';
 
 import {ThemeProvider} from './contexts';
@@ -30,26 +30,35 @@ const lenLink = new HttpLink({
   uri: lensApiGraphQL,
 });
 
-const authLink = setContext(async (_, {headers}) => {
-  const token = app.githubAuth.access_token;
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: ApolloLink.split(
-    operation => operation.getContext().clientName === 'lenLink',
-    lenLink,
-    authLink.concat(httpLink),
-  ),
-  cache: new InMemoryCache(),
-});
-
 export function AppWithProviders() {
+  const [accessToken, setAccessToken] = useState<any>();
+
+  useEffect(() => {
+    const onTokenChange = (access_token: string) => {
+      setAccessToken(access_token);
+    };
+    githubAuth.on('gh-auth-change-token', onTokenChange);
+  });
+
+  const client = useMemo(() => {
+    const githubLink = setContext(async (_, {headers}) => {
+      return {
+        headers: {
+          ...headers,
+          authorization: accessToken ? `Bearer ${accessToken}` : '',
+        },
+      };
+    });
+    return new ApolloClient({
+      link: ApolloLink.split(
+        operation => operation.getContext().clientName === 'lenLink',
+        lenLink,
+        githubLink.concat(httpLink),
+      ),
+      cache: new InMemoryCache(),
+    });
+  }, [accessToken]);
+
   return (
     <WalletConnectProvider
       redirectUrl={'dapp.joker://'}

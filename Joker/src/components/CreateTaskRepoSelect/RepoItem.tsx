@@ -2,13 +2,12 @@ import React from 'react';
 
 import {Pressable, StyleSheet, View} from 'react-native';
 
+import {Text} from 'src/components/ui';
 import {UserReposQuery} from 'src/generated/graphql-github';
 import {useThemeObject} from 'src/hooks';
 import {ArrayElementType, ColorTheme} from 'src/types';
 
 import {onPressRepoItemParams} from './CreateTaskRepoSelect';
-
-import {Text} from '../ui';
 
 export type RepoItemProps = {
   repo: ArrayElementType<UserReposQuery['viewer']['repositories']['nodes']>;
@@ -22,7 +21,11 @@ export function RepoItem({repo, onPress}: RepoItemProps) {
   }
 
   const handlePress = () => {
-    onPress({owner: repo.owner.login, repoName: repo.name});
+    onPress({
+      owner: repo.owner.login,
+      repoName: repo.name,
+      openedIssueCount: repo.issues.totalCount,
+    });
   };
 
   return (

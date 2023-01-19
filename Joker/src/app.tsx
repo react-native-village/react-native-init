@@ -12,9 +12,12 @@ import {useTheme} from 'src/hooks';
 import {navigator} from 'src/navigator';
 import {AuthScreen} from 'src/screens/Auth';
 import {AuthSuccessScreen} from 'src/screens/AuthSuccess';
+import {CreateTaskCompleteScreen} from 'src/screens/CreateTaskComplete';
+import {CreateTaskConfirmationScreen} from 'src/screens/CreateTaskConfirmation';
 import {CreateTaskIssueSelectScreen} from 'src/screens/CreateTaskIssueSelect';
 import {CreateTaskRepoSelectScreen} from 'src/screens/CreateTaskRepoSelect';
 import {Home} from 'src/screens/Home';
+import NftTestsScreen from 'src/screens/NftTests';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
@@ -72,7 +75,16 @@ export function App() {
             name="createTaskIssueSelect"
             component={CreateTaskIssueSelectScreen}
           />
+          <Stack.Screen
+            name="createTaskConfirmation"
+            component={CreateTaskConfirmationScreen}
+          />
+          <Stack.Screen
+            name="createTaskComplete"
+            component={CreateTaskCompleteScreen}
+          />
         </Stack.Group>
+        <Stack.Screen name="devTests" component={NftTestsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

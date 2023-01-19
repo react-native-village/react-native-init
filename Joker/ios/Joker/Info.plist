@@ -69,19 +69,24 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
-		<string>ElMessiri-Bold.ttf</string>
-		<string>ElMessiri-Medium.ttf</string>
-		<string>ElMessiri-Regular.ttf</string>
-		<string>ElMessiri-SemiBold.ttf</string>
-		<string>SF-Pro-Display-Bold.ttf</string>
-		<string>SF-Pro-Display-Medium.ttf</string>
-		<string>SF-Pro-Display-Regular.ttf</string>
-		<string>SF-Pro-Display-Semibold.ttf</string>
-		<string>SF-Pro-Display-Thin.ttf</string>
-		<string>SF-ProText-Bold.ttf</string>
-		<string>SF-ProText-Medium.ttf</string>
-		<string>SF-ProText-Regular.ttf</string>
-		<string>SF-ProText-Semibold.ttf</string>
+		<string>Montserrat-Black.ttf</string>
+		<string>Montserrat-BlackItalic.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-BoldItalic.ttf</string>
+		<string>Montserrat-ExtraBold.ttf</string>
+		<string>Montserrat-ExtraBoldItalic.ttf</string>
+		<string>Montserrat-ExtraLight.ttf</string>
+		<string>Montserrat-ExtraLightItalic.ttf</string>
+		<string>Montserrat-Italic.ttf</string>
+		<string>Montserrat-Light.ttf</string>
+		<string>Montserrat-LightItalic.ttf</string>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-MediumItalic.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-SemiBold.ttf</string>
+		<string>Montserrat-SemiBoldItalic.ttf</string>
+		<string>Montserrat-Thin.ttf</string>
+		<string>Montserrat-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>
