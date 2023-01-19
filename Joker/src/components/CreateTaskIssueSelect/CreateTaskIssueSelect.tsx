@@ -19,6 +19,7 @@ interface CreateTaskIssueSelectProps {
   error: ApolloError | undefined;
   onPrevPage?: () => void;
   onNextPage?: () => void;
+  onSelectIssue?: (issueId: number) => void;
 }
 
 export function CreateTaskIssueSelect({
@@ -27,6 +28,7 @@ export function CreateTaskIssueSelect({
   error,
   onPrevPage,
   onNextPage,
+  onSelectIssue,
 }: CreateTaskIssueSelectProps) {
   const styles = useThemeObject(createStyles);
   const {bottom} = useSafeAreaInsets();
@@ -42,7 +44,9 @@ export function CreateTaskIssueSelect({
     <FlatList
       style={styles.container}
       keyExtractor={item => item?.node?.id || ''}
-      renderItem={({item}) => <IssueItem issue={item?.node} />}
+      renderItem={({item}) => (
+        <IssueItem onPress={onSelectIssue} issue={item?.node} />
+      )}
       data={issues.filter(el => el !== null)}
       ListHeaderComponent={
         <>

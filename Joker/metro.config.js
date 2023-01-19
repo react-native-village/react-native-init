@@ -22,6 +22,7 @@ module.exports = {
     blacklistRE: blacklist([
       /ios\/build\/SourcePackages\/checkouts\/grpc-ios\/native_src\/.*/,
     ]),
+    sourceExts: ['js', 'json', 'ts', 'tsx'],
     resolverMainFields: ['sbmodern', 'react-native', 'browser', 'main'],
   },
 };

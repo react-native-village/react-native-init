@@ -38,10 +38,9 @@ export interface ProjectTaskInterface extends utils.Interface {
     "revokeAssignRequest()": FunctionFragment;
     "selected_performer()": FunctionFragment;
     "sendTaskToReview()": FunctionFragment;
-    "short_title()": FunctionFragment;
     "status()": FunctionFragment;
     "task_cost()": FunctionFragment;
-    "task_description_link()": FunctionFragment;
+    "task_gh()": FunctionFragment;
     "wishing_performers(address)": FunctionFragment;
   };
 
@@ -57,10 +56,9 @@ export interface ProjectTaskInterface extends utils.Interface {
       | "revokeAssignRequest"
       | "selected_performer"
       | "sendTaskToReview"
-      | "short_title"
       | "status"
       | "task_cost"
-      | "task_description_link"
+      | "task_gh"
       | "wishing_performers"
   ): FunctionFragment;
 
@@ -101,16 +99,9 @@ export interface ProjectTaskInterface extends utils.Interface {
     functionFragment: "sendTaskToReview",
     values?: undefined
   ): string;
-  encodeFunctionData(
-    functionFragment: "short_title",
-    values?: undefined
-  ): string;
   encodeFunctionData(functionFragment: "status", values?: undefined): string;
   encodeFunctionData(functionFragment: "task_cost", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "task_description_link",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: "task_gh", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "wishing_performers",
     values: [PromiseOrValue<string>]
@@ -150,41 +141,34 @@ export interface ProjectTaskInterface extends utils.Interface {
     functionFragment: "sendTaskToReview",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "short_title",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "status", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "task_cost", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "task_description_link",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "task_gh", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "wishing_performers",
     data: BytesLike
   ): Result;
 
   events: {
-    "RefusalTaskByPerformer(address,string)": EventFragment;
+    "RenounceTaskByPerformer(address,string)": EventFragment;
     "RequestForChanges(address,string,string)": EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "RefusalTaskByPerformer"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "RenounceTaskByPerformer"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RequestForChanges"): EventFragment;
 }
 
-export interface RefusalTaskByPerformerEventObject {
+export interface RenounceTaskByPerformerEventObject {
   employerAddr: string;
   message: string;
 }
-export type RefusalTaskByPerformerEvent = TypedEvent<
+export type RenounceTaskByPerformerEvent = TypedEvent<
   [string, string],
-  RefusalTaskByPerformerEventObject
+  RenounceTaskByPerformerEventObject
 >;
 
-export type RefusalTaskByPerformerEventFilter =
-  TypedEventFilter<RefusalTaskByPerformerEvent>;
+export type RenounceTaskByPerformerEventFilter =
+  TypedEventFilter<RenounceTaskByPerformerEvent>;
 
 export interface RequestForChangesEventObject {
   recipient: string;
@@ -266,13 +250,19 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    short_title(overrides?: CallOverrides): Promise<[string]>;
-
     status(overrides?: CallOverrides): Promise<[number]>;
 
     task_cost(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    task_description_link(overrides?: CallOverrides): Promise<[string]>;
+    task_gh(
+      overrides?: CallOverrides
+    ): Promise<
+      [string, string, BigNumber] & {
+        repo: string;
+        owner: string;
+        issue_number: BigNumber;
+      }
+    >;
 
     wishing_performers(
       arg0: PromiseOrValue<string>,
@@ -320,13 +310,19 @@ export interface ProjectTask extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  short_title(overrides?: CallOverrides): Promise<string>;
-
   status(overrides?: CallOverrides): Promise<number>;
 
   task_cost(overrides?: CallOverrides): Promise<BigNumber>;
 
-  task_description_link(overrides?: CallOverrides): Promise<string>;
+  task_gh(
+    overrides?: CallOverrides
+  ): Promise<
+    [string, string, BigNumber] & {
+      repo: string;
+      owner: string;
+      issue_number: BigNumber;
+    }
+  >;
 
   wishing_performers(
     arg0: PromiseOrValue<string>,
@@ -364,13 +360,19 @@ export interface ProjectTask extends BaseContract {
 
     sendTaskToReview(overrides?: CallOverrides): Promise<void>;
 
-    short_title(overrides?: CallOverrides): Promise<string>;
-
     status(overrides?: CallOverrides): Promise<number>;
 
     task_cost(overrides?: CallOverrides): Promise<BigNumber>;
 
-    task_description_link(overrides?: CallOverrides): Promise<string>;
+    task_gh(
+      overrides?: CallOverrides
+    ): Promise<
+      [string, string, BigNumber] & {
+        repo: string;
+        owner: string;
+        issue_number: BigNumber;
+      }
+    >;
 
     wishing_performers(
       arg0: PromiseOrValue<string>,
@@ -379,14 +381,14 @@ export interface ProjectTask extends BaseContract {
   };
 
   filters: {
-    "RefusalTaskByPerformer(address,string)"(
+    "RenounceTaskByPerformer(address,string)"(
       employerAddr?: null,
       message?: null
-    ): RefusalTaskByPerformerEventFilter;
-    RefusalTaskByPerformer(
+    ): RenounceTaskByPerformerEventFilter;
+    RenounceTaskByPerformer(
       employerAddr?: null,
       message?: null
-    ): RefusalTaskByPerformerEventFilter;
+    ): RenounceTaskByPerformerEventFilter;
 
     "RequestForChanges(address,string,string)"(
       recipient?: null,
@@ -441,13 +443,11 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
-    short_title(overrides?: CallOverrides): Promise<BigNumber>;
-
     status(overrides?: CallOverrides): Promise<BigNumber>;
 
     task_cost(overrides?: CallOverrides): Promise<BigNumber>;
 
-    task_description_link(overrides?: CallOverrides): Promise<BigNumber>;
+    task_gh(overrides?: CallOverrides): Promise<BigNumber>;
 
     wishing_performers(
       arg0: PromiseOrValue<string>,
@@ -498,15 +498,11 @@ export interface ProjectTask extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
-    short_title(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     status(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     task_cost(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    task_description_link(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    task_gh(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     wishing_performers(
       arg0: PromiseOrValue<string>,

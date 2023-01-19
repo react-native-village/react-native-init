@@ -21,8 +21,10 @@ export const configGitHubAuth: AuthConfiguration = {
     'write:packages',
     'workflow',
     'user:email',
-    'repo',
+    'read:repo',
     'read:project',
+    'read:org',
+    'user:read',
   ],
   additionalHeaders: {Accept: 'application/json'},
   serviceConfiguration: {
@@ -43,22 +45,22 @@ export class GitHubAuth extends EventEmitter {
     const onChangeEvent = (newToken: string | undefined) => {
       this.access_token = newToken;
     };
-    this.on('auth-change-token', onChangeEvent);
+    this.on('gh-auth-change-token', onChangeEvent);
     return;
   }
 
   async authenticate() {
-    this.emit('auth-started');
+    this.emit('gh-auth-start');
     try {
       const {accessToken} = await authorize(configGitHubAuth);
 
-      this.emit('auth-change-token', accessToken);
-      this.emit('auth-success-with-token', accessToken);
+      this.emit('gh-auth-change-token', accessToken);
+      this.emit('gh-auth-end', {error: false, accessToken});
 
       await AsyncStorage.setItem(githubTokenStorageKey, accessToken);
     } catch (error) {
       captureException(error);
-      this.emit('auth-error', error);
+      this.emit('gh-auth-end', {error: true, errorMess: error});
     }
   }
 
@@ -98,3 +100,9 @@ export class GitHubAuth extends EventEmitter {
 }
 
 export const githubAuth = new GitHubAuth();
+
+export type ghAuthEndResponse = {
+  error: boolean;
+  accessToken?: string;
+  errorMess?: any;
+};

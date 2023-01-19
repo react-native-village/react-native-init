@@ -14,6 +14,7 @@ import {RepoItem} from './RepoItem';
 export type onPressRepoItemParams = {
   owner: string;
   repoName: string;
+  openedIssueCount: number;
 };
 
 interface CreateTaskRepoSelectProps {

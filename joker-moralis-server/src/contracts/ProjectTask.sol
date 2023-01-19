@@ -8,14 +8,13 @@ contract ProjectTask {
     // цена задачи
     uint public task_cost;
     // информация о задаче
-    string public task_description_link;
-    string public short_title;
+    GitHubTask public task_gh;
 
     // с самого начала задача находится в статусе ожидания исполнителей
     Status public status = Status.PENDING_PERFORMER;
     // список адресов исполнителей, которые хотят выполнить задачу
     mapping(address => bool) public wishing_performers;
-    // address[] public wishing_performers;
+
     address payable public selected_performer;
 
     event RequestForChanges(
@@ -23,16 +22,16 @@ contract ProjectTask {
         string message,
         string additionalLink
     );
-    event RefusalTaskByPerformer(address employerAddr, string message);
+    event RenounceTaskByPerformer(address employerAddr, string message);
 
     constructor(
-        string memory _short_title,
-        string memory _task_description_link
+        string memory _repo,
+        string memory _owner,
+        uint256 _issue_number
     ) payable {
         // тот кто сделал контракт тот и работодатель
         employer = payable(msg.sender);
-        task_description_link = _task_description_link;
-        short_title = _short_title;
+        task_gh = GitHubTask(_repo, _owner, _issue_number);
         // при создании контракта, в него должны перевести деньги на стоимость задачи
         task_cost = msg.value;
     }
@@ -76,7 +75,7 @@ contract ProjectTask {
         // удаление исполнителя из списка желающих
         wishing_performers[msg.sender] = false;
         // отправка сообщения работодателю
-        emit RefusalTaskByPerformer(employer, message);
+        emit RenounceTaskByPerformer(employer, message);
     }
 
     function assignPerformer(
@@ -161,6 +160,11 @@ enum Status {
     COMPLETED, // задача выполнена исполнителем(после моментально оплачена)
     CONFLICT, // исполнителем открыт конфликт с заказчиком
     REQUESTED_CHANGES // задача проверенна, но исполнитель просит внести изменения
+}
+struct GitHubTask {
+    string repo;
+    string owner;
+    uint256 issue_number;
 }
 
 error TaskNotPendingPerformer();

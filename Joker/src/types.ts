@@ -8,13 +8,26 @@ export type TabParamList = {
   homeSettings: undefined;
 };
 export type RootStackParamList = {
-  home: NavigatorScreenParams<TabParamList>;
-  firstScreen: undefined;
+  home?: NavigatorScreenParams<TabParamList>;
+  authentication: {
+    role: RoleType;
+  };
+  authenticationSuccess: undefined;
+  welcome: undefined;
   createTaskRepoSelect: undefined;
   createTaskIssueSelect: {
     owner: string;
     repoName: string;
   };
+  createTaskConfirmation: {
+    owner: string;
+    issueNumber: number;
+    repoName: string;
+  };
+  createTaskComplete: {
+    txhash: string;
+  };
+  devTests: undefined;
 };
 
 export interface ScreenOptionType extends StackNavigationOptions {
@@ -62,6 +75,8 @@ export interface Theme {
   id: string;
   color: ColorTheme;
 }
+
+export type RoleType = 'performer' | 'employer';
 
 export type ArrayElementType<
   ArrayType extends readonly unknown[] | null | undefined,

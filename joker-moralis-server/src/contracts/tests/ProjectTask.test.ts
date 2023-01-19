@@ -24,30 +24,33 @@ describe('Project task contract', () => {
     const ProjectTask = await ethers.getContractFactory('ProjectTask');
 
     const [owner] = await ethers.getSigners();
-    const expectedShortTitle =
-      'Сделать упрощенную версию apple заметок на Reactjs';
-    const expectedDescriptionLink =
-      'https://goldenart.com.ua/assets/files/Тестовое%20задание%20Reactjs.pdf';
+    const expectedRepoName = 'leela';
+    const expectedOwner = 'gHashTag';
+    const expectedIssueId = 2;
     const expectedTaskCost = ethers.utils.parseEther('0.1');
 
     contract = await ProjectTask.deploy(
-      expectedShortTitle,
-      expectedDescriptionLink,
-      {value: expectedTaskCost},
+      expectedRepoName,
+      expectedOwner,
+      expectedIssueId,
+      {
+        value: expectedTaskCost,
+      },
     );
 
     const status = await contract.status();
-    const shortTitle = await contract.short_title();
-    const descriptionLink = await contract.task_description_link();
+    const {repo, owner: owner_gh, issue_number} = await contract.task_gh();
     const taskCost = await contract.task_cost();
     const wishingPerformers = await contract.wishing_performers(owner.address);
 
-    expect(status).to.equal(Status.PENDING_PERFORMER);
-    expect(shortTitle).to.equal(expectedShortTitle);
-    expect(descriptionLink).to.equal(expectedDescriptionLink);
-    expect(taskCost).to.equal(expectedTaskCost);
-    expect(wishingPerformers).to.equal(false);
+    expect(repo).to.equal(expectedRepoName);
+    expect(owner_gh).to.equal(expectedOwner);
+    expect(issue_number).to.equal(expectedIssueId);
     expect(await contract.employer()).to.equal(owner.address);
+    expect(taskCost).to.equal(expectedTaskCost);
+    expect(status).to.equal(Status.PENDING_PERFORMER);
+    expect(wishingPerformers).to.equal(false);
+
     await expect(contract.sendTaskToReview()).to.be.revertedWithCustomError(
       contract,
       'OnlyPerformerCanDoThis',
@@ -166,7 +169,7 @@ describe('Project task contract', () => {
     beforeEach(async () => {
       const ProjectTask = await ethers.getContractFactory('ProjectTask');
 
-      freshContract = await ProjectTask.deploy('title', 'link', {
+      freshContract = await ProjectTask.deploy('repoName', 'owner', 2, {
         value: ethers.utils.parseEther('0.1'),
       });
 
@@ -222,7 +225,7 @@ describe('Project task contract', () => {
       await expect(
         freshContract.connect(assignedSigner).renounceTaskWithMessage(message),
       )
-        .to.be.emit(freshContract, 'RefusalTaskByPerformer')
+        .to.be.emit(freshContract, 'RenounceTaskByPerformer')
         .withArgs(anyValue, message);
 
       await freshContract.rejectTask();

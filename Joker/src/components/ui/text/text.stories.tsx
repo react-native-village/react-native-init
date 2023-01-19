@@ -14,15 +14,6 @@ export default {
 const loremIpsum =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
-export function font_type_00() {
-  return (
-    <>
-      <Text t0>This if font t0 example</Text>
-      <Spacer height={15} />
-      <Text t0>{loremIpsum}</Text>
-    </>
-  );
-}
 export function font_type_01() {
   return (
     <>
