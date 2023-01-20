@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 
 import {ApolloError} from '@apollo/client';
 import {FlatList, StyleSheet, View} from 'react-native';
@@ -17,6 +17,7 @@ interface CreateTaskIssueSelectProps {
   issues: issueType['edges'];
   pageInfo?: issueType['pageInfo'];
   error: ApolloError | undefined;
+  onRefresh?: () => Promise<any>;
   onPrevPage?: () => void;
   onNextPage?: () => void;
   onSelectIssue?: (issueId: number) => void;
@@ -26,13 +27,22 @@ export function CreateTaskIssueSelect({
   issues,
   pageInfo,
   error,
+  onRefresh,
   onPrevPage,
   onNextPage,
   onSelectIssue,
 }: CreateTaskIssueSelectProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {bottom} = useSafeAreaInsets();
+
   const ref = useRef<FlatList>(null);
+
+  const [refrshing, setRefrshing] = useState(false);
+  const handleRefresh = async () => {
+    setRefrshing(true);
+    await onRefresh?.();
+    setRefrshing(false);
+  };
   if (error) {
     return <Text>{error.message}</Text>;
   }
@@ -54,6 +64,8 @@ export function CreateTaskIssueSelect({
   return (
     <Background>
       <FlatList
+        refreshing={refrshing}
+        onRefresh={handleRefresh}
         ref={ref}
         style={styles.container}
         keyExtractor={item => item?.node?.id || ''}

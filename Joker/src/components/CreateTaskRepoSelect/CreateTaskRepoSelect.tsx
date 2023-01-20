@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 
 import {ApolloError} from '@apollo/client';
 import {FlatList, StyleSheet, View} from 'react-native';
@@ -20,6 +20,7 @@ export type onPressRepoItemParams = {
 interface CreateTaskRepoSelectProps {
   repos: UserReposQuery['viewer']['repositories']['nodes'];
   pageInfo?: UserReposQuery['viewer']['repositories']['pageInfo'];
+  onRefresh?: () => Promise<any>;
   onPressItem: (arg: onPressRepoItemParams) => void;
   error: ApolloError | undefined;
   onPrevPage?: () => void;
@@ -30,13 +31,23 @@ export function CreateTaskRepoSelect({
   repos,
   pageInfo,
   error,
+  onRefresh,
   onPrevPage,
   onNextPage,
   onPressItem,
 }: CreateTaskRepoSelectProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {bottom} = useSafeAreaInsets();
+
   const ref = useRef<FlatList>(null);
+
+  const [refrshing, setRefrshing] = useState(false);
+  const handleRefresh = async () => {
+    setRefrshing(true);
+    await onRefresh?.();
+    setRefrshing(false);
+  };
+
   if (error) {
     return <Text>{error.message}</Text>;
   }
@@ -58,6 +69,8 @@ export function CreateTaskRepoSelect({
   return (
     <Background>
       <FlatList
+        refreshing={refrshing}
+        onRefresh={handleRefresh}
         ref={ref}
         style={styles.container}
         keyExtractor={item => item?.url || ''}

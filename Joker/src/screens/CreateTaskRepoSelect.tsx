@@ -13,7 +13,7 @@ import {useGithubPagination, useTypedNavigation} from 'src/hooks';
 export function CreateTaskRepoSelectScreen() {
   const [cursor, setCursor] = useState<string>();
   const {navigate} = useTypedNavigation();
-  const {error, data, loading} = useUserReposQuery({
+  const {error, data, loading, refetch} = useUserReposQuery({
     variables: {
       countToShow: 100,
       cursor,
@@ -52,6 +52,7 @@ export function CreateTaskRepoSelectScreen() {
 
   return (
     <CreateTaskRepoSelect
+      onRefresh={refetch}
       onNextPage={onNextPage}
       onPrevPage={onPrevPage}
       onPressItem={onPressItem}
