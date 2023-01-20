@@ -8,8 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {Spacer, Text} from 'src/components/ui';
-import {useTheme, useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
+import {useThematicStyles, useTheme} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 export type ProgressLineProps = {
   initialProgress?: number;
@@ -37,9 +37,9 @@ export const ProgressLine = memo(
       }: ProgressLineProps,
       ref,
     ) => {
-      const {color} = useTheme();
-      const styles = useThemeObject(createStyles);
-      if (lineColor === undefined) lineColor = color.graphicBlue1;
+      const {colors} = useTheme();
+      const {styles} = useThematicStyles(rawStyles);
+      if (lineColor === undefined) lineColor = colors.graphicBlue1;
       const width = useSharedValue(initialProgress);
 
       useImperativeHandle(ref, () => ({
@@ -70,7 +70,7 @@ export const ProgressLine = memo(
           </View>
           <Spacer height={8} />
           {showBottomInfo && (
-            <Text t15 color={color.textBase2}>
+            <Text t15 color={Color.textBase2}>
               {total.toFixed(0)} ISLM from {max.toFixed(0)} ISLM
             </Text>
           )}
@@ -79,27 +79,25 @@ export const ProgressLine = memo(
     },
   ),
 );
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    container: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      backgroundColor: color.graphicSecond1,
-      width: '100%',
-      borderRadius: 40,
-    },
-    lineStyle: {
-      borderRadius: 40,
-      height: 8,
-    },
-    markLine: {
-      position: 'absolute',
-      height: 10,
-      width: 1,
-      transform: [{translateY: -1}, {translateX: -0.5}],
-      borderRadius: 5,
-      backgroundColor: color.graphicSecond4,
-    },
-  });
-  return styles;
-};
+
+const rawStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: Color.graphicSecond1,
+    width: '100%',
+    borderRadius: 40,
+  },
+  lineStyle: {
+    borderRadius: 40,
+    height: 8,
+  },
+  markLine: {
+    position: 'absolute',
+    height: 10,
+    width: 1,
+    transform: [{translateY: -1}, {translateX: -0.5}],
+    borderRadius: 5,
+    backgroundColor: Color.graphicSecond4,
+  },
+});

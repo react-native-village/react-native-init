@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ColorValue, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Color} from 'src/themeTypes';

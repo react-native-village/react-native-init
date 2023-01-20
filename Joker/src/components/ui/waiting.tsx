@@ -15,11 +15,11 @@ type WaitingProps = {
 };
 
 export function Waiting({style}: WaitingProps) {
-  const {color} = useTheme();
+  const {colors} = useTheme();
 
   return (
     <View style={[styles.container, style]}>
-      <ActivityIndicator size="large" color={color.graphicGreen2} />
+      <ActivityIndicator size="large" color={colors.graphicGreen2} />
     </View>
   );
 }

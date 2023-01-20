@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import {Icon} from 'src/components/ui';
-import {useTheme} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 export type MenuNavigationButtonProps = {
   onPress: () => void;
@@ -24,13 +24,12 @@ export function MenuNavigationButton({
   style,
   hideArrow = false,
 }: MenuNavigationButtonProps) {
-  const {color} = useTheme();
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={[styles.container, style]}>
         <View style={styles.content}>{children}</View>
         {!hideArrow && (
-          <Icon i24 name="arrow_forward_small" color={color.graphicSecond3} />
+          <Icon i24 name="arrow_forward_small" color={Color.graphicSecond3} />
         )}
       </View>
     </TouchableWithoutFeedback>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 import {ApolloError} from '@apollo/client';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Button, Spacer, Text} from 'src/components/ui';
+import {Background, Button, Spacer, Text} from 'src/components/ui';
 import {UserReposQuery} from 'src/generated/graphql-github';
-import {useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 import {RepoItem} from './RepoItem';
 
@@ -34,8 +34,9 @@ export function CreateTaskRepoSelect({
   onNextPage,
   onPressItem,
 }: CreateTaskRepoSelectProps) {
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
   const {bottom} = useSafeAreaInsets();
+  const ref = useRef<FlatList>(null);
   if (error) {
     return <Text>{error.message}</Text>;
   }
@@ -44,48 +45,60 @@ export function CreateTaskRepoSelect({
     return <Text>Empty repos</Text>;
   }
 
+  const handlePrevPage = () => {
+    ref.current?.scrollToOffset({offset: 0, animated: true});
+    onPrevPage?.();
+  };
+
+  const handleNextPage = () => {
+    ref.current?.scrollToOffset({offset: 0, animated: true});
+    onNextPage?.();
+  };
+
   return (
-    <FlatList
-      style={styles.container}
-      keyExtractor={item => item?.url || ''}
-      renderItem={({item}) => <RepoItem onPress={onPressItem} repo={item} />}
-      data={repos.filter(el => el !== null)}
-      ListHeaderComponent={
-        <>
-          <Spacer height={10} />
-          <Text t2>Choose a repo</Text>
-        </>
-      }
-      ListFooterComponent={
-        <>
-          <View style={styles.line} />
-          <View>
-            {pageInfo?.hasPreviousPage && (
-              <Button onPress={onPrevPage} title="Prev page" />
-            )}
-            {pageInfo?.hasNextPage && (
-              <Button onPress={onNextPage} title="Next page" />
-            )}
-          </View>
-          <Spacer height={bottom} />
-        </>
-      }
-    />
+    <Background>
+      <FlatList
+        ref={ref}
+        style={styles.container}
+        keyExtractor={item => item?.url || ''}
+        renderItem={({item}) => <RepoItem onPress={onPressItem} repo={item} />}
+        data={repos.filter(el => el !== null)}
+        ListHeaderComponent={
+          <>
+            <Spacer height={10} />
+            <Text t2>Choose a repo</Text>
+          </>
+        }
+        ListFooterComponent={
+          <>
+            <View style={styles.line} />
+            <View>
+              {pageInfo?.hasPreviousPage && (
+                <Button onPress={handlePrevPage} title="Prev page" />
+              )}
+              {pageInfo?.hasNextPage && (
+                <Button onPress={handleNextPage} title="Next page" />
+              )}
+            </View>
+            <Spacer height={bottom} />
+          </>
+        }
+      />
+    </Background>
   );
 }
 
-const createStyles = (color: ColorTheme) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingHorizontal: 20,
-    },
-    line: {
-      backgroundColor: color.graphicBlue1,
-      width: '90%',
-      alignSelf: 'center',
-      height: 2,
-      borderRadius: 5,
-      marginVertical: 10,
-    },
-  });
+const rawStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  line: {
+    backgroundColor: Color.graphicGreen1,
+    width: '90%',
+    alignSelf: 'center',
+    height: 2,
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+});

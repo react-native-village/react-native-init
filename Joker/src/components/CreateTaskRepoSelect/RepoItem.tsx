@@ -4,8 +4,9 @@ import {Pressable, StyleSheet, View} from 'react-native';
 
 import {Text} from 'src/components/ui';
 import {UserReposQuery} from 'src/generated/graphql-github';
-import {useThemeObject} from 'src/hooks';
-import {ArrayElementType, ColorTheme} from 'src/types';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
+import {ArrayElementType} from 'src/types';
 
 import {onPressRepoItemParams} from './CreateTaskRepoSelect';
 
@@ -15,7 +16,7 @@ export type RepoItemProps = {
 };
 
 export function RepoItem({repo, onPress}: RepoItemProps) {
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
   if (!repo) {
     return null;
   }
@@ -43,19 +44,18 @@ export function RepoItem({repo, onPress}: RepoItemProps) {
   );
 }
 
-export const createStyles = (color: ColorTheme) =>
-  StyleSheet.create({
-    container: {
-      width: '100%',
-      backgroundColor: color.bg1,
-      padding: 10,
-      marginVertical: 5,
-      borderRadius: 5,
-    },
-    shortInfo: {
-      flexDirection: 'row',
-    },
-    infoItem: {
-      flex: 1,
-    },
-  });
+export const rawStyles = StyleSheet.create({
+  container: {
+    width: '100%',
+    backgroundColor: Color.bg1,
+    padding: 10,
+    marginVertical: 5,
+    borderRadius: 5,
+  },
+  shortInfo: {
+    flexDirection: 'row',
+  },
+  infoItem: {
+    flex: 1,
+  },
+});

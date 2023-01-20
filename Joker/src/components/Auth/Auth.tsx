@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {Color} from 'src/colors';
 import {
   Background,
   Button,
@@ -8,6 +7,7 @@ import {
   Text,
   Waiting,
 } from 'src/components/ui';
+import {Color} from 'src/themeTypes';
 
 interface AuthProps {
   onPressAuth: () => void;
@@ -21,7 +21,7 @@ export function Auth({onPressAuth, loading, errorMessage}: AuthProps) {
   }
 
   return (
-    <Background center>
+    <Background centered>
       <Text t3>Auth Screen</Text>
       <Button
         variant={ButtonVariant.contained}

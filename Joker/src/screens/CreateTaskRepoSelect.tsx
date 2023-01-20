@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {Alert} from 'react-native';
 
@@ -25,26 +25,26 @@ export function CreateTaskRepoSelectScreen() {
     setCursor,
   );
 
-  const onPressItem = ({
-    owner,
-    repoName,
-    openedIssueCount,
-  }: onPressRepoItemParams) => {
-    if (openedIssueCount <= 0) {
-      Alert.alert(
-        'There are no issues in the repository',
-        'The repository must have issues in order to write them in a smart contract.',
-        [
-          {
-            text: 'OK',
-            style: 'default',
-          },
-        ],
-      );
-      return;
-    }
-    navigate('createTaskIssueSelect', {owner, repoName});
-  };
+  // обязательно useCallback, иначе будет обновляться элементы списка при каждом ре-рендере
+  const onPressItem = useCallback(
+    ({owner, repoName, openedIssueCount}: onPressRepoItemParams) => {
+      if (openedIssueCount <= 0) {
+        Alert.alert(
+          'There are no issues in the repository',
+          'The repository must have issues in order to write them in a smart contract.',
+          [
+            {
+              text: 'OK',
+              style: 'default',
+            },
+          ],
+        );
+        return;
+      }
+      navigate('createTaskIssueSelect', {owner, repoName});
+    },
+    [],
+  );
 
   if (loading) {
     return <Waiting />;

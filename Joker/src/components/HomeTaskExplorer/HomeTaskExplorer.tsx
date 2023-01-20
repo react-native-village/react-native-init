@@ -20,7 +20,7 @@ interface HomeTaskExplorerProps {
 }
 
 export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
-  const {colors, styles} = useThematicStyles(rawStyles);
+  const {styles} = useThematicStyles(rawStyles);
   const {toggleDark, toggleLight, toggleSystem} = useTheme();
   const [actionSheetVisible, setActionSheetVisible] = useState(false);
 
@@ -30,8 +30,8 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
         title="Test Header"
         textLeft="Left"
         textRight="Right"
-        colorLeft={colors.graphicGreen1}
-        colorRight={colors.graphicGreen1}
+        colorLeft={Color.graphicGreen1}
+        colorRight={Color.graphicGreen1}
       />
       <ScrollView>
         <Button

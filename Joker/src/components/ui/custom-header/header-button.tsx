@@ -3,7 +3,6 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import {Icon, IconButton, IconProps, Text} from 'src/components/ui';
-import {useTheme} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 import {DEFAULT_HITSLOP} from 'src/variables';
 
@@ -23,14 +22,13 @@ export function HeaderButton({
   icon,
   text,
 }: HeaderButtonProps) {
-  const {colors} = useTheme();
   if (icon) {
     return (
       <IconButton
         disabled={disabled}
         onPress={() => onPress?.()}
         hitSlop={DEFAULT_HITSLOP}>
-        {icon && <Icon name={icon} color={colors[iconColor ?? 'textBase1']} />}
+        {icon && <Icon name={icon} color={iconColor ?? Color.textBase1} />}
       </IconButton>
     );
   }
@@ -38,7 +36,7 @@ export function HeaderButton({
   if (text /*|| i18n*/) {
     return (
       <TouchableOpacity onPress={() => console.log('ddd')}>
-        <Text t10 color={disabled ? Color.textBase2 : iconColor} center>
+        <Text t10 color={disabled ? Color.textBase1 : iconColor} center>
           {text}
         </Text>
       </TouchableOpacity>
