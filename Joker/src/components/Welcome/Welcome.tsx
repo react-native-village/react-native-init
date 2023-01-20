@@ -1,9 +1,7 @@
 import React from 'react';
 
-import {Button, Text} from 'src/components/ui';
+import {Background, Button, Text} from 'src/components/ui';
 import {navigator} from 'src/navigator';
-
-import {Background} from '../ui';
 
 interface WelcomeProps {
   onPerformer: () => void;

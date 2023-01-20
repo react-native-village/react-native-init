@@ -3,7 +3,6 @@ import {useCallback, useMemo} from 'react';
 
 import {
   ActivityIndicator,
-  ColorValue,
   StyleSheet,
   TextStyle,
   TouchableOpacity,
@@ -11,11 +10,10 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {useTheme, useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
-
-import {Icon, IconProps} from '../icon';
-import {Text} from '../text/text';
+import {Text} from 'src/components/ui';
+import {Icon, IconProps} from 'src/components/ui/icon';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 //will be changed to i18next
 /* export type ButtonValue =
@@ -36,8 +34,8 @@ export type ButtonProps = Omit<ViewProps, 'children'> & {
   size?: ButtonSize;
   onPress?: () => void;
   loading?: boolean;
-  textColor?: ColorValue;
-  buttonColor?: ColorValue;
+  textColor?: Color;
+  buttonColor?: Color;
   circleBorders?: boolean;
   title?: string;
 } & ButtonRightIconProps &
@@ -74,8 +72,7 @@ export function Button({
   loading = false,
   ...props
 }: ButtonProps) {
-  const {color} = useTheme();
-  const styles = useThemeObject(createStyles);
+  const {styles, colors} = useThematicStyles(rawStyles);
   const onPressButton = useCallback(() => {
     if (!(disabled || loading)) {
       onPress?.();
@@ -100,7 +97,7 @@ export function Button({
         disabled &&
           variant === ButtonVariant.contained &&
           styles.containedDisabledContainer,
-        buttonColor && {backgroundColor: buttonColor},
+        buttonColor && {backgroundColor: colors[buttonColor]},
         style,
       ]),
     [size, disabled, style, variant, buttonColor, circleBorders],
@@ -131,7 +128,7 @@ export function Button({
       activeOpacity={0.7}
       {...props}>
       {loading ? (
-        <ActivityIndicator size="small" color={color.textBase3} />
+        <ActivityIndicator size="small" color={colors.textBase3} />
       ) : (
         <>
           {iconLeft && (
@@ -153,81 +150,77 @@ export function Button({
   );
 }
 
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    container: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingVertical: 13, // originally 16 but for android 16 - 3
-      paddingHorizontal: 28,
-    },
-    circleBorders: {
-      borderRadius: 100,
-    },
-    smallContainer: {
-      paddingVertical: 3, // originally 6 but for android 6 - 3
-      paddingHorizontal: 12,
-      height: 34,
-    },
-    middleContainer: {
-      paddingVertical: 9, // originally 12 but for android 12 - 3
-      paddingHorizontal: 20,
-      borderRadius: 12,
-      height: 46,
-    },
-    largeContainer: {
-      paddingVertical: 16, // originally 6 but for android 6 - 3
-      paddingHorizontal: 12,
-    },
-    containedContainer: {
-      backgroundColor: color.graphicGreen1,
-      borderRadius: 12,
-      height: 54,
-    },
-    containedDisabledContainer: {
-      backgroundColor: color.graphicSecond1,
-    },
-    outlinedContainer: {
-      borderColor: color.graphicGreen1,
-      borderRadius: 12,
-    },
-    secondContainer: {
-      backgroundColor: color.bg2,
-      borderRadius: 12,
-    },
-    secondDisabledContainer: {
-      backgroundColor: color.graphicSecond1,
-    },
-    errorContainer: {
-      backgroundColor: color.bg7,
-    },
-    textIconRight: {
-      marginRight: 8,
-    },
-    textIconLeft: {
-      marginLeft: 8,
-    },
-    containedText: {
-      color: color.textBase3,
-    },
-    containedDisabledText: {
-      color: color.textSecond1,
-    },
-    errorText: {
-      color: color.textRed1,
-    },
-    secondText: {
-      color: color.textGreen1,
-    },
-    secondDisabledText: {
-      color: color.textSecond1,
-    },
-    icon: {
-      width: 22,
-      height: 22,
-    },
-  });
-
-  return styles;
-};
+const rawStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 13, // originally 16 but for android 16 - 3
+    paddingHorizontal: 28,
+  },
+  circleBorders: {
+    borderRadius: 100,
+  },
+  smallContainer: {
+    paddingVertical: 3, // originally 6 but for android 6 - 3
+    paddingHorizontal: 12,
+    height: 34,
+  },
+  middleContainer: {
+    paddingVertical: 9, // originally 12 but for android 12 - 3
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    height: 46,
+  },
+  largeContainer: {
+    paddingVertical: 16, // originally 6 but for android 6 - 3
+    paddingHorizontal: 12,
+  },
+  containedContainer: {
+    backgroundColor: Color.graphicGreen1,
+    borderRadius: 12,
+    height: 54,
+  },
+  containedDisabledContainer: {
+    backgroundColor: Color.graphicSecond1,
+  },
+  outlinedContainer: {
+    borderColor: Color.graphicGreen1,
+    borderRadius: 12,
+  },
+  secondContainer: {
+    backgroundColor: Color.bg2,
+    borderRadius: 12,
+  },
+  secondDisabledContainer: {
+    backgroundColor: Color.graphicSecond1,
+  },
+  errorContainer: {
+    backgroundColor: Color.bg7,
+  },
+  textIconRight: {
+    marginRight: 8,
+  },
+  textIconLeft: {
+    marginLeft: 8,
+  },
+  containedText: {
+    color: Color.textBase3,
+  },
+  containedDisabledText: {
+    color: Color.textSecond1,
+  },
+  errorText: {
+    color: Color.textRed1,
+  },
+  secondText: {
+    color: Color.textGreen1,
+  },
+  secondDisabledText: {
+    color: Color.textSecond1,
+  },
+  icon: {
+    width: 22,
+    height: 22,
+  },
+});

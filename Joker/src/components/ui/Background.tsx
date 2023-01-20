@@ -1,31 +1,31 @@
 import React from 'react';
 
-import {View} from 'react-native';
+import {StyleSheet, View, ViewProps} from 'react-native';
 
-import {useTheme} from 'src/hooks';
+import {useThematicStyles} from 'src/hooks/useThematicStyles';
+import {Color} from 'src/themeTypes';
 
-interface BackgroundPros {
-  style?: object;
-  children?: React.ReactNode;
-  center?: boolean;
+interface BackgroundPros extends ViewProps {
+  centered?: boolean;
 }
 
-export function Background({style, center, children}: BackgroundPros) {
-  const {color} = useTheme();
+export function Background({style, centered, ...restProps}: BackgroundPros) {
+  const {styles} = useThematicStyles(rawStyles);
   return (
     <View
-      style={[
-        style,
-        // eslint-disable-next-line react-native/no-inline-styles
-        center && {alignItems: 'center'},
-        // eslint-disable-next-line react-native/no-inline-styles
-        {
-          flex: 1,
-          backgroundColor: color.bg1,
-          justifyContent: 'center',
-        },
-      ]}>
-      {children}
-    </View>
+      {...restProps}
+      style={[centered && styles.centered, styles.container, style]}
+    />
   );
 }
+
+const rawStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Color.bg1,
+    justifyContent: 'center',
+  },
+  centered: {
+    alignItems: 'center',
+  },
+});
