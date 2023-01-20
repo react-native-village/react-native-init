@@ -50,7 +50,7 @@ export function BottomSheet({
   title,
   closeDistance,
 }: BottomSheetProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const styles = useThemeObject(createStyles);
   const {height} = useWindowDimensions();
   const {bottom: bottomInsets, top: topInsets} = useSafeAreaInsets();

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import {Text} from 'react-native';
+import {Background, Text} from 'src/components/ui';
 
 export function HomeSettingsScreen() {
   const [moralisResult, setMoralisResult] = useState<any>({});
@@ -10,9 +10,9 @@ export function HomeSettingsScreen() {
     });
   });
   return (
-    <>
+    <Background>
       <Text>Moralis result from localhost:3000:</Text>
       <Text>{JSON.stringify(moralisResult)}</Text>
-    </>
+    </Background>
   );
 }

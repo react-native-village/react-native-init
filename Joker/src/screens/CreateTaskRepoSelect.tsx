@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {Alert} from 'react-native';
 
@@ -13,7 +13,7 @@ import {useGithubPagination, useTypedNavigation} from 'src/hooks';
 export function CreateTaskRepoSelectScreen() {
   const [cursor, setCursor] = useState<string>();
   const {navigate} = useTypedNavigation();
-  const {error, data, loading} = useUserReposQuery({
+  const {error, data, loading, refetch} = useUserReposQuery({
     variables: {
       countToShow: 100,
       cursor,
@@ -25,26 +25,26 @@ export function CreateTaskRepoSelectScreen() {
     setCursor,
   );
 
-  const onPressItem = ({
-    owner,
-    repoName,
-    openedIssueCount,
-  }: onPressRepoItemParams) => {
-    if (openedIssueCount <= 0) {
-      Alert.alert(
-        'There are no issues in the repository',
-        'The repository must have issues in order to write them in a smart contract.',
-        [
-          {
-            text: 'OK',
-            style: 'default',
-          },
-        ],
-      );
-      return;
-    }
-    navigate('createTaskIssueSelect', {owner, repoName});
-  };
+  // обязательно useCallback, иначе будет обновляться элементы списка при каждом ре-рендере
+  const onPressItem = useCallback(
+    ({owner, repoName, openedIssueCount}: onPressRepoItemParams) => {
+      if (openedIssueCount <= 0) {
+        Alert.alert(
+          'There are no issues in the repository',
+          'The repository must have issues in order to write them in a smart contract.',
+          [
+            {
+              text: 'OK',
+              style: 'default',
+            },
+          ],
+        );
+        return;
+      }
+      navigate('createTaskIssueSelect', {owner, repoName});
+    },
+    [],
+  );
 
   if (loading) {
     return <Waiting />;
@@ -52,6 +52,7 @@ export function CreateTaskRepoSelectScreen() {
 
   return (
     <CreateTaskRepoSelect
+      onRefresh={refetch}
       onNextPage={onNextPage}
       onPrevPage={onPrevPage}
       onPressItem={onPressItem}

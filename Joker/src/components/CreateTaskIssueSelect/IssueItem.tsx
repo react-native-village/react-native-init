@@ -3,8 +3,9 @@ import React from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 
 import {IssuesListQuery} from 'src/generated/graphql-github';
-import {useThemeObject} from 'src/hooks';
-import {ArrayElementType, ColorTheme} from 'src/types';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
+import {ArrayElementType} from 'src/types';
 
 import {Text} from '../ui';
 
@@ -18,7 +19,7 @@ export type IssueItemProps = {
 };
 
 export function IssueItem({issue, onPress}: IssueItemProps) {
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
   if (!issue) {
     return null;
   }
@@ -44,19 +45,18 @@ export function IssueItem({issue, onPress}: IssueItemProps) {
   );
 }
 
-export const createStyles = (color: ColorTheme) =>
-  StyleSheet.create({
-    container: {
-      width: '100%',
-      backgroundColor: color.bg1,
-      padding: 10,
-      marginVertical: 5,
-      borderRadius: 5,
-    },
-    shortInfo: {
-      flexDirection: 'row',
-    },
-    infoItem: {
-      flex: 1,
-    },
-  });
+export const rawStyles = StyleSheet.create({
+  container: {
+    width: '100%',
+    backgroundColor: Color.bg1,
+    padding: 10,
+    marginVertical: 5,
+    borderRadius: 5,
+  },
+  shortInfo: {
+    flexDirection: 'row',
+  },
+  infoItem: {
+    flex: 1,
+  },
+});

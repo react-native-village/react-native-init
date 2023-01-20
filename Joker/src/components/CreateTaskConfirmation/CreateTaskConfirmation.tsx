@@ -4,7 +4,7 @@ import {ApolloError} from '@apollo/client';
 import {Linking} from 'react-native';
 import Markdown from 'react-native-markdown-display';
 
-import {Button, ButtonVariant, Text} from 'src/components/ui';
+import {Background, Button, ButtonVariant, Text} from 'src/components/ui';
 import {IssueQuery} from 'src/generated/graphql-github';
 import {useMarkdownProps} from 'src/hooks';
 
@@ -37,7 +37,7 @@ export function CreateTaskConfirmation({
   }
 
   return (
-    <>
+    <Background>
       <Text t4>{owner + '/' + repoName}</Text>
       <Button title="View in github" onPress={onPressLink} />
       <Text t4>Estimated gas price: {estimatedGasPrice}</Text>
@@ -48,6 +48,6 @@ export function CreateTaskConfirmation({
       />
       <Text t7>Task description</Text>
       <Markdown {...mdProps}>{issue?.body}</Markdown>
-    </>
+    </Background>
   );
 }

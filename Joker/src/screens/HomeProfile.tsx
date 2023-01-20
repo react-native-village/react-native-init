@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 
+import {Background, Text} from 'src/components/ui';
 import {useExploreProfilesQuery} from 'src/generated/graphql-lens';
 import {LIGHT_TEXT_RED_1} from 'src/variables';
 
@@ -14,16 +15,18 @@ export function HomeProfileScreen() {
   console.log(data?.exploreProfiles.items[0].bio);
 
   return (
-    <ScrollView>
-      {data?.exploreProfiles.items.map(item => {
-        return (
-          <>
-            <Text>{item.name}</Text>
-            <View style={styles.line} />
-          </>
-        );
-      })}
-    </ScrollView>
+    <Background>
+      <ScrollView>
+        {data?.exploreProfiles.items.map(item => {
+          return (
+            <>
+              <Text>{item.name}</Text>
+              <View style={styles.line} />
+            </>
+          );
+        })}
+      </ScrollView>
+    </Background>
   );
 }
 

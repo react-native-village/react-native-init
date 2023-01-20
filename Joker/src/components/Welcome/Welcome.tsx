@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button, CenteredView, Text} from 'src/components/ui';
+import {Background, Button, Text} from 'src/components/ui';
 import {navigator} from 'src/navigator';
 
 interface WelcomeProps {
@@ -10,7 +10,7 @@ interface WelcomeProps {
 
 export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
   return (
-    <CenteredView>
+    <Background>
       <Text t3>Welcome Screen</Text>
       <Button
         onPress={() => {
@@ -20,7 +20,7 @@ export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
       />
       <Button onPress={onPerformer} title="Performer" />
       <Button onPress={onEmployer} title="Employer" />
-    </CenteredView>
+    </Background>
   );
 }
 

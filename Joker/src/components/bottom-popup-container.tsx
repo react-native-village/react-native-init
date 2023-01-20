@@ -17,8 +17,8 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import {useAndroidStatusBarAnimation, useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
+import {useAndroidStatusBarAnimation, useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 import {ANIMATION_DURATION, ANIMATION_TYPE} from 'src/variables';
 
 const timingOutAnimationConfig: WithTimingConfig = {
@@ -47,7 +47,7 @@ export function BottomPopupContainer({
   closeOnPressOut,
 }: BottomPopupContainerProps) {
   const {height: H} = useWindowDimensions();
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
   const fullyOpen = 0;
   const fullyClosed = H * 0.85;
   const {toDark, toLight, backgroundColor} = useAndroidStatusBarAnimation({
@@ -97,19 +97,16 @@ export function BottomPopupContainer({
     </View>
   );
 }
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    container: {flex: 1},
-    fullFill: {
-      ...StyleSheet.absoluteFillObject,
-    },
-    bgColor: {
-      backgroundColor: color.bg9,
-    },
-    animateViewFade: {
-      flex: 1,
-      justifyContent: 'flex-end',
-    },
-  });
-  return styles;
-};
+const rawStyles = StyleSheet.create({
+  container: {flex: 1},
+  fullFill: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  bgColor: {
+    backgroundColor: Color.bg9,
+  },
+  animateViewFade: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+});

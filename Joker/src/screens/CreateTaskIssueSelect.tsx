@@ -13,7 +13,7 @@ export function CreateTaskIssueSelectScreen() {
   const [cursor, setCursor] = useState<string>();
   const {owner, repoName} = useTypedRoute<'createTaskIssueSelect'>().params;
   const {navigate} = useTypedNavigation();
-  const {error, data, loading} = useIssuesListQuery({
+  const {error, data, loading, refetch} = useIssuesListQuery({
     variables: {
       owner,
       repoName,
@@ -36,6 +36,7 @@ export function CreateTaskIssueSelectScreen() {
 
   return (
     <CreateTaskIssueSelect
+      onRefresh={refetch}
       onSelectIssue={onSelectIssue}
       onNextPage={onNextPage}
       onPrevPage={onPrevPage}

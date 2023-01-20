@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {
-  ColorValue,
   Text as RNText,
   TextProps as RNTextProps,
   StyleProp,
@@ -10,6 +9,7 @@ import {
 } from 'react-native';
 
 import {useTheme} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 //will be changed to i18next
 /*export type TextValue =
@@ -38,7 +38,7 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   t18?: boolean;
   center?: boolean;
   right?: boolean;
-  color?: ColorValue;
+  color?: Color;
   style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 };
@@ -69,7 +69,7 @@ export function Text({
   color,
   ...props
 }: TextProps) {
-  const {textBase1} = useTheme().theme.color;
+  const textColor = useTheme().colors[color ?? 'textBase1'];
   return (
     <RNText
       allowFontScaling={false}
@@ -93,7 +93,7 @@ export function Text({
         t16 && StyleSheet.flatten([styles.t16Style, style]),
         t17 && StyleSheet.flatten([styles.t17Style, style]),
         t18 && StyleSheet.flatten([styles.t18Style, style]),
-        {color: color ?? textBase1},
+        {color: textColor},
         center && styles.center,
         right && styles.right,
       ]}

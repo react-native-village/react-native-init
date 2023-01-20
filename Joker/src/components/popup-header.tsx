@@ -15,7 +15,7 @@ type PopupHeaderProps = StackHeaderProps & {
 };
 
 export function PopupHeader({options, back, navigation}: PopupHeaderProps) {
-  const {color} = useTheme().theme;
+  const {color} = useTheme();
   const insets = useSafeAreaInsets();
 
   const canGoBack = useMemo(

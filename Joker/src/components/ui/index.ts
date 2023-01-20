@@ -15,3 +15,4 @@ export * from './text-field';
 export * from './CenteredView';
 export * from './waiting';
 export * from './Img';
+export * from './Background';

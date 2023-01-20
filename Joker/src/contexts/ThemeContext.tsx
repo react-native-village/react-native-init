@@ -2,63 +2,58 @@ import React, {createContext, memo, useEffect, useMemo, useState} from 'react';
 
 import {useColorScheme} from 'react-native';
 
-import {DARK_THEME, DARK_THEME_ID, LIGHT_THEME} from 'src/themes';
-import {Theme} from 'src/types';
+import {DARK_THEME, LIGHT_THEME} from 'src/themes';
+import {ThemeColors} from 'src/themeTypes';
 
 interface ProvidedValue {
-  theme: Theme;
-  lightTheme: () => void;
-  darkTheme: () => void;
-  systemTheme: () => void;
+  colors: ThemeColors;
+  toggleLight: () => void;
+  toggleDark: () => void;
+  toggleSystem: () => void;
 }
 
 export const ThemeContext = createContext<ProvidedValue>({
-  theme: LIGHT_THEME,
-  lightTheme: () => {
-    console.log('ThemeProvider is not rendered!');
-  },
-  darkTheme: () => {
-    console.log('ThemeProvider is not rendered!');
-  },
-  systemTheme: () => {
-    console.log('ThemeProvider is not rendered!');
-  },
+  colors: LIGHT_THEME,
+  toggleLight: () => {},
+  toggleDark: () => {},
+  toggleSystem: () => {},
 });
 
 interface Props {
-  initial?: Theme;
+  initial?: ThemeColors;
   children?: React.ReactNode;
 }
 
 export const ThemeProvider = memo<Props>(props => {
-  const systemThemeHook =
-    useColorScheme() === DARK_THEME_ID ? DARK_THEME : LIGHT_THEME;
-  const [theme, setTheme] = useState<Theme>(/*props.initial*/ systemThemeHook);
+  const systemTheme = useColorScheme() === 'dark' ? DARK_THEME : LIGHT_THEME;
+  const [colors, setColor] = useState<ThemeColors>(
+    /*props.initial*/ systemTheme,
+  );
   const [isSystemTheme, setIsSystemTheme] = useState<boolean>(true);
 
   const onLightTheme = () => {
-    setTheme(LIGHT_THEME);
+    setColor(LIGHT_THEME);
     setIsSystemTheme(false);
   };
   const onDarkTheme = () => {
-    setTheme(DARK_THEME);
+    setColor(DARK_THEME);
     setIsSystemTheme(false);
   };
   const onSystemTheme = () => setIsSystemTheme(true);
 
   const MemoizedValue = useMemo(() => {
     const value: ProvidedValue = {
-      theme,
-      lightTheme: onLightTheme,
-      darkTheme: onDarkTheme,
-      systemTheme: onSystemTheme,
+      colors,
+      toggleLight: onLightTheme,
+      toggleDark: onDarkTheme,
+      toggleSystem: onSystemTheme,
     };
     return value;
-  }, [theme, isSystemTheme]);
+  }, [colors, isSystemTheme]);
 
   useEffect(() => {
-    isSystemTheme && setTheme(systemThemeHook);
-  }, [isSystemTheme, systemThemeHook]);
+    isSystemTheme && setColor(systemTheme);
+  }, [isSystemTheme, systemTheme]);
 
   return (
     <ThemeContext.Provider value={MemoizedValue}>

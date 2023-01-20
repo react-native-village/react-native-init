@@ -20,8 +20,8 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import {Spacer, Text, TextProps} from 'src/components/ui';
-import {useTheme, useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 import {IS_IOS} from 'src/variables';
 
 type Props = Omit<TextInputProps, 'placeholder'> & {
@@ -55,8 +55,7 @@ export const TextField: React.FC<Props> = memo(
     multiline,
     ...restOfProps
   }) => {
-    const {color} = useTheme().theme;
-    const styles = useThemeObject(createStyles);
+    const {styles} = useThematicStyles(rawStyles);
     const [isFocused, setIsFocused] = useState(false);
     const inputRef = useRef<TextInput>(null);
     const left = useSharedValue(40);
@@ -109,7 +108,7 @@ export const TextField: React.FC<Props> = memo(
       });
     }, [value, focusAnim, isFocused]);
 
-    let textColor = error ? color.textRed1 : color.textBase2;
+    let textColor = error ? Color.textRed1 : Color.textBase2;
 
     const labelAnimStyle = useAnimatedStyle(
       () => ({
@@ -147,16 +146,16 @@ export const TextField: React.FC<Props> = memo(
               </Text>
             </AnimatedPressable>
             {!value && isFocused && (
-              <Text t11 color={color.textBase2} style={styles.placeholder}>
+              <Text t11 color={Color.textBase2} style={styles.placeholder}>
                 {placeholder}
               </Text>
             )}
             <TextInput
-              selectionColor={color.textGreen1}
+              selectionColor={Color.textGreen1}
               allowFontScaling={false}
               style={styles.input}
               ref={inputRef}
-              placeholderTextColor={color.textBase2}
+              placeholderTextColor={Color.textBase2}
               {...restOfProps}
               value={value}
               multiline={multiline}
@@ -171,7 +170,7 @@ export const TextField: React.FC<Props> = memo(
         {!!error && errorText && (
           <>
             <Spacer height={8} />
-            <Text t14 color={color.textRed1} style={styles.error}>
+            <Text t14 color={Color.textRed1} style={styles.error}>
               {errorText}
             </Text>
           </>
@@ -189,48 +188,44 @@ export const TextField: React.FC<Props> = memo(
   },
 );
 
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    container: {
-      minHeight: 58,
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      borderRadius: 16,
-      backgroundColor: color.bg8,
-      flexDirection: 'row',
-      flex: 0,
-    },
-    containerError: {
-      backgroundColor: color.bg7,
-    },
-    inputContainer: {
-      flex: 1,
-    },
-    input: {
-      fontFamily: 'SF Pro Display',
-      fontWeight: '400',
-      color: color.textBase1,
-      fontSize: 16,
-      minHeight: 28,
-      paddingTop: 0,
-      paddingBottom: 0,
-      textAlignVertical: 'center',
-      right: IS_IOS ? 0 : 4.5,
-      flex: 1,
-    },
-    error: {
-      marginLeft: 4,
-    },
-    sub: {
-      justifyContent: 'center',
-      alignSelf: 'center',
-    },
-    placeholder: {
-      position: 'absolute',
-      height: 28,
-      top: 18,
-    },
-  });
-
-  return styles;
-};
+const rawStyles = StyleSheet.create({
+  container: {
+    minHeight: 58,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 16,
+    backgroundColor: Color.bg8,
+    flexDirection: 'row',
+    flex: 0,
+  },
+  containerError: {
+    backgroundColor: Color.bg7,
+  },
+  inputContainer: {
+    flex: 1,
+  },
+  input: {
+    fontFamily: 'SF Pro Display',
+    fontWeight: '400',
+    color: Color.textBase1,
+    fontSize: 16,
+    minHeight: 28,
+    paddingTop: 0,
+    paddingBottom: 0,
+    textAlignVertical: 'center',
+    right: IS_IOS ? 0 : 4.5,
+    flex: 1,
+  },
+  error: {
+    marginLeft: 4,
+  },
+  sub: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  placeholder: {
+    position: 'absolute',
+    height: 28,
+    top: 18,
+  },
+});

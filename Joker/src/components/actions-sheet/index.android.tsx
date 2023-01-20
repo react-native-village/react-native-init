@@ -14,8 +14,8 @@ import Animated, {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Text} from 'src/components/ui';
-import {useTheme, useThemeObject} from 'src/hooks';
-import {ColorTheme} from 'src/types';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 import {ActionsSheetProps} from '.';
 
@@ -35,8 +35,7 @@ export function ActionsSheet({
 }: ActionsSheetProps) {
   const {height: H} = useWindowDimensions();
   const {bottom} = useSafeAreaInsets();
-  const {color} = useTheme().theme;
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
 
   const fullyOpen = 0;
   const fullyClosed = H * 0.45;
@@ -82,10 +81,7 @@ export function ActionsSheet({
           </Text>
           <View style={styles.line} />
           <TouchableOpacity style={styles.margin} onPress={handleDiscard}>
-            <Text
-              /* i18n={I18N.actionSheetDiscard} */
-              color={color.graphicRed1}
-              u1>
+            <Text color={Color.graphicRed1} t8>
               Discard Changes
             </Text>
           </TouchableOpacity>
@@ -93,9 +89,9 @@ export function ActionsSheet({
         <View style={styles.bottom}>
           <TouchableOpacity style={styles.margin} onPress={handleKeepEditing}>
             <Text
-              color={color.textBlue1}
+              color={Color.textBlue1}
               /* i18n={I18N.actionSheetKeepEditing} */
-              u1>
+              t8>
               Keep Editing
             </Text>
           </TouchableOpacity>
@@ -104,47 +100,44 @@ export function ActionsSheet({
     </View>
   );
 }
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    top: {
-      borderRadius: 13,
-      backgroundColor: color.graphicSecond1,
-    },
-    bottom: {
-      borderRadius: 13,
-      backgroundColor: color.bg1,
-      marginVertical: 8,
-    },
-    animateView: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: color.bg9,
-    },
-    animateViewFade: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      paddingHorizontal: 8,
-    },
-    t8: {
-      marginHorizontal: 16,
-      marginVertical: 12,
-      textAlign: 'center',
-      color: color.graphicBase2,
-    },
-    line: {
-      width: '100%',
-      height: 0.3,
-      backgroundColor: color.textSecond1,
-    },
-    margin: {
-      paddingVertical: 18,
-      width: '100%',
-      alignItems: 'center',
-    },
-  });
 
-  return styles;
-};
+const rawStyles = StyleSheet.create({
+  top: {
+    borderRadius: 13,
+    backgroundColor: Color.graphicSecond1,
+  },
+  bottom: {
+    borderRadius: 13,
+    backgroundColor: Color.bg1,
+    marginVertical: 8,
+  },
+  animateView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: Color.bg9,
+  },
+  animateViewFade: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 8,
+  },
+  t8: {
+    marginHorizontal: 16,
+    marginVertical: 12,
+    textAlign: 'center',
+    color: Color.graphicBase2,
+  },
+  line: {
+    width: '100%',
+    height: 0.3,
+    backgroundColor: Color.textSecond1,
+  },
+  margin: {
+    paddingVertical: 18,
+    width: '100%',
+    alignItems: 'center',
+  },
+});

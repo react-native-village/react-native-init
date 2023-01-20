@@ -1,14 +1,8 @@
 import React from 'react';
 
-import {
-  DefaultTheme,
-  NavigationContainer,
-  Theme,
-} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useColorScheme} from 'react-native';
 
-import {useTheme} from 'src/hooks';
 import {navigator} from 'src/navigator';
 import {AuthScreen} from 'src/screens/Auth';
 import {AuthSuccessScreen} from 'src/screens/AuthSuccess';
@@ -29,31 +23,18 @@ const basicScreenOptions = {
 };
 
 const authGroupScreenOptions = {
-  headerShown: true,
+  headerShown: false,
   gestureEnabled: true,
 };
 
 const groupScreenOptions = {
-  headerShown: true,
+  headerShown: false,
   gestureEnabled: true,
 };
 
 export function App() {
-  const {
-    theme: {color},
-  } = useTheme();
-  const isDark = useColorScheme() === 'dark';
-  const theme: Theme = {
-    dark: isDark,
-    colors: {
-      ...DefaultTheme.colors,
-      background: color.bg1,
-      card: color.bg1,
-      text: color.textBase1,
-    },
-  };
   return (
-    <NavigationContainer theme={theme} ref={navigator}>
+    <NavigationContainer ref={navigator}>
       <Stack.Navigator
         initialRouteName="welcome"
         screenOptions={basicScreenOptions}>
