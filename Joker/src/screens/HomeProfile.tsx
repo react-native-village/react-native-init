@@ -1,19 +1,34 @@
 import React from 'react';
 
+import {useWalletConnect} from '@walletconnect/react-native-dapp';
 import {StyleSheet, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 
-import {Background, Text} from 'src/components/ui';
+import {Background, Button, Text} from 'src/components/ui';
 import {useExploreProfilesQuery} from 'src/generated/graphql-lens';
-import {LIGHT_TEXT_RED_1} from 'src/variables';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
 export function HomeProfileScreen() {
   const {loading, error, data} = useExploreProfilesQuery({
     context: {clientName: 'lenLink'},
   });
-  console.log(loading, error);
-  console.log(data?.exploreProfiles.items[0].bio);
+  const {styles} = useThematicStyles(rawStyles);
+  const connector = useWalletConnect();
 
+  const onPressWallet = () => {
+    connector.connect();
+  };
+  const onPressDisconnect = () => {
+    connector.killSession();
+  };
+  const account = connector.accounts[0];
+  if (loading) {
+    return <Text t4>loading</Text>;
+  }
+  if (error) {
+    return <Text t4>error</Text>;
+  }
   return (
     <Background>
       <ScrollView>
@@ -25,15 +40,23 @@ export function HomeProfileScreen() {
             </>
           );
         })}
+        {account ? (
+          <>
+            <Text t7>{account}</Text>
+            <Button onPress={onPressDisconnect} title="Disconnect wallet" />
+          </>
+        ) : (
+          <Button onPress={onPressWallet} title="Connect wallet" />
+        )}
       </ScrollView>
     </Background>
   );
 }
 
-const styles = StyleSheet.create({
+const rawStyles = StyleSheet.create({
   line: {
     width: '100%',
     height: 3,
-    backgroundColor: LIGHT_TEXT_RED_1,
+    backgroundColor: Color.textRed1,
   },
 });

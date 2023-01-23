@@ -7,7 +7,7 @@ import {
   PRIVATE_SECRET_KEY_1,
 } from '@env';
 import {Alchemy, AlchemySettings, Network} from 'alchemy-sdk';
-import {ethers} from 'ethers';
+import {ethers, utils} from 'ethers';
 
 import {captureException} from 'src/helpers';
 
@@ -39,6 +39,16 @@ export class Contracts extends EventEmitter {
         POLYGON_RPC_PROVIDER,
       );
     }
+  }
+
+  async preparePrjTaskTx({ethers, from}: {ethers: string; from: string}) {
+    const tx: ICallTxData = {
+      nonce: 0,
+      from,
+      value: utils.formatUnits(utils.parseEther(ethers)),
+      data: bytecodeProjectTask,
+    };
+    return tx;
   }
 
   async deployProjectTaskContract(
@@ -112,4 +122,16 @@ export interface NftsArrayItem {
   uri: string;
   name: string;
   id: string;
+}
+
+export interface ICallTxData {
+  type?: string;
+  to?: string;
+  value?: number | string;
+  gas?: number | string;
+  gasLimit?: number | string;
+  gasPrice?: number | string;
+  nonce?: number | string;
+  data?: string;
+  from: string;
 }
