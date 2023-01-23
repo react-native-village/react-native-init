@@ -14,7 +14,8 @@
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "storybook": "start-storybook -p 6006",
     "postinstall": "patch-package && node_modules/.bin/rn-nodeify --install stream,http,https,os,vm,crypto --yarn --hack",
-    "codegen": "graphql-codegen --config graphql.config.ts --errors-only && eslint ./src/generated --fix"
+    "codegen": "graphql-codegen --config graphql.config.ts --errors-only && eslint ./src/generated --fix",
+    "link-asset": "npx react-native-asset"
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",

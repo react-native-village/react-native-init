@@ -11,7 +11,9 @@ interface WelcomeProps {
 export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
   return (
     <Background>
-      <Text t3>Welcome Screen</Text>
+      <Text t19 shadow>
+        Welcome Screen
+      </Text>
       <Button
         onPress={() => {
           navigator.navigate('devTests');

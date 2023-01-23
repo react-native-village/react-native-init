@@ -5,6 +5,7 @@ import {
   TextProps as RNTextProps,
   StyleProp,
   StyleSheet,
+  View,
   ViewStyle,
 } from 'react-native';
 
@@ -36,9 +37,11 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   t16?: boolean;
   t17?: boolean;
   t18?: boolean;
+  t19?: boolean;
   center?: boolean;
   right?: boolean;
   color?: Color;
+  shadow?: boolean;
   style?: StyleProp<ViewStyle>;
   children?: React.ReactNode;
 };
@@ -62,48 +65,66 @@ export function Text({
   t16,
   t17,
   t18,
+  t19,
   style,
   children = undefined,
   center,
   right,
   color,
+  shadow,
   ...props
 }: TextProps) {
   const textColor = useTheme().colors[color ?? 'textBase1'];
   return (
-    <RNText
-      allowFontScaling={false}
-      testID="text"
-      style={[
-        t1 && StyleSheet.flatten([styles.t1Style, style]),
-        t2 && StyleSheet.flatten([styles.t2Style, style]),
-        t3 && StyleSheet.flatten([styles.t3Style, style]),
-        t4 && StyleSheet.flatten([styles.t4Style, style]),
-        t5 && StyleSheet.flatten([styles.t5Style, style]),
-        t6 && StyleSheet.flatten([styles.t6Style, style]),
-        t7 && StyleSheet.flatten([styles.t7Style, style]),
-        t8 && StyleSheet.flatten([styles.t8Style, style]),
-        t9 && StyleSheet.flatten([styles.t9Style, style]),
-        t10 && StyleSheet.flatten([styles.t10Style, style]),
-        t11 && StyleSheet.flatten([styles.t11Style, style]),
-        t12 && StyleSheet.flatten([styles.t12Style, style]),
-        t13 && StyleSheet.flatten([styles.t13Style, style]),
-        t14 && StyleSheet.flatten([styles.t14Style, style]),
-        t15 && StyleSheet.flatten([styles.t15Style, style]),
-        t16 && StyleSheet.flatten([styles.t16Style, style]),
-        t17 && StyleSheet.flatten([styles.t17Style, style]),
-        t18 && StyleSheet.flatten([styles.t18Style, style]),
-        {color: textColor},
-        center && styles.center,
-        right && styles.right,
-      ]}
-      {...props}>
-      {children}
-    </RNText>
+    <View>
+      <RNText
+        allowFontScaling={false}
+        testID="text"
+        style={[
+          t1 && StyleSheet.flatten([styles.t1Style, style]),
+          t2 && StyleSheet.flatten([styles.t2Style, style]),
+          t3 && StyleSheet.flatten([styles.t3Style, style]),
+          t4 && StyleSheet.flatten([styles.t4Style, style]),
+          t5 && StyleSheet.flatten([styles.t5Style, style]),
+          t6 && StyleSheet.flatten([styles.t6Style, style]),
+          t7 && StyleSheet.flatten([styles.t7Style, style]),
+          t8 && StyleSheet.flatten([styles.t8Style, style]),
+          t9 && StyleSheet.flatten([styles.t9Style, style]),
+          t10 && StyleSheet.flatten([styles.t10Style, style]),
+          t11 && StyleSheet.flatten([styles.t11Style, style]),
+          t12 && StyleSheet.flatten([styles.t12Style, style]),
+          t13 && StyleSheet.flatten([styles.t13Style, style]),
+          t14 && StyleSheet.flatten([styles.t14Style, style]),
+          t15 && StyleSheet.flatten([styles.t15Style, style]),
+          t16 && StyleSheet.flatten([styles.t16Style, style]),
+          t17 && StyleSheet.flatten([styles.t17Style, style]),
+          t18 && StyleSheet.flatten([styles.t18Style, style]),
+          t19 && StyleSheet.flatten([styles.t19Style, style]),
+          {color: textColor},
+          shadow && styles.shadow,
+          center && styles.center,
+          right && styles.right,
+        ]}
+        {...props}>
+        {children}
+      </RNText>
+    </View>
   );
 }
 
+const shadowColor = '#FF06F4';
+const aquaShadow = '#62F5D4';
+
 const styles = StyleSheet.create({
+  shadow: {
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 1,
+    textShadowColor: shadowColor,
+    shadowColor: aquaShadow,
+    shadowOpacity: 1,
+    shadowOffset: {width: 1, height: 1},
+    shadowRadius: 1,
+  },
   center: {
     textAlign: 'center',
   },
@@ -199,5 +220,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
     fontSize: 10,
     lineHeight: 12,
+  },
+  t19Style: {
+    fontFamily: 'IBM 3270',
+    fontSize: 30,
+    lineHeight: 30,
+  },
+  t20Style: {
+    fontFamily: 'IBM 3270',
+    fontSize: 18,
+    lineHeight: 24,
   },
 });

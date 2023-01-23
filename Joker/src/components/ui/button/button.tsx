@@ -135,7 +135,7 @@ export function Button({
             <Icon name={iconLeft} color={iconLeftColor} style={styles.icon} />
           )}
           <Text
-            t9={size !== ButtonSize.small}
+            t19={size !== ButtonSize.small}
             t12={size === ButtonSize.small}
             style={textStyle}
             color={textColor}>
