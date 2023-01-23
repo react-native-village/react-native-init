@@ -4,7 +4,7 @@ import {
   ALCHEMY_API_KEY,
   POLYGON_RPC_PROVIDER,
   POLYGON_TESTNET_RPC_PROVIDER,
-  PRIVATE_SECRET_KEY,
+  PRIVATE_SECRET_KEY_1,
 } from '@env';
 import {Alchemy, AlchemySettings, Network} from 'alchemy-sdk';
 import {ethers} from 'ethers';
@@ -46,7 +46,7 @@ export class Contracts extends EventEmitter {
     owner: string,
     issueId: number,
   ) {
-    const wallet = new ethers.Wallet(PRIVATE_SECRET_KEY ?? '', this.provider);
+    const wallet = new ethers.Wallet(PRIVATE_SECRET_KEY_1 ?? '', this.provider);
 
     const ProjectTaskFactory = new ethers.ContractFactory(
       abiProjectTask,

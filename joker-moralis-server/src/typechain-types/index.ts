@@ -3,8 +3,10 @@
 /* eslint-disable */
 import type * as exampleTokenSol from "./ExampleToken.sol";
 export type { exampleTokenSol };
+export type { IERC20 } from "./IERC20";
 export type { ProjectTask } from "./ProjectTask";
 export * as factories from "./factories";
 export type { Token } from "./ExampleToken.sol/Token";
 export { Token__factory } from "./factories/ExampleToken.sol/Token__factory";
+export { IERC20__factory } from "./factories/IERC20__factory";
 export { ProjectTask__factory } from "./factories/ProjectTask__factory";

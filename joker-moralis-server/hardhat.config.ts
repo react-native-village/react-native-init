@@ -10,11 +10,5 @@ const config: HardhatUserConfig = {
     sources: './contracts',
     tests: './contracts/tests',
   },
-  networks: {
-    polygon: {
-      url: 'https://rpc-mumbai.maticvigil.com',
-      accounts: ['METAMASK_PRIVATE_KEY'],
-    },
-  },
 };
 export default config;
