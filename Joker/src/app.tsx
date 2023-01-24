@@ -10,8 +10,8 @@ import {CreateTaskCompleteScreen} from 'src/screens/CreateTaskComplete';
 import {CreateTaskConfirmationScreen} from 'src/screens/CreateTaskConfirmation';
 import {CreateTaskIssueSelectScreen} from 'src/screens/CreateTaskIssueSelect';
 import {CreateTaskRepoSelectScreen} from 'src/screens/CreateTaskRepoSelect';
-import {Home} from 'src/screens/Home';
-import NftTestsScreen from 'src/screens/NftTests';
+import {Home} from 'src/screens/home';
+import NftTestsScreen from 'src/screens/TestsNft';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 

@@ -11,14 +11,18 @@ interface WelcomeProps {
 export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
   return (
     <Background>
-      <Text t3>Welcome Screen</Text>
+      <Text ibm1 shadow>
+        Welcome Screen
+      </Text>
       <Button
         onPress={() => {
           navigator.navigate('devTests');
         }}
         title="Skip"
       />
-      <Button onPress={onPerformer} title="Performer" />
+      <Text onPress={onPerformer} l1>
+        Performer
+      </Text>
       <Button onPress={onEmployer} title="Employer" />
     </Background>
   );

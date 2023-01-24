@@ -31,6 +31,7 @@ export interface ThemeColors {
   graphicSecond2: string;
   graphicSecond3: string;
   graphicSecond4: string;
+  textAqua1: string;
 }
 
 export interface ThemeDictionaryType {
