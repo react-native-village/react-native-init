@@ -25,13 +25,15 @@ export interface ThemeColors {
   graphicBase3: string;
   graphicBlue1: string;
   graphicRed1: string;
-  graphicGreen1: string;
+  graphicTurquoise1: string;
   graphicGreen2: string;
   graphicSecond1: string;
   graphicSecond2: string;
   graphicSecond3: string;
   graphicSecond4: string;
-  textAqua1: string;
+  opacityRed1: string;
+  opacityBlue1: string;
+  opacityYellow1: string;
 }
 
 export interface ThemeDictionaryType {
@@ -67,10 +69,13 @@ export enum Color {
   graphicBase2 = 'graphicBase2',
   graphicBase3 = 'graphicBase3',
   graphicRed1 = 'graphicRed1',
-  graphicGreen1 = 'graphicGreen1',
+  graphicTurquoise1 = 'graphicTurquoise1',
   graphicGreen2 = 'graphicGreen2',
   graphicSecond1 = 'graphicSecond1',
   graphicSecond2 = 'graphicSecond2',
   graphicSecond3 = 'graphicSecond3',
   graphicSecond4 = 'graphicSecond4',
+  opacityRed1 = 'opacityRed1',
+  opacityBlue1 = 'opacityBlue1',
+  opacityYellow1 = 'opacityYellow1',
 }
