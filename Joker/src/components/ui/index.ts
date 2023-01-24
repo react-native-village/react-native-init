@@ -16,3 +16,5 @@ export * from './CenteredView';
 export * from './waiting';
 export * from './Img';
 export * from './Background';
+export * from './Checkmark';
+export * from './BlockMessage';

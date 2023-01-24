@@ -31,6 +31,9 @@ export interface ThemeColors {
   graphicSecond2: string;
   graphicSecond3: string;
   graphicSecond4: string;
+  opacityRed1: string;
+  opacityBlue1: string;
+  opacityYellow1: string;
 }
 
 export interface ThemeDictionaryType {
@@ -72,4 +75,7 @@ export enum Color {
   graphicSecond2 = 'graphicSecond2',
   graphicSecond3 = 'graphicSecond3',
   graphicSecond4 = 'graphicSecond4',
+  opacityRed1 = 'opacityRed1',
+  opacityBlue1 = 'opacityBlue1',
+  opacityYellow1 = 'opacityYellow1',
 }

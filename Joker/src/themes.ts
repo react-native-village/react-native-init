@@ -33,6 +33,9 @@ export const LIGHT_THEME: ThemeColors = {
   graphicSecond2: '#CFD1DB',
   graphicSecond3: '#CCCDD2',
   graphicSecond4: '#AAABB2',
+  opacityRed1: 'rgba(225, 99, 99, 0.2)',
+  opacityBlue1: 'rgba(0, 122, 255, 0.2)',
+  opacityYellow1: 'rgba(178, 111, 29, 0.2)',
 };
 
 export const DARK_THEME: ThemeColors = {
@@ -45,7 +48,7 @@ export const DARK_THEME: ThemeColors = {
   textRed1: '#E16363',
   textYellow1: '#EB9226',
   textBlue1: '#007AFF',
-  bg1: '#181C1A',
+  bg1: '#0B0B0B',
   bg2: '#25332E',
   bg3: '#212624',
   bg4: 'rgba(4, 212, 132, 0.5)',
@@ -66,4 +69,7 @@ export const DARK_THEME: ThemeColors = {
   graphicSecond2: '#56575C',
   graphicSecond3: '#454647',
   graphicSecond4: '#616266',
+  opacityRed1: 'rgba(225, 99, 99, 0.2)',
+  opacityBlue1: 'rgba(0, 122, 255, 0.2)',
+  opacityYellow1: 'rgba(178, 111, 29, 0.2)',
 };
