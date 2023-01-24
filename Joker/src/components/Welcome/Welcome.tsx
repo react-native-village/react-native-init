@@ -11,7 +11,7 @@ interface WelcomeProps {
 export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
   return (
     <Background>
-      <Text t19 shadow>
+      <Text ibm1 shadow>
         Welcome Screen
       </Text>
       <Button
@@ -20,7 +20,9 @@ export function Welcome({onEmployer, onPerformer}: WelcomeProps) {
         }}
         title="Skip"
       />
-      <Button onPress={onPerformer} title="Performer" />
+      <Text onPress={onPerformer} l1>
+        Performer
+      </Text>
       <Button onPress={onEmployer} title="Employer" />
     </Background>
   );

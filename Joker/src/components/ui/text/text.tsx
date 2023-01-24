@@ -11,6 +11,7 @@ import {
 
 import {useTheme} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+import {IS_IOS} from 'src/variables';
 
 //will be changed to i18next
 /*export type TextValue =
@@ -37,7 +38,9 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   t16?: boolean;
   t17?: boolean;
   t18?: boolean;
-  t19?: boolean;
+  ibm1?: boolean;
+  ibm2?: boolean;
+  l1?: boolean;
   center?: boolean;
   right?: boolean;
   color?: Color;
@@ -65,7 +68,9 @@ export function Text({
   t16,
   t17,
   t18,
-  t19,
+  ibm1,
+  ibm2,
+  l1,
   style,
   children = undefined,
   center,
@@ -99,7 +104,9 @@ export function Text({
           t16 && StyleSheet.flatten([styles.t16Style, style]),
           t17 && StyleSheet.flatten([styles.t17Style, style]),
           t18 && StyleSheet.flatten([styles.t18Style, style]),
-          t19 && StyleSheet.flatten([styles.t19Style, style]),
+          ibm1 && StyleSheet.flatten([styles.ibm1Style, style]),
+          ibm2 && StyleSheet.flatten([styles.ibm2Style, style]),
+          l1 && StyleSheet.flatten([styles.l1Style, style]),
           {color: textColor},
           shadow && styles.shadow,
           center && styles.center,
@@ -114,6 +121,8 @@ export function Text({
 
 const shadowColor = '#FF06F4';
 const aquaShadow = '#62F5D4';
+const ibm = IS_IOS ? 'IBM 3270' : '3270';
+const editUndo = IS_IOS ? 'Edit Undo Line BRK' : 'edit-undo-line';
 
 const styles = StyleSheet.create({
   shadow: {
@@ -221,14 +230,19 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 12,
   },
-  t19Style: {
-    fontFamily: 'IBM 3270',
-    fontSize: 30,
+  ibm1Style: {
+    fontFamily: ibm,
+    fontSize: 22,
     lineHeight: 30,
   },
-  t20Style: {
-    fontFamily: 'IBM 3270',
+  ibm2Style: {
+    fontFamily: ibm,
     fontSize: 18,
     lineHeight: 24,
+  },
+  l1Style: {
+    fontFamily: editUndo,
+    fontSize: 30,
+    lineHeight: 38,
   },
 });

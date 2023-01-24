@@ -2,7 +2,7 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/3270-Medium 500.ttf",
+      "path": "assets/fonts/3270.ttf",
       "sha1": "92f4e05cccb913debb4338400e9805a24ca216b6"
     },
     {
@@ -76,6 +76,10 @@
     {
       "path": "assets/fonts/Montserrat-ThinItalic.ttf",
       "sha1": "ae19fb168e043e6408692c4bc50dd0aab76fdc22"
+    },
+    {
+      "path": "assets/fonts/edit-undo-line.ttf",
+      "sha1": "fb7603c2727e84e1e900cd9787eae15b521f343f"
     }
   ]
 }
