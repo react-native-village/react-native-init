@@ -6,7 +6,7 @@ export * from './custom-header';
 export * from './checkbox';
 export * from './text/error-text';
 export * from './spacer';
-export * from './svg-icons';
+export * from './svg';
 export * from './inline';
 export * from './menu-navigation-button';
 export * from './popup-container';
