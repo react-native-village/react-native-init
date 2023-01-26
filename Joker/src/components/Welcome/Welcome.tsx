@@ -10,6 +10,7 @@ import {RoleType} from 'src/types';
 import {SelectButton} from './SelectButton';
 
 import {Avatar} from '../avatar';
+import {CardBorder} from '../ui/card-border';
 
 interface WelcomeProps {
   onPerformer: () => void;
@@ -27,25 +28,30 @@ export function Welcome({
   return (
     <Background bgImg="symbols">
       <View style={styles.containerTop}>
-        <View>
-          {/* <Button
+        <CardBorder>
+          <View>
+            {/* <Button
             onPress={() => {
               navigator.navigate('devTests');
             }}
             title="dev Skip"
           /> */}
-          <Avatar uri="https://www.jscamp.app/img/jscamp.jpg" size={'xLarge'} />
-          <SelectButton
-            selected={selected === 'performer'}
-            title="Developer"
-            onPress={onPerformer}
-          />
-          <SelectButton
-            selected={selected === 'employer'}
-            title="Headhunter"
-            onPress={onEmployer}
-          />
-        </View>
+            <Avatar
+              uri="https://www.jscamp.app/img/jscamp.jpg"
+              size={'xLarge'}
+            />
+            <SelectButton
+              selected={selected === 'performer'}
+              title="Developer"
+              onPress={onPerformer}
+            />
+            <SelectButton
+              selected={selected === 'employer'}
+              title="Headhunter"
+              onPress={onEmployer}
+            />
+          </View>
+        </CardBorder>
       </View>
       <View style={styles.containerBottom}>
         <TouchableOpacity onPress={onContinue}>
