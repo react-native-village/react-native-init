@@ -9,6 +9,8 @@ import {RoleType} from 'src/types';
 
 import {SelectButton} from './SelectButton';
 
+import {Avatar} from '../avatar';
+
 interface WelcomeProps {
   onPerformer: () => void;
   onEmployer: () => void;
@@ -32,6 +34,7 @@ export function Welcome({
             }}
             title="dev Skip"
           /> */}
+          <Avatar uri="https://www.jscamp.app/img/jscamp.jpg" size={'xLarge'} />
           <SelectButton
             selected={selected === 'performer'}
             title="Developer"
