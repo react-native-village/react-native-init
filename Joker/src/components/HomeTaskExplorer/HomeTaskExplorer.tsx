@@ -11,6 +11,7 @@ import {
 } from 'src/components/ui';
 import {useTheme} from 'src/hooks';
 import {useThematicStyles} from 'src/hooks/useThematicStyles';
+import {navigator} from 'src/navigator';
 import {Color} from 'src/themeTypes';
 
 interface HomeTaskExplorerProps {
@@ -20,6 +21,10 @@ interface HomeTaskExplorerProps {
 export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {toggleDark, toggleLight, toggleSystem} = useTheme();
+
+  const onGoProfile = () => {
+    navigator.navigate('profile');
+  };
 
   return (
     <Background style={styles.container}>
@@ -58,6 +63,13 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
           style={styles.button}
           size={ButtonSize.large}
           onPress={toggleSystem}
+        />
+        <Button
+          variant={ButtonVariant.contained}
+          title="Go to Profile"
+          style={styles.button}
+          size={ButtonSize.large}
+          onPress={onGoProfile}
         />
       </ScrollView>
     </Background>

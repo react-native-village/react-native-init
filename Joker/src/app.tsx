@@ -15,6 +15,8 @@ import NftTestsScreen from 'src/screens/TestsNft';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
+import {ProfileScreen} from './screens/Profile';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const basicScreenOptions = {
@@ -66,6 +68,7 @@ export function App() {
           />
         </Stack.Group>
         <Stack.Screen name="devTests" component={NftTestsScreen} />
+        <Stack.Screen name="profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

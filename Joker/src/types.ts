@@ -27,6 +27,7 @@ export type RootStackParamList = {
   createTaskComplete: {
     txhash: string;
   };
+  profile: undefined;
   devTests: undefined;
 };
 
