@@ -13,6 +13,7 @@ import {
   Text,
   Waiting,
 } from 'src/components/ui';
+import {useTheme} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
 interface AuthProps {
@@ -23,6 +24,7 @@ interface AuthProps {
 
 export function Auth({onPressAuth, loading, errorMessage}: AuthProps) {
   const {top, bottom} = useSafeAreaInsets();
+  const {colors} = useTheme();
   if (loading) {
     return <Waiting />;
   }
@@ -30,7 +32,12 @@ export function Auth({onPressAuth, loading, errorMessage}: AuthProps) {
   return (
     <Background bgImg="symbols">
       <Spacer height={top + vs(40)} />
-      <GitHubLogo style={styles.logo} width={150} height={150} />
+      <GitHubLogo
+        style={styles.logo}
+        color={colors.graphicIcon1}
+        width={150}
+        height={150}
+      />
       <View style={styles.bottomContainer}>
         <TouchableOpacity onPress={onPressAuth}>
           <Text center l1 color={Color.graphicTurquoise1}>

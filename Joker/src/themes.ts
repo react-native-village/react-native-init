@@ -1,6 +1,7 @@
 import {ThemeColors} from 'src/themeTypes';
 
 export const TRANSPARENT = 'transparent';
+export const SHADOW_COLOR = '#000';
 
 export const LIGHT_THEME: ThemeColors = {
   textBase1: '#2E312D',
@@ -37,6 +38,7 @@ export const LIGHT_THEME: ThemeColors = {
   opacityBlue1: 'rgba(0, 122, 255, 0.2)',
   opacityYellow1: 'rgba(178, 111, 29, 0.2)',
   graphicBorder1: '#62F5D4',
+  graphicIcon1: '#2F2F2F',
 };
 
 export const DARK_THEME: ThemeColors = {
@@ -74,4 +76,5 @@ export const DARK_THEME: ThemeColors = {
   opacityBlue1: 'rgba(0, 122, 255, 0.2)',
   opacityYellow1: 'rgba(178, 111, 29, 0.2)',
   graphicBorder1: '#FF06F4',
+  graphicIcon1: '#FFFFFF',
 };

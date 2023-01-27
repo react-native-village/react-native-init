@@ -51,7 +51,7 @@ export function TabBar(props: TabBarProps) {
           ) : (
             <TouchableOpacity onPress={() => onPressTab(item)} key={item}>
               <View style={styles.tabBarItem}>
-                <Text t1>{tabBarEmoji[i]}</Text>
+                <Text t2>{tabBarEmoji[i]}</Text>
               </View>
             </TouchableOpacity>
           ),

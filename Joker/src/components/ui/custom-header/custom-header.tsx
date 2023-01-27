@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleProp} from 'react-native';
+import Animated from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Color} from 'src/themeTypes';
@@ -11,18 +13,19 @@ import {Text} from '../';
 
 interface CustomHeaderProps {
   title?: string;
-  iconLeft?: HeaderButtonProps['icon'];
+  iconLeft?: string;
   textLeft?: HeaderButtonProps['text'];
   /* i18nTextLeft?: HeaderButtonProps['i18n']; */
   onPressLeft?: HeaderButtonProps['onPress'];
   disabledLeft?: HeaderButtonProps['disabled'];
   colorLeft?: Color;
-  iconRight?: HeaderButtonProps['icon'];
+  iconRight?: string;
   textRight?: HeaderButtonProps['text'];
   /* i18nTextRight?: HeaderButtonProps['i18n']; */
   colorRight?: Color;
   onPressRight?: HeaderButtonProps['onPress'];
   disabledRight?: HeaderButtonProps['disabled'];
+  style?: StyleProp<ViewStyle>;
 }
 
 export function CustomHeader({
@@ -37,13 +40,14 @@ export function CustomHeader({
   textLeft,
   textRight,
   title = undefined,
+  style,
 }: /* i18nTextRight,
   i18nTextLeft, */
 CustomHeaderProps) {
   const {top} = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, {marginTop: top}]}>
+    <Animated.View style={[styles.container, {paddingTop: 16 + top}, style]}>
       <HeaderButton
         onPress={onPressLeft}
         disabled={disabledLeft}
@@ -63,7 +67,7 @@ CustomHeaderProps) {
         icon={iconRight}
         /* i18n={i18nTextRight} */
       />
-    </View>
+    </Animated.View>
   );
 }
 
@@ -71,9 +75,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 16,
+    paddingBottom: 16,
     paddingHorizontal: 22,
-    height: 56,
     flexDirection: 'row',
     zIndex: 1,
   },
