@@ -3,25 +3,29 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {s} from 'react-native-size-matters';
 
-import {ErrorIcon, InfoIcon, Text, WarningIcon} from 'src/components/ui';
+import {
+  ErrorIcon,
+  InfoIcon,
+  SvgIconProps,
+  Text,
+  WarningIcon,
+} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
-import {IconProps} from './svg';
-
 const Icons = {
   error: {
-    component: (props: IconProps) => <ErrorIcon {...props} />,
+    component: (props: SvgIconProps) => <ErrorIcon {...props} />,
     color: Color.textRed1,
     bgColor: Color.opacityRed1,
   },
   warning: {
-    component: (props: IconProps) => <WarningIcon {...props} />,
+    component: (props: SvgIconProps) => <WarningIcon {...props} />,
     color: Color.textYellow1,
     bgColor: Color.opacityYellow1,
   },
   info: {
-    component: (props: IconProps) => <InfoIcon {...props} />,
+    component: (props: SvgIconProps) => <InfoIcon {...props} />,
     color: Color.textBlue1,
     bgColor: Color.opacityBlue1,
   },

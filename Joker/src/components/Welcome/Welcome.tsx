@@ -3,7 +3,8 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {s} from 'react-native-size-matters';
 
-import {Background, Text} from 'src/components/ui';
+import {Background, Button, Text} from 'src/components/ui';
+import {navigator} from 'src/navigator';
 import {Color} from 'src/themeTypes';
 import {RoleType} from 'src/types';
 
@@ -26,12 +27,12 @@ export function Welcome({
     <Background bgImg="symbols">
       <View style={styles.containerTop}>
         <View>
-          {/* <Button
+          <Button
             onPress={() => {
-              navigator.navigate('devTests');
+              navigator.navigate('home');
             }}
             title="dev Skip"
-          /> */}
+          />
           <SelectButton
             selected={selected === 'performer'}
             title="Developer"

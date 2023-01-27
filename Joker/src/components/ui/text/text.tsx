@@ -42,6 +42,7 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   ibm2?: boolean;
   ibm3?: boolean;
   l1?: boolean;
+  klmn1?: boolean;
   center?: boolean;
   right?: boolean;
   color?: Color;
@@ -73,6 +74,7 @@ export function Text({
   ibm2,
   ibm3,
   l1,
+  klmn1,
   style,
   children = undefined,
   center,
@@ -110,6 +112,7 @@ export function Text({
           ibm2 && styles.ibm2Style,
           ibm3 && styles.ibm3Style,
           l1 && styles.l1Style,
+          klmn1 && styles.klmn1style,
           style,
           {color: textColor},
           shadow && styles.shadow,
@@ -127,6 +130,7 @@ const shadowColor = '#FF06F4';
 const aquaShadow = '#62F5D4';
 const ibm = IS_IOS ? 'IBM 3270' : '3270';
 const editUndo = IS_IOS ? 'Edit Undo Line BRK' : 'edit-undo-line';
+const KLMN = IS_IOS ? 'KLMN-Flash-Pix' : 'KLMN_Flash_Pix';
 
 const styles = StyleSheet.create({
   shadow: {
@@ -254,5 +258,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
     lineHeight: 38,
     letterSpacing: 2,
+  },
+  klmn1style: {
+    fontFamily: KLMN,
+    fontSize: 30,
+    lineHeight: 38,
   },
 });

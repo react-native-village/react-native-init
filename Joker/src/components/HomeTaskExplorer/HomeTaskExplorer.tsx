@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {ScrollView, StyleSheet} from 'react-native';
 
-import {ActionsSheet} from 'src/components/actions-sheet';
 import {
   Background,
   Button,
   ButtonSize,
   ButtonVariant,
   CustomHeader,
-  Inline,
 } from 'src/components/ui';
 import {useTheme} from 'src/hooks';
 import {useThematicStyles} from 'src/hooks/useThematicStyles';
@@ -22,7 +20,6 @@ interface HomeTaskExplorerProps {
 export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {toggleDark, toggleLight, toggleSystem} = useTheme();
-  const [actionSheetVisible, setActionSheetVisible] = useState(false);
 
   return (
     <Background style={styles.container}>
@@ -30,8 +27,8 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
         title="Test Header"
         textLeft="Left"
         textRight="Right"
-        colorLeft={Color.graphicGreen1}
-        colorRight={Color.graphicGreen1}
+        colorLeft={Color.textBase1}
+        colorRight={Color.textBase1}
       />
       <ScrollView>
         <Button
@@ -62,26 +59,6 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
           size={ButtonSize.large}
           onPress={toggleSystem}
         />
-        <Inline gap={15}>
-          <Button
-            testID={'tab1_action_sheet'}
-            variant={ButtonVariant.contained}
-            title={'Show Action Sheet'}
-            style={styles.button}
-            size={ButtonSize.large}
-            onPress={() => setActionSheetVisible(true)}
-          />
-        </Inline>
-        {actionSheetVisible && (
-          <ActionsSheet
-            onPressKeepEditing={() => {
-              setActionSheetVisible(false);
-            }}
-            onPressDiscard={() => {
-              setActionSheetVisible(false);
-            }}
-          />
-        )}
       </ScrollView>
     </Background>
   );
