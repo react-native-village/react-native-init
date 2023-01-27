@@ -37,8 +37,8 @@ const CardBorder = memo<CardBorderT>(({children, viewStyle, border}) => {
   const {containerBlue, containerPink} = styles;
   const borderColor = border ? 'transparent' : shadowColor;
   return (
-    <View style={[containerBlue, {borderColor: aquaShadow}]}>
-      <View style={[containerPink, viewStyle, {borderColor}]}>{children}</View>
+    <View style={[containerBlue, {borderColor: aquaShadow}, viewStyle]}>
+      <View style={[containerPink, {borderColor}, viewStyle]}>{children}</View>
     </View>
   );
 });

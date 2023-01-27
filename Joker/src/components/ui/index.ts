@@ -18,3 +18,4 @@ export * from './Img';
 export * from './Background';
 export * from './Checkmark';
 export * from './BlockMessage';
+export * from './ButtonPlus';

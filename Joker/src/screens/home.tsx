@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  BottomTabBarProps,
   BottomTabNavigationOptions,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
@@ -22,11 +23,11 @@ export const screenOptions = ({}: {
   headerShadowVisible: false,
 });
 
+const renderTabBar = (props: BottomTabBarProps) => <TabBar {...props} />;
+
 export function Home() {
   return (
-    <Tab.Navigator
-      tabBar={props => <TabBar {...props} />}
-      screenOptions={{headerShown: false}}>
+    <Tab.Navigator tabBar={renderTabBar} screenOptions={{headerShown: false}}>
       <Tab.Screen
         name="homeTaskExplorer"
         component={HomeTaskExplorerScreen}

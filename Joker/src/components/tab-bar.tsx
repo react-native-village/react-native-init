@@ -6,18 +6,29 @@ import {
   ParamListBase,
   TabNavigationState,
 } from '@react-navigation/native';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {DARK_BG_1, LIGHT_BG_1, LIGHT_GRAPHIC_RED_1} from 'src/variables';
+import {useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
 
-type TabbarProps = {
+import {ButtonPlus, Text} from './ui';
+
+type TabBarProps = {
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
   state: TabNavigationState<ParamListBase>;
 };
-export function TabBar(props: TabbarProps) {
-  const {index, routeNames} = props.state;
+
+const tabBarEmoji = ['👾', '💼', '🦄', '⚙️'];
+
+export function TabBar(props: TabBarProps) {
+  const {routeNames} = props.state;
+
   const insets = useSafeAreaInsets();
+  const {styles} = useThematicStyles(rawStyles);
+
+  if (!routeNames.includes('+')) routeNames.splice(2, 0, '+');
+
   const onPressTab = useCallback(
     (route: string) => {
       props.navigation.navigate(route);
@@ -25,34 +36,50 @@ export function TabBar(props: TabbarProps) {
     [props.navigation],
   );
 
+  const onPressPlus = () => {
+    props.navigation.navigate('createTaskRepoSelect');
+  };
+
   return (
-    <View style={[styles.wrapper, {paddingBottom: insets.bottom}]}>
-      {routeNames.map((item, i) => (
-        <TouchableOpacity onPress={() => onPressTab(item)} key={item}>
-          <View style={styles.tabBarItem}>
-            <Text
-              style={{color: index === i ? LIGHT_GRAPHIC_RED_1 : DARK_BG_1}}>
-              {item}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      ))}
+    <View style={[styles.tabBarContainer, {paddingBottom: insets.bottom + 20}]}>
+      <View style={styles.tabBar}>
+        {routeNames.map((item, i) =>
+          item === '+' ? (
+            <View style={styles.tabBarItem}>
+              <ButtonPlus onPress={onPressPlus} />
+            </View>
+          ) : (
+            <TouchableOpacity onPress={() => onPressTab(item)} key={item}>
+              <View style={styles.tabBarItem}>
+                <Text t1>{tabBarEmoji[i]}</Text>
+              </View>
+            </TouchableOpacity>
+          ),
+        )}
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
+const rawStyles = StyleSheet.create({
+  tabBarContainer: {
+    position: 'absolute',
     width: '100%',
-    height: 70,
-    backgroundColor: LIGHT_BG_1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    paddingBottom: 20,
     alignItems: 'center',
+    bottom: 0,
+  },
+  tabBar: {
+    borderRadius: 100,
+    borderColor: Color.graphicBorder1,
+    borderWidth: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 12,
+    paddingVertical: 5,
   },
   tabBarItem: {
-    marginTop: 5,
-    height: 50,
-    justifyContent: 'center',
+    paddingHorizontal: 12,
   },
 });

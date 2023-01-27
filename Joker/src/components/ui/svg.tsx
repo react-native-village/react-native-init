@@ -41,9 +41,13 @@ export function GitHubLogo({width = 100, height = 100, ...props}: SvgProps) {
   );
 }
 
-export type IconProps = SvgProps & {size?: number};
+export type SvgIconProps = SvgProps & {size?: number};
 
-export function InfoIcon({size = 16, color = '#007AFF', ...props}: IconProps) {
+export function InfoIcon({
+  size = 16,
+  color = '#007AFF',
+  ...props
+}: SvgIconProps) {
   return (
     <Svg viewBox="0 0 16 16" width={size} height={size} fill="none" {...props}>
       <Path
@@ -62,7 +66,7 @@ export function WarningIcon({
   size = 16,
   color = '#B26F1D',
   ...props
-}: IconProps) {
+}: SvgIconProps) {
   return (
     <Svg viewBox="0 0 16 16" width={size} height={size} fill="none" {...props}>
       <Path
@@ -75,7 +79,11 @@ export function WarningIcon({
   );
 }
 
-export function ErrorIcon({size = 16, color = '#E16363', ...props}: IconProps) {
+export function ErrorIcon({
+  size = 16,
+  color = '#E16363',
+  ...props
+}: SvgIconProps) {
   return (
     <Svg viewBox="0 0 16 16" width={size} height={size} fill="none" {...props}>
       <Path

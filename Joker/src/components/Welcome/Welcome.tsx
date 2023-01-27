@@ -3,14 +3,12 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {s} from 'react-native-size-matters';
 
-import {Background, Text} from 'src/components/ui';
+import {Background, Button, Text} from 'src/components/ui';
+import {navigator} from 'src/navigator';
 import {Color} from 'src/themeTypes';
 import {RoleType} from 'src/types';
 
 import {SelectButton} from './SelectButton';
-
-import {Avatar} from '../avatar';
-import {CardBorder} from '../ui/card-border';
 
 interface WelcomeProps {
   onPerformer: () => void;
@@ -28,30 +26,24 @@ export function Welcome({
   return (
     <Background bgImg="symbols">
       <View style={styles.containerTop}>
-        <CardBorder>
-          <View>
-            {/* <Button
+        <View>
+          <Button
             onPress={() => {
-              navigator.navigate('devTests');
+              navigator.navigate('home');
             }}
             title="dev Skip"
-          /> */}
-            <Avatar
-              uri="https://www.jscamp.app/img/jscamp.jpg"
-              size={'xLarge'}
-            />
-            <SelectButton
-              selected={selected === 'performer'}
-              title="Developer"
-              onPress={onPerformer}
-            />
-            <SelectButton
-              selected={selected === 'employer'}
-              title="Headhunter"
-              onPress={onEmployer}
-            />
-          </View>
-        </CardBorder>
+          />
+          <SelectButton
+            selected={selected === 'performer'}
+            title="Developer"
+            onPress={onPerformer}
+          />
+          <SelectButton
+            selected={selected === 'employer'}
+            title="Headhunter"
+            onPress={onEmployer}
+          />
+        </View>
       </View>
       <View style={styles.containerBottom}>
         <TouchableOpacity onPress={onContinue}>
