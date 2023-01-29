@@ -66,9 +66,9 @@ export function App() {
             name="createTaskComplete"
             component={CreateTaskCompleteScreen}
           />
+          <Stack.Screen name="profile" component={ProfileScreen} />
         </Stack.Group>
         <Stack.Screen name="devTests" component={NftTestsScreen} />
-        <Stack.Screen name="profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

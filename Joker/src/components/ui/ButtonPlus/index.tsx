@@ -3,7 +3,7 @@ import React, {memo} from 'react';
 import {useTheme} from '@react-navigation/native';
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-const size = 70;
+const size = 50;
 
 const styles = StyleSheet.create({
   container: {
