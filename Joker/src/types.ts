@@ -3,32 +3,13 @@ import {StackNavigationOptions} from '@react-navigation/stack';
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 
 export type TabParamList = {
-  homeTaskExplorer: undefined;
+  homeOwnTickets: undefined;
   homeProfile: undefined;
-  homeSettings: undefined;
+  homeTicketsMarketplace: undefined;
 };
 export type RootStackParamList = {
   home?: NavigatorScreenParams<TabParamList>;
-  authentication: {
-    role: RoleType;
-  };
-  authenticationSuccess: undefined;
   welcome: undefined;
-  createTaskRepoSelect: undefined;
-  createTaskIssueSelect: {
-    owner: string;
-    repoName: string;
-  };
-  createTaskConfirmation: {
-    owner: string;
-    issueNumber: number;
-    repoName: string;
-  };
-  createTaskComplete: {
-    txhash: string;
-  };
-  profile: undefined;
-  devTests: undefined;
 };
 
 export interface ScreenOptionType extends StackNavigationOptions {
@@ -38,8 +19,6 @@ export interface ScreenOptionType extends StackNavigationOptions {
 }
 
 export type FontT = TextStyle | ViewStyle | ImageStyle | undefined;
-
-export type RoleType = 'performer' | 'employer';
 
 export type ArrayElementType<
   ArrayType extends readonly unknown[] | null | undefined,

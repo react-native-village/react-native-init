@@ -14,7 +14,6 @@
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "storybook": "start-storybook -p 6006",
     "postinstall": "patch-package && node_modules/.bin/rn-nodeify --install stream,http,https,os,vm,crypto --yarn --hack",
-    "codegen": "graphql-codegen --config graphql.config.ts --errors-only && eslint ./src/generated --fix",
     "link-asset": "npx react-native-asset"
   },
   "dependencies": {
@@ -72,9 +71,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
-    "@graphql-codegen/cli": "^2.16.2",
-    "@graphql-codegen/typescript-operations": "^2.5.11",
-    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@react-native-community/eslint-config": "^3.2.0",
     "@storybook/addon-actions": "6.3",
     "@storybook/addon-controls": "6.3",

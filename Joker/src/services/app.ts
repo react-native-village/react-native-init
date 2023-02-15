@@ -2,18 +2,14 @@ import {EventEmitter} from 'events';
 
 import {AppState, Appearance} from 'react-native';
 
-import {GitHubAuth} from 'src/services/github-auth';
-
 type appThemeType = 'light' | 'dark' | null | undefined;
 
 class App extends EventEmitter {
-  githubAuth: GitHubAuth;
   private appStatus: AppStatus = AppStatus.inactive;
   private appTheme: appThemeType;
 
   constructor() {
     super();
-    this.githubAuth = new GitHubAuth();
     Appearance.addChangeListener(this.onAppThemeChanged.bind(this) as any);
     AppState.addEventListener('change', this.onAppStatusChanged.bind(this));
   }

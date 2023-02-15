@@ -3,52 +3,20 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {s} from 'react-native-size-matters';
 
-import {Background, Button, Text} from 'src/components/ui';
-import {navigator} from 'src/navigator';
+import {Background, Text} from 'src/components/ui';
 import {Color} from 'src/themeTypes';
-import {RoleType} from 'src/types';
-
-import {SelectButton} from './SelectButton';
 
 interface WelcomeProps {
-  onPerformer: () => void;
-  onEmployer: () => void;
   onContinue: () => void;
-  selected?: RoleType;
 }
 
-export function Welcome({
-  onEmployer,
-  onPerformer,
-  onContinue,
-  selected,
-}: WelcomeProps) {
+export function Welcome({onContinue}: WelcomeProps) {
   return (
-    <Background bgImg="symbols">
-      <View style={styles.containerTop}>
-        <View>
-          <Button
-            onPress={() => {
-              navigator.navigate('home');
-            }}
-            title="dev Skip"
-          />
-          <SelectButton
-            selected={selected === 'performer'}
-            title="Developer"
-            onPress={onPerformer}
-          />
-          <SelectButton
-            selected={selected === 'employer'}
-            title="Headhunter"
-            onPress={onEmployer}
-          />
-        </View>
-      </View>
+    <Background>
       <View style={styles.containerBottom}>
         <TouchableOpacity onPress={onContinue}>
           <Text color={Color.graphicTurquoise1} l1>
-            Select
+            Go Home
           </Text>
         </TouchableOpacity>
       </View>

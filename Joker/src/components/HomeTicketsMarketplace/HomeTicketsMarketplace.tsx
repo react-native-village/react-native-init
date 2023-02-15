@@ -11,20 +11,13 @@ import {
 } from 'src/components/ui';
 import {useTheme} from 'src/hooks';
 import {useThematicStyles} from 'src/hooks/useThematicStyles';
-import {navigator} from 'src/navigator';
 import {Color} from 'src/themeTypes';
 
-interface HomeTaskExplorerProps {
-  onCreateTask: () => void;
-}
+interface HomeTicketsMarketplaceProps {}
 
-export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
+export function HomeTicketsMarketplace({}: HomeTicketsMarketplaceProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {toggleDark, toggleLight, toggleSystem} = useTheme();
-
-  const onGoProfile = () => {
-    navigator.navigate('profile');
-  };
 
   return (
     <Background style={styles.container}>
@@ -41,7 +34,6 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
           title="Add new task"
           style={styles.button}
           size={ButtonSize.large}
-          onPress={onCreateTask}
         />
         <Button
           variant={ButtonVariant.contained}
@@ -69,7 +61,6 @@ export function HomeTaskExplorer({onCreateTask}: HomeTaskExplorerProps) {
           title="Go to Profile"
           style={styles.button}
           size={ButtonSize.large}
-          onPress={onGoProfile}
         />
       </ScrollView>
     </Background>
