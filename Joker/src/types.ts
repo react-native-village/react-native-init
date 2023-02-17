@@ -5,7 +5,7 @@ import {NavigatorScreenParams} from '@react-navigation/native';
 export type TabParamList = {
   homeOwnTickets: undefined;
   homeProfile: undefined;
-  homeTicketsMarketplace: undefined;
+  homeMarket: undefined;
   homeSearch: undefined;
 };
 export type RootStackParamList = {

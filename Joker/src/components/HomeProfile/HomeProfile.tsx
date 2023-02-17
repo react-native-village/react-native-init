@@ -230,7 +230,7 @@ const rawStyles = StyleSheet.create({
   },
   ava: {
     position: 'absolute',
-    top: -65,
+    top: -40,
     alignSelf: 'center',
   },
   addressLine: {

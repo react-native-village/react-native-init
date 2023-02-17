@@ -8,32 +8,37 @@ import {Color} from 'src/themeTypes';
 import {Text} from '.';
 
 interface TagT {
-  children: string;
+  name: string;
+  withMarginLeft?: boolean;
 }
-export function Tag({children}: TagT) {
+export function Tag({name, withMarginLeft}: TagT) {
   const {styles, colors} = useThematicStyles(rawStyles);
 
-  const circle = small ? 44 : 23;
-  const max = small ? undefined : 15;
   return (
     <View
-      style={[styles.container, {borderColor: colors.primary, width: circle}]}>
-      <Text
-        children={children}
-        color={small ? Color.textRed1 : Color.textBlue1}
-        t14
-        style={{maxWidth: max}}
-      />
+      style={[
+        styles.container,
+        {borderColor: colors.primary},
+        withMarginLeft && styles.marginLeft,
+      ]}>
+      <Text color={Color.primary} t18>
+        {name}
+      </Text>
     </View>
   );
 }
 
 const rawStyles = StyleSheet.create({
   container: {
-    height: 23,
-    borderRadius: 11.5,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    alignSelf: 'flex-start',
+    borderRadius: 999,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
+  },
+  marginLeft: {
+    marginLeft: 5,
   },
 });
