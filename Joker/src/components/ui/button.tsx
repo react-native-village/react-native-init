@@ -18,7 +18,7 @@ export function Button({children, onPress}: ButtonT) {
       onPress={onPress}
       activeOpacity={0.7}
       style={styles.container}>
-      <Text children={children} t6 />
+      <Text t6>{children}</Text>
     </TouchableOpacity>
   );
 }
@@ -26,7 +26,8 @@ export function Button({children, onPress}: ButtonT) {
 const rawStyles = StyleSheet.create({
   container: {
     backgroundColor: Color.primary,
-    height: 55,
+    // height: 55,
+    padding: 14.58,
     width: '100%',
     borderRadius: 30,
     alignItems: 'center',
