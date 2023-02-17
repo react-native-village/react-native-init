@@ -41,7 +41,7 @@ export function TicketCardRow({
               color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
           )}
         </View>
-        <Spacer height={8} />
+        <Spacer height={12} />
         <View style={styles.iconWithTextContainer}>
           <MaterialCommunityIcons
             name="map-marker-outline"
@@ -84,15 +84,15 @@ const rawStyles = StyleSheet.create({
     backgroundColor: Color.card,
   },
   imageContainer: {
-    flex: 2,
+    flex: 2.6,
   },
   image: {
     flex: 1,
   },
   infoContainer: {
     flex: 3,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
     borderColor: Color.grayStroke,
     borderTopWidth: borderW,
     borderBottomWidth: borderW,

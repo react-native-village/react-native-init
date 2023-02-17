@@ -33,7 +33,7 @@ export function TicketCardColumn({
       </View>
       <View style={styles.infoContainer}>
         <Text t6>{name}</Text>
-        <Spacer height={10} />
+        <Spacer height={8} />
         <View style={styles.costAndTagContainer}>
           <TicketCardTags tags={tags} />
           {price && currencySymbols && (
@@ -42,7 +42,7 @@ export function TicketCardColumn({
               color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
           )}
         </View>
-        <Spacer height={10} />
+        <Spacer height={8} />
         <View style={styles.iconWithTextContainer}>
           <MaterialCommunityIcons
             name="map-marker-outline"
@@ -54,7 +54,7 @@ export function TicketCardColumn({
             </Text>
           </View>
         </View>
-        <Spacer height={8} />
+        <Spacer height={6} />
         <View style={styles.iconWithTextContainer}>
           <MaterialCommunityIcons
             name="ticket-confirmation-outline"
@@ -85,14 +85,14 @@ const rawStyles = StyleSheet.create({
     backgroundColor: Color.card,
   },
   imageStyle: {
-    flex: 5,
+    flex: 1.2,
   },
   image: {
     flex: 1,
   },
   infoContainer: {
-    flex: 5.5,
-    paddingVertical: 14,
+    flex: 1,
+    paddingVertical: 4,
     paddingHorizontal: 14,
     borderColor: Color.grayStroke,
     borderLeftWidth: borderW,
