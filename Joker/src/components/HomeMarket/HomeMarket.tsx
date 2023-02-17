@@ -21,6 +21,5 @@ const item1Sample = {
   startData: 1698231832274,
   endData: 1700231832274,
   geoPosition: 'Retro Mountain',
-  imageUrl:
-    'https://d1629ugb7moz2f.cloudfront.net/e/21162/cFPvQBjmRmwyo1PA0VR4hO572mDold5r664eQISO.jpg',
+  imageUrl: 'https://images.ra.co/78f5eb3b0c4401099fed1cff9a47fd33299a7049.jpg',
 };
