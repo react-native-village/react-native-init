@@ -1,6 +1,7 @@
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 
 export interface ThemeColors {
+  primary: string;
   textBase1: string;
   textBase2: string;
   textBase3: string;
@@ -48,6 +49,7 @@ export type NamedStyles<T> = {
 };
 
 export enum Color {
+  primary = 'primary',
   textBase1 = 'textBase1',
   textBase2 = 'textBase2',
   textBase3 = 'textBase3',

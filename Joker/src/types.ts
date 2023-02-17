@@ -6,6 +6,7 @@ export type TabParamList = {
   homeOwnTickets: undefined;
   homeProfile: undefined;
   homeTicketsMarketplace: undefined;
+  homeSearch: undefined;
 };
 export type RootStackParamList = {
   home?: NavigatorScreenParams<TabParamList>;

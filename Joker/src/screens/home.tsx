@@ -12,6 +12,7 @@ import {TabParamList} from 'src/types';
 
 import {HomeOwnTicketsScreen} from './HomeOwnTickets';
 import {HomeProfileScreen} from './HomeProfile';
+import {HomeSearchScreen} from './HomeSearch';
 import {HomeTicketsMarketplaceScreen} from './HomeTicketsMarketplace';
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -31,6 +32,11 @@ export function Home() {
       <Tab.Screen
         name="homeOwnTickets"
         component={HomeOwnTicketsScreen}
+        options={screenOptions}
+      />
+      <Tab.Screen
+        name="homeSearch"
+        component={HomeSearchScreen}
         options={screenOptions}
       />
       <Tab.Screen

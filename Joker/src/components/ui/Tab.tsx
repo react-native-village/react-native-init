@@ -23,6 +23,10 @@ const navDataById = [
     icon: 'store',
     name: 'Market',
   },
+  {
+    icon: 'search',
+    name: 'Search',
+  },
   {icon: 'user-circle', name: 'Account'},
   {icon: 'ticket-alt', name: 'Your tickets'},
 ];

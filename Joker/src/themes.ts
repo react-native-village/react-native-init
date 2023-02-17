@@ -4,6 +4,7 @@ export const TRANSPARENT = 'transparent';
 export const SHADOW_COLOR = '#000';
 
 export const LIGHT_THEME: ThemeColors = {
+  primary: '#FF6883',
   textBase1: '#2E312D',
   textBase2: '#8E8E8E',
   textBase3: '#FFFFFF',
@@ -42,6 +43,7 @@ export const LIGHT_THEME: ThemeColors = {
 };
 
 export const DARK_THEME: ThemeColors = {
+  primary: '#FF6883',
   textBase1: '#FFFFFF',
   textBase2: '#8E8E8E',
   textBase3: '#FFFFFF',

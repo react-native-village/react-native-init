@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useWindowDimensions} from 'react-native';
+import {TouchableOpacity, useWindowDimensions} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated, {
@@ -11,23 +11,32 @@ import Animated, {
   withDecay,
   withSpring,
 } from 'react-native-reanimated';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useThematicStyles} from 'src/hooks';
 import {SHADOW_COLOR} from 'src/themes';
 import {Color} from 'src/themeTypes';
 
 import {Avatar} from '../avatar';
-import {Background, CustomHeader} from '../ui';
+import {Background, CustomHeader, Spacer, Text} from '../ui';
 
 const bounceLimit = 100;
 const imageSize = 220;
 
-interface ProfileProps {
-  onPressBack: () => void;
+interface HomeProfileProps {
+  onPressSettings: () => void;
+  bgImageUrl: string;
+  avaUrl: string;
+  cryptoAddress: string;
 }
 
-export function Profile({onPressBack}: ProfileProps) {
-  const {styles} = useThematicStyles(rawStyles);
+export function HomeProfile({
+  onPressSettings,
+  bgImageUrl,
+  avaUrl,
+  cryptoAddress,
+}: HomeProfileProps) {
+  const {styles, colors} = useThematicStyles(rawStyles);
   const {height, width} = useWindowDimensions();
 
   const translationY = useSharedValue(0);
@@ -114,8 +123,8 @@ export function Profile({onPressBack}: ProfileProps) {
   return (
     <>
       <CustomHeader
-        onPressLeft={onPressBack}
-        iconLeft="chevron-thin-left"
+        onPressRight={onPressSettings}
+        iconRight="settings-sharp"
         style={headerAnimation}
         title="Dmitry"
       />
@@ -125,18 +134,66 @@ export function Profile({onPressBack}: ProfileProps) {
           resizeMode="cover"
           source={{
             // Yanix: https://m.the-flow.ru/uploads/images/origin/00/19/30/36/41/8a28f7e.jpg
-            uri: 'https://txt-pesni.ru/wp-content/uploads/2020/06/tekst-pesni-pososi-670x381.jpg',
+            uri: bgImageUrl,
           }}
         />
         <GestureDetector gesture={gesture}>
           <Animated.View style={[{height, width}, styles.mediumShadow]}>
-            <Background style={{height, width}} bgImg="symbols">
+            <Background style={{height, width}}>
               <Animated.View style={[styles.ava, avaSizeAnimation]}>
-                <Avatar
-                  size="xLarge"
-                  uri="https://avatars.githubusercontent.com/u/6774813?s=60&v=4"
-                />
+                <Avatar size="xLarge" uri={avaUrl} />
               </Animated.View>
+
+              <Spacer height={120} />
+              <TouchableOpacity style={styles.addressLine}>
+                <Text color={Color.primary} numberOfLines={1} t12>
+                  {cryptoAddress}
+                </Text>
+                <Spacer width={10} />
+                <Icon color={colors.primary} name="copy-outline" />
+              </TouchableOpacity>
+              {/* <TabContextProvider>
+                {({tabViewH, screenStyle, headerGesture}: any) => (
+                  <Animated.View style={screenStyle}>
+                    {OnlinePlayer.store.loadingProf ? (
+                      <CenterView>
+                        <Spin centered />
+                        <Space height={H * 0.5} />
+                      </CenterView>
+                    ) : (
+                      <View style={page.container}>
+                        <Space height={vs(5)} />
+                        <OwnTabView
+                          renderTabBar={props => (
+                            <GestureDetector gesture={headerGesture}>
+                              <SecondaryTab {...props} />
+                            </GestureDetector>
+                          )}
+                          width={tabViewWidth}
+                          screens={[
+                            {
+                              key: 'reports',
+                              title: t('reports'),
+                              Scene: ReportsScene,
+                            },
+                            {
+                              key: 'history',
+                              title: t('history'),
+                              Scene: HistoryScene,
+                            },
+                            {
+                              key: 'intentionOfGame',
+                              title: t('intention'),
+                              Scene: IntentionOfGame,
+                            },
+                          ]}
+                          style={[page.tabContainer, {height: tabViewH}]}
+                        />
+                      </View>
+                    )}
+                  </Animated.View>
+                )}
+              </TabContextProvider> */}
             </Background>
           </Animated.View>
         </GestureDetector>
@@ -183,6 +240,11 @@ const rawStyles = StyleSheet.create({
   ava: {
     position: 'absolute',
     top: -65,
+    alignSelf: 'center',
+  },
+  addressLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
     alignSelf: 'center',
   },
 });
