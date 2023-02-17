@@ -24,7 +24,7 @@ export function HomeProfileScreen() {
 const item1Sample = {
   id: '1',
   name: 'Garage drunkenness',
-  tags: ['Relax'],
+  tags: ['Relax', 'Drunk'],
   startData: 1698231832274,
   endData: 1700231832274,
   geoPosition: 'United States, 2373 Ingram Road, Winston Salem, North Carolina',

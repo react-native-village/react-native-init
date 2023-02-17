@@ -7,32 +7,33 @@ import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 import {TicketInfo} from 'src/types';
 
-import {Spacer} from './spacer';
-import {Text} from './text/text';
 import {TicketCardTags} from './TicketCardTags';
 
-export function TicketCardRow({
+import {Spacer, Text} from './';
+
+// imageUrl=
+// name=
+// geoPosition=
+
+export function TicketCardColumn({
   name,
   startData,
   endData,
   tags,
   imageUrl,
   geoPosition,
-  price,
-  currencySymbols,
+  price = 300,
+  currencySymbols = 'ETH',
 }: Omit<TicketInfo, 'id'>) {
   const {styles} = useThematicStyles(rawStyles);
-
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
+      <View style={styles.imageStyle}>
         <Image style={styles.image} source={{uri: imageUrl}} />
       </View>
       <View style={styles.infoContainer}>
-        <Text numberOfLines={1} t3 color={Color.textBase1}>
-          {name}
-        </Text>
-        <Spacer height={8} />
+        <Text t6>{name}</Text>
+        <Spacer height={10} />
         <View style={styles.costAndTagContainer}>
           <TicketCardTags tags={tags} />
           {price && currencySymbols && (
@@ -41,7 +42,7 @@ export function TicketCardRow({
               color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
           )}
         </View>
-        <Spacer height={8} />
+        <Spacer height={10} />
         <View style={styles.iconWithTextContainer}>
           <MaterialCommunityIcons
             name="map-marker-outline"
@@ -72,46 +73,55 @@ export function TicketCardRow({
     </View>
   );
 }
+
 const borderW = 0.6;
 const rawStyles = StyleSheet.create({
   container: {
+    width: 220,
+    height: 328,
     borderRadius: 16,
     overflow: 'hidden',
-    width: '100%',
-    height: 185,
-    flexDirection: 'row',
-    marginVertical: 12.5,
+    alignSelf: 'flex-start',
     backgroundColor: Color.card,
   },
-  imageContainer: {
-    flex: 2,
+  imageStyle: {
+    flex: 5,
   },
   image: {
     flex: 1,
   },
   infoContainer: {
-    flex: 3,
-    paddingVertical: 12,
+    flex: 5.5,
+    paddingVertical: 14,
     paddingHorizontal: 14,
     borderColor: Color.grayStroke,
-    borderTopWidth: borderW,
+    borderLeftWidth: borderW,
     borderBottomWidth: borderW,
     borderRightWidth: borderW,
-    borderTopEndRadius: 16,
+    borderBottomStartRadius: 16,
     borderBottomEndRadius: 16,
   },
   costAndTagContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  iconWithTextContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
   iconStyle: {
     color: Color.textSecond1,
     marginRight: 8,
     fontSize: 30,
+  },
+  rowStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: 15,
+    marginLeft: 15,
+    marginTop: 10,
+    marginBottom: 10,
+    alignItems: 'center',
+  },
+  iconWithTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   textContainer: {
     flexWrap: 'wrap',

@@ -160,12 +160,12 @@ const styles = StyleSheet.create({
   },
   t3Style: {
     fontFamily: 'Montserrat-Bold',
-    fontSize: 22,
+    fontSize: 20,
     lineHeight: 30,
   },
   t4Style: {
     fontFamily: 'Montserrat-SemiBold',
-    fontSize: 22,
+    fontSize: 20,
     lineHeight: 30,
   },
   t5Style: {
