@@ -3,9 +3,9 @@ import {StackNavigationOptions} from '@react-navigation/stack';
 import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 
 export type TabParamList = {
-  homeOwnTickets: undefined;
+  homeMarket: undefined;
+  homeTickets: undefined;
   homeProfile: undefined;
-  homeTicketsMarketplace: undefined;
 };
 export type RootStackParamList = {
   home?: NavigatorScreenParams<TabParamList>;

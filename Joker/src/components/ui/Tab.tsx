@@ -23,8 +23,8 @@ const navDataById = [
     icon: 'store',
     name: 'Market',
   },
-  {icon: 'user-circle', name: 'Account'},
-  {icon: 'ticket-alt', name: 'Your tickets'},
+  {icon: 'user-circle', name: 'Tickets'},
+  {icon: 'ticket-alt', name: 'Profile'},
 ];
 
 export function Tab({

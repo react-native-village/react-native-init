@@ -13,9 +13,9 @@ import {useTheme} from 'src/hooks';
 import {useThematicStyles} from 'src/hooks/useThematicStyles';
 import {Color} from 'src/themeTypes';
 
-interface HomeTicketsMarketplaceProps {}
+interface ProfileProps {}
 
-export function HomeTicketsMarketplace({}: HomeTicketsMarketplaceProps) {
+export function Profile({}: ProfileProps) {
   const {styles} = useThematicStyles(rawStyles);
   const {toggleDark, toggleLight, toggleSystem} = useTheme();
 
