@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {IconButton, Text} from 'src/components/ui';
 import {useTheme} from 'src/hooks';

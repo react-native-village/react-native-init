@@ -1,6 +1,11 @@
 import React from 'react';
 
-import {useWindowDimensions} from 'react-native';
+import {
+  SectionList,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated, {
@@ -11,27 +16,44 @@ import Animated, {
   withDecay,
   withSpring,
 } from 'react-native-reanimated';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useThematicStyles} from 'src/hooks';
 import {SHADOW_COLOR} from 'src/themes';
 import {Color} from 'src/themeTypes';
+import {TicketInfo} from 'src/types';
 
-import {Avatar} from '../avatar';
-import {Background, CustomHeader} from '../ui';
+import {Avatar, Background, CustomHeader, Spacer, Text} from '../ui';
+import {TicketCardRow} from '../ui/TicketCardRow';
 
 const bounceLimit = 100;
 const imageSize = 220;
 
-interface ProfileProps {
-  onPressBack: () => void;
+interface HomeProfileProps {
+  onPressSettings: () => void;
+  bgImageUrl: string;
+  avaUrl: string;
+  cryptoAddress: string;
+  ticketsData: {
+    title: string;
+    data: TicketInfo[];
+  }[];
 }
 
-export function Profile({onPressBack}: ProfileProps) {
-  const {styles} = useThematicStyles(rawStyles);
+export function HomeProfile({
+  onPressSettings,
+  bgImageUrl,
+  avaUrl,
+  cryptoAddress,
+  ticketsData,
+}: HomeProfileProps) {
+  const {styles, colors} = useThematicStyles(rawStyles);
   const {height, width} = useWindowDimensions();
 
   const translationY = useSharedValue(0);
   const startY = useSharedValue(0);
+  const {bottom} = useSafeAreaInsets();
 
   const imageAnimation = useAnimatedStyle(() => {
     return {
@@ -114,8 +136,8 @@ export function Profile({onPressBack}: ProfileProps) {
   return (
     <>
       <CustomHeader
-        onPressLeft={onPressBack}
-        iconLeft="chevron-thin-left"
+        onPressRight={onPressSettings}
+        iconRight="settings-sharp"
         style={headerAnimation}
         title="Dmitry"
       />
@@ -124,19 +146,39 @@ export function Profile({onPressBack}: ProfileProps) {
           style={[styles.imgContainer, imageAnimation]}
           resizeMode="cover"
           source={{
-            // Yanix: https://m.the-flow.ru/uploads/images/origin/00/19/30/36/41/8a28f7e.jpg
-            uri: 'https://txt-pesni.ru/wp-content/uploads/2020/06/tekst-pesni-pososi-670x381.jpg',
+            uri: bgImageUrl,
           }}
         />
         <GestureDetector gesture={gesture}>
           <Animated.View style={[{height, width}, styles.mediumShadow]}>
-            <Background style={{height, width}} bgImg="symbols">
+            <Background style={{height, width}}>
               <Animated.View style={[styles.ava, avaSizeAnimation]}>
-                <Avatar
-                  size="xLarge"
-                  uri="https://avatars.githubusercontent.com/u/6774813?s=60&v=4"
-                />
+                <Avatar size="xLarge" uri={avaUrl} />
               </Animated.View>
+
+              <Spacer height={120} />
+              <TouchableOpacity style={styles.addressLine}>
+                <Text color={Color.primary} numberOfLines={1} t12>
+                  {cryptoAddress}
+                </Text>
+                <View style={styles.copyIconContainer}>
+                  <Icon size={18} color={colors.primary} name="copy-outline" />
+                </View>
+              </TouchableOpacity>
+              <Spacer height={20} />
+              <SectionList
+                style={styles.sectionList}
+                contentContainerStyle={styles.sectionListContainer}
+                renderItem={({item}) => <TicketCardRow {...item} />}
+                keyExtractor={item => item.id}
+                sections={ticketsData}
+                renderSectionHeader={({section: {title}}) => (
+                  <Text t3 color={Color.primary}>
+                    {title}
+                  </Text>
+                )}
+              />
+              <Spacer height={bottom + 50} />
             </Background>
           </Animated.View>
         </GestureDetector>
@@ -153,6 +195,12 @@ const rawStyles = StyleSheet.create({
     width: '100%',
   },
   flexOne: {
+    flex: 1,
+  },
+  sectionListContainer: {
+    padding: 20,
+  },
+  sectionList: {
     flex: 1,
   },
   headerStyles: {
@@ -184,5 +232,18 @@ const rawStyles = StyleSheet.create({
     position: 'absolute',
     top: -65,
     alignSelf: 'center',
+  },
+  addressLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 40,
+  },
+  container: {
+    alignItems: 'center',
+    width: '100%',
+  },
+  copyIconContainer: {
+    width: 40,
+    alignItems: 'center',
   },
 });

@@ -15,7 +15,7 @@ export function Welcome({onContinue}: WelcomeProps) {
     <Background>
       <View style={styles.containerBottom}>
         <TouchableOpacity onPress={onContinue}>
-          <Text color={Color.graphicTurquoise1} l1>
+          <Text color={Color.primary} l1>
             Go Home
           </Text>
         </TouchableOpacity>

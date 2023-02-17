@@ -248,7 +248,7 @@ const createStyles = (color: ColorTheme) => {
     },
     space: {flex: 1},
     background: {
-      backgroundColor: color.bg9,
+      backgroundColor: color.bg4,
     },
     animateView: {
       justifyContent: 'flex-end',
