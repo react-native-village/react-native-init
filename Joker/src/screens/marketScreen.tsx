@@ -8,9 +8,33 @@ import {Background} from 'src/components/ui';
 const DATA = [
   {
     id: '1',
-    title: 'First Item',
+    title: 'AlcoParty',
     description: '',
     src: '../../assets/images/1.jpg',
+  },
+  {
+    id: '2',
+    title: 'SuperParty',
+    description: '',
+    src: '../../assets/images/2.jpg',
+  },
+  {
+    id: '3',
+    title: 'MegaParty',
+    description: '',
+    src: '../../assets/images/3.jpg',
+  },
+  {
+    id: '4',
+    title: 'SuperPuperParty',
+    description: '',
+    src: '../../assets/images/4.jpg',
+  },
+  {
+    id: '5',
+    title: 'TechnoParty',
+    description: '',
+    src: '../../assets/images/5.jpg',
   },
 ];
 
