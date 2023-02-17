@@ -21,3 +21,4 @@ export * from './Tag';
 export * from './Avatar';
 export * from './TicketCardColumn';
 export * from './TicketCardRow';
+export * from './categories';
