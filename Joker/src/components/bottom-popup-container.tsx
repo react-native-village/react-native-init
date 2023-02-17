@@ -103,7 +103,7 @@ const rawStyles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
   },
   bgColor: {
-    backgroundColor: Color.bg9,
+    backgroundColor: Color.bg4,
   },
   animateViewFade: {
     flex: 1,

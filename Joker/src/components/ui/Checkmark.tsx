@@ -13,9 +13,9 @@ export type CheckmarkProps = {
 export function Checkmark({isFilled, style}: CheckmarkProps) {
   const {colors} = useTheme();
   return isFilled ? (
-    <CheckboxFilled style={style} width={28} color={colors.graphicTurquoise1} />
+    <CheckboxFilled style={style} width={28} color={colors.primary} />
   ) : (
-    <CheckboxEmpty style={style} width={28} color={colors.graphicTurquoise1} />
+    <CheckboxEmpty style={style} width={28} color={colors.primary} />
   );
 }
 
