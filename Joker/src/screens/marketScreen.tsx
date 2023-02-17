@@ -12,8 +12,9 @@ const DATA = [
     id: '1',
     title: ' Cube Party ',
     description:
-      'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla. Bla.',
+      'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla, bla. Bla.',
     place: 'Bangkok, Thailand',
+    date: '12-03-2023',
     time: '23:30',
     src: require('../../assets/images/1.jpg'),
   },
@@ -23,6 +24,7 @@ const DATA = [
     description:
       'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla. Bla.',
     place: 'Bom, Belgium',
+    date: '23-12-2023',
     time: '22:30',
     src: require('../../assets/images/2.jpg'),
   },
@@ -32,6 +34,7 @@ const DATA = [
     description:
       'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla. Bla.',
     place: 'London, United Kingdom',
+    date: '21-03-2023',
     time: '21:30',
     src: require('../../assets/images/3.jpg'),
   },
@@ -41,6 +44,7 @@ const DATA = [
     description:
       'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla. Bla.',
     place: 'Berlin, Germany',
+    date: '01-01-2024',
     time: '22:00',
     src: require('../../assets/images/4.jpg'),
   },
@@ -50,6 +54,7 @@ const DATA = [
     description:
       'This is description. Bla. Bla, bla. Bla, bla, bla, bla, bla. Bla.',
     place: 'Paris, France',
+    date: '20-08-2023',
     time: '22:30',
     src: require('../../assets/images/5.jpg'),
   },
@@ -61,15 +66,7 @@ export function MarketScreen() {
       <SearchBar />
       <FlatList
         data={DATA}
-        renderItem={({item}) => (
-          <MarketItem
-            title={item.title}
-            description={item.description}
-            src={item.src}
-            place={item.place}
-            time={item.time}
-          />
-        )}
+        renderItem={({item}) => <MarketItem item={item} />}
         keyExtractor={item => item.id}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />

@@ -1,48 +1,51 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   Dimensions,
   ImageBackground,
-  ImageSourcePropType,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 
+import {InfoModal} from '../itemInfoModal';
+
 const widthDimention = Dimensions.get('window').width;
 
 interface MarketItemProps {
-  title: string;
-  description: string;
-  place: string;
-  time: string;
-  src: ImageSourcePropType;
+  item: {
+    id: string;
+    title: string;
+    description: string;
+    place: string;
+    date: string;
+    time: string;
+    src: any;
+  };
 }
 
-export function MarketItem({
-  title,
-  description,
-  time,
-  place,
-  src,
-}: MarketItemProps) {
+export function MarketItem({item}: MarketItemProps) {
+  const [isVisible, setIsVisible] = useState(false);
+  const toggle = () => setIsVisible(!isVisible);
   return (
-    <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+    <TouchableOpacity activeOpacity={0.7} onPress={toggle}>
       <ImageBackground
         resizeMode={'cover'}
         style={styles.itemContainer}
         imageStyle={styles.image}
-        source={src}>
-        <Text style={styles.textTitle}>{title}</Text>
+        source={item.src}>
+        <Text style={styles.textTitle}>{item.title}</Text>
         <View style={styles.infoContainer}>
           <View style={styles.info}>
-            <Text style={styles.infoText}>Place: {place}</Text>
-            <Text style={styles.infoText}>Time: {time}</Text>
-            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.infoText}>Place: {item.place}</Text>
+            <Text style={styles.infoText}>Time: {item.time}</Text>
+            <Text style={styles.infoText}>Date: {item.date}</Text>
+            <Text style={styles.description}>{item.description}</Text>
           </View>
         </View>
       </ImageBackground>
+      <InfoModal visible={isVisible} toggle={toggle} item={item} />
     </TouchableOpacity>
   );
 }
@@ -85,9 +88,9 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   infoText: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 18,
     marginLeft: 10,
-    marginTop: 5,
+    marginTop: 3,
   },
   // eslint-disable-next-line react-native/no-color-literals
   image: {
