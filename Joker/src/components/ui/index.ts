@@ -17,4 +17,5 @@ export * from './Checkmark';
 export * from './BlockMessage';
 export * from './ButtonPlus';
 export * from './TabBar';
+export * from './Tag';
 export * from './Avatar';

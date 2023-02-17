@@ -5,20 +5,19 @@ import {StyleSheet, View} from 'react-native';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
-import {Text} from '../ui';
+import {Text} from '.';
 
 interface TagT {
   children: string;
 }
 export function Tag({children}: TagT) {
-  const {styles} = useThematicStyles(rawStyles);
+  const {styles, colors} = useThematicStyles(rawStyles);
 
-  const small = children.length > 2;
-  const color = small ? '#E16363' : '#0489D4';
   const circle = small ? 44 : 23;
   const max = small ? undefined : 15;
   return (
-    <View style={[styles.container, {borderColor: color, width: circle}]}>
+    <View
+      style={[styles.container, {borderColor: colors.primary, width: circle}]}>
       <Text
         children={children}
         color={small ? Color.textRed1 : Color.textBlue1}
