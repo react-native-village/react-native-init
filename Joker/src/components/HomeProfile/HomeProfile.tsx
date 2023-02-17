@@ -1,6 +1,11 @@
 import React from 'react';
 
-import {TouchableOpacity, useWindowDimensions} from 'react-native';
+import {
+  SectionList,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated, {
@@ -11,14 +16,16 @@ import Animated, {
   withDecay,
   withSpring,
 } from 'react-native-reanimated';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {useThematicStyles} from 'src/hooks';
 import {SHADOW_COLOR} from 'src/themes';
 import {Color} from 'src/themeTypes';
+import {TicketInfo} from 'src/types';
 
-import {Avatar} from '../avatar';
-import {Background, CustomHeader, Spacer, Text} from '../ui';
+import {Avatar, Background, CustomHeader, Spacer, Text} from '../ui';
+import {TicketCardRow} from '../ui/TicketCardRow';
 
 const bounceLimit = 100;
 const imageSize = 220;
@@ -28,6 +35,10 @@ interface HomeProfileProps {
   bgImageUrl: string;
   avaUrl: string;
   cryptoAddress: string;
+  ticketsData: {
+    title: string;
+    data: TicketInfo[];
+  }[];
 }
 
 export function HomeProfile({
@@ -35,12 +46,14 @@ export function HomeProfile({
   bgImageUrl,
   avaUrl,
   cryptoAddress,
+  ticketsData,
 }: HomeProfileProps) {
   const {styles, colors} = useThematicStyles(rawStyles);
   const {height, width} = useWindowDimensions();
 
   const translationY = useSharedValue(0);
   const startY = useSharedValue(0);
+  const {bottom} = useSafeAreaInsets();
 
   const imageAnimation = useAnimatedStyle(() => {
     return {
@@ -133,7 +146,6 @@ export function HomeProfile({
           style={[styles.imgContainer, imageAnimation]}
           resizeMode="cover"
           source={{
-            // Yanix: https://m.the-flow.ru/uploads/images/origin/00/19/30/36/41/8a28f7e.jpg
             uri: bgImageUrl,
           }}
         />
@@ -149,51 +161,24 @@ export function HomeProfile({
                 <Text color={Color.primary} numberOfLines={1} t12>
                   {cryptoAddress}
                 </Text>
-                <Spacer width={10} />
-                <Icon color={colors.primary} name="copy-outline" />
+                <View style={styles.copyIconContainer}>
+                  <Icon size={18} color={colors.primary} name="copy-outline" />
+                </View>
               </TouchableOpacity>
-              {/* <TabContextProvider>
-                {({tabViewH, screenStyle, headerGesture}: any) => (
-                  <Animated.View style={screenStyle}>
-                    {OnlinePlayer.store.loadingProf ? (
-                      <CenterView>
-                        <Spin centered />
-                        <Space height={H * 0.5} />
-                      </CenterView>
-                    ) : (
-                      <View style={page.container}>
-                        <Space height={vs(5)} />
-                        <OwnTabView
-                          renderTabBar={props => (
-                            <GestureDetector gesture={headerGesture}>
-                              <SecondaryTab {...props} />
-                            </GestureDetector>
-                          )}
-                          width={tabViewWidth}
-                          screens={[
-                            {
-                              key: 'reports',
-                              title: t('reports'),
-                              Scene: ReportsScene,
-                            },
-                            {
-                              key: 'history',
-                              title: t('history'),
-                              Scene: HistoryScene,
-                            },
-                            {
-                              key: 'intentionOfGame',
-                              title: t('intention'),
-                              Scene: IntentionOfGame,
-                            },
-                          ]}
-                          style={[page.tabContainer, {height: tabViewH}]}
-                        />
-                      </View>
-                    )}
-                  </Animated.View>
+              <Spacer height={20} />
+              <SectionList
+                style={styles.sectionList}
+                contentContainerStyle={styles.sectionListContainer}
+                renderItem={({item}) => <TicketCardRow {...item} />}
+                keyExtractor={item => item.id}
+                sections={ticketsData}
+                renderSectionHeader={({section: {title}}) => (
+                  <Text t3 color={Color.primary}>
+                    {title}
+                  </Text>
                 )}
-              </TabContextProvider> */}
+              />
+              <Spacer height={bottom + 50} />
             </Background>
           </Animated.View>
         </GestureDetector>
@@ -210,6 +195,12 @@ const rawStyles = StyleSheet.create({
     width: '100%',
   },
   flexOne: {
+    flex: 1,
+  },
+  sectionListContainer: {
+    padding: 20,
+  },
+  sectionList: {
     flex: 1,
   },
   headerStyles: {
@@ -245,6 +236,14 @@ const rawStyles = StyleSheet.create({
   addressLine: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'center',
+    paddingHorizontal: 40,
+  },
+  container: {
+    alignItems: 'center',
+    width: '100%',
+  },
+  copyIconContainer: {
+    width: 40,
+    alignItems: 'center',
   },
 });

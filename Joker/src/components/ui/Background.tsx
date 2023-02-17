@@ -1,23 +1,21 @@
 import React from 'react';
 
-import {StyleSheet, View, ViewProps, useColorScheme} from 'react-native';
+import {StyleSheet, View, ViewProps /* , useColorScheme */} from 'react-native';
 
 import {useThematicStyles} from 'src/hooks/useThematicStyles';
 import {Color} from 'src/themeTypes';
-
-import {BackgroundSymbols} from './svg';
 
 interface BackgroundPros extends ViewProps {
   centered?: boolean;
   bgImg?: 'symbols';
 }
 
-const BgImages = {
-  'symbols-light': () => (
-    <BackgroundSymbols style={rawStyles.bgImage} color={'gray'} />
-  ),
-  'symbols-dark': () => <BackgroundSymbols style={rawStyles.bgImage} />,
-};
+// const BgImages = {
+// 'symbols-light': () => (
+//   <BackgroundSymbols style={rawStyles.bgImage} color={'gray'} />
+// ),
+// 'symbols-dark': () => <BackgroundSymbols style={rawStyles.bgImage} />,
+// };
 
 export function Background({
   style,
@@ -27,15 +25,15 @@ export function Background({
   ...restProps
 }: BackgroundPros) {
   const {styles} = useThematicStyles(rawStyles);
-  const scheme = useColorScheme();
-  const bg = ('symbols-' + scheme) as keyof typeof BgImages;
+  // const scheme = useColorScheme();
+  // const bg = ('symbols-' + scheme) as keyof typeof BgImages;
 
   if (bgImg) {
     return (
       <View
         {...restProps}
         style={[centered && styles.centered, styles.container, style]}>
-        {BgImages[bg]()}
+        {/* {BgImages[bg]()} */}
         {children}
       </View>
     );

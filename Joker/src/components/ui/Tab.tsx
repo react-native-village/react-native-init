@@ -36,7 +36,7 @@ export function Tab({
   isFocused,
   tabId,
   color = Color.graphicSecond4,
-  activeColor = Color.graphicViolet1,
+  activeColor = Color.primary,
 }: TabProps) {
   const tabWidth = useWindowDimensions().width / 5 - s(2) * 2;
   const {colors} = useTheme();

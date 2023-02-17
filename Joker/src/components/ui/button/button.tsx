@@ -214,7 +214,7 @@ const rawStyles = StyleSheet.create({
     color: Color.textRed1,
   },
   secondText: {
-    color: Color.textGreen1,
+    color: Color.primary,
   },
   secondDisabledText: {
     color: Color.textSecond1,

@@ -81,7 +81,7 @@ export function ActionsSheet({
           </Text>
           <View style={styles.line} />
           <TouchableOpacity style={styles.margin} onPress={handleDiscard}>
-            <Text color={Color.graphicRed1} t8>
+            <Text color={Color.textRed1} t8>
               Discard Changes
             </Text>
           </TouchableOpacity>
@@ -117,7 +117,7 @@ const rawStyles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: Color.bg9,
+    backgroundColor: Color.bg4,
   },
   animateViewFade: {
     flex: 1,

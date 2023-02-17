@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {Loading} from './loading';
+import {Loading} from '../loading';
 
 const styles = StyleSheet.create({
   container: {

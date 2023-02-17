@@ -14,7 +14,61 @@ export function HomeProfileScreen() {
       bgImageUrl="https://gruppoconcorde-cdn.thron.com/delivery/public/image/gruppoconcorde/ef4bee72-c2c9-4a61-8f38-0a1d9c8a6e74/sccw3m/std/1920x844/AtlasConcorde_Villa%20Privata_Australia_003.jpg?scalemode=auto&format=WEBP"
       onPressSettings={onPressSettings}
       avaUrl={url}
+      ticketsData={fakedata}
       cryptoAddress="0x638C4c657F80a8A99faeca550B733aaae81174ef"
     />
   );
 }
+
+// REMOVE WHEN THERE IS A WORKING API
+const item1Sample = {
+  id: '1',
+  name: 'Garage drunkenness',
+  tags: ['Relax'],
+  startData: 1698231832274,
+  endData: 1700231832274,
+  geoPosition: 'United States, 2373 Ingram Road, Winston Salem, North Carolina',
+  imageUrl:
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2rCIJzZ_df7K7WycovWQfsBlgG91B6bLneA&usqp=CAU',
+};
+
+const item2Sample = {
+  id: '2',
+  name: 'Bastau Concert',
+  tags: ['Music'],
+  startData: 1678231832274,
+  endData: 1679231832274,
+  geoPosition: 'Hua Mak, Bang Kapi, Bang Kok, Thai Land',
+  imageUrl:
+    'https://astanait.edu.kz/wp-content/uploads/2018/08/austin-neill-247047-unsplash.jpg',
+};
+
+const item3Sample = {
+  id: '3',
+  name: 'Pizza party',
+  tags: ['Eat'],
+  startData: 1778231832274,
+  endData: 1779231832274,
+  geoPosition: 'Call to find out +0854925383429',
+  imageUrl:
+    'https://www.creativefabrica.com/wp-content/uploads/2020/01/09/1578559481/Pizza-Party-580x386.jpg',
+};
+
+const fakedata = [
+  {
+    title: `Issued ${1}`,
+    data: [item3Sample],
+  },
+  {
+    title: `Sold ${1}`,
+    data: [item1Sample],
+  },
+  {
+    title: `Bought ${3}`,
+    data: [item1Sample, item2Sample, item3Sample],
+  },
+  {
+    title: `Favorited ${0}`,
+    data: [],
+  },
+];
