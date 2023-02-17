@@ -6,7 +6,6 @@
 
 #import <React/RCTAppSetupUtils.h>
 
-#import <ReactNativeConfig.h>
 #import <Orientation.h>
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
@@ -87,14 +86,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
-  NSString *storybookEnabled = [ReactNativeConfig envFor:@"STORYBOOK_ENABLED"];
-  NSString *trueString = @"1";
-
-  if ([storybookEnabled isEqualToString:trueString]){
-    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"storybook-index"];
-  } else {
-    return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"default-index"];
-  }
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
