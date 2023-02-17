@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    width: '70%',
+    width: '65%',
     height: 50,
   },
   cancel: {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   searchBar__unclicked: {
     flexDirection: 'row',
-    width: '95%',
+    width: '100%',
     backgroundColor: '#d9dbda',
     borderRadius: 15,
     alignItems: 'center',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   searchBar__clicked: {
     flexDirection: 'row',
-    width: '70%',
+    width: '75%',
     backgroundColor: '#d9dbda',
     borderRadius: 15,
     alignItems: 'center',
