@@ -3,7 +3,6 @@ import React from 'react';
 import {
   ImageBackground,
   Text as RNText,
-  StatusBar,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -29,7 +28,6 @@ export function Welcome({onContinue}: WelcomeProps) {
           paddingBottom: insets.bottom,
         },
       ]}>
-      <StatusBar hidden />
       <Text t4 color={Color.graphicBase3}>
         Welcome to
       </Text>
