@@ -55,6 +55,7 @@ export function HomeMarket() {
               horizontal
               data={DATA}
               showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.contentContainer}
               renderItem={({item}) => <TicketCardColumn {...item} />}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
@@ -65,6 +66,7 @@ export function HomeMarket() {
             <FlatList
               horizontal
               data={DATA}
+              contentContainerStyle={styles.contentContainer}
               showsHorizontalScrollIndicator={false}
               renderItem={({item}) => <TicketCardColumn {...item} />}
               keyExtractor={item => item.id}
