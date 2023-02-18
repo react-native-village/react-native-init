@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Icon-App-40x40@1x.png",
+      "filename" : "Icon-App-20x20@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
@@ -36,7 +36,7 @@
       "size" : "38x38"
     },
     {
-      "filename" : "Logo Rect 1.png",
+      "filename" : "114.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -50,14 +50,14 @@
       "size" : "40x40"
     },
     {
-      "filename" : "Icon-App-40x40@3x 1.png",
+      "filename" : "Icon-App-40x40@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "Icon-App-40x40@3x.png",
+      "filename" : "Icon-App-60x60@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
@@ -71,21 +71,21 @@
       "size" : "60x60"
     },
     {
-      "filename" : "Logo Rect 2.png",
+      "filename" : "128.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
-      "filename" : "Logo Rect 3.png",
+      "filename" : "192.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
-      "filename" : "Logo Rect 4.png",
+      "filename" : "136.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
@@ -106,7 +106,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "Logo Rect.png",
+      "filename" : "1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
