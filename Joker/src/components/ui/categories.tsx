@@ -1,14 +1,10 @@
 import React, {useState} from 'react';
 
-import {
-  FlatList,
-  StyleSheet,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
 
 import {Color} from 'src/themeTypes';
+
+import {HeaderList} from './headerList';
 
 import {Text} from '.';
 
@@ -52,11 +48,11 @@ export function Categories() {
   const [selectItem, setSelectItem] = useState('0');
   // eslint-disable-next-line react/no-unstable-nested-components
   function CategoryItem({title, id}: CategoryItemProps) {
-    const isSelect = selectItem == id;
+    const isSelect = selectItem === `${id}`;
     const color = isSelect ? Color.textBase3 : Color.primary;
     const background = isSelect ? '#FF6883' : '#FFFFFF';
-    const marginLeft = id == 0 ? 24 : 0;
-    const marginRight = id == DATA.length - 1 ? 24 : 0;
+    const marginLeft = id === '0' ? 24 : 0;
+    const marginRight = id === '5' ? 24 : 0;
     return (
       <TouchableHighlight
         underlayColor={'rgba(255, 104, 131, 0.3)'}
@@ -80,14 +76,7 @@ export function Categories() {
   }
   return (
     <View style={styles.container}>
-      <View style={styles.rowContainer}>
-        <Text t5>Categories</Text>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Text t5 color={Color.primary}>
-            See all
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <HeaderList title={'Categories'} button={'See all'} />
       <FlatList
         horizontal
         data={DATA}
@@ -104,7 +93,7 @@ export function Categories() {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
-    marginVertical: 20,
+    marginBottom: 20,
   },
   rowContainer: {
     flexDirection: 'row',

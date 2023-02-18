@@ -1,6 +1,12 @@
 import React from 'react';
 
-import {Image, StyleSheet, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {useThematicStyles} from 'src/hooks';
@@ -15,7 +21,10 @@ import {Spacer, Text} from './';
 // name=
 // geoPosition=
 
+const widthDimention = Dimensions.get('screen').width;
+
 export function TicketCardColumn({
+  id,
   name,
   startData,
   endData,
@@ -24,74 +33,75 @@ export function TicketCardColumn({
   geoPosition,
   price = 300,
   currencySymbols = 'ETH',
-}: Omit<TicketInfo, 'id'>) {
+}: TicketInfo) {
   const {styles} = useThematicStyles(rawStyles);
+  const marginLeft = id === '1' ? 24 : 0;
+  const marginRight = id === '6' ? 24 : 0;
   return (
-    <View style={styles.container}>
-      <View style={styles.imageStyle}>
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={() => {}}
+      style={{marginLeft: marginLeft, marginRight: marginRight}}>
+      <View style={styles.container}>
         <Image style={styles.image} source={{uri: imageUrl}} />
-      </View>
-      <View style={styles.infoContainer}>
-        <Text t6>{name}</Text>
-        <Spacer height={8} />
-        <View style={styles.costAndTagContainer}>
-          <TicketCardTags tags={tags} />
-          {price && currencySymbols && (
-            <Text
-              t5
-              color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
-          )}
-        </View>
-        <Spacer height={8} />
-        <View style={styles.iconWithTextContainer}>
-          <MaterialCommunityIcons
-            name="map-marker-outline"
-            style={styles.iconStyle}
-          />
-          <View style={styles.textContainer}>
-            <Text numberOfLines={2} t11>
-              {geoPosition}
-            </Text>
+        <View style={styles.infoContainer}>
+          <Text t6>{name}</Text>
+          <Spacer height={8} />
+          <View style={styles.costAndTagContainer}>
+            <TicketCardTags tags={tags} />
+            {price && currencySymbols && (
+              <Text
+                t5
+                color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
+            )}
+          </View>
+          <Spacer height={8} />
+          <View style={styles.iconWithTextContainer}>
+            <MaterialCommunityIcons
+              name="map-marker-outline"
+              style={styles.iconStyle}
+            />
+            <View style={styles.textContainer}>
+              <Text numberOfLines={2} t11>
+                {geoPosition}
+              </Text>
+            </View>
+          </View>
+          <Spacer height={6} />
+          <View style={styles.iconWithTextContainer}>
+            <MaterialCommunityIcons
+              name="ticket-confirmation-outline"
+              style={styles.iconStyle}
+            />
+            <View style={styles.textContainer}>
+              <Text numberOfLines={1} t11>
+                Start: {startData}
+              </Text>
+              <Text numberOfLines={1} t11>
+                End: {endData}
+              </Text>
+            </View>
           </View>
         </View>
-        <Spacer height={6} />
-        <View style={styles.iconWithTextContainer}>
-          <MaterialCommunityIcons
-            name="ticket-confirmation-outline"
-            style={styles.iconStyle}
-          />
-          <View style={styles.textContainer}>
-            <Text numberOfLines={1} t11>
-              Start: {startData}
-            </Text>
-            <Text numberOfLines={1} t11>
-              End: {endData}
-            </Text>
-          </View>
-        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const borderW = 0.6;
 const rawStyles = StyleSheet.create({
   container: {
-    width: 220,
-    height: 328,
     borderRadius: 16,
     overflow: 'hidden',
     alignSelf: 'flex-start',
     backgroundColor: Color.card,
   },
-  imageStyle: {
-    flex: 1.2,
-  },
   image: {
-    flex: 1,
+    width: widthDimention * 0.5,
+    height: widthDimention * 0.5,
+    resizeMode: 'cover',
   },
   infoContainer: {
-    flex: 1,
     paddingVertical: 4,
     paddingHorizontal: 14,
     borderColor: Color.grayStroke,
