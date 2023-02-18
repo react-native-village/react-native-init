@@ -1,10 +1,19 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {Background, Categories, TicketCardColumn} from 'src/components/ui';
+import {
+  Background,
+  Categories,
+  Text,
+  TicketCardColumn,
+} from 'src/components/ui';
+import {Color} from 'src/themeTypes';
+
+import {HeaderList} from '../ui/headerList';
 
 function Separator() {
   return <View style={styles.separator} />;
@@ -13,25 +22,53 @@ function Separator() {
 export function HomeMarket() {
   const insets = useSafeAreaInsets();
   return (
-    <Background>
-      <View
-        style={[
-          styles.container,
-          {
-            paddingTop: insets.top,
-            paddingBottom: insets.bottom,
-          },
-        ]}>
-        <Categories />
-        <View style={styles.flatListContainer}>
-          <FlatList
-            data={DATA}
-            renderItem={({item}) => <TicketCardColumn {...item} />}
-            keyExtractor={item => item.id}
-            ItemSeparatorComponent={Separator}
-          />
-        </View>
+    <Background
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+      }}>
+      <View style={styles.rowContainer}>
+        <Text t1 color={Color.primary}>
+          999
+        </Text>
+        <TouchableOpacity>
+          <MaterialCommunityIcons name="line-scan" style={styles.icon} />
+        </TouchableOpacity>
       </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Categories />
+          <View style={styles.flatListContainer}>
+            <FlatList
+              horizontal
+              data={DATA}
+              renderItem={({item}) => <TicketCardColumn {...item} />}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={Separator}
+            />
+          </View>
+          <HeaderList title="Newest Events" button="See all" />
+          <View style={styles.flatListContainer}>
+            <FlatList
+              horizontal
+              data={DATA}
+              renderItem={({item}) => <TicketCardColumn {...item} />}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={Separator}
+            />
+          </View>
+          <HeaderList title="Expiring Soon" button="See all" />
+          <View style={styles.flatListContainer}>
+            <FlatList
+              horizontal
+              data={DATA}
+              renderItem={({item}) => <TicketCardColumn {...item} />}
+              keyExtractor={item => item.id}
+              ItemSeparatorComponent={Separator}
+            />
+          </View>
+        </View>
+      </ScrollView>
     </Background>
   );
 }
@@ -40,12 +77,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  rowContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 24,
+    marginVertical: 23,
+  },
   separator: {
-    marginVertical: 10,
+    marginHorizontal: 10,
   },
   flatListContainer: {
     width: '100%',
     alignItems: 'center',
+    marginBottom: 25,
+  },
+  // eslint-disable-next-line react-native/no-color-literals
+  icon: {
+    fontSize: 24,
+    color: '#007AFF',
   },
 });
 
