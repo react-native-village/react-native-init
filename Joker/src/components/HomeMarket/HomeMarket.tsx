@@ -35,13 +35,15 @@ export function HomeMarket() {
           <MaterialCommunityIcons name="line-scan" style={styles.icon} />
         </TouchableOpacity>
       </View>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <Categories />
           <View style={styles.flatListContainer}>
             <FlatList
               horizontal
               data={DATA}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.contentContainer}
               renderItem={({item}) => <TicketCardColumn {...item} />}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
@@ -52,6 +54,7 @@ export function HomeMarket() {
             <FlatList
               horizontal
               data={DATA}
+              showsHorizontalScrollIndicator={false}
               renderItem={({item}) => <TicketCardColumn {...item} />}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
@@ -62,6 +65,7 @@ export function HomeMarket() {
             <FlatList
               horizontal
               data={DATA}
+              showsHorizontalScrollIndicator={false}
               renderItem={({item}) => <TicketCardColumn {...item} />}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
@@ -97,6 +101,9 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 24,
     color: '#007AFF',
+  },
+  contentContainer: {
+    paddingHorizontal: 20,
   },
 });
 

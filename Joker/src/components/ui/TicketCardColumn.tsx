@@ -1,12 +1,6 @@
 import React from 'react';
 
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {useThematicStyles} from 'src/hooks';
@@ -17,14 +11,7 @@ import {TicketCardTags} from './TicketCardTags';
 
 import {Spacer, Text} from './';
 
-// imageUrl=
-// name=
-// geoPosition=
-
-const widthDimention = Dimensions.get('screen').width;
-
 export function TicketCardColumn({
-  id,
   name,
   startData,
   endData,
@@ -33,17 +20,15 @@ export function TicketCardColumn({
   geoPosition,
   price = 300,
   currencySymbols = 'ETH',
-}: TicketInfo) {
+  onPress,
+}: Omit<TicketInfo, 'id'> & {onPress?: () => void}) {
   const {styles} = useThematicStyles(rawStyles);
-  const marginLeft = id === '1' ? 24 : 0;
-  const marginRight = id === '6' ? 24 : 0;
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={() => {}}
-      style={{marginLeft: marginLeft, marginRight: marginRight}}>
+    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
       <View style={styles.container}>
-        <Image style={styles.image} source={{uri: imageUrl}} />
+        <View style={styles.imageStyle}>
+          <Image style={styles.image} source={{uri: imageUrl}} />
+        </View>
         <View style={styles.infoContainer}>
           <Text t6>{name}</Text>
           <Spacer height={8} />
@@ -91,17 +76,21 @@ export function TicketCardColumn({
 const borderW = 0.6;
 const rawStyles = StyleSheet.create({
   container: {
+    width: 220,
+    height: 328,
     borderRadius: 16,
     overflow: 'hidden',
     alignSelf: 'flex-start',
     backgroundColor: Color.card,
   },
+  imageStyle: {
+    flex: 1.2,
+  },
   image: {
-    width: widthDimention * 0.5,
-    height: widthDimention * 0.5,
-    resizeMode: 'cover',
+    flex: 1,
   },
   infoContainer: {
+    flex: 1,
     paddingVertical: 4,
     paddingHorizontal: 14,
     borderColor: Color.grayStroke,
