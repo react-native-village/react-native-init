@@ -22,3 +22,4 @@ export * from './Avatar';
 export * from './TicketCardColumn';
 export * from './TicketCardRow';
 export * from './categories';
+export * from './headerList';
