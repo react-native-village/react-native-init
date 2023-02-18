@@ -19,8 +19,8 @@ export interface TicketInfo {
   id: string;
   name: string;
   tags: string[];
-  startData: number;
-  endData: number;
+  startData: string;
+  endData: string;
   geoPosition: string;
   imageUrl: string;
   price?: number;

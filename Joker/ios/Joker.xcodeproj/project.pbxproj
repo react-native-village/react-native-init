@@ -585,7 +585,7 @@
 				DEVELOPMENT_TEAM = 5EM4M85VSQ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Joker/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NFT Tickets ";
+				INFOPLIST_KEY_CFBundleDisplayName = "NFT Tickets";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +619,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5EM4M85VSQ;
 				INFOPLIST_FILE = Joker/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "NFT Tickets ";
+				INFOPLIST_KEY_CFBundleDisplayName = "NFT Tickets";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
