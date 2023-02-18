@@ -1,9 +1,16 @@
 import React from 'react';
 
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {s} from 'react-native-size-matters';
+import {
+  ImageBackground,
+  Text as RNText,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Background, Text} from 'src/components/ui';
+import {Text} from 'src/components/ui';
 import {Color} from 'src/themeTypes';
 
 interface WelcomeProps {
@@ -11,28 +18,66 @@ interface WelcomeProps {
 }
 
 export function Welcome({onContinue}: WelcomeProps) {
+  const insets = useSafeAreaInsets();
   return (
-    <Background>
-      <View style={styles.containerBottom}>
-        <TouchableOpacity onPress={onContinue}>
-          <Text color={Color.primary} l1>
-            Go Home
+    <ImageBackground
+      source={require('../../../assets/images/welcome.jpg')}
+      style={[
+        styles.container,
+        {
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+        },
+      ]}>
+      <StatusBar hidden />
+      <Text t4 color={Color.graphicBase3}>
+        Welcome to
+      </Text>
+      <Text t2 color={Color.primary} style={styles.titleText}>
+        999 Ticketing System
+      </Text>
+      <TouchableOpacity onPress={onContinue} activeOpacity={0.5}>
+        <View style={styles.containerBottom}>
+          <Text color={Color.graphicBase3} t4>
+            NEXT
           </Text>
-        </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
+      <View style={styles.alphaTitleContainer}>
+        <RNText style={styles.alphaTitle}>999</RNText>
       </View>
-    </Background>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  containerTop: {
-    flex: 1.5,
+  // eslint-disable-next-line react-native/no-color-literals
+  containerBottom: {
+    paddingHorizontal: 161,
+    borderRadius: 10,
+    paddingVertical: 12,
+    backgroundColor: '#FF6883',
+    marginBottom: 52,
+  },
+  container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingHorizontal: s(20),
   },
-  containerBottom: {
+  titleText: {
+    marginBottom: 16,
+    marginTop: 15,
+  },
+  // eslint-disable-next-line react-native/no-color-literals
+  alphaTitle: {
+    fontSize: 90,
+    color: '#FF6883',
+  },
+  alphaTitleContainer: {
+    position: 'absolute',
     flex: 1,
+    width: '100%',
+    height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
@@ -14,6 +14,7 @@ export function HomeMarket() {
   const insets = useSafeAreaInsets();
   return (
     <Background>
+      <StatusBar hidden={false} />
       <View
         style={[
           styles.container,
