@@ -5,16 +5,11 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {
-  Background,
-  Categories,
-  Separator,
-  Text,
-  TicketCardColumn,
-} from 'src/components/ui';
+import {Background, Separator, Text, TicketCardColumn} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
+import {Categories} from '../ui/categories';
 import {HeaderList} from '../ui/headerList';
 
 export function HomeMarket() {
