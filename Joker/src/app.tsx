@@ -15,7 +15,6 @@ const basicScreenOptions = {
   headerShown: false,
   gestureEnabled: false,
 };
-StatusBar.setTranslucent(true);
 export function App() {
   return (
     <NavigationContainer ref={navigator}>
