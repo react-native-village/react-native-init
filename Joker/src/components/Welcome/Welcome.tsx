@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  ImageBackground,
+  Image,
   Text as RNText,
   StyleSheet,
   TouchableOpacity,
@@ -21,8 +21,7 @@ export function Welcome({onContinue}: WelcomeProps) {
   const {styles} = useThematicStyles(useStyles);
   const insets = useSafeAreaInsets();
   return (
-    <ImageBackground
-      source={require('../../../assets/images/welcome.jpg')}
+    <View
       style={[
         styles.container,
         {
@@ -30,6 +29,10 @@ export function Welcome({onContinue}: WelcomeProps) {
           paddingBottom: insets.bottom,
         },
       ]}>
+      <Image
+        source={require('../../../assets/images/welcome.jpg')}
+        style={styles.image}
+      />
       <Text t4 color={Color.graphicBase3}>
         Welcome to
       </Text>
@@ -47,7 +50,7 @@ export function Welcome({onContinue}: WelcomeProps) {
       <View style={styles.alphaTitleContainer}>
         <RNText style={styles.alphaTitle}>999</RNText>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -67,6 +70,11 @@ const useStyles = StyleSheet.create({
   titleText: {
     marginBottom: 16,
     marginTop: 15,
+  },
+  image: {
+    position: 'absolute',
+    height: '100%',
+    resizeMode: 'contain',
   },
   alphaTitle: {
     fontSize: 90,
