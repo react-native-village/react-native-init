@@ -8,18 +8,17 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {
   Background,
   Categories,
+  Separator,
   Text,
   TicketCardColumn,
 } from 'src/components/ui';
+import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
 import {HeaderList} from '../ui/headerList';
 
-function Separator() {
-  return <View style={styles.separator} />;
-}
-
 export function HomeMarket() {
+  const {styles} = useThematicStyles(useStyles);
   const insets = useSafeAreaInsets();
   return (
     <Background
@@ -79,7 +78,7 @@ export function HomeMarket() {
   );
 }
 
-const styles = StyleSheet.create({
+const useStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
@@ -91,18 +90,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginVertical: 23,
   },
-  separator: {
-    marginHorizontal: 10,
-  },
   flatListContainer: {
     width: '100%',
     alignItems: 'center',
     marginBottom: 25,
   },
-  // eslint-disable-next-line react-native/no-color-literals
   icon: {
     fontSize: 24,
-    color: '#007AFF',
+    color: Color.textBlue1,
   },
   contentContainer: {
     paddingHorizontal: 20,
