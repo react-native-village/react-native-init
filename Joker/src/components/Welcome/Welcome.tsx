@@ -18,7 +18,7 @@ interface WelcomeProps {
 }
 
 export function Welcome({onContinue}: WelcomeProps) {
-  const {styles} = useThematicStyles(screenStyles);
+  const {styles} = useThematicStyles(useStyles);
   const insets = useSafeAreaInsets();
   return (
     <ImageBackground
@@ -51,13 +51,12 @@ export function Welcome({onContinue}: WelcomeProps) {
   );
 }
 
-const screenStyles = StyleSheet.create({
-  // eslint-disable-next-line react-native/no-color-literals
+const useStyles = StyleSheet.create({
   containerBottom: {
     paddingHorizontal: 161,
     borderRadius: 10,
     paddingVertical: 12,
-    backgroundColor: '#FF6883',
+    backgroundColor: Color.primary,
     marginBottom: 52,
   },
   container: {
