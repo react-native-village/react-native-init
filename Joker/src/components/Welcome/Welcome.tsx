@@ -10,6 +10,7 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {Text} from 'src/components/ui';
+import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
 interface WelcomeProps {
@@ -17,6 +18,7 @@ interface WelcomeProps {
 }
 
 export function Welcome({onContinue}: WelcomeProps) {
+  const {styles} = useThematicStyles(screenStyles);
   const insets = useSafeAreaInsets();
   return (
     <ImageBackground
@@ -49,7 +51,7 @@ export function Welcome({onContinue}: WelcomeProps) {
   );
 }
 
-const styles = StyleSheet.create({
+const screenStyles = StyleSheet.create({
   // eslint-disable-next-line react-native/no-color-literals
   containerBottom: {
     paddingHorizontal: 161,
@@ -67,10 +69,9 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 15,
   },
-  // eslint-disable-next-line react-native/no-color-literals
   alphaTitle: {
     fontSize: 90,
-    color: '#FF6883',
+    color: Color.primary,
   },
   alphaTitleContainer: {
     position: 'absolute',
