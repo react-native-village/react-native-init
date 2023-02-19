@@ -1,5 +1,4 @@
 export * from './text/text';
-export * from './button/button';
 export * from './icon';
 export * from './icon-button';
 export * from './custom-header';

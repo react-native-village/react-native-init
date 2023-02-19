@@ -11,6 +11,7 @@ export type TabParamList = {
 export type RootStackParamList = {
   home?: NavigatorScreenParams<TabParamList>;
   welcome: undefined;
+  settings: undefined;
 };
 
 // INTERFACES
