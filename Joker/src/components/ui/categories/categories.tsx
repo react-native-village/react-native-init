@@ -35,6 +35,10 @@ const DATA = [
   },
 ];
 
+function SeparatorMargin() {
+  return <Separator margin={7.5} />;
+}
+
 export function Categories() {
   const [selectItem, setSelectItem] = useState('0');
   return (
@@ -53,7 +57,7 @@ export function Categories() {
           />
         )}
         keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <Separator margin={7.5} />}
+        ItemSeparatorComponent={SeparatorMargin}
       />
     </View>
   );

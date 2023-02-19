@@ -1,6 +1,11 @@
 import React from 'react';
 
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {useThematicStyles} from 'src/hooks';
@@ -26,9 +31,11 @@ export function TicketCardColumn({
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
       <View style={styles.container}>
-        <View style={styles.imageStyle}>
-          <Image style={styles.image} source={{uri: imageUrl}} />
-        </View>
+        <ImageBackground
+          resizeMode={'cover'}
+          style={styles.imageContainer}
+          source={{uri: imageUrl}}
+        />
         <View style={styles.infoContainer}>
           <Text t6>{name}</Text>
           <Spacer height={8} />
@@ -77,17 +84,15 @@ const borderW = 0.6;
 const rawStyles = StyleSheet.create({
   container: {
     width: 220,
-    height: 328,
+    height: 380,
     borderRadius: 16,
     overflow: 'hidden',
     alignSelf: 'flex-start',
     backgroundColor: Color.card,
   },
-  imageStyle: {
-    flex: 1.2,
-  },
-  image: {
-    flex: 1,
+  imageContainer: {
+    width: 220,
+    height: 220,
   },
   infoContainer: {
     flex: 1,
