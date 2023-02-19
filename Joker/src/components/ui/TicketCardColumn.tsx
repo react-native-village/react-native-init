@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {useThematicStyles} from 'src/hooks';
@@ -11,10 +11,6 @@ import {TicketCardTags} from './TicketCardTags';
 
 import {Spacer, Text} from './';
 
-// imageUrl=
-// name=
-// geoPosition=
-
 export function TicketCardColumn({
   name,
   startData,
@@ -24,53 +20,56 @@ export function TicketCardColumn({
   geoPosition,
   price = 300,
   currencySymbols = 'ETH',
-}: Omit<TicketInfo, 'id'>) {
+  onPress,
+}: Omit<TicketInfo, 'id'> & {onPress?: () => void}) {
   const {styles} = useThematicStyles(rawStyles);
   return (
-    <View style={styles.container}>
-      <View style={styles.imageStyle}>
-        <Image style={styles.image} source={{uri: imageUrl}} />
-      </View>
-      <View style={styles.infoContainer}>
-        <Text t6>{name}</Text>
-        <Spacer height={8} />
-        <View style={styles.costAndTagContainer}>
-          <TicketCardTags tags={tags} />
-          {price && currencySymbols && (
-            <Text
-              t5
-              color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
-          )}
+    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
+      <View style={styles.container}>
+        <View style={styles.imageStyle}>
+          <Image style={styles.image} source={{uri: imageUrl}} />
         </View>
-        <Spacer height={8} />
-        <View style={styles.iconWithTextContainer}>
-          <MaterialCommunityIcons
-            name="map-marker-outline"
-            style={styles.iconStyle}
-          />
-          <View style={styles.textContainer}>
-            <Text numberOfLines={2} t11>
-              {geoPosition}
-            </Text>
+        <View style={styles.infoContainer}>
+          <Text t6>{name}</Text>
+          <Spacer height={8} />
+          <View style={styles.costAndTagContainer}>
+            <TicketCardTags tags={tags} />
+            {price && currencySymbols && (
+              <Text
+                t5
+                color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
+            )}
+          </View>
+          <Spacer height={8} />
+          <View style={styles.iconWithTextContainer}>
+            <MaterialCommunityIcons
+              name="map-marker-outline"
+              style={styles.iconStyle}
+            />
+            <View style={styles.textContainer}>
+              <Text numberOfLines={2} t11>
+                {geoPosition}
+              </Text>
+            </View>
+          </View>
+          <Spacer height={6} />
+          <View style={styles.iconWithTextContainer}>
+            <MaterialCommunityIcons
+              name="ticket-confirmation-outline"
+              style={styles.iconStyle}
+            />
+            <View style={styles.textContainer}>
+              <Text numberOfLines={1} t11>
+                Start: {startData}
+              </Text>
+              <Text numberOfLines={1} t11>
+                End: {endData}
+              </Text>
+            </View>
           </View>
         </View>
-        <Spacer height={6} />
-        <View style={styles.iconWithTextContainer}>
-          <MaterialCommunityIcons
-            name="ticket-confirmation-outline"
-            style={styles.iconStyle}
-          />
-          <View style={styles.textContainer}>
-            <Text numberOfLines={1} t11>
-              Start: {startData}
-            </Text>
-            <Text numberOfLines={1} t11>
-              End: {endData}
-            </Text>
-          </View>
-        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
