@@ -34,12 +34,13 @@ export function Welcome({onContinue}: WelcomeProps) {
       <Text t2 color={Color.primary} style={styles.titleText}>
         999 Ticketing System
       </Text>
-      <TouchableOpacity onPress={onContinue} activeOpacity={0.5}>
-        <View style={styles.containerBottom}>
-          <Text color={Color.graphicBase3} t4>
-            NEXT
-          </Text>
-        </View>
+      <TouchableOpacity
+        onPress={onContinue}
+        activeOpacity={0.5}
+        style={styles.containerBottom}>
+        <Text color={Color.graphicBase3} t4>
+          NEXT
+        </Text>
       </TouchableOpacity>
       <View style={styles.alphaTitleContainer}>
         <RNText style={styles.alphaTitle}>999</RNText>
