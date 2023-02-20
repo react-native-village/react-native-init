@@ -6,7 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
-import {EventTags} from './eventTags';
+import {EventTags} from './EventTags';
 
 import {DATA} from '../HomeMarket';
 import {Background} from '../ui/Background';

@@ -1,2 +1,2 @@
 export * from './Event';
-export * from './eventTags';
+export * from './EventTags';
