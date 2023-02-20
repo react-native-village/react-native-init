@@ -1,67 +1,43 @@
 import React from 'react';
 
-import {
-  Image,
-  Text as RNText,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Text} from 'src/components/ui';
+import {Button, Spacer, Text} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+
+// @ts-ignore
+import welcomeImage from '../../../assets/images/welcome.jpg';
 
 interface WelcomeProps {
   onContinue: () => void;
 }
 
 export function Welcome({onContinue}: WelcomeProps) {
-  const {styles} = useThematicStyles(useStyles);
+  const {styles} = useThematicStyles(rawStyles);
   const insets = useSafeAreaInsets();
+
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: insets.top,
-          paddingBottom: insets.bottom,
-        },
-      ]}>
-      <Image
-        source={require('../../../assets/images/welcome.jpg')}
-        style={styles.image}
-      />
-      <Text t4 color={Color.graphicBase3}>
-        Welcome to
-      </Text>
-      <Text t2 color={Color.primary} style={styles.titleText}>
-        999 Ticketing System
-      </Text>
-      <TouchableOpacity
-        onPress={onContinue}
-        activeOpacity={0.5}
-        style={styles.containerBottom}>
-        <Text color={Color.graphicBase3} t4>
-          NEXT
+    <>
+      <Image source={welcomeImage} style={styles.image} />
+      <View style={styles.container}>
+        <Spacer height={insets.top} />
+        <Text t4 color={Color.graphicBase3}>
+          Welcome to
         </Text>
-      </TouchableOpacity>
-      <View style={styles.alphaTitleContainer}>
-        <RNText style={styles.alphaTitle}>999</RNText>
+        <Text t2 color={Color.primary} style={styles.titleText}>
+          999 Ticketing System
+        </Text>
+        <Button onPress={onContinue}>NEXT</Button>
+
+        <Spacer height={insets.bottom + 16} />
       </View>
-    </View>
+    </>
   );
 }
 
-const useStyles = StyleSheet.create({
-  containerBottom: {
-    paddingHorizontal: 161,
-    borderRadius: 10,
-    paddingVertical: 12,
-    backgroundColor: Color.primary,
-    marginBottom: 52,
-  },
+const rawStyles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -74,18 +50,11 @@ const useStyles = StyleSheet.create({
   image: {
     position: 'absolute',
     height: '100%',
-    resizeMode: 'contain',
+    width: '100%',
   },
   alphaTitle: {
-    fontSize: 90,
-    color: Color.primary,
-  },
-  alphaTitleContainer: {
     position: 'absolute',
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    top: '45%',
+    fontSize: 90,
   },
 });
