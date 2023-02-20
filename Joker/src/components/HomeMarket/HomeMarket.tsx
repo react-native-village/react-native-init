@@ -5,10 +5,11 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {Background, Separator, Text, TicketCardColumn} from 'src/components/ui';
+import {Background, Separator, TicketCardColumn} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
+import Logo from '../../../assets/images/logo.svg';
 import {Categories} from '../ui/categories';
 import {HeaderList} from '../ui/headerList';
 
@@ -22,9 +23,7 @@ export function HomeMarket() {
         paddingBottom: insets.bottom,
       }}>
       <View style={styles.rowContainer}>
-        <Text t1 color={Color.primary}>
-          999
-        </Text>
+        <Logo width={38} height={38} style={styles.logo} />
         <TouchableOpacity>
           <MaterialCommunityIcons name="line-scan" style={styles.icon} />
         </TouchableOpacity>
@@ -76,6 +75,7 @@ export function HomeMarket() {
 const useStyles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 10,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -83,7 +83,8 @@ const useStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
-    marginVertical: 23,
+    marginTop: 23,
+    marginBottom: 10,
   },
   flatListContainer: {
     width: '100%',
@@ -93,6 +94,9 @@ const useStyles = StyleSheet.create({
   icon: {
     fontSize: 24,
     color: Color.textBlue1,
+  },
+  logo: {
+    marginLeft: 5,
   },
   contentContainer: {
     paddingHorizontal: 20,
