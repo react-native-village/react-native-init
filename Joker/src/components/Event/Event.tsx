@@ -11,15 +11,14 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {DATA} from 'src/components/HomeMarket';
+import {Background} from 'src/components/ui/Background';
+import {Text} from 'src/components/ui/text/text';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
 import {EventBuy} from './EventBuy';
 import {EventTags} from './EventTags';
-
-import {DATA} from '../HomeMarket';
-import {Background} from '../ui/Background';
-import {Text} from '../ui/text/text';
 
 const widthScreen = Dimensions.get('screen').width;
 interface EventScreenProps {
