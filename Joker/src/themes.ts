@@ -4,7 +4,9 @@ export const TRANSPARENT = 'transparent';
 export const SHADOW_COLOR = '#000';
 
 export const LIGHT_THEME: ThemeColors = {
-  primary: '#FF6883',
+  primary1: '#CC5369',
+  primary2: '#FF6883',
+  primary3: '#FFE0E6',
   // MESSAGE MEANING
   textRed1: '#E16363',
   opacityRed1: 'rgba(225, 99, 99, 0.2)',
@@ -39,7 +41,9 @@ export const LIGHT_THEME: ThemeColors = {
 };
 
 export const DARK_THEME: ThemeColors = {
-  primary: '#FF6883',
+  primary1: '#FF6883',
+  primary2: '#FF6883',
+  primary3: '#FFE0E6',
   // MESSAGE MEANING
   textRed1: '#E16363',
   opacityRed1: 'rgba(225, 99, 99, 0.2)',
