@@ -2,8 +2,8 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {StatusBar} from 'react-native';
 
+import {Event} from 'src/components/Event';
 import {navigator} from 'src/navigator';
 import {Home} from 'src/screens/home';
 import {WelcomeScreen} from 'src/screens/Welcome';
@@ -23,6 +23,7 @@ export function App() {
         screenOptions={basicScreenOptions}>
         <Stack.Screen name="welcome" component={WelcomeScreen} />
         <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="event" component={Event} />
       </Stack.Navigator>
     </NavigationContainer>
   );
