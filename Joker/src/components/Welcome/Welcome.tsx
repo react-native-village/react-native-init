@@ -1,39 +1,60 @@
 import React from 'react';
 
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {s} from 'react-native-size-matters';
+import {Image, StyleSheet, View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Background, Text} from 'src/components/ui';
+import {Button, Spacer, Text} from 'src/components/ui';
+import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+
+// @ts-ignore
+import welcomeImage from '../../../assets/images/welcome.jpg';
 
 interface WelcomeProps {
   onContinue: () => void;
 }
 
 export function Welcome({onContinue}: WelcomeProps) {
+  const {styles} = useThematicStyles(rawStyles);
+  const insets = useSafeAreaInsets();
+
   return (
-    <Background>
-      <View style={styles.containerBottom}>
-        <TouchableOpacity onPress={onContinue}>
-          <Text color={Color.primary2} l1>
-            Go Home
-          </Text>
-        </TouchableOpacity>
+    <>
+      <Image source={welcomeImage} style={styles.image} />
+      <View style={styles.container}>
+        <Spacer height={insets.top} />
+        <Text t4 color={Color.graphicBase3}>
+          Welcome to
+        </Text>
+        <Text t2 color={Color.primary} style={styles.titleText}>
+          999 Ticketing System
+        </Text>
+        <Button onPress={onContinue}>NEXT</Button>
+
+        <Spacer height={insets.bottom + 16} />
       </View>
-    </Background>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  containerTop: {
-    flex: 1.5,
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    paddingHorizontal: s(20),
-  },
-  containerBottom: {
+const rawStyles = StyleSheet.create({
+  container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+  },
+  titleText: {
+    marginBottom: 16,
+    marginTop: 15,
+  },
+  image: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+  },
+  alphaTitle: {
+    position: 'absolute',
+    top: '45%',
+    fontSize: 90,
   },
 });
