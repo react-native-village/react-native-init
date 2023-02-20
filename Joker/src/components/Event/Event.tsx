@@ -19,7 +19,7 @@ interface EventScreenProps {
 
 const widthScreen = Dimensions.get('screen').width;
 
-export function EventScreen({id = '1', pressBack}: EventScreenProps) {
+export function Event({id = '1'}: EventScreenProps) {
   const event = DATA.find(item => item.id === id);
   const price = 300;
   const currencySymbols = 'ETH';
