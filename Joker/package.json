@@ -30,6 +30,7 @@
     "@walletconnect/react-native-dapp": "^1.8.0",
     "alchemy-sdk": "^2.3.0",
     "axios": "^1.2.2",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
     "events": "^3.3.0",

@@ -2,7 +2,7 @@ import {ImageStyle, TextStyle, ViewStyle} from 'react-native';
 
 export interface ThemeColors {
   primary: string;
-  opacityPrimary: string;
+  primary1: string;
   // MESSAGE MEANING
   textRed1: string;
   opacityRed1: string;
@@ -46,7 +46,7 @@ export type NamedStyles<T> = {
 
 export enum Color {
   primary = 'primary',
-  opacityPrimary = 'opacityPrimary',
+  primary1 = 'primary1',
 
   textBlue1 = 'textBlue1',
   opacityBlue1 = 'opacityBlue1',
