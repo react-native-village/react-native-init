@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 
-import {
-  FlatList,
-  StyleSheet,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
 
+import {useTheme} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+
+import {HeaderList} from './headerList';
 
 import {Text} from '.';
 
@@ -45,54 +42,27 @@ function Separator() {
 
 interface CategoryItemProps {
   title: string;
-  id: string;
+  isSelected: boolean;
+  onPress: () => void;
 }
 
 export function Categories() {
   const [selectItem, setSelectItem] = useState('0');
   // eslint-disable-next-line react/no-unstable-nested-components
-  function CategoryItem({title, id}: CategoryItemProps) {
-    const isSelect = selectItem == id;
-    const color = isSelect ? Color.textBase3 : Color.primary;
-    const background = isSelect ? '#FF6883' : '#FFFFFF';
-    const marginLeft = id == 0 ? 24 : 0;
-    const marginRight = id == DATA.length - 1 ? 24 : 0;
-    return (
-      <TouchableHighlight
-        underlayColor={'rgba(255, 104, 131, 0.3)'}
-        activeOpacity={0.3}
-        style={[
-          styles.touchable,
-          {
-            backgroundColor: background,
-            marginLeft: marginLeft,
-            marginRight: marginRight,
-          },
-        ]}
-        onPress={() => setSelectItem(id)}>
-        <View style={styles.itemButton}>
-          <Text t5 color={color} style={styles.text}>
-            {title}
-          </Text>
-        </View>
-      </TouchableHighlight>
-    );
-  }
   return (
     <View style={styles.container}>
-      <View style={styles.rowContainer}>
-        <Text t5>Categories</Text>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Text t5 color={Color.primary}>
-            See all
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <HeaderList title={'Categories'} button={'See all'} />
       <FlatList
         horizontal
         data={DATA}
-        renderItem={({item}) => (
-          <CategoryItem title={item.title} id={item.id} />
+        contentContainerStyle={styles.scrollContent}
+        showsHorizontalScrollIndicator={false}
+        renderItem={({item: {id, title}}) => (
+          <CategoryItem
+            onPress={() => setSelectItem(id)}
+            isSelected={selectItem === `${id}`}
+            title={title}
+          />
         )}
         keyExtractor={item => item.id}
         ItemSeparatorComponent={Separator}
@@ -101,10 +71,34 @@ export function Categories() {
   );
 }
 
+function CategoryItem({title, isSelected, onPress}: CategoryItemProps) {
+  const color = isSelected ? Color.textBase3 : Color.primary;
+  const {colors} = useTheme();
+  const background = isSelected ? colors.primary : colors.card;
+  return (
+    <TouchableHighlight
+      underlayColor={'rgba(255, 104, 131, 0.4)'}
+      activeOpacity={0.65}
+      style={[
+        styles.touchable,
+        {
+          backgroundColor: background,
+        },
+      ]}
+      onPress={onPress}>
+      <View style={styles.itemButton}>
+        <Text t5 color={color} style={styles.text}>
+          {title}
+        </Text>
+      </View>
+    </TouchableHighlight>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
-    marginVertical: 20,
+    marginBottom: 20,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -128,5 +122,8 @@ const styles = StyleSheet.create({
   },
   touchable: {
     borderRadius: 100,
+  },
+  scrollContent: {
+    paddingHorizontal: 20,
   },
 });
