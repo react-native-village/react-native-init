@@ -19,7 +19,7 @@ export function Waiting({style}: WaitingProps) {
 
   return (
     <View style={[styles.container, style]}>
-      <ActivityIndicator size="large" color={colors.primary} />
+      <ActivityIndicator size="large" color={colors.primary2} />
     </View>
   );
 }

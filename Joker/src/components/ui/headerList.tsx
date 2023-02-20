@@ -16,7 +16,7 @@ export function HeaderList({title, button}: HeaderListProps) {
     <View style={styles.rowContainer}>
       <Text t5>{title}</Text>
       <TouchableOpacity activeOpacity={0.5}>
-        <Text t5 color={Color.primary}>
+        <Text t5 color={Color.primary2}>
           {button}
         </Text>
       </TouchableOpacity>

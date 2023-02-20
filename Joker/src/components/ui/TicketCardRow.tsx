@@ -38,7 +38,7 @@ export function TicketCardRow({
           {price && currencySymbols && (
             <Text
               t5
-              color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
+              color={Color.primary2}>{`${price} ${currencySymbols}`}</Text>
           )}
         </View>
         <Spacer height={12} />

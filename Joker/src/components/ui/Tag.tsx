@@ -18,10 +18,10 @@ export function Tag({name, withMarginLeft}: TagT) {
     <View
       style={[
         styles.container,
-        {borderColor: colors.primary},
+        {borderColor: colors.primary2},
         withMarginLeft && styles.marginLeft,
       ]}>
-      <Text color={Color.primary} t18>
+      <Text color={Color.primary2} t18>
         {name}
       </Text>
     </View>

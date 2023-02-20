@@ -39,7 +39,7 @@ export const ProgressLine = memo(
     ) => {
       const {colors} = useTheme();
       const {styles} = useThematicStyles(rawStyles);
-      if (lineColor === undefined) lineColor = colors.primary;
+      if (lineColor === undefined) lineColor = colors.primary2;
       const width = useSharedValue(initialProgress);
 
       useImperativeHandle(ref, () => ({

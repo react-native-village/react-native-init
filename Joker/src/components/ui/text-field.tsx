@@ -151,7 +151,7 @@ export const TextField: React.FC<Props> = memo(
               </Text>
             )}
             <TextInput
-              selectionColor={Color.primary}
+              selectionColor={Color.primary2}
               allowFontScaling={false}
               style={styles.input}
               ref={inputRef}
