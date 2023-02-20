@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DATA = [
+export const DATA = [
   {
     id: '1',
     name: 'Groovy Tunes',
