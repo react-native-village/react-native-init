@@ -29,8 +29,9 @@ export function Welcome({onContinue}: WelcomeProps) {
         <Text t2 color={Color.primary} style={styles.titleText}>
           999 Ticketing System
         </Text>
-        <Button onPress={onContinue}>NEXT</Button>
-
+        <Button style={styles.buttonContainer} onPress={onContinue}>
+          NEXT
+        </Button>
         <Spacer height={insets.bottom + 16} />
       </View>
     </>
@@ -56,5 +57,8 @@ const rawStyles = StyleSheet.create({
     position: 'absolute',
     top: '45%',
     fontSize: 90,
+  },
+  buttonContainer: {
+    width: '85%',
   },
 });
