@@ -28,7 +28,7 @@ export function HomeMarket() {
         paddingBottom: insets.bottom,
       }}>
       <View style={styles.rowContainer}>
-        <Text t1 color={Color.primary}>
+        <Text t1 color={Color.primary2}>
           999
         </Text>
         <TouchableOpacity>
