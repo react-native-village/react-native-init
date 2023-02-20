@@ -8,9 +8,9 @@ import {Color} from 'src/themeTypes';
 
 import {EventTags} from './eventTags';
 
-import {DATA} from '../../HomeMarket';
-import {Background} from '../Background';
-import {Text} from '../text/text';
+import {DATA} from '../HomeMarket';
+import {Background} from '../ui/Background';
+import {Text} from '../ui/text/text';
 
 interface EventScreenProps {
   id?: string;

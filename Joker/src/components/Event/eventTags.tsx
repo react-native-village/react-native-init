@@ -4,7 +4,7 @@ import {FlatList, StyleSheet, View} from 'react-native';
 
 import {TicketInfo} from 'src/types';
 
-import {Tag} from '../Tag';
+import {Tag} from '../ui/Tag';
 
 interface TicketCardTagsProps {
   tags: TicketInfo['tags'];
