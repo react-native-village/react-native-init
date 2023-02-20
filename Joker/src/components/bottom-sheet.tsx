@@ -26,7 +26,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Spacer, Text} from 'src/components/ui';
 import {useAndroidStatusBarAnimation, useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
-import {ANIMATION_DURATION, ANIMATION_TYPE, WINDOW_WIDTH} from 'src/variables';
+import {ANIMATION_DURATION, ANIMATION_TYPE} from 'src/variables';
 
 export type BottomSheetProps = {
   children: React.ReactNode;
@@ -248,7 +248,7 @@ const rawStyles = StyleSheet.create({
     marginBottom: 2,
   },
   content: {
-    width: WINDOW_WIDTH,
+    width: '100%',
     backgroundColor: Color.bg1,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,

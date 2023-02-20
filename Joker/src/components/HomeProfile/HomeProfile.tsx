@@ -158,11 +158,11 @@ export function HomeProfile({
 
               <Spacer height={120} />
               <TouchableOpacity style={styles.addressLine}>
-                <Text color={Color.primary2} numberOfLines={1} t12>
+                <Text color={Color.primary} numberOfLines={1} t12>
                   {cryptoAddress}
                 </Text>
                 <View style={styles.copyIconContainer}>
-                  <Icon size={18} color={colors.primary2} name="copy-outline" />
+                  <Icon size={18} color={colors.primary} name="copy-outline" />
                 </View>
               </TouchableOpacity>
               <Spacer height={20} />
@@ -173,7 +173,7 @@ export function HomeProfile({
                 keyExtractor={item => item.id}
                 sections={ticketsData}
                 renderSectionHeader={({section: {title}}) => (
-                  <Text t3 color={Color.primary2}>
+                  <Text t3 color={Color.primary}>
                     {title}
                   </Text>
                 )}

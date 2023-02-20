@@ -26,7 +26,7 @@ export function Welcome({onContinue}: WelcomeProps) {
         <Text t4 color={Color.graphicBase3}>
           Welcome to
         </Text>
-        <Text t2 color={Color.primary1} style={styles.titleText}>
+        <Text t2 color={Color.primary} style={styles.titleText}>
           999 Ticketing System
         </Text>
         <Button style={styles.buttonContainer} onPress={onContinue}>

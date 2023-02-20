@@ -1,26 +1,37 @@
 import React, {useState} from 'react';
 
-import {Dimensions, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {BottomSheet} from 'src/components/bottom-sheet';
-import {Text} from 'src/components/ui';
+import {Button, Text} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+import {TicketInfo} from 'src/types';
 
-const h = Dimensions.get('window').height;
-const closeDistance = h / 5;
-
-interface EventBuyProps {
+interface TicketDetailBuyProps {
   onClose: () => void;
+  currencySymbols?: TicketInfo['currencySymbols'];
+  price?: TicketInfo['price'];
+  priceInDollars?: number;
 }
 
-export function EventBuy({onClose}: EventBuyProps) {
+export function TicketDetailBuy({
+  onClose,
+  currencySymbols,
+  price,
+  priceInDollars,
+}: TicketDetailBuyProps) {
   const [count, setCount] = useState(1);
   const {styles} = useThematicStyles(rawStyles);
+  const {height: H} = useWindowDimensions();
 
-  const price = 300;
-  const currencySymbols = 'ETH';
+  const closeDistance = H / 5;
 
   const pressMinus = () => {
     if (count === 1) return;
@@ -52,23 +63,21 @@ export function EventBuy({onClose}: EventBuyProps) {
       </View>
       <View style={styles.rowTotal}>
         <Text t7>Total</Text>
+
         <View style={styles.price}>
-          <Text t3 color={Color.primary1}>
-            {`${price} ${currencySymbols}`}
-          </Text>
-          <Text t12 color={Color.graphicSecond4}>
-            (19,564213$)
-          </Text>
+          {price && currencySymbols && (
+            <Text t3 color={Color.primary1}>
+              {`${price} ${currencySymbols}`}
+            </Text>
+          )}
+          {priceInDollars && (
+            <Text t12 color={Color.graphicSecond4}>
+              {priceInDollars}$
+            </Text>
+          )}
         </View>
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onClose}
-        activeOpacity={0.6}>
-        <Text t4 color={Color.textBase3}>
-          Continue
-        </Text>
-      </TouchableOpacity>
+      <Button onPress={onClose}>Continue</Button>
     </BottomSheet>
   );
 }
@@ -86,15 +95,6 @@ const rawStyles = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 25,
   },
-  button: {
-    backgroundColor: Color.primary2,
-    borderRadius: 100,
-    width: '100%',
-    height: 55,
-    marginVertical: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   price: {
     alignItems: 'flex-end',
   },
@@ -107,10 +107,10 @@ const rawStyles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 6,
-    backgroundColor: Color.primary3,
+    backgroundColor: Color.primary1,
   },
   iconStyle: {
     fontSize: 30,
-    color: Color.primary2,
+    color: Color.primary,
   },
 });

@@ -6,7 +6,7 @@ import {TicketInfo} from 'src/types';
 
 import {Tag} from '../ui/Tag';
 
-interface TicketCardTagsProps {
+interface TicketDetailTagsProps {
   tags: TicketInfo['tags'];
 }
 
@@ -14,7 +14,7 @@ function Separator() {
   return <View style={styles.separator} />;
 }
 
-export function EventTags({tags}: TicketCardTagsProps) {
+export function TicketDetailTags({tags}: TicketDetailTagsProps) {
   return (
     <View>
       <FlatList

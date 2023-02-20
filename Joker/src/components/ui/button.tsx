@@ -26,7 +26,7 @@ export function Button({children, style, onPress}: ButtonT) {
 
 const rawStyles = StyleSheet.create({
   container: {
-    backgroundColor: Color.primary2,
+    backgroundColor: Color.primary,
     // height: 55,
     padding: 14.58,
     width: '100%',

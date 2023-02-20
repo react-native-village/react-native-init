@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
+import {format} from 'date-fns';
 import {
-  Dimensions,
   Image,
   ScrollView,
   StyleSheet,
@@ -9,58 +9,66 @@ import {
   View,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {DATA} from 'src/components/HomeMarket';
+import {Button, Spacer, Text} from 'src/components/ui';
 import {Background} from 'src/components/ui/Background';
-import {Text} from 'src/components/ui/text/text';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+import {TicketInfo} from 'src/types';
 
-import {EventBuy} from './EventBuy';
-import {EventTags} from './EventTags';
+import {TicketDetailBuy} from './TicketDetailBuy';
+import {TicketDetailTags} from './TicketDetailTags';
 
-const widthScreen = Dimensions.get('screen').width;
-interface EventScreenProps {
-  id?: string;
-  pressBack?: () => void;
+interface TicketDetailProps extends TicketInfo {
+  onBack?: () => void;
+  priceInDollars?: number;
 }
 
-export function Event({id = '1'}: EventScreenProps) {
+export function TicketDetail({
+  onBack,
+  priceInDollars,
+  ...item
+}: TicketDetailProps) {
   const [showBuy, setShowBuy] = useState(false);
   const insets = useSafeAreaInsets();
-  const event = DATA.find(item => item.id === id);
-  const price = 300;
-  const currencySymbols = 'ETH';
-  const {styles} = useThematicStyles(rawStyles);
+  const {styles, colors} = useThematicStyles(rawStyles);
+
   return (
-    <Background
-      style={{
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-      }}>
-      <ScrollView style={styles.container}>
-        <Image source={{uri: event?.imageUrl}} style={styles.image} />
+    <Background>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <Image source={{uri: item.imageUrl}} style={styles.image} />
+        <TouchableOpacity
+          style={styles.goBackContainer}
+          onPress={onBack}
+          activeOpacity={0.7}>
+          <Ionicons size={22} color={colors.graphicBase3} name="arrow-back" />
+        </TouchableOpacity>
         <View style={styles.details}>
-          <EventTags tags={event!.tags} />
+          <TicketDetailTags tags={item.tags} />
           <Text t19 style={styles.name}>
-            {event?.name}
+            {item.name}
           </Text>
           <View style={styles.row}>
             <View style={styles.rowTicket}>
               <MaterialCommunityIcons
-                name={'ticket-confirmation-outline'}
+                name="ticket-confirmation-outline"
                 style={styles.iconStyle1}
               />
               <Text t11>One time usage</Text>
             </View>
             <View style={styles.price}>
-              <Text t20 color={Color.primary1}>
-                {`${price} ${currencySymbols}`}
-              </Text>
-              <Text t12 color={Color.graphicSecond4}>
-                (19,564213$)
-              </Text>
+              {item.price && item.currencySymbols && (
+                <Text t20 color={Color.primary}>
+                  {`${item.price} ${item.currencySymbols}`}
+                </Text>
+              )}
+              {priceInDollars && (
+                <Text t12 color={Color.graphicSecond4}>
+                  {priceInDollars}$
+                </Text>
+              )}
             </View>
           </View>
           <View style={styles.rowInfo}>
@@ -70,15 +78,20 @@ export function Event({id = '1'}: EventScreenProps) {
                 style={styles.iconStyle2}
               />
             </View>
-            <View>
+            <View style={styles.flexOne}>
               <Text t7 style={styles.dateText}>
-                Start Date: {event?.startData}
+                Start Date: {format(item.startData, 'MMM d, y')}
               </Text>
-              <Text t9>Saturday, 4:00 PM</Text>
+              <Text t9 style={styles.dateText}>
+                {format(item.startData, 'EEEE, hh:mm a')}
+              </Text>
+              <Spacer height={10} />
               <Text t7 style={styles.dateText}>
-                End Date: {event?.endData}
+                End Date: {format(item.endData, 'MMM d, y')}
               </Text>
-              <Text t9>Saturday, 10:00 PM</Text>
+              <Text t9 style={styles.dateText}>
+                {format(item.endData, 'EEEE, hh:mm a')}
+              </Text>
             </View>
           </View>
           <View style={styles.rowInfo}>
@@ -92,7 +105,7 @@ export function Event({id = '1'}: EventScreenProps) {
               <Text t7 style={styles.dateText}>
                 Location
               </Text>
-              <Text t9>{event?.geoPosition}</Text>
+              <Text t9>{item.geoPosition}</Text>
             </View>
           </View>
           <View style={styles.rowInfo}>
@@ -107,23 +120,23 @@ export function Event({id = '1'}: EventScreenProps) {
                 Ticket Provider
               </Text>
               <Text t9>0x0da46c783f8cxv85x6z5cxhxv12382</Text>
+              <Spacer height={8} />
               <Text t7 style={styles.dateText}>
                 Ticket Approval
               </Text>
               <Text t9>0x0cd46a783f8cxv45x6z5cxhxv13782</Text>
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setShowBuy(true)}
-            activeOpacity={0.6}>
-            <Text t4 color={Color.textBase3}>
-              Buy Ticket
-            </Text>
-          </TouchableOpacity>
+          <Button onPress={() => setShowBuy(true)}>Buy Ticket</Button>
         </View>
+        <Spacer height={insets.bottom} />
       </ScrollView>
-      {showBuy && <EventBuy onClose={() => setShowBuy(false)} />}
+      {showBuy && (
+        <TicketDetailBuy
+          priceInDollars={priceInDollars}
+          onClose={() => setShowBuy(false)}
+        />
+      )}
     </Background>
   );
 }
@@ -133,7 +146,7 @@ const rawStyles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    backgroundColor: Color.primary2,
+    backgroundColor: Color.primary,
     borderRadius: 100,
     width: '100%',
     height: 55,
@@ -143,8 +156,8 @@ const rawStyles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: widthScreen,
-    height: widthScreen,
+    aspectRatio: 1 / 1,
+    width: '100%',
     resizeMode: 'cover',
     marginBottom: 25,
   },
@@ -154,11 +167,11 @@ const rawStyles = StyleSheet.create({
     fontSize: 24,
   },
   iconStyle2: {
-    color: Color.primary2,
+    color: Color.primary,
     fontSize: 30,
   },
   dateText: {
-    marginBottom: 5,
+    marginBottom: 2,
   },
   details: {
     paddingHorizontal: 24,
@@ -192,6 +205,14 @@ const rawStyles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 20,
     borderRadius: 100,
-    backgroundColor: Color.primary3,
+    backgroundColor: Color.primary1,
+  },
+  goBackContainer: {
+    position: 'absolute',
+    left: 25,
+    top: 67,
+  },
+  flexOne: {
+    flex: 1,
   },
 });
