@@ -9,6 +9,8 @@ import {TicketDetailScreen} from 'src/screens/TicketDetail';
 import {WelcomeScreen} from 'src/screens/Welcome';
 import {RootStackParamList} from 'src/types';
 
+import {SettingsScreen} from './screens/SettingsScreen';
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const basicScreenOptions = {
@@ -28,6 +30,7 @@ export function App() {
         screenOptions={basicScreenOptions}>
         <Stack.Screen name="welcome" component={WelcomeScreen} />
         <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="settings" component={SettingsScreen} />
         <Stack.Screen
           options={gestureEnabled}
           name="ticketDetail"
