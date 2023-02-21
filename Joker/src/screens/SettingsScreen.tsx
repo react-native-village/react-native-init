@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Settings} from 'src/components/SettingsScreen';
+import {Settings} from 'src/components/Settings';
 
 export function SettingsScreen({navigation}: any) {
   return (
