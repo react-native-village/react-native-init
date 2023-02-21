@@ -5,15 +5,12 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {
-  Background,
-  Categories,
-  Text,
-  TicketCardColumn,
-} from 'src/components/ui';
+import {Background, Spacer, TicketCardColumn} from 'src/components/ui';
 import {Color} from 'src/themeTypes';
 import {TicketInfo} from 'src/types';
 
+import Logo from '../../../assets/images/logo.svg';
+import {Categories} from '../ui/categories';
 import {HeaderList} from '../ui/headerList';
 
 interface HomeMarketProps {
@@ -30,9 +27,7 @@ export function HomeMarket({onPressCard}: HomeMarketProps) {
         paddingBottom: insets.bottom,
       }}>
       <View style={styles.rowContainer}>
-        <Text t1 color={Color.primary}>
-          999
-        </Text>
+        <Logo width={38} height={38} style={styles.logo} />
         <TouchableOpacity>
           <MaterialCommunityIcons name="line-scan" style={styles.icon} />
         </TouchableOpacity>
@@ -88,12 +83,13 @@ export function HomeMarket({onPressCard}: HomeMarketProps) {
 }
 
 function Separator() {
-  return <View style={styles.separator} />;
+  return <Spacer width={12.5} />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 10,
   },
   rowContainer: {
     flexDirection: 'row',
@@ -101,20 +97,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
-    marginVertical: 23,
-  },
-  separator: {
-    marginHorizontal: 10,
+    marginTop: 23,
+    marginBottom: 10,
   },
   flatListContainer: {
     width: '100%',
     alignItems: 'center',
     marginBottom: 25,
   },
-  // eslint-disable-next-line react-native/no-color-literals
   icon: {
     fontSize: 24,
-    color: '#007AFF',
+    color: Color.textBlue1,
+  },
+  logo: {
+    marginLeft: 5,
   },
   contentContainer: {
     paddingHorizontal: 20,

@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 
-import {FlatList, StyleSheet, TouchableHighlight, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 
-import {useTheme} from 'src/hooks';
 import {Color} from 'src/themeTypes';
 
-import {HeaderList} from './headerList';
-
-import {Text} from '.';
+import {CategoryItem} from '.';
+import {Separator} from '..';
+import {HeaderList} from '../headerList';
 
 const DATA = [
   {
@@ -36,19 +35,12 @@ const DATA = [
   },
 ];
 
-function Separator() {
-  return <View style={styles.separator} />;
-}
-
-interface CategoryItemProps {
-  title: string;
-  isSelected: boolean;
-  onPress: () => void;
+function SeparatorMargin() {
+  return <Separator margin={7.5} />;
 }
 
 export function Categories() {
   const [selectItem, setSelectItem] = useState('0');
-  // eslint-disable-next-line react/no-unstable-nested-components
   return (
     <View style={styles.container}>
       <HeaderList title={'Categories'} button={'See all'} />
@@ -65,33 +57,9 @@ export function Categories() {
           />
         )}
         keyExtractor={item => item.id}
-        ItemSeparatorComponent={Separator}
+        ItemSeparatorComponent={SeparatorMargin}
       />
     </View>
-  );
-}
-
-function CategoryItem({title, isSelected, onPress}: CategoryItemProps) {
-  const color = isSelected ? Color.textBase3 : Color.primary;
-  const {colors} = useTheme();
-  const background = isSelected ? colors.primary : colors.card;
-  return (
-    <TouchableHighlight
-      underlayColor={'rgba(255, 104, 131, 0.4)'}
-      activeOpacity={0.65}
-      style={[
-        styles.touchable,
-        {
-          backgroundColor: background,
-        },
-      ]}
-      onPress={onPress}>
-      <View style={styles.itemButton}>
-        <Text t5 color={color} style={styles.text}>
-          {title}
-        </Text>
-      </View>
-    </TouchableHighlight>
   );
 }
 
@@ -107,10 +75,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginVertical: 20,
   },
-  // eslint-disable-next-line react-native/no-color-literals
   itemButton: {
     borderRadius: 150,
-    borderColor: '#FF6883',
+    borderColor: Color.primary,
     borderWidth: 2,
   },
   separator: {

@@ -19,5 +19,6 @@ export * from './Tag';
 export * from './Avatar';
 export * from './TicketCardColumn';
 export * from './TicketCardRow';
-export * from './categories';
+export * from './categories/categories';
 export * from './headerList';
+export * from './separator';

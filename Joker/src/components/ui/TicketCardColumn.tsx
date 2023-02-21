@@ -30,7 +30,7 @@ export function TicketCardColumn({
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={() => onPress?.(itemProps)}>
       <View style={styles.container}>
-        <View style={styles.imageStyle}>
+        <View style={styles.imageContainer}>
           <Image style={styles.image} source={{uri: imageUrl}} />
         </View>
         <View style={styles.infoContainer}>
@@ -85,17 +85,19 @@ const borderW = 0.6;
 const rawStyles = StyleSheet.create({
   container: {
     width: 220,
-    height: 328,
+    height: 380,
     borderRadius: 16,
     overflow: 'hidden',
     alignSelf: 'flex-start',
     backgroundColor: Color.card,
   },
-  imageStyle: {
-    flex: 1.2,
+  imageContainer: {
+    width: 220,
+    height: 220,
   },
   image: {
     flex: 1,
+    resizeMode: 'cover',
   },
   infoContainer: {
     flex: 1,
