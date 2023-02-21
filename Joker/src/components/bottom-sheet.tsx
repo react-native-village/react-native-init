@@ -23,14 +23,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {Icon, IconButton, Spacer, SwiperIcon, Text} from 'src/components/ui';
-import {
-  useAndroidStatusBarAnimation,
-  useTheme,
-  useThemeObject,
-} from 'src/hooks';
-import {ColorTheme} from 'src/types';
-import {ANIMATION_DURATION, ANIMATION_TYPE, WINDOW_WIDTH} from 'src/variables';
+import {Spacer, Text} from 'src/components/ui';
+import {useAndroidStatusBarAnimation, useThematicStyles} from 'src/hooks';
+import {Color} from 'src/themeTypes';
+import {ANIMATION_DURATION, ANIMATION_TYPE} from 'src/variables';
 
 export type BottomSheetProps = {
   children: React.ReactNode;
@@ -50,8 +46,7 @@ export function BottomSheet({
   title,
   closeDistance,
 }: BottomSheetProps) {
-  const {color} = useTheme();
-  const styles = useThemeObject(createStyles);
+  const {styles} = useThematicStyles(rawStyles);
   const {height} = useWindowDimensions();
   const {bottom: bottomInsets, top: topInsets} = useSafeAreaInsets();
 
@@ -209,17 +204,11 @@ export function BottomSheet({
         style={[styles.animateView, styles.content, bottomSheetStyle]}>
         <GestureDetector gesture={headerGesture}>
           <Animated.View>
-            <View style={styles.swipe}>
-              <SwiperIcon color={color.graphicSecond2} />
-            </View>
             <View style={styles.header}>
-              <Text t6 color={color.textBase1}>
+              <Text t6 color={Color.textBase1}>
                 {title}
               </Text>
               <Spacer />
-              <IconButton onPress={onClosePopup}>
-                <Icon i24 name="close_circle" color={color.graphicSecond2} />
-              </IconButton>
             </View>
           </Animated.View>
         </GestureDetector>
@@ -240,38 +229,36 @@ export function BottomSheet({
     </View>
   );
 }
-const createStyles = (color: ColorTheme) => {
-  const styles = StyleSheet.create({
-    container: {
-      justifyContent: 'flex-end',
-      zIndex: 5,
-    },
-    space: {flex: 1},
-    background: {
-      backgroundColor: color.bg4,
-    },
-    animateView: {
-      justifyContent: 'flex-end',
-    },
-    swipe: {
-      alignItems: 'center',
-      paddingVertical: 6,
-      marginBottom: 2,
-    },
-    content: {
-      width: WINDOW_WIDTH,
-      backgroundColor: color.bg1,
-      borderTopLeftRadius: 16,
-      borderTopRightRadius: 16,
-      paddingHorizontal: 20,
-    },
-    header: {
-      flexDirection: 'row',
-      height: 30,
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: 16,
-    },
-  });
-  return styles;
-};
+
+const rawStyles = StyleSheet.create({
+  container: {
+    justifyContent: 'flex-end',
+    zIndex: 5,
+  },
+  space: {flex: 1},
+  background: {
+    backgroundColor: Color.bg4,
+  },
+  animateView: {
+    justifyContent: 'flex-end',
+  },
+  swipe: {
+    alignItems: 'center',
+    paddingVertical: 6,
+    marginBottom: 2,
+  },
+  content: {
+    width: '100%',
+    backgroundColor: Color.bg1,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    paddingHorizontal: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    height: 30,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+});

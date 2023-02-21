@@ -38,6 +38,8 @@ export type TextProps = Omit<RNTextProps, 'style' | 'children'> & {
   t16?: boolean;
   t17?: boolean;
   t18?: boolean;
+  t19?: boolean;
+  t20?: boolean;
   ibm1?: boolean;
   ibm2?: boolean;
   ibm3?: boolean;
@@ -70,6 +72,8 @@ export function Text({
   t16,
   t17,
   t18,
+  t19,
+  t20,
   ibm1,
   ibm2,
   ibm3,
@@ -108,6 +112,8 @@ export function Text({
           t16 && styles.t16Style,
           t17 && styles.t17Style,
           t18 && styles.t18Style,
+          t19 && styles.t19Style,
+          t20 && styles.t20Style,
           ibm1 && styles.ibm1Style,
           ibm2 && styles.ibm2Style,
           ibm3 && styles.ibm3Style,
@@ -237,6 +243,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
     fontSize: 10,
     lineHeight: 12,
+  },
+  t19Style: {
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 30,
+    lineHeight: 38,
+  },
+  t20Style: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 30,
+    lineHeight: 38,
   },
   ibm1Style: {
     fontFamily: ibm,

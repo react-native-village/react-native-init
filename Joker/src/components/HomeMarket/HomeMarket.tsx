@@ -8,14 +8,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {Background, Separator, TicketCardColumn} from 'src/components/ui';
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
+import {TicketInfo} from 'src/types';
 
 import Logo from '../../../assets/images/logo.svg';
 import {Categories} from '../ui/categories';
 import {HeaderList} from '../ui/headerList';
 
-export function HomeMarket() {
-  const {styles} = useThematicStyles(useStyles);
+interface HomeMarketProps {
+  onPressCard: (item: TicketInfo) => void;
+}
+
+export function HomeMarket({onPressCard}: HomeMarketProps) {
   const insets = useSafeAreaInsets();
+
   return (
     <Background
       style={{
@@ -37,7 +42,9 @@ export function HomeMarket() {
               data={DATA}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.contentContainer}
-              renderItem={({item}) => <TicketCardColumn {...item} />}
+              renderItem={({item}) => (
+                <TicketCardColumn onPress={onPressCard} {...item} />
+              )}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
             />
@@ -49,7 +56,9 @@ export function HomeMarket() {
               data={DATA}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.contentContainer}
-              renderItem={({item}) => <TicketCardColumn {...item} />}
+              renderItem={({item}) => (
+                <TicketCardColumn onPress={onPressCard} {...item} />
+              )}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
             />
@@ -61,7 +70,9 @@ export function HomeMarket() {
               data={DATA}
               contentContainerStyle={styles.contentContainer}
               showsHorizontalScrollIndicator={false}
-              renderItem={({item}) => <TicketCardColumn {...item} />}
+              renderItem={({item}) => (
+                <TicketCardColumn onPress={onPressCard} {...item} />
+              )}
               keyExtractor={item => item.id}
               ItemSeparatorComponent={Separator}
             />
@@ -72,7 +83,11 @@ export function HomeMarket() {
   );
 }
 
-const useStyles = StyleSheet.create({
+function Separator() {
+  return <View style={styles.separator} />;
+}
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 10,
@@ -103,14 +118,16 @@ const useStyles = StyleSheet.create({
   },
 });
 
-const DATA = [
+export const DATA: TicketInfo[] = [
   {
     id: '1',
     name: 'Groovy Tunes',
     tags: ['Rock', 'Funny'],
-    startData: '25 Jul 23',
-    endData: '26 Jul 23',
+    startData: 1836575410,
+    endData: 1672947919,
     geoPosition: 'Retro Mountain',
+    price: 100000,
+    currencySymbols: 'MATIC',
     imageUrl:
       'https://d1629ugb7moz2f.cloudfront.net/e/21162/cFPvQBjmRmwyo1PA0VR4hO572mDold5r664eQISO.jpg',
   },
@@ -118,9 +135,10 @@ const DATA = [
     id: '2',
     name: 'Space Nation',
     tags: ['Festival', 'Music'],
-    startData: '18 Feb 23',
-    endData: '20 Feb 23',
+    startData: 1066608715,
+    endData: 1836575410,
     geoPosition: 'London, United Kingdom',
+
     imageUrl:
       'https://sun9-21.userapi.com/impg/6szHtBSxhWsTpgI6DxooVNJX5a91UnSyZ7v3IA/xyuHV-esCNk.jpg?size=1728x2160&quality=96&sign=03b666b473379e25cab2aed65755971a&type=album',
   },
@@ -128,8 +146,8 @@ const DATA = [
     id: '3',
     name: 'Gravity',
     tags: ['Fair'],
-    startData: '17 March 23',
-    endData: '18 March 23',
+    startData: 1845245027,
+    endData: 1363965191,
     geoPosition: 'Berlin, Germany',
     imageUrl:
       'https://sun9-45.userapi.com/impg/lFGaAdWwVD-RiW4bXw4bKcnXsWv606YEtDVkVw/-bJyCbt3Y0A.jpg?size=1728x2160&quality=96&sign=2873a53d37fb2a0260ad8eeda276c385&type=album',
@@ -138,8 +156,8 @@ const DATA = [
     id: '4',
     name: 'TechnoCon',
     tags: ['Geek', 'Funny'],
-    startData: '25 Sep 23',
-    endData: '25 Sep 23',
+    startData: 1710507435,
+    endData: 1710907435,
     geoPosition: 'Bangkok, Tailand',
     imageUrl:
       'https://sun9-16.userapi.com/impg/IM0FOwieyY1mIZnpSCjRdTwsoDjSQKULiBA8VA/FB_BmF3zLwg.jpg?size=1920x1080&quality=96&sign=642aa11f787d1a0407227250c63d4aa0&type=album',
@@ -148,8 +166,8 @@ const DATA = [
     id: '5',
     name: 'Party Box',
     tags: ['Bootcamp', 'Funny'],
-    startData: '12 Jan 24',
-    endData: '13 Jan 24',
+    startData: 1262177088,
+    endData: 1449452932,
     geoPosition: 'Bom, Belgium',
     imageUrl:
       'https://sun9-10.userapi.com/impg/S7lroEi5Ox84ce1k898ZQ80OcaLt7FIocaw5sg/A5Gf6lG6UaU.jpg?size=1728x2160&quality=96&sign=36306177bc52952d06692237696078d7&type=album',
@@ -158,8 +176,8 @@ const DATA = [
     id: '6',
     name: 'Slow Motion',
     tags: ['Music'],
-    startData: '18 Oct 23',
-    endData: '19 Oct 23',
+    startData: 1301231421,
+    endData: 1514295824,
     geoPosition: 'Paris, France',
     imageUrl:
       'https://sun9-69.userapi.com/impg/jDt0aw3j-fLKxhu7mgnxh952Cg9ZhYnZkwLjXg/2kD7PrezqUw.jpg?size=1728x2160&quality=96&sign=a473e5ca3b9375621f1db528ca69fdbd&type=album',

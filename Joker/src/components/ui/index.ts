@@ -1,6 +1,5 @@
 export * from './text/text';
 export * from './button';
-export * from './icon';
 export * from './icon-button';
 export * from './custom-header';
 export * from './checkbox';
@@ -15,7 +14,6 @@ export * from './Img';
 export * from './Background';
 export * from './Checkmark';
 export * from './BlockMessage';
-export * from './ButtonPlus';
 export * from './TabBar';
 export * from './Tag';
 export * from './Avatar';

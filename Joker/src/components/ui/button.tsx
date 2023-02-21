@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleProp, StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
 
 import {useThematicStyles} from 'src/hooks';
 import {Color} from 'src/themeTypes';
@@ -9,15 +9,16 @@ import {Text} from './text/text';
 
 interface ButtonT {
   children: string;
+  style?: StyleProp<ViewStyle>;
   onPress: () => void;
 }
-export function Button({children, onPress}: ButtonT) {
+export function Button({children, style, onPress}: ButtonT) {
   const {styles} = useThematicStyles(rawStyles);
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={0.7}
-      style={styles.container}>
+      style={[styles.container, style]}>
       <Text t6>{children}</Text>
     </TouchableOpacity>
   );

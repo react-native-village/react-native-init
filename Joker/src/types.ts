@@ -11,6 +11,8 @@ export type TabParamList = {
 export type RootStackParamList = {
   home?: NavigatorScreenParams<TabParamList>;
   welcome: undefined;
+  settings: undefined;
+  ticketDetail: TicketInfo;
 };
 
 // INTERFACES
@@ -19,8 +21,8 @@ export interface TicketInfo {
   id: string;
   name: string;
   tags: string[];
-  startData: string;
-  endData: string;
+  startData: number;
+  endData: number;
   geoPosition: string;
   imageUrl: string;
   price?: number;

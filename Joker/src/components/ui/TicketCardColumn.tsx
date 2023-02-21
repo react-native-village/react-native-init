@@ -12,19 +12,23 @@ import {TicketCardTags} from './TicketCardTags';
 import {Spacer, Text} from './';
 
 export function TicketCardColumn({
-  name,
-  startData,
-  endData,
-  tags,
-  imageUrl,
-  geoPosition,
-  price = 300,
-  currencySymbols = 'ETH',
   onPress,
-}: Omit<TicketInfo, 'id'> & {onPress?: () => void}) {
+  ...itemProps
+}: TicketInfo & {onPress?: (item: TicketInfo) => void}) {
   const {styles} = useThematicStyles(rawStyles);
+  const {
+    name,
+    startData,
+    endData,
+    tags,
+    imageUrl,
+    geoPosition,
+    price,
+    currencySymbols,
+  } = itemProps;
+
   return (
-    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.6} onPress={() => onPress?.(itemProps)}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={{uri: imageUrl}} />
@@ -34,11 +38,15 @@ export function TicketCardColumn({
           <Spacer height={8} />
           <View style={styles.costAndTagContainer}>
             <TicketCardTags tags={tags} />
-            {price && currencySymbols && (
-              <Text
-                t5
-                color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
-            )}
+            <Spacer width={10} />
+            <View style={styles.flexOne}>
+              {price && currencySymbols && (
+                <Text
+                  numberOfLines={1}
+                  t5
+                  color={Color.primary}>{`${price} ${currencySymbols}`}</Text>
+              )}
+            </View>
           </View>
           <Spacer height={8} />
           <View style={styles.iconWithTextContainer}>
@@ -126,6 +134,9 @@ const rawStyles = StyleSheet.create({
   },
   textContainer: {
     flexWrap: 'wrap',
+    flex: 1,
+  },
+  flexOne: {
     flex: 1,
   },
 });
