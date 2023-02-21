@@ -5,8 +5,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {Background, Separator, TicketCardColumn} from 'src/components/ui';
-import {useThematicStyles} from 'src/hooks';
+import {Background, Spacer, TicketCardColumn} from 'src/components/ui';
 import {Color} from 'src/themeTypes';
 import {TicketInfo} from 'src/types';
 
@@ -84,7 +83,7 @@ export function HomeMarket({onPressCard}: HomeMarketProps) {
 }
 
 function Separator() {
-  return <View style={styles.separator} />;
+  return <Spacer width={12.5} />;
 }
 
 const styles = StyleSheet.create({
